@@ -1,0 +1,12 @@
+{
+  "baseConfig": "trifid:config-fetch.json",
+  "handler": {
+    "root": {
+      "options": {
+        "url": "file:./frbr.ttl",
+        "contentType": "text/turtle",
+        "split": "true"
+      }
+    }
+  }
+}

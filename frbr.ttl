@@ -1,3 +1,4 @@
+@base <http://localhost:8080/> .
 @prefix cito: <http://purl.org/spar/cito/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix fabio: <http://purl.org/spar/fabio/> .

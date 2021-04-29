@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  trifid:
+    image: zazuko/trifid:2.3.6
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./.docker/trifid.json:/app/config.json
+      - ./frbr.ttl:/app/frbr.ttl
