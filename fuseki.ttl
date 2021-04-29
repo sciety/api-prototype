@@ -1,0 +1,28 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix fuseki: <http://jena.apache.org/fuseki#> .
+@prefix ja: <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tdb: <http://jena.hpl.hp.com/2008/tdb#> .
+
+[]
+  a fuseki:Server ;
+  fuseki:services ( <#sciety> )
+.
+
+<#sciety>
+  a fuseki:Service ;
+  rdfs:label 'Read model dataset' ;
+  fuseki:name 'sciety' ;
+  fuseki:serviceQuery 'sparql' ;   # SPARQL query service
+  fuseki:serviceQuery 'query' ;    # SPARQL query service (alt name)
+  fuseki:serviceUpdate 'update' ;   # SPARQL update service
+  fuseki:serviceUpload 'upload' ;   # Non-SPARQL upload service
+  fuseki:serviceReadWriteGraphStore 'data' ;     # SPARQL Graph store protocol (read and write)
+  fuseki:serviceReadGraphStore 'get' ;      # SPARQL Graph store protocol (read only)
+  fuseki:dataset <#dataset> ;
+.
+
+<#dataset>
+  a ja:MemoryDataset ;
+  ja:data '/data/frbr.ttl' ;
+.

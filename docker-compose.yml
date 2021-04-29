@@ -1,10 +1,18 @@
 version: '3.8'
 
 services:
+  jena:
+    image: blankdots/jena-fuseki:fuseki4.0.0
+    environment:
+      ADMIN_PASSWORD: password
+    ports:
+      - '8081:3030'
+    volumes:
+      - ./fuseki.ttl:/data/fuseki/config/config.ttl
+      - ./frbr.ttl:/data/frbr.ttl
   trifid:
     image: zazuko/trifid:2.3.6
     ports:
       - '8080:8080'
     volumes:
       - ./.docker/trifid.json:/app/config.json
-      - ./frbr.ttl:/app/frbr.ttl

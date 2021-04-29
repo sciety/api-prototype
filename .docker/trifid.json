@@ -1,12 +1,4 @@
 {
-  "baseConfig": "trifid:config-fetch.json",
-  "handler": {
-    "root": {
-      "options": {
-        "url": "file:./frbr.ttl",
-        "contentType": "text/turtle",
-        "split": "true"
-      }
-    }
-  }
+  "baseConfig": "trifid:config-sparql.json",
+  "sparqlEndpointUrl": "http://jena:3030/sciety"
 }
