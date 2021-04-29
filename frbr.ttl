@@ -15,6 +15,7 @@
 
 <pigs-article>
   a fabio:ResearchPaper ; # Work
+  rdfs:label 'Paper about \'Determining insulin sensitivity from glucose tolerance tests in Iberian and Landrace pigs\'' ;
   dcterms:creator (
     'J. M. Rodríguez-López' 'M. Lachica' 'L. González-Valero' 'I. Fernández-Fígares'
   ) ;
@@ -22,6 +23,7 @@
 
 <2019.12.20.884056v1>
   a fabio:Article ; # Expression
+  rdfs:label 'bioRxiv version 1' ;
   frbr:realizationOf <pigs-article> ;
   dcterms:title 'Determining insulin sensitivity from glucose tolerance tests in Iberian and Landrace pigs'@en ;
   dcterms:publisher <biorxiv> ;
@@ -34,6 +36,7 @@
 
 <2019.12.20.884056v2>
   a fabio:Article ; # Expression
+  rdfs:label 'bioRxiv version 2' ;
   frbr:realizationOf <pigs-article> ;
   dcterms:title 'Determining insulin sensitivity from glucose tolerance tests in Iberian and Landrace pigs'@en ;
   dcterms:publisher <biorxiv> ;
@@ -46,6 +49,7 @@
 
 <2019.12.20.884056v3>
   a fabio:Article ; # Expression
+  rdfs:label 'bioRxiv version 3' ;
   frbr:realizationOf <pigs-article> ;
   dcterms:title 'Determining insulin sensitivity from glucose tolerance tests in Iberian and Landrace pigs'@en ;
   dcterms:publisher <biorxiv> ;
@@ -59,6 +63,7 @@
 
 <peerj.11014v0.1>
   a fabio:Article ; # Expression
+  rdfs:label 'Submission to PeerJ' ;
   frbr:realizationOf <pigs-article> ;
   dcterms:publisher <peerj> ;
   dcterms:date '2020-11-13'^^xsd:date ;
@@ -71,6 +76,7 @@
 
 <peerj.11014v0.2>
   a fabio:Article ; # Expression
+  rdfs:label 'First revision at PeerJ' ;
   frbr:realizationOf <pigs-article> ;
   dcterms:publisher <peerj> ;
   dcterms:date '2020-12-20'^^xsd:date ;
@@ -83,6 +89,7 @@
 
 <peerj.11014v0.3>
   a fabio:Article ; # Expression
+  rdfs:label 'Second revision at PeerJ' ;
   frbr:realizationOf <pigs-article> ;
   dcterms:publisher <peerj> ;
   dcterms:date '2021-01-28'^^xsd:date ;
@@ -95,6 +102,7 @@
 
 <peerj.11014>
   a fabio:Article ; # Expression
+  rdfs:label 'Article published PeerJ' ;
   frbr:realizationOf <pigs-article> ;
   dcterms:title 'Determining insulin sensitivity from glucose tolerance tests in Iberian and landrace pigs'@en ;
   dcterms:publisher <peerj> ;
@@ -112,6 +120,7 @@
 
 <pci-animal-sci-recommendation>
   a fabio:ReviewArticle ; # Expression
+  rdfs:label 'PCI Animal Science recommendation' ;
   frbr:realizationOf [
     a fabio:Review ; # Work
     dcterms:creator 'Jordi Estellé' ;
@@ -124,12 +133,14 @@
 
 <pci-animal-sci-recommendation-web>
   a fabio:WebPage ; # Manifestation
+  rdfs:label 'PCI Animal Science recommendation page' ;
   frbr:embodimentOf <pci-animal-sci-recommendation> ;
   fabio:hasURL 'https://animsci.peercommunityin.org/articles/rec?id=5'^^xsd:anyURI ;
 .
 
 <pci-animal-sci-recommendation-pdf>
   a fabio:DigitalManifestation ; # Manifestation
+  rdfs:label 'PCI Animal Science recommendation PDF' ;
   frbr:embodimentOf <pci-animal-sci-recommendation> ;
   dcterms:format 'application/pdf' ;
   fabio:hasURL 'https://animsci.peercommunityin.org/articles/rec?articleId=5&asPDF=True'^^xsd:anyURI ;
@@ -137,6 +148,7 @@
 
 <sciety-pci-animal-sci-recommendation>
   a fabio:WebPage ; # Manifestation
+  rdfs:label 'PCI Animal Science recommendation on Sciety' ;
   dcterms:publisher <sciety> ;
   frbr:embodimentOf <pci-animal-sci-recommendation> ;
   fabio:hasURL 'https://staging.sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.24072/pci.animsci.100004'^^xsd:anyURI ;
@@ -146,6 +158,7 @@
 
 <pci-animal-sci-decision>
   a fabio:Letter ; # Expression
+  rdfs:label 'PCI Animal Science round 1 decision' ;
   frbr:realizationOf [
     a fabio:Reply ; # Work
     dcterms:creator 'Jordi Estellé' ;
@@ -159,6 +172,7 @@
 
 <pci-animal-sci-review1>
   a fr:ReviewVersion ; # Expression
+  rdfs:label 'PCI Animal Science round 1 review 1' ;
   frbr:realizationOf [
     a fabio:Review ; # Work
     cito:reviews <2019.12.20.884056v1> ;
@@ -175,6 +189,7 @@
 
 <pci-animal-sci-review2>
   a fr:ReviewVersion ; # Expression
+  rdfs:label 'PCI Animal Science round 1 review 2' ;
   frbr:realizationOf [
     a fabio:Review ; # Work
     cito:reviews <2019.12.20.884056v1> ;
@@ -191,6 +206,7 @@
 
 <pci-animal-sci-reply>
   a fabio:Letter ; # Expression
+  rdfs:label 'PCI Animal Science round 1 author response' ;
   frbr:realizationOf [
     a fabio:Reply ; # Work
     dcterms:creator 'Ignacio Fernandez-Figares' ;
@@ -213,6 +229,7 @@
 
 <peerj.11014v0.1-decision>
   a fabio:Letter ; # Expression
+  rdfs:label 'PeerJ round 1 decision' ;
   frbr:realizationOf [
     a fabio:Reply ; # Work
     dcterms:creator 'Rogerio Sotelo-Mundo' ;
@@ -230,6 +247,7 @@
 
 <peerj.11014v0.1-reviewer1>
   a fr:ReviewVersion ; # Expression
+  rdfs:label 'PeerJ round 1 reviewer 1' ;
   frbr:realizationOf [
     a fabio:Review ; # Work
     cito:reviews <peerj.11014v0.1> ;
@@ -245,6 +263,7 @@
 
 <sciety-peerj.11014v0.1-reviewer1>
   a fabio:WebPage ; # Manifestation
+  rdfs:label 'PeerJ round 1 reviewer 1 page' ;
   dcterms:publisher <sciety> ;
   frbr:embodimentOf <peerj.11014v0.1-reviewer1> ;
   fabio:hasURL 'https://staging.sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.7287/peerj.11014v0.1/reviews/1'^^xsd:anyURI ;
@@ -252,6 +271,7 @@
 
 <peerj.11014v0.1-reviewer2>
   a fr:ReviewVersion ; # Expression
+  rdfs:label 'PeerJ round 1 reviewer 2' ;
   frbr:realizationOf [
     a fabio:Review ; # Work
     cito:reviews <peerj.11014v0.1> ;
@@ -267,6 +287,7 @@
 
 <sciety-peerj.11014v0.1-reviewer2>
   a fabio:WebPage ; # Manifestation
+  rdfs:label 'PeerJ round 1 reviewer 2' ;
   dcterms:publisher <sciety> ;
   frbr:embodimentOf <peerj.11014v0.1-reviewer2> ;
   fabio:hasURL 'https://staging.sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.7287/peerj.11014v0.1/reviews/2'^^xsd:anyURI ;
@@ -274,6 +295,7 @@
 
 <peerj.11014v0.2/rebuttal>
   a fabio:Letter ; # Expression
+  rdfs:label 'PeerJ round 1 author response' ;
   frbr:realizationOf [
     a fabio:Reply ; # Work
     cito:repliesTo <peerj.11014v0.1-decision>
@@ -290,6 +312,7 @@
 
 <peerj.11014v0.2-decision>
   a fabio:Letter ; # Expression
+  rdfs:label 'PeerJ round 2 decision' ;
   frbr:realizationOf [
     a fabio:Reply ; # Work
     dcterms:creator 'Rogerio Sotelo-Mundo' ;
@@ -306,6 +329,7 @@
 
 <peerj.11014v0.2-reviewer2>
   a fr:ReviewVersion ; # Expression
+  rdfs:label 'PeerJ round 2 reviewer 2' ;
   frbr:realizationOf [
     a fabio:Review ; # Work
     cito:reviews <peerj.11014v0.2> ;
@@ -321,6 +345,7 @@
 
 <sciety-peerj.11014v0.2-reviewer2>
   a fabio:WebPage ; # Manifestation
+  rdfs:label 'PeerJ round 2 reviewer 2 page' ;
   dcterms:publisher <sciety> ;
   frbr:embodimentOf <peerj.11014v0.2-reviewer2> ;
   fabio:hasURL 'https://staging.sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.7287/peerj.11014v0.2/reviews/2'^^xsd:anyURI ;
@@ -328,6 +353,7 @@
 
 <peerj.11014v0.3/rebuttal>
   a fabio:Letter ; # Expression
+  rdfs:label 'PeerJ round 2 author response' ;
   frbr:realizationOf [
     a fabio:Reply ; # Work
     cito:repliesTo <peerj.11014v0.2-decision>
@@ -344,6 +370,7 @@
 
 <peerj.11014v0.3-decision>
   a fabio:Letter ; # Expression
+  rdfs:label 'PeerJ round 3 decision' ;
   frbr:realizationOf [
     a fabio:Reply ; # Work
     dcterms:creator 'Rogerio Sotelo-Mundo' ;
