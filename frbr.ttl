@@ -135,6 +135,13 @@
   fabio:hasURL 'https://animsci.peercommunityin.org/articles/rec?articleId=5&asPDF=True'^^xsd:anyURI ;
 .
 
+<sciety-pci-animal-sci-recommendation>
+  a fabio:WebPage ; # Manifestation
+  dcterms:publisher <sciety> ;
+  frbr:embodimentOf <pci-animal-sci-recommendation> ;
+  fabio:hasURL 'https://staging.sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.24072/pci.animsci.100004'^^xsd:anyURI ;
+.
+
 # Round 1
 
 <pci-animal-sci-decision>
@@ -236,6 +243,13 @@
   ] ;
 .
 
+<sciety-peerj.11014v0.1-reviewer1>
+  a fabio:WebPage ; # Manifestation
+  dcterms:publisher <sciety> ;
+  frbr:embodimentOf <peerj.11014v0.1-reviewer1> ;
+  fabio:hasURL 'https://staging.sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.7287/peerj.11014v0.1/reviews/1'^^xsd:anyURI ;
+.
+
 <peerj.11014v0.1-reviewer2>
   a fr:ReviewVersion ; # Expression
   frbr:realizationOf [
@@ -249,6 +263,13 @@
     a fabio:WebPage ;
     fabio:hasURL 'https://doi.org/10.7287/peerj.11014v0.1/reviews/2'^^xsd:anyURI ;
   ] ;
+.
+
+<sciety-peerj.11014v0.1-reviewer2>
+  a fabio:WebPage ; # Manifestation
+  dcterms:publisher <sciety> ;
+  frbr:embodimentOf <peerj.11014v0.1-reviewer2> ;
+  fabio:hasURL 'https://staging.sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.7287/peerj.11014v0.1/reviews/2'^^xsd:anyURI ;
 .
 
 <peerj.11014v0.2/rebuttal>
@@ -296,6 +317,13 @@
     a fabio:WebPage ;
     fabio:hasURL 'https://doi.org/10.7287/peerj.11014v0.1/reviews/2'^^xsd:anyURI ;
   ] ;
+.
+
+<sciety-peerj.11014v0.2-reviewer2>
+  a fabio:WebPage ; # Manifestation
+  dcterms:publisher <sciety> ;
+  frbr:embodimentOf <peerj.11014v0.2-reviewer2> ;
+  fabio:hasURL 'https://staging.sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.7287/peerj.11014v0.2/reviews/2'^^xsd:anyURI ;
 .
 
 <peerj.11014v0.3/rebuttal>
@@ -352,4 +380,9 @@
 <pci>
   a org:Organization ;
   rdfs:label 'Peer Community in' ;
+.
+
+<sciety>
+  a org:Organization ;
+  rdfs:label 'Sciety' ;
 .
