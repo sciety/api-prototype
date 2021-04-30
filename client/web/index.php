@@ -53,6 +53,28 @@ WHERE {
 ORDER BY ASC(?date)
 SPARQL);
 
+$reviews = $sparql->query(<<<SPARQL
+SELECT *
+
+WHERE {
+  ?version frbr:realizationOf {$articleId} .
+  ?item cito:reviews ?version .
+  ?expression frbr:realizationOf ?item .
+  ?expression rdfs:label ?label .
+  ?expression dcterms:date ?date .
+  ?expression dcterms:publisher ?publisher .
+  ?publisher rdfs:label ?publisherLabel .
+  ?version rdfs:label ?versionLabel .
+  OPTIONAL {
+    ?scietyManifestation frbr:embodimentOf ?expression .
+    ?scietyManifestation dcterms:publisher sciety:sciety .
+    ?scietyManifestation fabio:hasURL ?scietyUrl .
+  }
+}
+
+ORDER BY ASC(?date)
+SPARQL);
+
 echo "<!doctype html><title>{$article->label()}</title><body><h1>{$article->label()}</h1>";
 
 if(count($recommendations)) {
@@ -62,6 +84,7 @@ if(count($recommendations)) {
 }
 
 echo '<hr>';
+echo '<h2>Article history</h2>';
 echo '<table><thead><tr><th>Version<th>Date<th>Published by<th>DOI</tr></thead><tbody>';
 
 foreach ($versions as $version) {
@@ -74,6 +97,24 @@ foreach ($versions as $version) {
 <td>{$version->date->format('j F Y')}
 <td>{$version->publisherLabel->getValue()}
 <td>{$doi}
+HTML;
+}
+
+echo '</table>';
+
+echo '<hr>';
+echo '<h2>Reviews</h2>';
+echo '<table><thead><tr><th>Review<th>Review of<th>Date<th>Reviewed by</tr></thead><tbody>';
+
+foreach ($reviews as $review) {
+    $url = $review->scietyUrl ?? null;
+    $label = $url ? "<a href=\"{$url}\">{$review->label->getValue()}</a>" : $review->label->getValue();
+    echo <<<HTML
+<tr>
+<th>{$label}
+<td>{$review->versionLabel->getValue()}
+<td>{$review->date->format('j F Y')}
+<td>{$review->publisherLabel->getValue()}
 HTML;
 }
 
