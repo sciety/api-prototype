@@ -1,6 +1,16 @@
 version: '3.8'
 
 services:
+  client:
+    build:
+      context: client
+    ports:
+      - '8082:8082'
+    volumes:
+      - ./client/web/:/app/web/
+    deploy:
+      restart_policy:
+        condition: on-failure
   jena:
     image: blankdots/jena-fuseki:fuseki4.0.0
     environment:

@@ -1,0 +1,6 @@
+{
+  "require": {
+    "php": "^8.0",
+    "easyrdf/easyrdf": "^1.1.1"
+  }
+}
