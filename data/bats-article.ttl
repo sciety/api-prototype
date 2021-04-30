@@ -1,0 +1,65 @@
+@base <http://localhost:8080/> .
+@prefix cito: <http://purl.org/spar/cito/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#
+# An article with one version and one review.
+#
+
+<bats-article>
+  a fabio:ResearchPaper ; # Work
+  rdfs:label 'Paper about \'A novel SARS-CoV-2 related coronavirus in bats from Cambodia\'' ;
+  dcterms:creator (
+    'Vibol Hul' 'Deborah Delaune' 'Erik A Karlsson' 'Alexandre Hassanin' 'Putita Ou Tey' 'Artem Baidaliuk' 'Fabiana Gámbaro'
+    'Vuong Tan Tu' 'Lucy Keatts' 'Jonna Mazet' 'Christine Johnson' 'Philippe Buchy' 'Philippe Dussart' 'Tracey Goldstein'
+    'Etienne Simon-Lorière' 'Veasna Duong'
+  ) ;
+.
+
+<2021.01.26.428212v1>
+  a fabio:Article ; # Expression
+  rdfs:label 'bioRxiv version 1' ;
+  frbr:realizationOf <bats-article> ;
+  dcterms:title 'A novel SARS-CoV-2 related coronavirus in bats from Cambodia'@en ;
+  dcterms:publisher <biorxiv> ;
+  dcterms:identifier 'doi:10.1101/2021.01.26.428212' ;
+  dcterms:date '2021-01-26'^^xsd:date ;
+  fabio:hasManifestation [
+    a fabio:WebPage ;
+    fabio:hasURL 'https://www.biorxiv.org/content/10.1101/2021.01.26.428212v1'^^xsd:anyURI ;
+  ] ;
+.
+
+#
+# NCRC review
+#
+
+<ncrc-review>
+  a fabio:ReviewArticle ; # Expression
+  rdfs:label 'NCRC review' ;
+  frbr:realizationOf [
+    a fabio:Review ; # Work
+    cito:reviews <2021.01.26.428212v1> ;
+  ] ;
+  dcterms:publisher <ncrc> ;
+  dcterms:date '2021-02-12'^^xsd:date ;
+.
+
+<ncrc-review-web>
+  a fabio:WebPage ; # Manifestation
+  rdfs:label 'NCRC review page' ;
+  frbr:embodimentOf <ncrc-review> ;
+  fabio:hasURL 'https://ncrc.jhsph.edu/research/a-novel-sars-cov-2-related-coronavirus-in-bats-from-cambodia/'^^xsd:anyURI ;
+.
+
+<sciety-ncrc-review>
+  a fabio:WebPage ; # Manifestation
+  rdfs:label 'NCRC review on Sciety' ;
+  dcterms:publisher <sciety> ;
+  frbr:embodimentOf <ncrc-review> ;
+  fabio:hasURL 'https://sciety.org/articles/activity/10.1101/2021.01.26.428212#ncrc:43c9f8bb-55e6-463e-b703-3b0a377a1f3c'^^xsd:anyURI ;
+.
