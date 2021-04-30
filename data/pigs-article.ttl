@@ -5,7 +5,6 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix fr: <http://purl.org/spar/fr/> .
 @prefix frbr: <http://purl.org/vocab/frbr/core#> .
-@prefix org: <http://www.w3.org/ns/org#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -382,34 +381,4 @@
     a fabio:WebPage ;
     fabio:hasURL 'https://peerj.com/articles/11014v0.3/decision/'^^xsd:anyURI ;
   ] ;
-.
-
-#
-# Organisations
-#
-
-<peerj>
-  a org:Organization ;
-  rdfs:label 'PeerJ' ;
-.
-
-<biorxiv>
-  a org:Organization ;
-  rdfs:label 'bioRxiv' ;
-.
-
-<pci-animal-science>
-  a org:Organization ;
-  rdfs:label 'Peer Community in Animal Science' ;
-  org:subOrganizationOf <pci> ;
-.
-
-<pci>
-  a org:Organization ;
-  rdfs:label 'Peer Community in' ;
-.
-
-<sciety>
-  a org:Organization ;
-  rdfs:label 'Sciety' ;
 .

@@ -1,0 +1,33 @@
+@base <http://localhost:8080/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+
+#
+# Organisations
+#
+
+<peerj>
+  a org:Organization ;
+  rdfs:label 'PeerJ' ;
+.
+
+<biorxiv>
+  a org:Organization ;
+  rdfs:label 'bioRxiv' ;
+.
+
+<pci-animal-science>
+  a org:Organization ;
+  rdfs:label 'Peer Community in Animal Science' ;
+  org:subOrganizationOf <pci> ;
+.
+
+<pci>
+  a org:Organization ;
+  rdfs:label 'Peer Community in' ;
+.
+
+<sciety>
+  a org:Organization ;
+  rdfs:label 'Sciety' ;
+.
