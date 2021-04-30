@@ -151,7 +151,7 @@
   rdfs:label 'PCI Animal Science recommendation on Sciety' ;
   dcterms:publisher <sciety> ;
   frbr:embodimentOf <pci-animal-sci-recommendation> ;
-  fabio:hasURL 'https://staging.sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.24072/pci.animsci.100004'^^xsd:anyURI ;
+  fabio:hasURL 'https://sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.24072/pci.animsci.100004'^^xsd:anyURI ;
 .
 
 # Round 1
@@ -266,7 +266,7 @@
   rdfs:label 'PeerJ round 1 reviewer 1 page' ;
   dcterms:publisher <sciety> ;
   frbr:embodimentOf <peerj.11014v0.1-reviewer1> ;
-  fabio:hasURL 'https://staging.sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.7287/peerj.11014v0.1/reviews/1'^^xsd:anyURI ;
+  fabio:hasURL 'https://sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.7287/peerj.11014v0.1/reviews/1'^^xsd:anyURI ;
 .
 
 <peerj.11014v0.1-reviewer2>
@@ -290,7 +290,7 @@
   rdfs:label 'PeerJ round 1 reviewer 2' ;
   dcterms:publisher <sciety> ;
   frbr:embodimentOf <peerj.11014v0.1-reviewer2> ;
-  fabio:hasURL 'https://staging.sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.7287/peerj.11014v0.1/reviews/2'^^xsd:anyURI ;
+  fabio:hasURL 'https://sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.7287/peerj.11014v0.1/reviews/2'^^xsd:anyURI ;
 .
 
 <peerj.11014v0.2/rebuttal>
@@ -348,7 +348,7 @@
   rdfs:label 'PeerJ round 2 reviewer 2 page' ;
   dcterms:publisher <sciety> ;
   frbr:embodimentOf <peerj.11014v0.2-reviewer2> ;
-  fabio:hasURL 'https://staging.sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.7287/peerj.11014v0.2/reviews/2'^^xsd:anyURI ;
+  fabio:hasURL 'https://sciety.org/articles/activity/10.1101/2019.12.20.884056#doi:10.7287/peerj.11014v0.2/reviews/2'^^xsd:anyURI ;
 .
 
 <peerj.11014v0.3/rebuttal>
