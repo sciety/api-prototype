@@ -8,7 +8,7 @@ services:
     ports:
       - '8081:3030'
     volumes:
-      - ./fuseki.ttl:/data/fuseki/config/config.ttl
+      - ./.docker/fuseki.ttl:/data/fuseki/config/config.ttl
       - ./data/:/data/data/
   trifid:
     image: zazuko/trifid:2.3.6
