@@ -124,6 +124,7 @@
     a fabio:Review ; # Work
     dcterms:creator 'Jordi Estellé' ;
     cito:reviews <2019.12.20.884056v3> ;
+    cito:citesAsRecommendedReading <pigs-article> ;
   ] ;
   dcterms:title 'Iberian pigs: more than excellent ham!'@en ;
   dcterms:identifier 'doi:10.24072/pci.animsci.100004' ;
@@ -374,6 +375,7 @@
     a fabio:Reply ; # Work
     dcterms:creator 'Rogerio Sotelo-Mundo' ;
     cito:reviews <peerj.11014v0.2> ;
+    cito:citesAsRecommendedReading <pigs-article> ;
   ] ;
   dcterms:publisher <peerj> ;
   dcterms:date '2021-02-05'^^xsd:date ;
