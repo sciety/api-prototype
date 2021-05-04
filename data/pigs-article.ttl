@@ -1,5 +1,6 @@
 @base <http://localhost:8080/> .
 @prefix cito: <http://purl.org/spar/cito/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix fabio: <http://purl.org/spar/fabio/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -15,7 +16,7 @@
 <pigs-article>
   a fabio:ResearchPaper ; # Work
   rdfs:label 'Paper about \'Determining insulin sensitivity from glucose tolerance tests in Iberian and Landrace pigs\'' ;
-  dcterms:creator (
+  dc:creator (
     'J. M. Rodríguez-López' 'M. Lachica' 'L. González-Valero' 'I. Fernández-Fígares'
   ) ;
 .
@@ -122,7 +123,7 @@
   rdfs:label 'PCI Animal Science recommendation' ;
   frbr:realizationOf [
     a fabio:Review ; # Work
-    dcterms:creator 'Jordi Estellé' ;
+    dc:creator 'Jordi Estellé' ;
     cito:reviews <2019.12.20.884056v3> ;
     cito:citesAsRecommendedReading <pigs-article> ;
   ] ;
@@ -162,7 +163,7 @@
   rdfs:label 'PCI Animal Science round 1 decision' ;
   frbr:realizationOf [
     a fabio:Reply ; # Work
-    dcterms:creator 'Jordi Estellé' ;
+    dc:creator 'Jordi Estellé' ;
     cito:reviews <2019.12.20.884056v1> ;
     cito:extends <pci-animal-sci-review1> ;
     cito:extends <pci-animal-sci-review2> ;
@@ -233,7 +234,7 @@
   rdfs:label 'PeerJ round 1 decision' ;
   frbr:realizationOf [
     a fabio:Reply ; # Work
-    dcterms:creator 'Rogerio Sotelo-Mundo' ;
+    dc:creator 'Rogerio Sotelo-Mundo' ;
     cito:reviews <peerj.11014v0.1> ;
     cito:extends <peerj.11014v0.1-reviewer1> ;
     cito:extends <peerj.11014v0.1-reviewer2> ;
@@ -316,7 +317,7 @@
   rdfs:label 'PeerJ round 2 decision' ;
   frbr:realizationOf [
     a fabio:Reply ; # Work
-    dcterms:creator 'Rogerio Sotelo-Mundo' ;
+    dc:creator 'Rogerio Sotelo-Mundo' ;
     cito:reviews <peerj.11014v0.2> ;
     cito:extends <peerj.11014v0.2-reviewer2> ;
   ] ;
@@ -374,7 +375,7 @@
   rdfs:label 'PeerJ round 3 decision' ;
   frbr:realizationOf [
     a fabio:Reply ; # Work
-    dcterms:creator 'Rogerio Sotelo-Mundo' ;
+    dc:creator 'Rogerio Sotelo-Mundo' ;
     cito:reviews <peerj.11014v0.2> ;
     cito:citesAsRecommendedReading <pigs-article> ;
   ] ;
