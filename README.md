@@ -2,7 +2,7 @@
 
 ## About
 
-This repo contains an experiment into creating an RDF-based API for integration between [Sciety], [bioRxiv] and others.
+This repo contains an experiment into creating an API using [RDF](https://en.wikipedia.org/wiki/Resource_Description_Framework) for integration between [Sciety], [bioRxiv] and others.
 
 It makes use of the [Spar Ontologies], especially [FRBR-aligned Bibliographic Ontology (FaBiO)](FaBiO).
 
@@ -15,6 +15,28 @@ The [Turtle] files in [`data`](./data) contain RDF statements describing article
 If you run `docker-compose up` a [Trifid] server is available to view the resources (e.g. <http://localhost:8080/peerj.11014v0.1-decision>). This is read from a [Apache Jena Fuseki] instance available at <http://localhost:8081/> (username <kbd>admin</kbd>, password <kbd>password</kbd>).
 
 There is also a basic client querying and display information about articles and their evaluations at <http://localhost:8082>.
+
+## RDF
+
+> People think RDF is a pain because it is complicated. The truth is even worse. RDF is painfully simplistic, but it allows you to work with real-world data and problems that are horribly complicated.
+>
+> --- <cite>[Dan Brickley and Libby Miller][RDF is a pain]</cite>
+
+[Doc Maps] describes 'three key requirements for representations of editorial processes in a healthy publishing ecosystem':
+
+> Extensibility: the framework should be capable of representing a wide range of editorial process events, ranging from a simple assertion that a review occurred to a complete history of editorial comments on a document to a standalone review submitted by an independent reviewer
+
+RDF provides a simple framework for representing information; there is a wide range of existing vocabularies for describing [publishing workflows][PWO], [publish-able works][FaBiO], [organisations][ORG], [people][FOAF], [biomedical investigations][OBI]...
+
+The proposed [DocMaps Framework] appears to be based on JSON, which involves inventing new terms rather than being able to use existing, well-developed and tested vocabularies. Furthermore, plain JSON/XML representations usually struggle to scale to sufficiently describe the variations in the real world. (This can sometimes result in processes being limited to what the format can achieve, rather than it describing what's happening.)
+
+> Machine-readability: the framework should be represented in a format (eg XML) that can be interpreted computationally and translated into visual representations.
+
+RDF is an abstract model that has multiple formats available. They include [JSON-LD] and [RDF/XML], which provide access to RDF in formats already familiar to developers.
+
+>Discoverability: the framework should be publishable such that events are queryable and discoverable via a variety of well-supported mechanisms.
+
+[SPARQL] is a [W3C] recommendation and has become the standard RDF query language.
 
 ## Modelling
 
@@ -109,13 +131,40 @@ If a journal reviews submissions rather than the preprint, these are separate _e
 
 This graph can continue to expand with links to and from authors, reviewers, related works etc.
 
+## Open questions
+
+- **Exactly which ontologies and properties should be used/recommended?**
+  Concepts often overlap; [Schema.org] is well-known, but is insufficient on its own; the [Spar Ontologies] are great, but aren't particularly well known. [Reasoning] can help.
+
+- **How should these resources be identified?**
+  Ideally by the organisation responsible (so bioRxiv for their content, eLife for their content, PCI Ecology for their content), but the _work_ itself is only by the author(s).
+
+- **How could this work with Doc Maps?**
+  Can be used alongside, or maybe Doc Maps should actually be RDF?
+
 [Apache Jena Fuseki]: https://jena.apache.org/documentation/fuseki2/
 [bioRxiv]: https://www.biorxiv.org/
 [Docker Compose]: https://docs.docker.com/compose/
+[Doc Maps]: https://docmaps.knowledgefutures.org/
+[DocMaps Framework]: https://docmaps.knowledgefutures.org/pub/sgkf1pqa
 [FaBiO]: http://www.sparontologies.net/ontologies/fabio
+[FOAF]: http://xmlns.com/foaf/spec/
 [FRBR]: https://en.wikipedia.org/wiki/Functional_Requirements_for_Bibliographic_Records
 [FRBR Diagram]: https://upload.wikimedia.org/wikipedia/commons/8/80/FRBR-Group-1-entities-and-basic-relations.svg
+[Hydra]: https://www.hydra-cg.com/
+[JSON-LD]: https://en.wikipedia.org/wiki/JSON-LD
+[Linked Data Notifications]: https://www.w3.org/TR/ldn/
+[OBI]: http://obi-ontology.org/
+[ORG]: http://www.w3.org/TR/vocab-org/
+[PWO]: http://www.sparontologies.net/ontologies/pwo
+[RDF]: https://en.wikipedia.org/wiki/Resource_Description_Framework
+[RDF is a pain]: https://book.validatingrdf.com/bookHtml005.html
+[RDF/XML]: https://en.wikipedia.org/wiki/RDF/XML
+[Reasoning]: https://rubenverborgh.github.io/Semantic-Web-Reasoning/
+[Schema.org]: https://schema.org/
 [Sciety]: https://sciety.org/
 [Spar Ontologies]: http://www.sparontologies.net/
+[SPARQL]: https://en.wikipedia.org/wiki/SPARQL
 [Trifid]: https://zazuko.com/products/trifid/
 [Turtle]: https://www.w3.org/TR/turtle/
+[W3C]: https://en.wikipedia.org/wiki/World_Wide_Web_Consortium
