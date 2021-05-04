@@ -86,7 +86,7 @@ ORDER BY ASC(?date)
 SPARQL);
 
 echo "<!doctype html><title>{$article->label()}</title><body><h1>{$article->label()}</h1>";
-
+echo "<p>IRI: <a href=\"{$article->getUri()}\">{$article->getUri()}</a>";
 if(count($recommendations)) {
     echo '<p><strong>Recommended by: ';
     echo implode(', ', array_map(fn($recommendation) => $recommendation->publisherLabel->getValue(), $recommendations));
@@ -95,7 +95,7 @@ if(count($recommendations)) {
 
 echo '<hr>';
 echo '<h2>Article history</h2>';
-echo '<table><thead><tr><th>Version<th>Date<th>Published by<th>DOI</tr></thead><tbody>';
+echo '<table><thead><tr><th>Version<th>Date<th>Published by<th>DOI<th>IRI</tr></thead><tbody>';
 
 foreach ($versions as $version) {
     $title = isset($version->title) ? $version->title->getValue() : '(no title)';
@@ -107,6 +107,7 @@ foreach ($versions as $version) {
 <td>{$version->date->format('j F Y')}
 <td>{$version->publisherLabel->getValue()}
 <td>{$doi}
+<td><a href="{$version->item}">{$version->item}</a>
 HTML;
 }
 
@@ -114,7 +115,7 @@ echo '</table>';
 
 echo '<hr>';
 echo '<h2>Reviews</h2>';
-echo '<table><thead><tr><th>Review<th>Review of<th>Date<th>Reviewed by</tr></thead><tbody>';
+echo '<table><thead><tr><th>Review<th>Review of<th>Date<th>Reviewed by<th>IRI</tr></thead><tbody>';
 
 foreach ($reviews as $review) {
     $url = $review->scietyUrl ?? null;
@@ -125,6 +126,7 @@ foreach ($reviews as $review) {
 <td>{$review->versionLabel->getValue()}
 <td>{$review->date->format('j F Y')}
 <td>{$review->publisherLabel->getValue()}
+<td><a href="{$review->expression}">{$review->expression}</a>
 HTML;
 }
 
