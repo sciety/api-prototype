@@ -44,11 +44,7 @@ RDF is an abstract model that has multiple formats available. They include [JSON
 
 This makes use of the first 3 levels of [Functional Requirements for Bibliographic Records (FRBR)](FRBR) in order to separate _where_ and _how_ an article is published from the article itself:
 
-<div style="background-color: white">
-
 ![][FRBR Diagram]
-
-</div>
 
 An article (_work_) can be published in multiple places (_expressions_), where it can have multiple formats (_manifestation_). Individual copies of these (_item_) don't need to be modelled here.
 
@@ -154,7 +150,7 @@ This graph can continue to expand with links to and from authors, reviewers, rel
 [FaBiO]: http://www.sparontologies.net/ontologies/fabio
 [FOAF]: http://xmlns.com/foaf/spec/
 [FRBR]: https://en.wikipedia.org/wiki/Functional_Requirements_for_Bibliographic_Records
-[FRBR Diagram]: https://upload.wikimedia.org/wikipedia/commons/8/80/FRBR-Group-1-entities-and-basic-relations.svg
+[FRBR Diagram]: http://www.dlib.org/dlib/september02/hickey/hickey-fig1.gif
 [Hydra]: https://www.hydra-cg.com/
 [JSON-LD]: https://en.wikipedia.org/wiki/JSON-LD
 [Linked Data Notifications]: https://www.w3.org/TR/ldn/
