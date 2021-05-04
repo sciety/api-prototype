@@ -60,7 +60,7 @@ A recommendation by Peer Community in Ecology, however, could apply to the _work
 [Docker Compose]: https://docs.docker.com/compose/
 [FaBiO]: http://www.sparontologies.net/ontologies/fabio
 [FRBR]: https://en.wikipedia.org/wiki/Functional_Requirements_for_Bibliographic_Records
-[FRBR]: https://upload.wikimedia.org/wikipedia/commons/8/80/FRBR-Group-1-entities-and-basic-relations.svg
+[FRBR Diagram]: https://upload.wikimedia.org/wikipedia/commons/8/80/FRBR-Group-1-entities-and-basic-relations.svg
 [Sciety]: https://sciety.org/
 [Spar Ontologies]: http://www.sparontologies.net/
 [Trifid]: https://zazuko.com/products/trifid/
