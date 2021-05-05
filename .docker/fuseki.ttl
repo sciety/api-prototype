@@ -13,12 +13,8 @@
   a fuseki:Service ;
   rdfs:label 'Read model dataset' ;
   fuseki:name 'sciety' ;
-  fuseki:serviceQuery 'sparql' ;   # SPARQL query service
-  fuseki:serviceQuery 'query' ;    # SPARQL query service (alt name)
-  fuseki:serviceUpdate 'update' ;   # SPARQL update service
-  fuseki:serviceUpload 'upload' ;   # Non-SPARQL upload service
-  fuseki:serviceReadWriteGraphStore 'data' ;     # SPARQL Graph store protocol (read and write)
-  fuseki:serviceReadGraphStore 'get' ;      # SPARQL Graph store protocol (read only)
+  fuseki:serviceQuery 'sparql' ;
+  fuseki:serviceReadGraphStore 'get' ;
   fuseki:dataset <#dataset> ;
 .
 
