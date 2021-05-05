@@ -3,7 +3,12 @@
   "sparqlEndpointUrl": "http://jena:3030/sciety",
   "sparqlProxy": {
     "default": {
-      "endpointUrl": "http://localhost:8080/sciety"
+      "endpointUrl": "http://localhost:8081/sciety"
+    }
+  },
+  "yasgui": {
+    "default": {
+      "endpointUrl": "http://localhost:8081/sciety"
     }
   }
 }
