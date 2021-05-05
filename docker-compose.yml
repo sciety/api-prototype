@@ -21,8 +21,7 @@ services:
       - ./.docker/fuseki.ttl:/data/fuseki/config/config.ttl
       - ./data/:/data/data/
   trifid:
-    image: zazuko/trifid:2.3.6
+    build:
+      context: trifid
     ports:
       - '8080:8080'
-    volumes:
-      - ./.docker/trifid.json:/app/config.json

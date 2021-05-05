@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "dependencies": {
+    "trifid": "^2.3.6"
+  },
+  "scripts": {
+    "start": "trifid --config config.json"
+  }
+}
