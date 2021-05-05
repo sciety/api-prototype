@@ -17,7 +17,8 @@ const middleware = (req, res, next) => {
 
     return toString(readable)
       .then(JSON.parse)
-      .then(string => jsonld.compact(string, context))
+      .then(doc => jsonld.frame(doc, { '@id': req.iri }, { omitGraph: true }))
+      .then(doc => jsonld.compact(doc, context))
       .then(JSON.stringify)
       .then(Readable.from)
       .then(stream => stream.pipe(writable))
