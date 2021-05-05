@@ -1,5 +1,6 @@
 {
   "@context": {
+    "cito": "http://purl.org/spar/cito/",
     "dc": "http://purl.org/dc/elements/1.1/",
     "dcterms": "http://purl.org/dc/terms/",
     "fabio": "http://purl.org/spar/fabio/",
@@ -8,6 +9,10 @@
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "id": "@id",
     "type": "@type",
+    "citesAsRecommendedReading": {
+      "@id": "cito:citesAsRecommendedReading",
+      "@type": "@id"
+    },
     "creator": {
       "@id": "dc:creator",
       "@container": "@list"
@@ -15,6 +20,17 @@
     "date": {
       "@id": "dcterms:date",
       "@type": "xsd:date"
+    },
+    "embodimentOf": {
+      "@id": "frbr:embodimentOf",
+      "@type": "@id"
+    },
+    "extends": {
+      "@id": "cito:extends",
+      "@type": "@id"
+    },
+    "format": {
+      "@id": "dcterms:format"
     },
     "identifier": {
       "@id": "dcterms:identifier",
@@ -31,12 +47,20 @@
     "label": {
       "@id": "rdfs:label"
     },
+    "publisher": {
+      "@id": "dcterms:publisher",
+      "@type": "@id"
+    },
     "realizationOf": {
       "@id": "frbr:realizationOf",
       "@type": "@id"
     },
-    "publisher": {
-      "@id": "dcterms:publisher",
+    "repliesTo": {
+      "@id": "cito:repliesTo",
+      "@type": "@id"
+    },
+    "reviews": {
+      "@id": "cito:reviews",
       "@type": "@id"
     },
     "title": {
@@ -46,8 +70,23 @@
     "Article": {
       "@id": "fabio:Article"
     },
+    "DigitalManifestation": {
+      "@id": "fabio:DigitalManifestation"
+    },
+    "Letter": {
+      "@id": "fabio:Letter"
+    },
+    "Reply": {
+      "@id": "fabio:Reply"
+    },
     "ResearchPaper": {
       "@id": "fabio:ResearchPaper"
+    },
+    "Review": {
+      "@id": "fabio:Review"
+    },
+    "ReviewArticle": {
+      "@id": "fabio:ReviewArticle"
     },
     "WebPage": {
       "@id": "fabio:WebPage"
