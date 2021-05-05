@@ -6,6 +6,15 @@
       "queryOperation": "getQuery"
     }
   },
+  "renderer": {
+    "root": {
+      "template": "cwd:views/index.html",
+      "templateError": "cwd:views/error.html"
+    }
+  },
+  "staticViews": {
+    "/": "cwd:views/home.html"
+  },
   "graphexplorer": {
     "default": {
       "path": "/graph-explorer"
