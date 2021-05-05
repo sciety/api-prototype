@@ -12,7 +12,7 @@ It makes use of the [Spar Ontologies], especially [FRBR-aligned Bibliographic On
 
 The [Turtle] files in [`data`](./data) contain RDF statements describing articles, their versions, and their evaluations.
 
-If you run `docker-compose up` a [Trifid] server is available to view the resources (e.g. <http://localhost:8080/peerj.11014v0.1-decision>). This also has:
+If you run `docker-compose up` a [Trifid] server is available at <http://localhost:8080> to view the resources (e.g. <http://localhost:8080/peerj.11014v0.1-decision>). This also has:
 
 - a SPARQL editor at <http://localhost:8080/sparql/>, which uses [Yasgui].
 - a view on the structure at <http://localhost:8080/spex/>, which uses [SPEX].
