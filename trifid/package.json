@@ -1,6 +1,9 @@
 {
   "private": true,
   "dependencies": {
+    "jsonld": "^5.2.0",
+    "hijackresponse": "^5.0.0",
+    "stream-to-string": "^1.2.0",
     "trifid": "^2.3.6",
     "trifid-plugin-spex": "zazuko/trifid-plugin-spex#09416ffc1a50c3130a3e4d60fb782deb1e7f56f4",
     "trifid-plugin-graph-explorer": "^0.2.0"

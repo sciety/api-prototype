@@ -62,6 +62,11 @@
     "spex": {
       "priority": 115,
       "module": "trifid-plugin-spex"
+    },
+    "jsonLdContext": {
+      "priority": 40,
+      "module": "trifid-core:./plugins/middleware",
+      "middleware": "./src/json-ld-context"
     }
   }
 }

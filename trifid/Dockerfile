@@ -8,6 +8,7 @@ COPY package.json \
   ./
 RUN npm ci --production && rm -rf ~/.npm
 
+COPY src src
 COPY config.json ./
 COPY views views
 
