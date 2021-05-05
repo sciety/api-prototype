@@ -12,9 +12,12 @@ It makes use of the [Spar Ontologies], especially [FRBR-aligned Bibliographic On
 
 The [Turtle] files in [`data`](./data) contain RDF statements describing articles, their versions, and their evaluations.
 
-If you run `docker-compose up` a [Trifid] server is available to view the resources (e.g. <http://localhost:8080/peerj.11014v0.1-decision>). This also has a SPARQL editor at <http://localhost:8080/sparql/>, which uses [Yasgui].
+If you run `docker-compose up` a [Trifid] server is available to view the resources (e.g. <http://localhost:8080/peerj.11014v0.1-decision>). This also has:
 
-This is read from a [Apache Jena Fuseki] instance available at <http://localhost:8081/> (username <kbd>admin</kbd>, password <kbd>password</kbd>).
+- a SPARQL editor at <http://localhost:8080/sparql/>, which uses [Yasgui].
+- a view on the structure at <http://localhost:8080/spex/>, which uses [SPEX].
+
+This is read from a [SPARQL] endpoint provided by an [Apache Jena Fuseki] instance available at <http://localhost:8081/> (username <kbd>admin</kbd>, password <kbd>password</kbd>).
 
 There is also a basic client querying and display information about articles and their evaluations at <http://localhost:8082>.
 
@@ -167,6 +170,7 @@ This graph can continue to expand with links to and from authors, reviewers, rel
 [Sciety]: https://sciety.org/
 [Spar Ontologies]: http://www.sparontologies.net/
 [SPARQL]: https://en.wikipedia.org/wiki/SPARQL
+[SPEX]: https://github.com/zazuko/SPEX
 [Trifid]: https://zazuko.com/products/trifid/
 [Turtle]: https://www.w3.org/TR/turtle/
 [W3C]: https://en.wikipedia.org/wiki/World_Wide_Web_Consortium

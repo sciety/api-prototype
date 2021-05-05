@@ -1,7 +1,8 @@
 {
   "private": true,
   "dependencies": {
-    "trifid": "^2.3.6"
+    "trifid": "^2.3.6",
+    "trifid-plugin-spex": "zazuko/trifid-plugin-spex#09416ffc1a50c3130a3e4d60fb782deb1e7f56f4"
   },
   "scripts": {
     "start": "trifid --config config.json"

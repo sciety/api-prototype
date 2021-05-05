@@ -1,4 +1,43 @@
 {
   "baseConfig": "trifid:config-sparql.json",
-  "sparqlEndpointUrl": "http://jena:3030/sciety"
+  "sparqlEndpointUrl": "http://jena:3030/sciety",
+  "sparqlProxy": {
+    "default": {
+      "queryOperation": "getQuery"
+    }
+  },
+  "spex": {
+    "default": {
+      "path": "/spex",
+      "options": {
+        "prefixes": [
+          { "prefix": "cito", "url": "http://purl.org/spar/cito/"},
+          { "prefix": "dc", "url": "http://purl.org/dc/elements/1.1/"},
+          { "prefix": "dcterms", "url": "http://purl.org/dc/terms/"},
+          { "prefix": "fabio", "url": "http://purl.org/spar/fabio/"},
+          { "prefix": "foaf", "url": "http://xmlns.com/foaf/0.1/"},
+          { "prefix": "fr", "url": "http://purl.org/spar/fr/"},
+          { "prefix": "frbr", "url": "http://purl.org/vocab/frbr/core#"},
+          { "prefix": "xsd", "url": "http://www.w3.org/2001/XMLSchema#"},
+          { "prefix": "rdfs", "url": "http://www.w3.org/2000/01/rdf-schema#"}
+        ],
+        "forceIntrospection": true
+      }
+    }
+  },
+  "breakDown": {
+    "spex": {},
+    "spex.default": {},
+    "spex.default.options": {},
+    "spex.default.options.url": [
+      "sparqlProxy.default.path",
+      "sparqlEndpointUrl"
+    ]
+  },
+  "plugins": {
+    "spex": {
+      "priority": 115,
+      "module": "trifid-plugin-spex"
+    }
+  }
 }
