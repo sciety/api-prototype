@@ -16,6 +16,7 @@ If you run `docker-compose up` a [Trifid] server is available to view the resour
 
 - a SPARQL editor at <http://localhost:8080/sparql/>, which uses [Yasgui].
 - a view on the structure at <http://localhost:8080/spex/>, which uses [SPEX].
+- a graph explorer at <http://localhost:8080/graph-explorer/>, which uses [Graph Explorer].
 
 This is read from a [SPARQL] endpoint provided by an [Apache Jena Fuseki] instance available at <http://localhost:8081/> (username <kbd>admin</kbd>, password <kbd>password</kbd>).
 
@@ -156,6 +157,7 @@ This graph can continue to expand with links to and from authors, reviewers, rel
 [FOAF]: http://xmlns.com/foaf/spec/
 [FRBR]: https://en.wikipedia.org/wiki/Functional_Requirements_for_Bibliographic_Records
 [FRBR Diagram]: http://www.dlib.org/dlib/september02/hickey/hickey-fig1.gif
+[Graph Explorer]: https://github.com/zazuko/graph-explorer
 [Hydra]: https://www.hydra-cg.com/
 [JSON-LD]: https://en.wikipedia.org/wiki/JSON-LD
 [Linked Data Notifications]: https://www.w3.org/TR/ldn/

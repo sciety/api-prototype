@@ -6,6 +6,11 @@
       "queryOperation": "getQuery"
     }
   },
+  "graphexplorer": {
+    "default": {
+      "path": "/graph-explorer"
+    }
+  },
   "spex": {
     "default": {
       "path": "/spex",
@@ -26,6 +31,12 @@
     }
   },
   "breakDown": {
+    "graphexplorer": {},
+    "graphexplorer.default": {},
+    "graphexplorer.default.endpointUrl": [
+      "sparqlProxy.default.path",
+      "sparqlEndpointUrl"
+    ],
     "spex": {},
     "spex.default": {},
     "spex.default.options": {},
@@ -35,6 +46,10 @@
     ]
   },
   "plugins": {
+    "graphexplorer": {
+      "priority": 115,
+      "module": "trifid-plugin-graph-explorer"
+    },
     "spex": {
       "priority": 115,
       "module": "trifid-plugin-spex"
