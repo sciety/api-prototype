@@ -4,8 +4,7 @@ const hijackResponse = require('hijackresponse')
 const jsonld = require('jsonld')
 const {Readable} = require('stream')
 const toString = require('stream-to-string')
-
-const context = {}
+const context = require('./context.json')
 
 const middleware = (req, res, next) => {
   hijackResponse(res, next).then(({destroyAndRestore, readable, writable}) => {

@@ -1,0 +1,56 @@
+{
+  "@context": {
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "frbr": "http://purl.org/vocab/frbr/core#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "id": "@id",
+    "type": "@type",
+    "creator": {
+      "@id": "dc:creator",
+      "@container": "@list"
+    },
+    "date": {
+      "@id": "dcterms:date",
+      "@type": "xsd:date"
+    },
+    "identifier": {
+      "@id": "dcterms:identifier",
+      "@container": "@set"
+    },
+    "hasManifestation": {
+      "@id": "fabio:hasManifestation",
+      "@container": "@set"
+    },
+    "hasURL": {
+      "@id": "fabio:hasURL",
+      "@type": "xsd:anyURI"
+    },
+    "label": {
+      "@id": "rdfs:label"
+    },
+    "realizationOf": {
+      "@id": "frbr:realizationOf",
+      "@type": "@id"
+    },
+    "publisher": {
+      "@id": "dcterms:publisher",
+      "@type": "@id"
+    },
+    "title": {
+      "@id": "dcterms:title",
+      "@container": "@language"
+    },
+    "Article": {
+      "@id": "fabio:Article"
+    },
+    "ResearchPaper": {
+      "@id": "fabio:ResearchPaper"
+    },
+    "WebPage": {
+      "@id": "fabio:WebPage"
+    }
+  }
+}
