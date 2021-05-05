@@ -13,6 +13,10 @@ ${include('cwd:views/navigation.html')}
   <div class="row">
     <div class="col-xs-12">
       <h1>Sciety API Prototype</h1>
+      <h2>Sample queries</h2>
+      <ul>
+        <li><a href="/sparql/#query=PREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+fabio%3A+%3Chttp%3A%2F%2Fpurl.org%2Fspar%2Ffabio%2F%3E%0ASELECT+*%0A%0AWHERE+%7B%0A++%3Fwork+rdf%3Atype+fabio%3AResearchPaper+.%0A++%3Fwork+rdfs%3Alabel+%3Ftitle+.%0A%7D%0A%0AORDER+BY+ASC(%3Fdate)&tabTitle=List+of+all+works&outputFormat=table">List of all works</a></li>
+      </ul>
       <h2>Tools available</h2>
       <ul>
         <li><a href="/sparql/">SPARQL editor</a></li>
