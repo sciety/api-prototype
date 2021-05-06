@@ -74,6 +74,11 @@ const reviewToExpression = ([, article]: Review) => pipe(
     ),
     triple(
       expression,
+      dcterms.publisher,
+      sciety.biorxiv,
+    ),
+    triple(
+      expression,
       fabio.hasManifestation,
       webPage,
     ),
