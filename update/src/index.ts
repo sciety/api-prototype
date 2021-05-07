@@ -2,14 +2,16 @@ import * as crypto from 'crypto'
 import { sequenceT } from 'fp-ts/Apply'
 import { flow, pipe, tupled } from 'fp-ts/function'
 import * as IO from 'fp-ts/IO'
+import * as RA from 'fp-ts/ReadonlyArray'
 import * as RR from 'fp-ts/ReadonlyRecord'
 import * as TE from 'fp-ts/TaskEither'
 import * as d from 'io-ts/Decoder'
+import { biorxivArticleDetails, BiorxivArticleVersion } from './biorxiv'
 import { csv } from './csv'
 import * as D from './dataset'
 import { getUrl } from './http'
 import * as namespaces from './namespace'
-import { dcterms, fabio, frbr, rdf, rdfs, sciety } from './namespace'
+import { dcterms, fabio, frbr, rdf, rdfs, sciety, xsd } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
 import * as S from './string'
@@ -43,49 +45,110 @@ const biorxivWork = (work: RDF.NamedNode) => D.fromArray([
   )
 ])
 
-const biorxivExpression = (work: RDF.NamedNode, expression: RDF.NamedNode) => D.fromArray([
-  RDF.triple(
-    expression,
-    rdf.type,
-    fabio.Article,
-  ),
-  RDF.triple(
-    expression,
-    rdfs.label,
-    RDF.literal('bioRxiv version 1'),
-  ),
-  RDF.triple(
-    expression,
-    frbr.realizationOf,
-    work,
-  ),
-  RDF.triple(
-    expression,
-    dcterms.publisher,
-    sciety.biorxiv,
-  ),
-])
+const biorxivExpression = (articleVersion: BiorxivArticleVersion, work: RDF.NamedNode, expression: RDF.NamedNode) => {
+  const webPage = RDF.blankNode()
+  const pdf = RDF.blankNode()
+
+  return D.fromArray([
+    RDF.triple(
+      expression,
+      rdf.type,
+      fabio.Article,
+    ),
+    RDF.triple(
+      expression,
+      rdfs.label,
+      RDF.literal(`bioRxiv version ${articleVersion.version}`),
+    ),
+    RDF.triple(
+      expression,
+      dcterms.title,
+      RDF.literal(articleVersion.title),
+    ),
+    RDF.triple(
+      expression,
+      dcterms.date,
+      RDF.typedLiteral(articleVersion.date, xsd.date),
+    ),
+    RDF.triple(
+      expression,
+      frbr.realizationOf,
+      work,
+    ),
+    RDF.triple(
+      expression,
+      dcterms.publisher,
+      sciety.biorxiv,
+    ),
+    RDF.triple(
+      expression,
+      fabio.hasManifestation,
+      webPage,
+    ),
+    RDF.triple(
+      expression,
+      fabio.hasManifestation,
+      pdf,
+    ),
+    RDF.triple(
+      webPage,
+      rdf.type,
+      fabio.WebPage,
+    ),
+    RDF.triple(
+      webPage,
+      fabio.hasURL,
+      RDF.typedLiteral(`https://www.biorxiv.org/content/${articleVersion.doi}v${articleVersion.version}`, xsd.anyURI),
+    ),
+    RDF.triple(
+      pdf,
+      rdf.type,
+      fabio.DigitalManifestation,
+    ),
+    RDF.triple(
+      pdf,
+      dcterms.format,
+      RDF.literal('application/pdf'),
+    ),
+    RDF.triple(
+      pdf,
+      fabio.hasURL,
+      RDF.typedLiteral(`https://www.biorxiv.org/content/${articleVersion.doi}v${articleVersion.version}.pdf`, xsd.anyURI),
+    ),
+  ])
+}
 
 const doiToArticleWork = flow(
   partToHashedIri,
   IO.map(biorxivWork)
 )
 
-const doiToArticleExpression = flow(
-  (doi: string) => sequenceT(IO.Apply)(
-    pipe(doi, partToHashedIri),
-    pipe([doi, 'v1'], partsToIri, IO.of),
+const detailsToArticleExpression = (articleVersion: BiorxivArticleVersion) => pipe(
+  sequenceT(IO.Apply)(
+    pipe(articleVersion, IO.of),
+    pipe(articleVersion.doi, partToHashedIri),
+    pipe([articleVersion.doi, `v${articleVersion.version}`], partsToIri, IO.of),
   ),
   IO.map(tupled(biorxivExpression))
 )
 
+const doiToArticleExpressions = (doi: string) => pipe(
+  `https://api.biorxiv.org/details/biorxiv/${doi}`,
+  getUrl(biorxivArticleDetails),
+  TE.chainIOK(flow(
+    details => details.collection,
+    RA.map(detailsToArticleExpression),
+    IO.sequenceArray,
+    IO.map(D.concatAll)
+  ))
+)
+
 const toRdf = ([, articleDoi]: Review) => pipe(
-  sequenceT(IO.Apply)(
-    pipe(articleDoi, doiToArticleWork),
-    pipe(articleDoi, doiToArticleExpression),
+  sequenceT(TE.ApplyPar)(
+    pipe(articleDoi, doiToArticleWork, TE.fromIO),
+    pipe(articleDoi, doiToArticleExpressions),
   ),
-  IO.map(D.concatAll),
-  TE.fromIO,
+  TE.map(D.concatAll),
 )
 
 const prefixes = pipe(

@@ -57,6 +57,11 @@ export const namedNode = <T extends string>(value: T): NamedNode<T> => ({
   value,
 })
 
+export const blankNode = (name?: string): BlankNode => ({
+  type: 'BlankNode',
+  name: N3.DataFactory.blankNode(name).value,
+})
+
 export const languageTaggedString = (value: string, languageTag: string): LanguageTaggedString => ({
   type: 'LanguageTaggedString',
   value,
