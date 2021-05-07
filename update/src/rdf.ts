@@ -1,7 +1,6 @@
+import * as Eq from 'fp-ts/Eq'
 import { pipe } from 'fp-ts/function'
-import * as RA from 'fp-ts/ReadonlyArray'
 import * as RR from 'fp-ts/ReadonlyRecord'
-import { concatAll } from 'fp-ts/Semigroup'
 import { taskify } from 'fp-ts/TaskEither'
 import fs from 'fs'
 import * as N3 from 'n3'
@@ -111,7 +110,7 @@ export const writeTo = (path: fs.PathLike, options: {
   prefixes?: {
     [key: string]: NamedNode
   }
-}) => (quads: ReadonlyArray<Quad>) => {
+}) => (quads: Iterable<Quad>) => {
   const n3prefixes = pipe(
     options.prefixes ?? {},
     RR.map(namespace => namespace.value),
@@ -119,9 +118,9 @@ export const writeTo = (path: fs.PathLike, options: {
 
   const writer = new N3.Writer(fs.createWriteStream(path), { ...options, prefixes: n3prefixes })
 
-  writer.addQuads(quads.map(toRdfJs))
+  writer.addQuads([...quads].map(toRdfJs))
 
   return taskify((...args) => writer.end(...args))()
 }
 
-export const concatQuads = concatAll<ReadonlyArray<Quad>>(RA.getSemigroup())(RA.empty)
+export const eq: { equals: <T extends Term>(a: T, b: T) => boolean } = Eq.eqStrict

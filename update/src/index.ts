@@ -2,11 +2,11 @@ import * as crypto from 'crypto'
 import { sequenceT } from 'fp-ts/Apply'
 import { flow, pipe, tupled } from 'fp-ts/function'
 import * as IO from 'fp-ts/IO'
-import * as RA from 'fp-ts/ReadonlyArray'
 import * as RR from 'fp-ts/ReadonlyRecord'
 import * as TE from 'fp-ts/TaskEither'
 import * as d from 'io-ts/Decoder'
 import { csv } from './csv'
+import * as D from './dataset'
 import { getUrl } from './http'
 import * as namespaces from './namespace'
 import { dcterms, fabio, frbr, rdf, rdfs, sciety } from './namespace'
@@ -30,7 +30,7 @@ const partToHashedIri = flow(md5, IO.map(sciety))
 
 const partsToIri = flow(S.join(S.empty), sciety)
 
-const biorxivWork = (work: RDF.NamedNode) => [
+const biorxivWork = (work: RDF.NamedNode) => D.fromArray([
   RDF.triple(
     work,
     rdf.type,
@@ -41,9 +41,9 @@ const biorxivWork = (work: RDF.NamedNode) => [
     rdfs.label,
     RDF.literal('A paper'),
   )
-]
+])
 
-const biorxivExpression = (work: RDF.NamedNode, expression: RDF.NamedNode) => [
+const biorxivExpression = (work: RDF.NamedNode, expression: RDF.NamedNode) => D.fromArray([
   RDF.triple(
     expression,
     rdf.type,
@@ -64,7 +64,7 @@ const biorxivExpression = (work: RDF.NamedNode, expression: RDF.NamedNode) => [
     dcterms.publisher,
     sciety.biorxiv,
   ),
-]
+])
 
 const doiToArticleWork = flow(
   partToHashedIri,
@@ -84,7 +84,7 @@ const toRdf = ([, articleDoi]: Review) => pipe(
     pipe(articleDoi, doiToArticleWork),
     pipe(articleDoi, doiToArticleExpression),
   ),
-  IO.map(RDF.concatQuads),
+  IO.map(D.concatAll),
   TE.fromIO,
 )
 
@@ -97,7 +97,7 @@ pipe(
   'https://github.com/sciety/sciety/raw/main/data/reviews/4eebcec9-a4bb-44e1-bde3-2ae11e65daaa.csv',
   getUrl(reviews),
   TE.chainW(TE.traverseArray(toRdf)),
-  TE.map(RA.flatten),
+  TE.map(D.concatAll),
   TE.chainFirstIOK(RDF.writeTo('output.ttl', { format: 'turtle', prefixes })),
   exit,
 )()
