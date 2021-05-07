@@ -7,7 +7,7 @@ type NamespaceBuilder<A extends string, T extends string = string> = {
 }
 
 function namespace<A extends string>(namespace: A): NamespaceBuilder<A> {
-  const builder = (term: string) => RDF.namedNode(`${namespace}${term}`)
+  const builder = (term?: string) => RDF.namedNode(`${namespace}${term ?? ''}`)
 
   return new Proxy(builder, {
     apply: (target, thisArg, args) => target(args[0]),
