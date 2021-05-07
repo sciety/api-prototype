@@ -1,4 +1,19 @@
-import namespace from '@rdfjs/namespace'
+import * as RDF from './rdf'
+
+type NamespaceBuilder<A extends string, T extends string = string> = {
+  <B extends string>(property: B): RDF.NamedNode<`${A}${B}`>
+  (): RDF.NamedNode<A>
+  [key: string]: RDF.NamedNode<`${A}${typeof key}`>
+}
+
+function namespace<A extends string>(namespace: A): NamespaceBuilder<A> {
+  const builder = (term: string) => RDF.namedNode(`${namespace}${term}`)
+
+  return new Proxy(builder, {
+    apply: (target, thisArg, args) => target(args[0]),
+    get: (target, property) => target(property.toString()),
+  }) as any
+}
 
 export const dcterms = namespace('http://purl.org/dc/terms/')
 
