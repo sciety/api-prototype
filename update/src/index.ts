@@ -33,16 +33,8 @@ const partToHashedIri = flow(md5, IO.map(sciety))
 const partsToIri = flow(S.join(S.empty), sciety)
 
 const biorxivWork = (work: RDF.NamedNode) => D.fromArray([
-  RDF.triple(
-    work,
-    rdf.type,
-    fabio.ResearchPaper,
-  ),
-  RDF.triple(
-    work,
-    rdfs.label,
-    RDF.literal('A paper'),
-  )
+  RDF.triple(work, rdf.type, fabio.ResearchPaper),
+  RDF.triple(work, rdfs.label, RDF.literal('A paper'))
 ])
 
 const biorxivExpression = (articleVersion: BiorxivArticleVersion, work: RDF.NamedNode, expression: RDF.NamedNode) => {
@@ -50,71 +42,19 @@ const biorxivExpression = (articleVersion: BiorxivArticleVersion, work: RDF.Name
   const pdf = RDF.blankNode()
 
   return D.fromArray([
-    RDF.triple(
-      expression,
-      rdf.type,
-      fabio.Article,
-    ),
-    RDF.triple(
-      expression,
-      rdfs.label,
-      RDF.literal(`bioRxiv version ${articleVersion.version}`),
-    ),
-    RDF.triple(
-      expression,
-      dcterms.title,
-      RDF.literal(articleVersion.title),
-    ),
-    RDF.triple(
-      expression,
-      dcterms.date,
-      RDF.typedLiteral(articleVersion.date, xsd.date),
-    ),
-    RDF.triple(
-      expression,
-      frbr.realizationOf,
-      work,
-    ),
-    RDF.triple(
-      expression,
-      dcterms.publisher,
-      sciety.biorxiv,
-    ),
-    RDF.triple(
-      expression,
-      fabio.hasManifestation,
-      webPage,
-    ),
-    RDF.triple(
-      expression,
-      fabio.hasManifestation,
-      pdf,
-    ),
-    RDF.triple(
-      webPage,
-      rdf.type,
-      fabio.WebPage,
-    ),
-    RDF.triple(
-      webPage,
-      fabio.hasURL,
-      RDF.typedLiteral(`https://www.biorxiv.org/content/${articleVersion.doi}v${articleVersion.version}`, xsd.anyURI),
-    ),
-    RDF.triple(
-      pdf,
-      rdf.type,
-      fabio.DigitalManifestation,
-    ),
-    RDF.triple(
-      pdf,
-      dcterms.format,
-      RDF.literal('application/pdf'),
-    ),
-    RDF.triple(
-      pdf,
-      fabio.hasURL,
-      RDF.typedLiteral(`https://www.biorxiv.org/content/${articleVersion.doi}v${articleVersion.version}.pdf`, xsd.anyURI),
-    ),
+    RDF.triple(expression, rdf.type, fabio.Article),
+    RDF.triple(expression, rdfs.label, RDF.literal(`bioRxiv version ${articleVersion.version}`)),
+    RDF.triple(expression, dcterms.title, RDF.literal(articleVersion.title)),
+    RDF.triple(expression, dcterms.date, RDF.typedLiteral(articleVersion.date, xsd.date)),
+    RDF.triple(expression, frbr.realizationOf, work,),
+    RDF.triple(expression, dcterms.publisher, sciety.biorxiv),
+    RDF.triple(expression, fabio.hasManifestation, webPage),
+    RDF.triple(expression, fabio.hasManifestation, pdf),
+    RDF.triple(webPage, rdf.type, fabio.WebPage),
+    RDF.triple(webPage, fabio.hasURL, RDF.typedLiteral(`https://www.biorxiv.org/content/${articleVersion.doi}v${articleVersion.version}`, xsd.anyURI)),
+    RDF.triple(pdf, rdf.type, fabio.DigitalManifestation),
+    RDF.triple(pdf, dcterms.format, RDF.literal('application/pdf')),
+    RDF.triple(pdf, fabio.hasURL, RDF.typedLiteral(`https://www.biorxiv.org/content/${articleVersion.doi}v${articleVersion.version}.pdf`, xsd.anyURI)),
   ])
 }
 
