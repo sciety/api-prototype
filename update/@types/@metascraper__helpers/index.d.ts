@@ -9,6 +9,8 @@ declare module '@metascraper/helpers' {
 
   const title: Mapper<{ removeSeparator?: boolean }>
 
+  const url: Mapper
+
   const toRule: <O extends {}>(mapper: Mapper<{ url: string } & O>, opts?: O) => <T extends string | undefined>(check: ($: CheerioAPI) => T) => (args: CheckOptions) => Promise<string>
 
 }

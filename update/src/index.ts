@@ -1,4 +1,4 @@
-import { date, title, toRule } from '@metascraper/helpers'
+import { date, title, toRule, url } from '@metascraper/helpers'
 import * as crypto from 'crypto'
 import { sequenceT } from 'fp-ts/Apply'
 import * as E from 'fp-ts/Either'
@@ -13,7 +13,7 @@ import { URL } from 'url'
 import { biorxivArticleDetails, BiorxivArticleVersion } from './biorxiv'
 import { csv } from './csv'
 import * as D from './dataset'
-import { getFromUrl, getUrl } from './http'
+import { followRedirects, getFromUrl, getUrl } from './http'
 import * as namespaces from './namespace'
 import { dcterms, fabio, frbr, rdf, rdfs, sciety, xsd } from './namespace'
 import { exit } from './process'
@@ -41,6 +41,9 @@ const scraper = TE.tryCatchK(metascraper([
       toRule(title)($ => $('meta[name="citation_title"]').attr('content')),
       ...require('metascraper-title')().title,
     ],
+    pdf: [
+      toRule(url)($ => $('meta[name="citation_pdf_url"]').attr('content')),
+    ]
   },
   require('metascraper-lang')(),
   require('metascraper-url')(),
@@ -79,6 +82,7 @@ const scraped = d.struct({
   date: dateFromIsoString,
   doi: d.nullable(d.string),
   lang: d.string,
+  pdf: d.nullable(urlFromString),
   title: d.string,
   url: urlFromString,
 })
@@ -155,6 +159,7 @@ const doiToArticleExpressions = (doi: string) => pipe(
 const reviewExpression = ({ expression, data }: { expression: RDF.NamedNode, data: Scraped }) => {
   const work = RDF.blankNode()
   const webPage = RDF.blankNode()
+  const pdf = RDF.blankNode()
 
   return pipe(
     [
@@ -170,6 +175,12 @@ const reviewExpression = ({ expression, data }: { expression: RDF.NamedNode, dat
     ],
     D.fromArray,
     data.doi ? D.insert(RDF.triple(expression, dcterms.identifier, RDF.literal(`doi:${data.doi}`))) : identity,
+    data.pdf ? D.union(D.fromArray([
+      RDF.triple(expression, fabio.hasManifestation, pdf),
+      RDF.triple(pdf, rdf.type, fabio.DigitalManifestation),
+      RDF.triple(pdf, dcterms.format, RDF.literal('application/pdf')),
+      RDF.triple(pdf, fabio.hasURL, RDF.url(data.pdf)),
+    ])) : identity,
   )
 }
 
@@ -177,9 +188,9 @@ const reviewIdToUrl = (reviewId: string) => reviewId.replace('doi:', 'https://do
 
 const reviewIdToReview = flow(
   reviewIdToUrl,
-  TE.right,
+  followRedirects,
   TE.bindTo('url'),
-  TE.bind('expression', ({ url }) => pipe(url, RDF.namedNode, TE.right)),
+  TE.bindW('expression', ({ url }) => pipe(url, RDF.namedNode, TE.right)),
   TE.bind('html', ({ url }) => pipe(url, getFromUrl)),
   TE.bindW('data', scrape(scraped)),
   TE.map(reviewExpression),
