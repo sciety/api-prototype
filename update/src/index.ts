@@ -2,7 +2,7 @@ import { title, toRule } from '@metascraper/helpers'
 import * as crypto from 'crypto'
 import { sequenceT } from 'fp-ts/Apply'
 import * as E from 'fp-ts/Either'
-import { flow, pipe, tupled } from 'fp-ts/function'
+import { flow, identity, pipe, tupled } from 'fp-ts/function'
 import * as IO from 'fp-ts/IO'
 import * as RA from 'fp-ts/ReadonlyArray'
 import * as RR from 'fp-ts/ReadonlyRecord'
@@ -19,23 +19,28 @@ import { exit } from './process'
 import * as RDF from './rdf'
 import * as S from './string'
 
+const doiRegex = /^10\.[0-9]{4,}(?:\.[1-9][0-9]*)*\/[^%"#?\s]+$/
+
+const doi = (value: unknown) => typeof value === 'string' && doiRegex.test(value) ? value : undefined
+
 const scraper = TE.tryCatchK(metascraper([
   {
     author: [
       toRule(title)($ => $('meta[name="citation_author"]').attr('content')),
       ...require('metascraper-author')().author,
     ],
-  },
-  require('metascraper-lang')(),
-  {
+    doi: [
+      toRule(doi)($ => $('meta[name="citation_doi"]').attr('content')),
+    ],
     title: [
       toRule(title)($ => $('meta[name="citation_title"]').attr('content')),
       ...require('metascraper-title')().title,
     ],
   },
+  require('metascraper-lang')(),
 ]), E.toError)
 
-const scrape = <V extends RR.ReadonlyRecord<string, string>>(decoder: d.Decoder<unknown, V>) => <T extends { url: string, html: string }>(args: T) => pipe(
+const scrape = <V extends RR.ReadonlyRecord<string, unknown>>(decoder: d.Decoder<unknown, V>) => <T extends { url: string, html: string }>(args: T) => pipe(
   args,
   scraper,
   TE.chainEitherKW(flow(
@@ -46,6 +51,7 @@ const scrape = <V extends RR.ReadonlyRecord<string, string>>(decoder: d.Decoder<
 
 const scraped = d.struct({
   author: d.string,
+  doi: d.nullable(d.string),
   lang: d.string,
   title: d.string,
 })
@@ -122,13 +128,17 @@ const doiToArticleExpressions = (doi: string) => pipe(
 const reviewExpression = ({ expression, data }: { expression: RDF.NamedNode, data: Scraped }) => {
   const work = RDF.blankNode()
 
-  return D.fromArray([
-    RDF.triple(expression, rdf.type, fabio.ReviewArticle),
-    RDF.triple(expression, dcterms.title, RDF.languageTaggedString(data.title, data.lang)),
-    RDF.triple(expression, frbr.realizationOf, work),
-    RDF.triple(work, rdf.type, fabio.Review),
-    RDF.triple(work, dcterms.creator, RDF.list([RDF.literal(data.author)])),
-  ])
+  return pipe(
+    [
+      RDF.triple(expression, rdf.type, fabio.ReviewArticle),
+      RDF.triple(expression, dcterms.title, RDF.languageTaggedString(data.title, data.lang)),
+      RDF.triple(expression, frbr.realizationOf, work),
+      RDF.triple(work, rdf.type, fabio.Review),
+      RDF.triple(work, dcterms.creator, RDF.list([RDF.literal(data.author)])),
+    ],
+    D.fromArray,
+    data.doi ? D.insert(RDF.triple(expression, dcterms.identifier, RDF.literal(`doi:${data.doi}`))) : identity,
+  )
 }
 
 const reviewIdToUrl = (reviewId: string) => reviewId.replace('doi:', 'https://doi.org/')

@@ -9,3 +9,5 @@ export const empty: Dataset = new Set()
 export const concatAll = S.concatAll(RS.getUnionMonoid<RDF.Quad>(RDF.eq))(empty)
 
 export const fromArray = RS.fromReadonlyArray<RDF.Quad>(RDF.eq)
+
+export const insert = RS.insert<RDF.Quad>(RDF.eq)
