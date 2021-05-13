@@ -1,20 +1,56 @@
+import { title, toRule } from '@metascraper/helpers'
 import * as crypto from 'crypto'
 import { sequenceT } from 'fp-ts/Apply'
+import * as E from 'fp-ts/Either'
 import { flow, pipe, tupled } from 'fp-ts/function'
 import * as IO from 'fp-ts/IO'
 import * as RA from 'fp-ts/ReadonlyArray'
 import * as RR from 'fp-ts/ReadonlyRecord'
 import * as TE from 'fp-ts/TaskEither'
 import * as d from 'io-ts/Decoder'
+import metascraper from 'metascraper'
 import { biorxivArticleDetails, BiorxivArticleVersion } from './biorxiv'
 import { csv } from './csv'
 import * as D from './dataset'
-import { getUrl } from './http'
+import { getFromUrl, getUrl } from './http'
 import * as namespaces from './namespace'
 import { dcterms, fabio, frbr, rdf, rdfs, sciety, xsd } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
 import * as S from './string'
+
+const scraper = TE.tryCatchK(metascraper([
+  {
+    author: [
+      toRule(title)($ => $('meta[name="citation_author"]').attr('content')),
+      ...require('metascraper-author')().author,
+    ],
+  },
+  require('metascraper-lang')(),
+  {
+    title: [
+      toRule(title)($ => $('meta[name="citation_title"]').attr('content')),
+      ...require('metascraper-title')().title,
+    ],
+  },
+]), E.toError)
+
+const scrape = <V extends RR.ReadonlyRecord<string, string>>(decoder: d.Decoder<unknown, V>) => <T extends { url: string, html: string }>(args: T) => pipe(
+  args,
+  scraper,
+  TE.chainEitherKW(flow(
+    decoder.decode,
+    E.mapLeft(d.draw),
+  )),
+)
+
+const scraped = d.struct({
+  author: d.string,
+  lang: d.string,
+  title: d.string,
+})
+
+type Scraped = d.TypeOf<typeof scraped>
 
 const review = d.tuple(
   d.string,
@@ -83,10 +119,35 @@ const doiToArticleExpressions = (doi: string) => pipe(
   ))
 )
 
-const toRdf = ([, articleDoi]: Review) => pipe(
+const reviewExpression = ({ expression, data }: { expression: RDF.NamedNode, data: Scraped }) => {
+  const work = RDF.blankNode()
+
+  return D.fromArray([
+    RDF.triple(expression, rdf.type, fabio.ReviewArticle),
+    RDF.triple(expression, dcterms.title, RDF.languageTaggedString(data.title, data.lang)),
+    RDF.triple(expression, frbr.realizationOf, work),
+    RDF.triple(work, rdf.type, fabio.Review),
+    RDF.triple(work, dcterms.creator, RDF.list([RDF.literal(data.author)])),
+  ])
+}
+
+const reviewIdToUrl = (reviewId: string) => reviewId.replace('doi:', 'https://doi.org/')
+
+const reviewIdToReview = flow(
+  reviewIdToUrl,
+  TE.right,
+  TE.bindTo('url'),
+  TE.bind('expression', ({ url }) => pipe(url, RDF.namedNode, TE.right)),
+  TE.bind('html', ({ url }) => pipe(url, getFromUrl)),
+  TE.bindW('data', scrape(scraped)),
+  TE.map(reviewExpression),
+)
+
+const toRdf = ([, articleDoi, reviewId]: Review) => pipe(
   sequenceT(TE.ApplyPar)(
     pipe(articleDoi, doiToArticleWork, TE.fromIO),
     pipe(articleDoi, doiToArticleExpressions),
+    pipe(reviewId, reviewIdToReview)
   ),
   TE.map(D.concatAll),
 )

@@ -11,6 +11,6 @@ const httpGet = TE.tryCatchK<Error, [string], AxiosResponse<string>>(
 
 const decodeWith = <A>(decoder: d.Decoder<unknown, A>) => flow(decoder.decode, E.mapLeft(d.draw))
 
-const getFromUrl = flow(httpGet, TE.bimap(String, response => response.data))
+export const getFromUrl = flow(httpGet, TE.bimap(String, response => response.data))
 
 export const getUrl = <A>(decoder: d.Decoder<unknown, A>) => flow(getFromUrl, TE.chainEitherK(decodeWith(decoder)))

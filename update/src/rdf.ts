@@ -1,5 +1,6 @@
 import * as Eq from 'fp-ts/Eq'
 import { pipe } from 'fp-ts/function'
+import * as RA from 'fp-ts/ReadonlyArray'
 import * as RR from 'fp-ts/ReadonlyRecord'
 import { taskify } from 'fp-ts/TaskEither'
 import fs from 'fs'
@@ -42,11 +43,16 @@ export type DefaultGraph = {
   readonly type: 'DefaultGraph'
 }
 
+export type List = {
+  readonly type: 'List'
+  readonly values: ReadonlyArray<Object>
+}
+
 export type Subject = NamedNode | BlankNode | Quad
 
 export type Predicate = NamedNode
 
-export type Object = NamedNode | Literal | BlankNode | Quad
+export type Object = NamedNode | Literal | BlankNode | Quad | List
 
 export type Graph = DefaultGraph | NamedNode | BlankNode
 
@@ -83,6 +89,11 @@ export const defaultGraph: DefaultGraph = {
   type: 'DefaultGraph',
 }
 
+export const list = (values: ReadonlyArray<Object>): List => ({
+  type: 'List',
+  values,
+})
+
 export const triple = (subject: Subject, predicate: Predicate, object: Object) => quad(subject, predicate, object, defaultGraph)
 
 export const quad = (subject: Subject, predicate: Predicate, object: Object, graph: Graph): Quad => ({
@@ -93,7 +104,7 @@ export const quad = (subject: Subject, predicate: Predicate, object: Object, gra
   graph,
 })
 
-const toRdfJs = (term: Term): any => {
+const toRdfJs = (writer: N3.Writer) => (term: Term): any => {
   switch (term.type) {
     case 'NamedNode':
       return N3.DataFactory.namedNode(term.value)
@@ -102,11 +113,13 @@ const toRdfJs = (term: Term): any => {
     case 'LanguageTaggedString':
       return N3.DataFactory.literal(term.value, term.languageTag)
     case 'TypedLiteral':
-      return N3.DataFactory.literal(term.value, toRdfJs(term.datatype))
+      return N3.DataFactory.literal(term.value, toRdfJs(writer)(term.datatype))
     case 'Quad':
-      return N3.DataFactory.quad(toRdfJs(term.subject), toRdfJs(term.predicate), toRdfJs(term.object), toRdfJs(term.graph))
+      return N3.DataFactory.quad(toRdfJs(writer)(term.subject), toRdfJs(writer)(term.predicate), toRdfJs(writer)(term.object), toRdfJs(writer)(term.graph))
     case 'DefaultGraph':
       return N3.DataFactory.defaultGraph()
+    case 'List':
+      return pipe(term.values, RA.map(toRdfJs(writer)), ([...values]) => writer.list(values))
   }
 }
 
@@ -123,7 +136,7 @@ export const writeTo = (path: fs.PathLike, options: {
 
   const writer = new N3.Writer(fs.createWriteStream(path), { ...options, prefixes: n3prefixes })
 
-  writer.addQuads([...quads].map(toRdfJs))
+  writer.addQuads([...quads].map(toRdfJs(writer)))
 
   return taskify((...args) => writer.end(...args))()
 }
