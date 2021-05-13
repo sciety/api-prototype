@@ -9,6 +9,7 @@ import * as RR from 'fp-ts/ReadonlyRecord'
 import * as TE from 'fp-ts/TaskEither'
 import * as d from 'io-ts/Decoder'
 import metascraper from 'metascraper'
+import { URL } from 'url'
 import { biorxivArticleDetails, BiorxivArticleVersion } from './biorxiv'
 import { csv } from './csv'
 import * as D from './dataset'
@@ -42,6 +43,7 @@ const scraper = TE.tryCatchK(metascraper([
     ],
   },
   require('metascraper-lang')(),
+  require('metascraper-url')(),
 ]), E.toError)
 
 const scrape = <V extends RR.ReadonlyRecord<string, unknown>>(decoder: d.Decoder<unknown, V>) => <T extends { url: string, html: string }>(args: T) => pipe(
@@ -61,12 +63,24 @@ const dateFromIsoString: d.Decoder<unknown, Date> = pipe(
   })
 )
 
+const urlFromString: d.Decoder<unknown, URL> = pipe(
+  d.string,
+  d.parse(value => {
+    try {
+      return d.success(new URL(value))
+    } catch (err) {
+      return d.failure(value, 'urlFromString')
+    }
+  })
+)
+
 const scraped = d.struct({
   author: d.string,
   date: dateFromIsoString,
   doi: d.nullable(d.string),
   lang: d.string,
   title: d.string,
+  url: urlFromString,
 })
 
 type Scraped = d.TypeOf<typeof scraped>
@@ -140,15 +154,19 @@ const doiToArticleExpressions = (doi: string) => pipe(
 
 const reviewExpression = ({ expression, data }: { expression: RDF.NamedNode, data: Scraped }) => {
   const work = RDF.blankNode()
+  const webPage = RDF.blankNode()
 
   return pipe(
     [
       RDF.triple(expression, rdf.type, fabio.ReviewArticle),
       RDF.triple(expression, dcterms.title, RDF.languageTaggedString(data.title, data.lang)),
       RDF.triple(expression, frbr.realizationOf, work),
+      RDF.triple(expression, fabio.hasManifestation, webPage),
       RDF.triple(work, rdf.type, fabio.Review),
       RDF.triple(work, dcterms.creator, RDF.list([RDF.literal(data.author)])),
       RDF.triple(work, dcterms.date, RDF.date(data.date)),
+      RDF.triple(webPage, rdf.type, fabio.WebPage),
+      RDF.triple(webPage, fabio.hasURL, RDF.url(data.url)),
     ],
     D.fromArray,
     data.doi ? D.insert(RDF.triple(expression, dcterms.identifier, RDF.literal(`doi:${data.doi}`))) : identity,

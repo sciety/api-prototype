@@ -5,6 +5,7 @@ import * as RR from 'fp-ts/ReadonlyRecord'
 import { taskify } from 'fp-ts/TaskEither'
 import fs from 'fs'
 import * as N3 from 'n3'
+import { URL } from 'url'
 
 export type NamedNode<Iri extends string = string> = {
   readonly type: 'NamedNode'
@@ -84,6 +85,8 @@ export function typedLiteral<T extends string>(value: string, datatype: NamedNod
 }
 
 export const date = (value: Date) => typedLiteral(value.toISOString().substring(0, 10), namedNode('http://www.w3.org/2001/XMLSchema#date'))
+
+export const url = (value: URL) => typedLiteral(value.toString(), namedNode('http://www.w3.org/2001/XMLSchema#anyURI'))
 
 export const literal = (value: string) => typedLiteral(value, namedNode('http://www.w3.org/2001/XMLSchema#string'))
 
