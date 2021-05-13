@@ -15,7 +15,7 @@ import { csv } from './csv'
 import * as D from './dataset'
 import { getFromUrl, getUrl } from './http'
 import * as namespaces from './namespace'
-import { dcterms, fabio, frbr, rdf, rdfs, sciety, xsd } from './namespace'
+import { cito, dcterms, fabio, frbr, rdf, rdfs, sciety, xsd } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
 import * as S from './string'
@@ -156,7 +156,11 @@ const doiToArticleExpressions = (doi: string) => pipe(
   ))
 )
 
-const reviewExpression = ({ expression, data }: { expression: RDF.NamedNode, data: Scraped }) => {
+const reviewExpression = ({
+  articleWork,
+  expression,
+  data
+}: { articleWork: RDF.NamedNode, expression: RDF.NamedNode, data: Scraped }) => {
   const work = RDF.blankNode()
   const webPage = RDF.blankNode()
   const pdf = RDF.blankNode()
@@ -167,9 +171,11 @@ const reviewExpression = ({ expression, data }: { expression: RDF.NamedNode, dat
       RDF.triple(expression, dcterms.title, RDF.languageTaggedString(data.title, data.lang)),
       RDF.triple(expression, frbr.realizationOf, work),
       RDF.triple(expression, fabio.hasManifestation, webPage),
+      RDF.triple(expression, dcterms.publisher, sciety('pci-animal-science')),
       RDF.triple(work, rdf.type, fabio.Review),
       RDF.triple(work, dcterms.creator, RDF.list([RDF.literal(data.author)])),
       RDF.triple(work, dcterms.date, RDF.date(data.date)),
+      RDF.triple(work, cito.citesAsRecommendedReading, articleWork),
       RDF.triple(webPage, rdf.type, fabio.WebPage),
       RDF.triple(webPage, fabio.hasURL, RDF.url(data.url)),
     ],
@@ -187,9 +193,10 @@ const reviewExpression = ({ expression, data }: { expression: RDF.NamedNode, dat
 const reviewIdToUrl = (reviewId: string) => reviewId.replace('doi:', 'https://doi.org/')
 
 const reviewIdToReview = flow(
-  reviewIdToUrl,
+  ([articleDoi, reviewId]: [string, string]) => ({ articleDoi, reviewId }),
   TE.right,
-  TE.bindTo('url'),
+  TE.bind('url', ({ reviewId }) => pipe(reviewId, reviewIdToUrl, TE.right)),
+  TE.bind('articleWork', ({ articleDoi }) => pipe(articleDoi, partToHashedIri, TE.rightIO)),
   TE.bindW('expression', ({ url }) => pipe(url.replace('https://doi.org/', ''), sciety, TE.right)),
   TE.bind('html', ({ url }) => pipe(url, getFromUrl)),
   TE.bindW('data', scrape(scraped)),
@@ -200,7 +207,7 @@ const toRdf = ([, articleDoi, reviewId]: Review) => pipe(
   sequenceT(TE.ApplyPar)(
     pipe(articleDoi, doiToArticleWork, TE.fromIO),
     pipe(articleDoi, doiToArticleExpressions),
-    pipe(reviewId, reviewIdToReview)
+    pipe([articleDoi, reviewId], reviewIdToReview)
   ),
   TE.map(D.concatAll),
 )

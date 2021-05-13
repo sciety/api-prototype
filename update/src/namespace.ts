@@ -15,6 +15,8 @@ function namespace<A extends string>(namespace: A): NamespaceBuilder<A> {
   }) as any
 }
 
+export const cito = namespace('http://purl.org/spar/cito/')
+
 export const dcterms = namespace('http://purl.org/dc/terms/')
 
 export const fabio = namespace('http://purl.org/spar/fabio/')
