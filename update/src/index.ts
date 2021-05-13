@@ -13,7 +13,7 @@ import { URL } from 'url'
 import { biorxivArticleDetails, BiorxivArticleVersion } from './biorxiv'
 import { csv } from './csv'
 import * as D from './dataset'
-import { followRedirects, getFromUrl, getUrl } from './http'
+import { getFromUrl, getUrl } from './http'
 import * as namespaces from './namespace'
 import { dcterms, fabio, frbr, rdf, rdfs, sciety, xsd } from './namespace'
 import { exit } from './process'
@@ -188,9 +188,9 @@ const reviewIdToUrl = (reviewId: string) => reviewId.replace('doi:', 'https://do
 
 const reviewIdToReview = flow(
   reviewIdToUrl,
-  followRedirects,
+  TE.right,
   TE.bindTo('url'),
-  TE.bindW('expression', ({ url }) => pipe(url, RDF.namedNode, TE.right)),
+  TE.bindW('expression', ({ url }) => pipe(url.replace('https://doi.org/', ''), sciety, TE.right)),
   TE.bind('html', ({ url }) => pipe(url, getFromUrl)),
   TE.bindW('data', scrape(scraped)),
   TE.map(reviewExpression),
