@@ -3,6 +3,7 @@
   "dependencies": {
     "@metascraper/helpers": "^5.21.7",
     "axios": "^0.21.1",
+    "axios-cache-adapter": "^2.7.3",
     "chalk": "^4.1.1",
     "csv-parse": "^4.15.4",
     "fp-ts": "^2.10.5",
