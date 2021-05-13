@@ -83,6 +83,8 @@ export function typedLiteral<T extends string>(value: string, datatype: NamedNod
   }
 }
 
+export const date = (value: Date) => typedLiteral(value.toISOString().substring(0, 10), namedNode('http://www.w3.org/2001/XMLSchema#date'))
+
 export const literal = (value: string) => typedLiteral(value, namedNode('http://www.w3.org/2001/XMLSchema#string'))
 
 export const defaultGraph: DefaultGraph = {

@@ -1,4 +1,4 @@
-import { title, toRule } from '@metascraper/helpers'
+import { date, title, toRule } from '@metascraper/helpers'
 import * as crypto from 'crypto'
 import { sequenceT } from 'fp-ts/Apply'
 import * as E from 'fp-ts/Either'
@@ -29,6 +29,10 @@ const scraper = TE.tryCatchK(metascraper([
       toRule(title)($ => $('meta[name="citation_author"]').attr('content')),
       ...require('metascraper-author')().author,
     ],
+    date: [
+      toRule(date)($ => $('meta[name="citation_publication_date"]').attr('content')),
+      ...require('metascraper-date')().date,
+    ],
     doi: [
       toRule(doi)($ => $('meta[name="citation_doi"]').attr('content')),
     ],
@@ -49,8 +53,17 @@ const scrape = <V extends RR.ReadonlyRecord<string, unknown>>(decoder: d.Decoder
   )),
 )
 
+const dateFromIsoString: d.Decoder<unknown, Date> = pipe(
+  d.string,
+  d.parse(value => {
+    const date = new Date(value)
+    return isNaN(date.getTime()) ? d.failure(value, 'dateFromIsoString') : d.success(date)
+  })
+)
+
 const scraped = d.struct({
   author: d.string,
+  date: dateFromIsoString,
   doi: d.nullable(d.string),
   lang: d.string,
   title: d.string,
@@ -135,6 +148,7 @@ const reviewExpression = ({ expression, data }: { expression: RDF.NamedNode, dat
       RDF.triple(expression, frbr.realizationOf, work),
       RDF.triple(work, rdf.type, fabio.Review),
       RDF.triple(work, dcterms.creator, RDF.list([RDF.literal(data.author)])),
+      RDF.triple(work, dcterms.date, RDF.date(data.date)),
     ],
     D.fromArray,
     data.doi ? D.insert(RDF.triple(expression, dcterms.identifier, RDF.literal(`doi:${data.doi}`))) : identity,
