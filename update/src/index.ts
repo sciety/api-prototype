@@ -2,7 +2,7 @@ import { date, publisher, title, toRule, url } from '@metascraper/helpers'
 import * as crypto from 'crypto'
 import { sequenceS, sequenceT } from 'fp-ts/Apply'
 import * as E from 'fp-ts/Either'
-import { constant, flow, identity, pipe, tupled } from 'fp-ts/function'
+import { flow, identity, pipe } from 'fp-ts/function'
 import * as IO from 'fp-ts/IO'
 import * as O from 'fp-ts/Option'
 import * as RA from 'fp-ts/ReadonlyArray'
@@ -13,15 +13,14 @@ import metascraper from 'metascraper'
 import path from 'path'
 import puppeteer, { Browser } from 'puppeteer'
 import { URL } from 'url'
-import { biorxivArticleDetails, BiorxivArticleVersion } from './biorxiv'
+import { biorxivArticleDetails } from './biorxiv'
 import { csv } from './csv'
 import * as D from './dataset'
 import { getFromUrl, getUrl } from './http'
 import * as namespaces from './namespace'
-import { cito, dcterms, fabio, frbr, org, rdf, rdfs, sciety, xsd } from './namespace'
+import { cito, dcterms, fabio, frbr, org, rdf, rdfs, sciety } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
-import * as S from './string'
 
 const doiRegex = /^10\.[0-9]{4,}(?:\.[1-9][0-9]*)*\/[^%"#?\s]+$/
 
@@ -111,47 +110,16 @@ const md5 = (string: string) => () => crypto.createHash('md5').update(string).di
 
 const partToHashedIri = flow(md5, IO.map(sciety))
 
-const partsToIri = flow(S.join(S.empty), sciety)
-
 const biorxivWork = (work: RDF.NamedNode) => D.fromArray([
   RDF.triple(work, rdf.type, fabio.ResearchPaper),
   RDF.triple(work, rdfs.label, RDF.literal('A paper'))
 ])
-
-const biorxivExpression = (articleVersion: BiorxivArticleVersion, work: RDF.NamedNode, expression: RDF.NamedNode) => {
-  const webPage = RDF.blankNode()
-  const pdf = RDF.blankNode()
-
-  return D.fromArray([
-    RDF.triple(expression, rdf.type, fabio.Article),
-    RDF.triple(expression, rdfs.label, RDF.literal(`bioRxiv version ${articleVersion.version}`)),
-    RDF.triple(expression, dcterms.title, RDF.literal(articleVersion.title)),
-    RDF.triple(expression, dcterms.date, RDF.typedLiteral(articleVersion.date, xsd.date)),
-    RDF.triple(expression, frbr.realizationOf, work,),
-    RDF.triple(expression, dcterms.publisher, sciety.biorxiv),
-    RDF.triple(expression, fabio.hasManifestation, webPage),
-    RDF.triple(expression, fabio.hasManifestation, pdf),
-    RDF.triple(webPage, rdf.type, fabio.WebPage),
-    RDF.triple(webPage, fabio.hasURL, RDF.typedLiteral(`https://www.biorxiv.org/content/${articleVersion.doi}v${articleVersion.version}`, xsd.anyURI)),
-    RDF.triple(pdf, rdf.type, fabio.DigitalManifestation),
-    RDF.triple(pdf, dcterms.format, RDF.literal('application/pdf')),
-    RDF.triple(pdf, fabio.hasURL, RDF.typedLiteral(`https://www.biorxiv.org/content/${articleVersion.doi}v${articleVersion.version}.pdf`, xsd.anyURI)),
-  ])
-}
 
 const doiToArticleWork = flow(
   partToHashedIri,
   IO.map(biorxivWork)
 )
 
-const detailsToArticleExpression = (articleVersion: BiorxivArticleVersion) => pipe(
-  sequenceT(IO.Apply)(
-    pipe(articleVersion, IO.of),
-    pipe(articleVersion.doi, partToHashedIri),
-    pipe([articleVersion.doi, `v${articleVersion.version}`], partsToIri, IO.of),
-  ),
-  IO.map(tupled(biorxivExpression))
-)
 const doiExpression = ({
   work,
   expression,
@@ -186,48 +154,45 @@ const doiExpression = ({
   )
 }
 
-const doiToExpression = (browser: Browser) => (published: string, doi: string) => pipe(
-  sequenceS(TE.ApplyPar)({
-    data: pipe(
-      published,
-      doiToUrl,
-      getFromUrl(browser),
-      TE.chain(response => sequenceS(TE.ApplyPar)({
-        html: TE.tryCatch(() => response.text(), E.toError),
-        url: pipe(response.url(), TE.right),
-      })),
-      TE.chain(scrape(scraped)),
-    ),
-    work: pipe(doi, partToHashedIri, TE.rightIO),
-    expression: pipe(published, sciety, TE.right),
-  }),
-  TE.map(doiExpression),
+const doiToExpression = (browser: Browser) => ({
+  url,
+  expression,
+  work
+}: { url: string, expression: RDF.NamedNode, work: RDF.NamedNode }) => pipe(
+  pipe(
+    url,
+    getFromUrl(browser),
+    TE.chain(response => sequenceS(TE.ApplyPar)({
+      html: TE.tryCatch(() => response.text(), E.toError),
+      url: pipe(response.url(), TE.right),
+    })),
+    TE.chain(scrape(scraped)),
+  ),
+  TE.map(data => doiExpression({ data, expression, work })),
 )
-
-const doiToUrl = (doi: string) => `https://doi.org/${doi}`
 
 const doiToArticleExpressions = (browser: Browser) => (doi: string) => pipe(
   `https://api.biorxiv.org/details/biorxiv/${doi}`,
   getUrl(browser)(biorxivArticleDetails),
-  TE.chainW(details => sequenceT(TE.ApplyPar)(
-    pipe(
-      sequenceT(O.Apply)(
-        details.collection[0].published,
-        O.some(doi),
-      ),
-      O.fold(
-        constant(pipe(D.empty, TE.right)),
-        tupled(doiToExpression(browser)),
-      ),
-    ),
-    pipe(
-      details.collection,
-      RA.map(detailsToArticleExpression),
-      IO.sequenceArray,
-      IO.map(D.concatAll),
-      TE.rightIO,
-    ),
+  TE.apSW('work', pipe(doi, partToHashedIri, TE.rightIO)),
+  TE.map(details => pipe(
+    details.collection,
+    RA.map(articleVersion => O.some({
+      url: `https://www.biorxiv.org/content/${articleVersion.doi}v${articleVersion.version}`,
+      expression: sciety(`${articleVersion.doi}v${articleVersion.version}`),
+      work: details.work,
+    })),
+    RA.append(pipe(
+      details.collection[0].published,
+      O.map(doi => ({
+        url: `https://doi.org/${doi}`,
+        expression: sciety(doi),
+        work: details.work,
+      })),
+    )),
+    RA.compact,
   )),
+  TE.chain(TE.traverseArray(doiToExpression(browser))),
   TE.map(D.concatAll),
 )
 
