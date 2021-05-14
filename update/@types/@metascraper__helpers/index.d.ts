@@ -7,6 +7,8 @@ declare module '@metascraper/helpers' {
 
   const date: Mapper
 
+  const publisher: Mapper
+
   const title: Mapper<{ removeSeparator?: boolean }>
 
   const url: Mapper

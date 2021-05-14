@@ -1,9 +1,10 @@
-import { date, title, toRule, url } from '@metascraper/helpers'
+import { date, publisher, title, toRule, url } from '@metascraper/helpers'
 import * as crypto from 'crypto'
-import { sequenceT } from 'fp-ts/Apply'
+import { sequenceS, sequenceT } from 'fp-ts/Apply'
 import * as E from 'fp-ts/Either'
-import { flow, identity, pipe, tupled } from 'fp-ts/function'
+import { constant, flow, identity, pipe, tupled } from 'fp-ts/function'
 import * as IO from 'fp-ts/IO'
+import * as O from 'fp-ts/Option'
 import * as RA from 'fp-ts/ReadonlyArray'
 import * as RR from 'fp-ts/ReadonlyRecord'
 import * as TE from 'fp-ts/TaskEither'
@@ -17,7 +18,7 @@ import { csv } from './csv'
 import * as D from './dataset'
 import { getFromUrl, getUrl } from './http'
 import * as namespaces from './namespace'
-import { cito, dcterms, fabio, frbr, rdf, rdfs, sciety, xsd } from './namespace'
+import { cito, dcterms, fabio, frbr, org, rdf, rdfs, sciety, xsd } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
 import * as S from './string'
@@ -38,6 +39,10 @@ const scraper = TE.tryCatchK(metascraper([
     ],
     doi: [
       toRule(doi)($ => $('meta[name="citation_doi"]').attr('content')),
+    ],
+    publisher: [
+      toRule(publisher)($ => $('meta[name="citation_publisher"]').attr('content')),
+      ...require('metascraper-publisher')().publisher,
     ],
     title: [
       toRule(title)($ => $('meta[name="citation_title"]').attr('content')),
@@ -85,6 +90,7 @@ const scraped = d.struct({
   doi: d.nullable(d.string),
   lang: d.string,
   pdf: d.nullable(urlFromString),
+  publisher: d.string,
   title: d.string,
   url: urlFromString,
 })
@@ -146,16 +152,83 @@ const detailsToArticleExpression = (articleVersion: BiorxivArticleVersion) => pi
   ),
   IO.map(tupled(biorxivExpression))
 )
+const doiExpression = ({
+  work,
+  expression,
+  data
+}: { work: RDF.NamedNode, expression: RDF.NamedNode, data: Scraped }) => {
+  const webPage = RDF.blankNode()
+  const pdf = RDF.blankNode()
+  const publisher = RDF.blankNode()
+
+  return pipe(
+    [
+      RDF.triple(expression, rdf.type, fabio.Article),
+      RDF.triple(expression, dcterms.title, RDF.literal(data.title)),
+      RDF.triple(expression, dcterms.date, RDF.date(data.date)),
+      RDF.triple(expression, frbr.realizationOf, work),
+      RDF.triple(expression, dcterms.publisher, publisher),
+      RDF.triple(expression, fabio.hasManifestation, webPage),
+      RDF.triple(expression, fabio.hasManifestation, pdf),
+      RDF.triple(webPage, rdf.type, fabio.WebPage),
+      RDF.triple(webPage, fabio.hasURL, RDF.url(data.url)),
+      RDF.triple(publisher, rdf.type, org.Organization),
+      RDF.triple(publisher, rdfs.label, RDF.literal(data.publisher)),
+    ],
+    D.fromArray,
+    data.doi ? D.insert(RDF.triple(expression, dcterms.identifier, RDF.literal(`doi:${data.doi}`))) : identity,
+    data.pdf ? D.union(D.fromArray([
+      RDF.triple(expression, fabio.hasManifestation, pdf),
+      RDF.triple(pdf, rdf.type, fabio.DigitalManifestation),
+      RDF.triple(pdf, dcterms.format, RDF.literal('application/pdf')),
+      RDF.triple(pdf, fabio.hasURL, RDF.url(data.pdf)),
+    ])) : identity,
+  )
+}
+
+const doiToExpression = (browser: Browser) => (published: string, doi: string) => pipe(
+  sequenceS(TE.ApplyPar)({
+    data: pipe(
+      published,
+      doiToUrl,
+      getFromUrl(browser),
+      TE.chain(response => sequenceS(TE.ApplyPar)({
+        html: TE.tryCatch(() => response.text(), E.toError),
+        url: pipe(response.url(), TE.right),
+      })),
+      TE.chain(scrape(scraped)),
+    ),
+    work: pipe(doi, partToHashedIri, TE.rightIO),
+    expression: pipe(published, sciety, TE.right),
+  }),
+  TE.map(doiExpression),
+)
+
+const doiToUrl = (doi: string) => `https://doi.org/${doi}`
 
 const doiToArticleExpressions = (browser: Browser) => (doi: string) => pipe(
   `https://api.biorxiv.org/details/biorxiv/${doi}`,
   getUrl(browser)(biorxivArticleDetails),
-  TE.chainIOK(flow(
-    details => details.collection,
-    RA.map(detailsToArticleExpression),
-    IO.sequenceArray,
-    IO.map(D.concatAll)
-  ))
+  TE.chainW(details => sequenceT(TE.ApplyPar)(
+    pipe(
+      sequenceT(O.Apply)(
+        details.collection[0].published,
+        O.some(doi),
+      ),
+      O.fold(
+        constant(pipe(D.empty, TE.right)),
+        tupled(doiToExpression(browser)),
+      ),
+    ),
+    pipe(
+      details.collection,
+      RA.map(detailsToArticleExpression),
+      IO.sequenceArray,
+      IO.map(D.concatAll),
+      TE.rightIO,
+    ),
+  )),
+  TE.map(D.concatAll),
 )
 
 const reviewExpression = ({

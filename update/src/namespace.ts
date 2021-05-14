@@ -23,6 +23,8 @@ export const fabio = namespace('http://purl.org/spar/fabio/')
 
 export const frbr = namespace('http://purl.org/vocab/frbr/core#')
 
+export const org = namespace('http://www.w3.org/ns/org#')
+
 export const rdf = namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 
 export const rdfs = namespace('http://www.w3.org/2000/01/rdf-schema#')
