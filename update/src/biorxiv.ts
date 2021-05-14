@@ -1,4 +1,5 @@
 import * as d from 'io-ts/Decoder'
+import { json } from './json'
 
 const biorxivArticleVersion = d.struct({
   date: d.string,
@@ -7,8 +8,8 @@ const biorxivArticleVersion = d.struct({
   version: d.string,
 })
 
-export const biorxivArticleDetails = d.struct({
+export const biorxivArticleDetails = json(d.struct({
   collection: d.array(biorxivArticleVersion)
-})
+}))
 
 export type BiorxivArticleVersion = d.TypeOf<typeof biorxivArticleVersion>

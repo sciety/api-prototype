@@ -9,6 +9,8 @@ import * as RR from 'fp-ts/ReadonlyRecord'
 import * as TE from 'fp-ts/TaskEither'
 import * as d from 'io-ts/Decoder'
 import metascraper from 'metascraper'
+import path from 'path'
+import puppeteer, { Browser } from 'puppeteer'
 import { URL } from 'url'
 import { biorxivArticleDetails, BiorxivArticleVersion } from './biorxiv'
 import { csv } from './csv'
@@ -145,9 +147,9 @@ const detailsToArticleExpression = (articleVersion: BiorxivArticleVersion) => pi
   IO.map(tupled(biorxivExpression))
 )
 
-const doiToArticleExpressions = (doi: string) => pipe(
+const doiToArticleExpressions = (browser: Browser) => (doi: string) => pipe(
   `https://api.biorxiv.org/details/biorxiv/${doi}`,
-  getUrl(biorxivArticleDetails),
+  getUrl(browser)(biorxivArticleDetails),
   TE.chainIOK(flow(
     details => details.collection,
     RA.map(detailsToArticleExpression),
@@ -192,22 +194,23 @@ const reviewExpression = ({
 
 const reviewIdToUrl = (reviewId: string) => reviewId.replace('doi:', 'https://doi.org/')
 
-const reviewIdToReview = flow(
+const reviewIdToReview = (browser: Browser) => flow(
   ([articleDoi, reviewId]: [string, string]) => ({ articleDoi, reviewId }),
   TE.right,
   TE.bind('url', ({ reviewId }) => pipe(reviewId, reviewIdToUrl, TE.right)),
   TE.bind('articleWork', ({ articleDoi }) => pipe(articleDoi, partToHashedIri, TE.rightIO)),
   TE.bindW('expression', ({ url }) => pipe(url.replace('https://doi.org/', ''), sciety, TE.right)),
-  TE.bind('html', ({ url }) => pipe(url, getFromUrl)),
+  TE.bind('response', ({ url }) => pipe(url, getFromUrl(browser))),
+  TE.bind('html', ({ response }) => TE.tryCatch(() => response.text(), E.toError)),
   TE.bindW('data', scrape(scraped)),
   TE.map(reviewExpression),
 )
 
-const toRdf = ([, articleDoi, reviewId]: Review) => pipe(
+const toRdf = (browser: Browser) => ([, articleDoi, reviewId]: Review) => pipe(
   sequenceT(TE.ApplyPar)(
     pipe(articleDoi, doiToArticleWork, TE.fromIO),
-    pipe(articleDoi, doiToArticleExpressions),
-    pipe([articleDoi, reviewId], reviewIdToReview)
+    pipe(articleDoi, doiToArticleExpressions(browser)),
+    pipe([articleDoi, reviewId], reviewIdToReview(browser))
   ),
   TE.map(D.concatAll),
 )
@@ -218,10 +221,14 @@ const prefixes = pipe(
 )
 
 pipe(
-  'https://github.com/sciety/sciety/raw/main/data/reviews/4eebcec9-a4bb-44e1-bde3-2ae11e65daaa.csv',
-  getUrl(reviews),
-  TE.chainW(TE.traverseArray(toRdf)),
-  TE.map(D.concatAll),
-  TE.chainFirstIOK(RDF.writeTo('output.ttl', { format: 'turtle', prefixes })),
+  TE.tryCatch(() => puppeteer.launch({ headless: true, userDataDir: path.join(__dirname, '../cache') }), E.toError),
+  TE.chainFirst(browser => pipe(
+    'https://github.com/sciety/sciety/raw/main/data/reviews/4eebcec9-a4bb-44e1-bde3-2ae11e65daaa.csv',
+    getUrl(browser)(reviews),
+    TE.chainW(TE.traverseArray(toRdf(browser))),
+    TE.map(D.concatAll),
+    TE.chainFirstIOK(RDF.writeTo('output.ttl', { format: 'turtle', prefixes })),
+  )),
+  TE.chainW(TE.tryCatchK(browser => browser.close(), E.toError)),
   exit,
 )()

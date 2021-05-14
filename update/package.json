@@ -2,8 +2,6 @@
   "private": true,
   "dependencies": {
     "@metascraper/helpers": "^5.21.7",
-    "axios": "^0.21.1",
-    "axios-cache-adapter": "^2.7.3",
     "chalk": "^4.1.1",
     "csv-parse": "^4.15.4",
     "fp-ts": "^2.10.5",
@@ -14,7 +12,8 @@
     "metascraper-lang": "^5.21.7",
     "metascraper-title": "^5.21.7",
     "metascraper-url": "^5.21.7",
-    "n3": "^1.10.0"
+    "n3": "^1.10.0",
+    "puppeteer": "^9.1.1"
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.0",
