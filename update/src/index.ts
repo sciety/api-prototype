@@ -39,6 +39,9 @@ const scraper = TE.tryCatchK(metascraper([
     doi: [
       toRule(doi)($ => $('meta[name="citation_doi"]').attr('content')),
     ],
+    journal: [
+      toRule(publisher)($ => $('meta[name="citation_journal_title"]').attr('content')),
+    ],
     publisher: [
       toRule(publisher)($ => $('meta[name="citation_publisher"]').attr('content')),
       ...require('metascraper-publisher')().publisher,
@@ -88,6 +91,7 @@ const scraped = d.struct({
   date: dateFromIsoString,
   doi: d.nullable(d.string),
   lang: d.string,
+  journal: d.nullable(d.string),
   pdf: d.nullable(urlFromString),
   publisher: d.string,
   title: d.string,
@@ -128,6 +132,7 @@ const doiExpression = ({
   const webPage = RDF.blankNode()
   const pdf = RDF.blankNode()
   const publisher = RDF.blankNode()
+  const journal = RDF.blankNode()
 
   return pipe(
     [
@@ -145,6 +150,11 @@ const doiExpression = ({
     ],
     D.fromArray,
     data.doi ? D.insert(RDF.triple(expression, dcterms.identifier, RDF.literal(`doi:${data.doi}`))) : identity,
+    data.journal ? D.union(D.fromArray([
+      RDF.triple(expression, frbr.partOf, journal),
+      RDF.triple(journal, rdf.type, fabio.Journal),
+      RDF.triple(journal, dcterms.title, RDF.literal(data.journal)),
+    ])) : identity,
     data.pdf ? D.union(D.fromArray([
       RDF.triple(expression, fabio.hasManifestation, pdf),
       RDF.triple(pdf, rdf.type, fabio.DigitalManifestation),
