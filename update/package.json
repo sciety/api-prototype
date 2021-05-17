@@ -14,6 +14,7 @@
     "metascraper-title": "^5.21.7",
     "metascraper-url": "^5.21.7",
     "n3": "^1.10.0",
+    "p-limit": "^3.1.0",
     "puppeteer": "^9.1.1"
   },
   "devDependencies": {

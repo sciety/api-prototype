@@ -3,7 +3,10 @@ import { constVoid, flow, pipe } from 'fp-ts/function'
 import * as T from 'fp-ts/Task'
 import * as TE from 'fp-ts/TaskEither'
 import * as d from 'io-ts/Decoder'
+import pLimit from 'p-limit'
 import { Browser } from 'puppeteer'
+
+const limit = pLimit(10)
 
 const decodeWith = <A>(decoder: d.Decoder<unknown, A>) => flow(decoder.decode, E.mapLeft(d.draw))
 
@@ -12,7 +15,7 @@ type Response = {
   url: string,
 }
 
-export const getFromUrl = (browser: Browser) => (url: string): TE.TaskEither<Error, Response> => pipe(
+export const getFromUrl = (browser: Browser) => (url: string): TE.TaskEither<Error, Response> => () => limit(pipe(
   TE.tryCatch(() => browser.newPage(), E.toError),
   TE.chainFirst(TE.tryCatchK(page => page.setRequestInterception(true, true), E.toError)),
   TE.chainFirstIOK(page => () => page.on('request', request => {
@@ -31,7 +34,7 @@ export const getFromUrl = (browser: Browser) => (url: string): TE.TaskEither<Err
     )),
     T.chainFirst(() => TE.tryCatch(() => page.close(), constVoid)),
   )),
-)
+))
 
 export const getUrl = (browser: Browser) => <A>(decoder: d.Decoder<unknown, A>) => flow(
   getFromUrl(browser),
