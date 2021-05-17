@@ -1,6 +1,7 @@
+import * as A from 'fp-ts/Array'
 import { flow, pipe } from 'fp-ts/function'
-import * as d from 'io-ts/Decoder'
 import * as O from 'fp-ts/Option'
+import * as d from 'io-ts/Decoder'
 import { json } from './json'
 
 const doiFromNAString = pipe(
@@ -9,6 +10,11 @@ const doiFromNAString = pipe(
     O.fromPredicate(value => value !== 'NA'),
     d.success,
   )),
+)
+
+const nonEmptyArray = flow(
+  d.array,
+  d.refine(A.isNonEmpty, 'nonEmptyArray'),
 )
 
 const biorxivArticleVersion = d.struct({
@@ -20,7 +26,7 @@ const biorxivArticleVersion = d.struct({
 })
 
 export const biorxivArticleDetails = json(d.struct({
-  collection: d.array(biorxivArticleVersion)
+  collection: nonEmptyArray(biorxivArticleVersion)
 }))
 
 export type BiorxivArticleVersion = d.TypeOf<typeof biorxivArticleVersion>
