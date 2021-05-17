@@ -28,7 +28,8 @@ export const getFromUrl = (browser: Browser) => (url: string): TE.TaskEither<Err
   })),
   TE.chain(page => pipe(
     TE.tryCatch(() => page.goto(url, { waitUntil: ['networkidle0'] }), E.toError),
-    TE.chainW(response => pipe(
+    TE.filterOrElse(response => response !== null, () => new Error(`No response found for ${page.url()} (when requesting ${url})`)), // https://github.com/puppeteer/puppeteer/issues/5011
+    TE.chain(response => pipe(
       TE.Do,
       TE.apS('text', TE.tryCatch(() => response.text(), E.toError)),
       TE.apSW('url', pipe(response.url(), TE.right)),
