@@ -1,5 +1,6 @@
 import * as E from 'fp-ts/Either'
-import { flow, pipe } from 'fp-ts/function'
+import { constVoid, flow, pipe } from 'fp-ts/function'
+import * as T from 'fp-ts/Task'
 import * as TE from 'fp-ts/TaskEither'
 import * as d from 'io-ts/Decoder'
 import { Browser } from 'puppeteer'
@@ -21,13 +22,14 @@ export const getFromUrl = (browser: Browser) => (url: string): TE.TaskEither<Err
 
     return request.continue()
   })),
-  TE.chain(flow(
-    TE.tryCatchK(page => page.goto(url, { waitUntil: ['networkidle0'] }), E.toError),
+  TE.chain(page => pipe(
+    TE.tryCatch(() => page.goto(url, { waitUntil: ['networkidle0'] }), E.toError),
     TE.chainW(response => pipe(
       TE.Do,
       TE.apS('text', TE.tryCatch(() => response.text(), E.toError)),
       TE.apSW('url', pipe(response.url(), TE.right)),
     )),
+    T.chainFirst(() => TE.tryCatch(() => page.close(), constVoid)),
   )),
 )
 
