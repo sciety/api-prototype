@@ -188,11 +188,15 @@ const doiToExpression = (browser: Browser) => ({
 const doiToArticleExpressions = (browser: Browser) => (doi: string) => pipe(
   `https://api.biorxiv.org/details/biorxiv/${doi}`,
   getUrl(browser)(biorxivArticleDetails),
+  TE.alt(() => pipe(
+    `https://api.biorxiv.org/details/medrxiv/${doi}`,
+    getUrl(browser)(biorxivArticleDetails),
+  )),
   TE.apSW('work', pipe(doi, partToHashedIri, TE.rightIO)),
   TE.map(details => pipe(
     details.collection,
     RA.map(articleVersion => O.some({
-      url: `https://www.biorxiv.org/content/${articleVersion.doi}v${articleVersion.version}`,
+      url: `https://www.${articleVersion.server}.org/content/${articleVersion.doi}v${articleVersion.version}`,
       expression: sciety(`${articleVersion.doi}v${articleVersion.version}`),
       work: details.work,
     })),

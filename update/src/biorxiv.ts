@@ -23,6 +23,7 @@ const biorxivArticleVersion = d.struct({
   title: d.string,
   version: d.string,
   published: doiFromNAString,
+  server: d.union(d.literal('biorxiv'), d.literal('medrxiv')),
 })
 
 export const biorxivArticleDetails = json(d.struct({
