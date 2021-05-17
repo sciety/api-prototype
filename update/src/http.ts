@@ -6,7 +6,12 @@ import { Browser } from 'puppeteer'
 
 const decodeWith = <A>(decoder: d.Decoder<unknown, A>) => flow(decoder.decode, E.mapLeft(d.draw))
 
-export const getFromUrl = (browser: Browser) => (url: string) => pipe(
+type Response = {
+  text: string,
+  url: string,
+}
+
+export const getFromUrl = (browser: Browser) => (url: string): TE.TaskEither<Error, Response> => pipe(
   TE.tryCatch(() => browser.newPage(), E.toError),
   TE.chainFirst(TE.tryCatchK(page => page.setRequestInterception(true, true), E.toError)),
   TE.chainFirstIOK(page => () => page.on('request', request => {
@@ -16,11 +21,20 @@ export const getFromUrl = (browser: Browser) => (url: string) => pipe(
 
     return request.continue()
   })),
-  TE.chain(TE.tryCatchK(page => page.goto(url, { waitUntil: 'networkidle0' }), E.toError)),
+  TE.chain(flow(
+    TE.tryCatchK(page => page.goto(url, { waitUntil: ['networkidle0'] }), E.toError),
+    TE.chainW(response => pipe(
+      TE.Do,
+      TE.apS('text', TE.tryCatch(() => response.text(), E.toError)),
+      TE.apSW('url', pipe(response.url(), TE.right)),
+    )),
+  )),
 )
 
 export const getUrl = (browser: Browser) => <A>(decoder: d.Decoder<unknown, A>) => flow(
   getFromUrl(browser),
-  TE.chain(TE.tryCatchK(response => response.text(), E.toError)),
-  TE.chainEitherKW(decodeWith(decoder)),
+  TE.chainEitherKW(flow(
+    response => response.text,
+    decodeWith(decoder),
+  )),
 )

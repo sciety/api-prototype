@@ -1,6 +1,6 @@
 import { date, publisher, title, toRule, url } from '@metascraper/helpers'
 import * as crypto from 'crypto'
-import { sequenceS, sequenceT } from 'fp-ts/Apply'
+import { sequenceT } from 'fp-ts/Apply'
 import * as E from 'fp-ts/Either'
 import { constVoid, flow, identity, pipe } from 'fp-ts/function'
 import * as IO from 'fp-ts/IO'
@@ -59,8 +59,11 @@ const scraper = TE.tryCatchK(metascraper([
   require('metascraper-url')(),
 ]), E.toError)
 
-const scrape = <V extends RR.ReadonlyRecord<string, unknown>>(decoder: d.Decoder<unknown, V>) => <T extends { url: string, html: string }>(args: T) => pipe(
-  args,
+const scrape = <V extends RR.ReadonlyRecord<string, unknown>>(decoder: d.Decoder<unknown, V>) => <T extends { url: string, text: string }>(args: T) => pipe(
+  {
+    ...args,
+    html: args.text,
+  },
   scraper,
   TE.chainEitherKW(flow(
     decoder.decode,
@@ -173,10 +176,6 @@ const doiToExpression = (browser: Browser) => ({
   pipe(
     url,
     getFromUrl(browser),
-    TE.chain(response => sequenceS(TE.ApplyPar)({
-      html: TE.tryCatch(() => response.text(), E.toError),
-      url: pipe(response.url(), TE.right),
-    })),
     TE.chain(scrape(scraped)),
   ),
   TE.map(data => doiExpression({ data, expression, work })),
@@ -249,9 +248,7 @@ const reviewIdToReview = (browser: Browser) => flow(
   TE.bind('url', ({ reviewId }) => pipe(reviewId, reviewIdToUrl, TE.right)),
   TE.bind('articleWork', ({ articleDoi }) => pipe(articleDoi, partToHashedIri, TE.rightIO)),
   TE.bindW('expression', ({ url }) => pipe(url.replace('https://doi.org/', ''), sciety, TE.right)),
-  TE.bind('response', ({ url }) => pipe(url, getFromUrl(browser))),
-  TE.bind('html', ({ response }) => TE.tryCatch(() => response.text(), E.toError)),
-  TE.bindW('data', scrape(scraped)),
+  TE.bind('data', ({ url }) => pipe(url, getFromUrl(browser), TE.chain(scrape(scraped)))),
   TE.map(reviewExpression),
 )
 
