@@ -1,10 +1,13 @@
 import * as E from 'fp-ts/Either'
-import { constVoid, flow, pipe } from 'fp-ts/function'
+import { constant, constVoid, flow, pipe } from 'fp-ts/function'
+import * as O from 'fp-ts/Option'
 import * as T from 'fp-ts/Task'
 import * as TE from 'fp-ts/TaskEither'
+import parseMetaRefresh from 'http-equiv-refresh'
 import * as d from 'io-ts/Decoder'
+import { JSDOM } from 'jsdom'
 import pLimit from 'p-limit'
-import { Browser } from 'puppeteer'
+import { Browser, Page } from 'puppeteer'
 import * as S from './string'
 
 const limit = pLimit(10)
@@ -16,9 +19,34 @@ type Response = {
   url: string,
 }
 
+const goToUrl = (url: string) => (page: Page): TE.TaskEither<Error, Response> => pipe(
+  TE.tryCatch(() => page.goto(url), E.toError),
+  TE.filterOrElse(response => response !== null, () => new Error(`No response found for ${page.url()} (when requesting ${url})`)), // https://github.com/puppeteer/puppeteer/issues/5011
+  TE.chain(response => pipe(
+    TE.Do,
+    TE.apS('text', TE.tryCatch(() => response.text(), E.toError)),
+    TE.apSW('url', pipe(response.url(), TE.right)),
+  )),
+  TE.chain(response => pipe(
+    JSDOM.fragment(response.text).querySelector('meta[http-equiv=refresh]')?.getAttribute('content'),
+    O.fromNullable,
+    O.chain(flow(
+      parseMetaRefresh,
+      ({ url }) => url,
+      O.fromNullable,
+      O.map(redirect => new URL(redirect, response.url).toString()),
+    )),
+    O.match(
+      constant(TE.right(response)),
+      redirect => goToUrl(redirect)(page)
+    ),
+  )),
+)
+
 export const getFromUrl = (browser: Browser) => (url: string): TE.TaskEither<Error, Response> => () => limit(pipe(
   TE.tryCatch(() => browser.newPage(), E.toError),
   TE.chainFirst(TE.tryCatchK(page => page.setRequestInterception(true, true), E.toError)),
+  TE.chainFirst(TE.tryCatchK(page => page.setJavaScriptEnabled(false), E.toError)),
   TE.chainFirstIOK(page => () => page.on('request', request => {
     if (request.resourceType() !== 'document') {
       return request.abort()
@@ -27,15 +55,10 @@ export const getFromUrl = (browser: Browser) => (url: string): TE.TaskEither<Err
     return request.continue()
   })),
   TE.chain(page => pipe(
-    TE.tryCatch(() => page.goto(url, { waitUntil: ['networkidle0'] }), E.toError),
-    TE.filterOrElse(response => response !== null, () => new Error(`No response found for ${page.url()} (when requesting ${url})`)), // https://github.com/puppeteer/puppeteer/issues/5011
-    TE.chain(response => pipe(
-      TE.Do,
-      TE.apS('text', TE.tryCatch(() => response.text(), E.toError)),
-      TE.apSW('url', pipe(response.url(), TE.right)),
-    )),
+    page,
+    goToUrl(url),
     T.chainFirst(() => TE.tryCatch(() => page.close(), constVoid)),
-  )),
+  ))
 ))
 
 export const getUrl = (browser: Browser) => <A>(decoder: d.Decoder<unknown, A>) => flow(

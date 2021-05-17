@@ -1,6 +1,9 @@
 {
   "extends": "@tsconfig/node14/tsconfig.json",
   "compilerOptions": {
+    "lib": [
+      "DOM"
+    ],
     "typeRoots": [
       "./node_modules/@types",
       "./@types"

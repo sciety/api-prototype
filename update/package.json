@@ -5,7 +5,9 @@
     "chalk": "^4.1.1",
     "csv-parse": "^4.15.4",
     "fp-ts": "^2.10.5",
+    "http-equiv-refresh": "^2.0.1",
     "io-ts": "^2.2.16",
+    "jsdom": "^16.5.3",
     "metascraper": "^5.21.7",
     "metascraper-author": "^5.21.7",
     "metascraper-date": "^5.21.7",
@@ -19,6 +21,7 @@
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.0",
+    "@types/jsdom": "^16.2.10",
     "@types/n3": "^1.8.0",
     "@types/node": "^14.14.31",
     "ts-node": "^9.1.1",
