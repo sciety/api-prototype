@@ -2,11 +2,12 @@ import { date, publisher, title, toRule, url } from '@metascraper/helpers'
 import * as crypto from 'crypto'
 import { sequenceS, sequenceT } from 'fp-ts/Apply'
 import * as E from 'fp-ts/Either'
-import { flow, identity, pipe } from 'fp-ts/function'
+import { constVoid, flow, identity, pipe } from 'fp-ts/function'
 import * as IO from 'fp-ts/IO'
 import * as O from 'fp-ts/Option'
 import * as RA from 'fp-ts/ReadonlyArray'
 import * as RR from 'fp-ts/ReadonlyRecord'
+import * as T from 'fp-ts/Task'
 import * as TE from 'fp-ts/TaskEither'
 import * as d from 'io-ts/Decoder'
 import metascraper from 'metascraper'
@@ -274,9 +275,9 @@ pipe(
     'https://github.com/sciety/sciety/raw/main/data/reviews/4eebcec9-a4bb-44e1-bde3-2ae11e65daaa.csv',
     getUrl(browser)(reviews),
     TE.chainW(TE.traverseArray(toRdf(browser))),
+    T.chainFirst(() => TE.tryCatch(() => browser.close(), constVoid)),
     TE.map(D.concatAll),
     TE.chainFirstIOK(RDF.writeTo('output.ttl', { format: 'turtle', prefixes })),
   )),
-  TE.chainW(TE.tryCatchK(browser => browser.close(), E.toError)),
   exit,
 )()
