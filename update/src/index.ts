@@ -22,6 +22,7 @@ import * as namespaces from './namespace'
 import { cito, dcterms, fabio, frbr, org, rdf, rdfs, sciety } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
+import * as S from './string'
 
 const doiRegex = /^10\.[0-9]{4,}(?:\.[1-9][0-9]*)*\/[^%"#?\s]+$/
 
@@ -67,7 +68,10 @@ const scrape = <V extends RR.ReadonlyRecord<string, unknown>>(decoder: d.Decoder
   scraper,
   TE.chainEitherKW(flow(
     decoder.decode,
-    E.mapLeft(d.draw),
+    E.mapLeft(flow(
+      d.draw,
+      S.prependWith(`Failed to decode ${args.url}:\n`),
+    )),
   )),
 )
 

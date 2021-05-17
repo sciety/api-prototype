@@ -5,6 +5,7 @@ import * as TE from 'fp-ts/TaskEither'
 import * as d from 'io-ts/Decoder'
 import pLimit from 'p-limit'
 import { Browser } from 'puppeteer'
+import * as S from './string'
 
 const limit = pLimit(10)
 
@@ -38,8 +39,9 @@ export const getFromUrl = (browser: Browser) => (url: string): TE.TaskEither<Err
 
 export const getUrl = (browser: Browser) => <A>(decoder: d.Decoder<unknown, A>) => flow(
   getFromUrl(browser),
-  TE.chainEitherKW(flow(
-    response => response.text,
+  TE.chainEitherKW(response => pipe(
+    response.text,
     decodeWith(decoder),
+    E.mapLeft(S.prependWith(`Failed to decode ${response.url}:\n`)),
   )),
 )
