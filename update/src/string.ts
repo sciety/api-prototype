@@ -14,6 +14,8 @@ export const joinAllWith = flow(joinWith, concatAll)
 
 export const join = (middle: string) => pipe(S.empty, joinAllWith(middle))
 
+export const split = (separator: string) => (string: string) => string.split(separator)
+
 export const prependWith = (prepended: string) => (string: string) => S.Semigroup.concat(prepended, string)
 
 export const appendWith = (appended: string) => (string: string) => S.Semigroup.concat(string, appended)

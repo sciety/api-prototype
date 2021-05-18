@@ -5,6 +5,7 @@ import { flow, pipe } from 'fp-ts/function'
 import * as O from 'fp-ts/Option'
 import * as d from 'io-ts/Decoder'
 import { URL } from 'url'
+import * as S from './string'
 
 export * from 'io-ts/Decoder'
 
@@ -29,6 +30,14 @@ export const dateFromIsoString: d.Decoder<unknown, Date> = pipe(
     const date = new Date(value)
     return isNaN(date.getTime()) ? d.failure(value, 'dateFromIsoString') : d.success(date)
   })
+)
+
+export const arrayFromString = (separator: string): d.Decoder<unknown, ReadonlyArray<string>> => pipe(
+  d.string,
+  d.parse(flow(
+    S.split(separator),
+    d.success,
+  ))
 )
 
 export const json = <A>(decoder: d.Decoder<unknown, A>) => pipe(

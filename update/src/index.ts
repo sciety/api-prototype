@@ -75,7 +75,7 @@ const scrape = <V extends RR.ReadonlyRecord<string, unknown>>(decoder: d.Decoder
 )
 
 const scraped = d.struct({
-  author: d.string,
+  author: d.arrayFromString(', '),
   date: d.dateFromIsoString,
   doi: d.nullable(d.string),
   lang: d.string,
@@ -89,7 +89,7 @@ const scraped = d.struct({
 type Scraped = d.TypeOf<typeof scraped>
 
 const crossrefToScraped = ({ message }: CrossrefWork): Scraped => ({
-  author: '',
+  author: [],
   date: message.indexed['date-time'],
   doi: message.DOI,
   lang: message.language,
@@ -284,7 +284,7 @@ const reviewExpression = ({
       RDF.triple(expression, dcterms.publisher, publisher),
       RDF.triple(expression, dcterms.date, RDF.date(data.date)),
       RDF.triple(work, rdf.type, fabio.Review),
-      RDF.triple(work, dcterms.creator, RDF.list([RDF.literal(data.author)])),
+      RDF.triple(work, dcterms.creator, pipe(data.author, RA.map(RDF.literal), RDF.list)),
       RDF.triple(work, cito.citesAsRecommendedReading, articleWork),
       RDF.triple(work, cito.reviews, articleExpression),
       RDF.triple(webPage, rdf.type, fabio.WebPage),
