@@ -5,6 +5,7 @@ import { constVoid, flow, identity, pipe } from 'fp-ts/function'
 import * as IO from 'fp-ts/IO'
 import * as O from 'fp-ts/Option'
 import * as RA from 'fp-ts/ReadonlyArray'
+import * as RNEA from 'fp-ts/ReadonlyNonEmptyArray'
 import * as RR from 'fp-ts/ReadonlyRecord'
 import * as T from 'fp-ts/Task'
 import * as TE from 'fp-ts/TaskEither'
@@ -116,14 +117,14 @@ const doiVersionIri = <T extends { doi: string, version: string }>({
   version
 }: T) => pipe([doi, version], S.join('v'), sciety)
 
-const biorxivWork = (work: RDF.NamedNode) => D.fromArray([
+const biorxivWork = (details: BiorxivArticleDetails) => (work: RDF.NamedNode) => D.fromArray([
   RDF.triple(work, rdf.type, fabio.ResearchPaper),
-  RDF.triple(work, rdfs.label, RDF.literal('A paper'))
+  RDF.triple(work, rdfs.label, pipe(details.collection, RNEA.last, version => version.title, RDF.literal)),
 ])
 
-const doiToArticleWork = flow(
+const doiToArticleWork = (details: BiorxivArticleDetails) => flow(
   partToHashedIri,
-  IO.map(biorxivWork)
+  IO.map(biorxivWork(details))
 )
 
 const doiExpression = ({
@@ -324,7 +325,7 @@ const toRdf = (browser: Browser) => ([, articleDoi, reviewId]: Review) => pipe(
   articleDoi,
   getBiorxivDetails(browser),
   TE.chain(details => sequenceT(TE.ApplyPar)(
-    pipe(articleDoi, doiToArticleWork, TE.fromIO),
+    pipe(articleDoi, doiToArticleWork(details), TE.fromIO),
     pipe(articleDoi, doiToArticleExpressions(browser, details)),
     pipe([articleDoi, reviewId], reviewIdToReview(browser, details))
   )),
