@@ -133,13 +133,13 @@ const doiExpression = ({
   work,
   expression,
   data
-}: { work: RDF.NamedNode, expression: RDF.NamedNode, data: Scraped }) => {
-  const webPage = RDF.blankNode()
-  const pdf = RDF.blankNode()
-  const publisher = RDF.blankNode()
-  const journal = RDF.blankNode()
-
-  return pipe(
+}: { work: RDF.NamedNode, expression: RDF.NamedNode, data: Scraped }) => pipe(
+  IO.Do,
+  IO.apS('webPage', pipe(expression.value, S.appendWith('#web'), partToHashedIri)),
+  IO.apS('pdf', pipe(expression.value, S.appendWith('#pdf'), partToHashedIri)),
+  IO.apS('publisher', pipe(data.publisher, partToHashedIri)),
+  IO.apS('journal', pipe(data.journal ?? '', partToHashedIri)),
+  IO.map(({ webPage, pdf, publisher, journal }) => pipe(
     [
       RDF.triple(expression, rdf.type, fabio.Article),
       RDF.triple(expression, dcterms.title, RDF.literal(data.title)),
@@ -166,8 +166,8 @@ const doiExpression = ({
       RDF.triple(pdf, dcterms.format, RDF.literal('application/pdf')),
       RDF.triple(pdf, fabio.hasURL, RDF.url(data.pdf)),
     ])) : identity,
-  )
-}
+  )),
+)
 
 const doiToExpression = (browser: Browser) => ({
   url,
@@ -179,7 +179,7 @@ const doiToExpression = (browser: Browser) => ({
     getFromUrl(browser),
     TE.chain(scrape(scraped)),
   ),
-  TE.map(data => doiExpression({ data, expression, work })),
+  TE.chainIOK(data => doiExpression({ data, expression, work })),
 )
 
 const doiToArticleExpressions = (browser: Browser) => (doi: string) => pipe(
@@ -215,12 +215,12 @@ const reviewExpression = ({
   articleWork,
   expression,
   data
-}: { articleWork: RDF.NamedNode, expression: RDF.NamedNode, data: Scraped }) => {
-  const work = RDF.blankNode()
-  const webPage = RDF.blankNode()
-  const pdf = RDF.blankNode()
-
-  return pipe(
+}: { articleWork: RDF.NamedNode, expression: RDF.NamedNode, data: Scraped }) => pipe(
+  IO.Do,
+  IO.apS('work', pipe(expression.value, S.appendWith('#work'), partToHashedIri)),
+  IO.apS('webPage', pipe(expression.value, S.appendWith('#web'), partToHashedIri)),
+  IO.apS('pdf', pipe(expression.value, S.appendWith('#pdf'), partToHashedIri)),
+  IO.map(({ work, webPage, pdf }) => pipe(
     [
       RDF.triple(expression, rdf.type, fabio.ReviewArticle),
       RDF.triple(expression, dcterms.title, RDF.languageTaggedString(data.title, data.lang)),
@@ -242,8 +242,8 @@ const reviewExpression = ({
       RDF.triple(pdf, dcterms.format, RDF.literal('application/pdf')),
       RDF.triple(pdf, fabio.hasURL, RDF.url(data.pdf)),
     ])) : identity,
-  )
-}
+  ))
+)
 
 const reviewIdToUrl = (reviewId: string) => reviewId.replace('doi:', 'https://doi.org/')
 
@@ -254,7 +254,7 @@ const reviewIdToReview = (browser: Browser) => flow(
   TE.bind('articleWork', ({ articleDoi }) => pipe(articleDoi, partToHashedIri, TE.rightIO)),
   TE.bindW('expression', ({ url }) => pipe(url.replace('https://doi.org/', ''), sciety, TE.right)),
   TE.bind('data', ({ url }) => pipe(url, getFromUrl(browser), TE.chain(scrape(scraped)))),
-  TE.map(reviewExpression),
+  TE.chainIOK(reviewExpression),
 )
 
 const toRdf = (browser: Browser) => ([, articleDoi, reviewId]: Review) => pipe(
