@@ -1,7 +1,8 @@
 import crypto from 'crypto'
 import { flow, pipe } from 'fp-ts/function'
 import * as IO from 'fp-ts/IO'
-import { concatAll, intercalate } from 'fp-ts/Semigroup'
+import * as RNEA from 'fp-ts/ReadonlyNonEmptyArray'
+import { intercalate } from 'fp-ts/Semigroup'
 import * as S from 'fp-ts/string'
 
 export * from 'fp-ts/string'
@@ -10,9 +11,7 @@ export const md5 = (string: string): IO.IO<string> => () => crypto.createHash('m
 
 export const joinWith = (middle: string) => pipe(S.Semigroup, intercalate(middle))
 
-export const joinAllWith = flow(joinWith, concatAll)
-
-export const join = (middle: string) => pipe(S.empty, joinAllWith(middle))
+export const join = flow(joinWith, RNEA.concatAll)
 
 export const split = (separator: string) => (string: string) => string.split(separator)
 
