@@ -11,8 +11,8 @@ import * as TE from 'fp-ts/TaskEither'
 import metascraper from 'metascraper'
 import path from 'path'
 import puppeteer, { Browser } from 'puppeteer'
-import { URL } from 'url'
 import { BiorxivArticleDetails, biorxivArticleDetails } from './biorxiv'
+import { CrossrefWork, crossrefWork } from './crossref'
 import * as D from './dataset'
 import * as d from './decoder'
 import { getFromUrl, getUrl } from './http'
@@ -73,30 +73,31 @@ const scrape = <V extends RR.ReadonlyRecord<string, unknown>>(decoder: d.Decoder
   )),
 )
 
-const urlFromString: d.Decoder<unknown, URL> = pipe(
-  d.string,
-  d.parse(value => {
-    try {
-      return d.success(new URL(value))
-    } catch (err) {
-      return d.failure(value, 'urlFromString')
-    }
-  })
-)
-
 const scraped = d.struct({
   author: d.string,
   date: d.dateFromIsoString,
   doi: d.nullable(d.string),
   lang: d.string,
   journal: d.nullable(d.string),
-  pdf: d.nullable(urlFromString),
+  pdf: d.nullable(d.urlFromString),
   publisher: d.string,
   title: d.string,
-  url: urlFromString,
+  url: d.urlFromString,
 })
 
 type Scraped = d.TypeOf<typeof scraped>
+
+const crossrefToScraped = ({ message }: CrossrefWork): Scraped => ({
+  author: '',
+  date: message.indexed['date-time'],
+  doi: message.DOI,
+  lang: message.language,
+  journal: message.title[0],
+  pdf: null,
+  publisher: message.publisher,
+  title: message.title[0],
+  url: message.URL,
+})
 
 const review = d.tuple(
   d.string,
@@ -165,14 +166,23 @@ const doiExpression = ({
   )),
 )
 
+const fromCrossrefApi = (browser: Browser) => (doi: string) => pipe(
+  doi,
+  S.prependWith('https://api.crossref.org/v1/works/'),
+  getUrl(browser)(crossrefWork),
+  TE.map(crossrefToScraped),
+)
+
 const doiToExpression = (browser: Browser) => ({
   url,
+  doi,
   expression,
   work
-}: { url: string, expression: RDF.NamedNode, work: RDF.NamedNode }) => pipe(
+}: { url: string, doi: string, expression: RDF.NamedNode, work: RDF.NamedNode }) => pipe(
   url,
   getFromUrl(browser),
   TE.chain(scrape(scraped)),
+  TE.orElse(() => pipe(doi, fromCrossrefApi(browser))),
   TE.chainIOK(data => doiExpression({ data, expression, work })),
 )
 
@@ -201,9 +211,12 @@ const doiToReviewExpression = ({ articleWork, data }: { articleWork: RDF.NamedNo
   )),
 )
 
-const doiToReview = (browser: Browser) => (articleWork: RDF.NamedNode) => flow(
+const doiToReview = (browser: Browser) => (articleWork: RDF.NamedNode) => (doi: string) => pipe(
+  doi,
+  doiToUrl,
   getFromUrl(browser),
   TE.chain(scrape(scraped)),
+  TE.orElse(() => pipe(doi, fromCrossrefApi(browser))),
   TE.chainIOK(data => doiToReviewExpression({ data, articleWork }))
 )
 
@@ -215,6 +228,7 @@ const doiToArticleExpressions = (browser: Browser, details: BiorxivArticleDetail
     details.collection,
     RA.map(articleVersion => O.some({
       url: `https://www.${articleVersion.server}.org/content/${articleVersion.doi}v${articleVersion.version}`,
+      doi: articleVersion.doi,
       expression: pipe(articleVersion, doiVersionIri),
       work: details.work,
     })),
@@ -222,6 +236,7 @@ const doiToArticleExpressions = (browser: Browser, details: BiorxivArticleDetail
       details.collection[0].published,
       O.map(doi => ({
         url: pipe(doi, doiToUrl),
+        doi,
         expression: sciety(doi),
         work: details.work,
       })),
@@ -231,7 +246,6 @@ const doiToArticleExpressions = (browser: Browser, details: BiorxivArticleDetail
     TE.map(D.concatAll),
     TE.chain(dataset => pipe(
       details.collection[0].published,
-      O.map(doiToUrl),
       O.fold(
         () => TE.right(D.empty),
         doiToReview(browser)(details.work),

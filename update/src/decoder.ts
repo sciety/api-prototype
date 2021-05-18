@@ -4,6 +4,7 @@ import * as E from 'fp-ts/Either'
 import { flow, pipe } from 'fp-ts/function'
 import * as O from 'fp-ts/Option'
 import * as d from 'io-ts/Decoder'
+import { URL } from 'url'
 
 export * from 'io-ts/Decoder'
 
@@ -40,4 +41,15 @@ const parseCsv = (csv: string) => csvParseSync(csv, { fromLine: 2 })
 export const csv = <A>(decoder: d.Decoder<unknown, A>) => pipe(
   d.string,
   d.parse(flow(parseCsv, decoder.decode)),
+)
+
+export const urlFromString: d.Decoder<unknown, URL> = pipe(
+  d.string,
+  d.parse(value => {
+    try {
+      return d.success(new URL(value))
+    } catch (err) {
+      return d.failure(value, 'urlFromString')
+    }
+  })
 )
