@@ -1,5 +1,4 @@
 import { date, publisher, title, toRule, url } from '@metascraper/helpers'
-import * as crypto from 'crypto'
 import { sequenceT } from 'fp-ts/Apply'
 import * as E from 'fp-ts/Either'
 import { constVoid, flow, identity, pipe } from 'fp-ts/function'
@@ -118,9 +117,7 @@ type Review = d.TypeOf<typeof review>
 
 const reviews = csv(d.array(review))
 
-const md5 = (string: string) => () => crypto.createHash('md5').update(string).digest('hex')
-
-const partToHashedIri = flow(md5, IO.map(sciety))
+const partToHashedIri = flow(S.md5, IO.map(sciety))
 
 const biorxivWork = (work: RDF.NamedNode) => D.fromArray([
   RDF.triple(work, rdf.type, fabio.ResearchPaper),
@@ -275,7 +272,10 @@ const prefixes = pipe(
 )
 
 pipe(
-  TE.tryCatch(() => puppeteer.launch({ headless: true, userDataDir: path.join(__dirname, '../cache') }), E.toError),
+  TE.tryCatch(() => puppeteer.launch({
+    headless: true,
+    userDataDir: path.join(__dirname, '../cache/puppeteer'),
+  }), E.toError),
   TE.chainFirst(browser => pipe(
     'https://github.com/sciety/sciety/raw/main/data/reviews/4eebcec9-a4bb-44e1-bde3-2ae11e65daaa.csv',
     getUrl(browser)(reviews),

@@ -2,7 +2,7 @@ import * as A from 'fp-ts/Array'
 import { flow, pipe } from 'fp-ts/function'
 import * as O from 'fp-ts/Option'
 import * as d from 'io-ts/Decoder'
-import { json } from './json'
+import * as json from './json'
 
 const doiFromNAString = pipe(
   d.string,
@@ -26,7 +26,7 @@ const biorxivArticleVersion = d.struct({
   server: d.union(d.literal('biorxiv'), d.literal('medrxiv')),
 })
 
-export const biorxivArticleDetails = json(d.struct({
+export const biorxivArticleDetails = json.decoder(d.struct({
   collection: nonEmptyArray(biorxivArticleVersion)
 }))
 
