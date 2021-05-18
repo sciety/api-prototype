@@ -61,8 +61,16 @@ WHERE {
     FILTER(strStarts(?doi, 'doi:')) .
   }
   ?publisher rdfs:label ?publisherLabel .
-  ?item fabio:hasManifestation ?manifestation .
-  ?manifestation fabio:hasURL ?manifestationUrl .
+  OPTIONAL {
+    ?item fabio:hasManifestation ?webPage .
+    ?webPage rdf:type fabio:WebPage .
+    ?webPage fabio:hasURL ?webPageUrl .
+  }
+  OPTIONAL {
+    ?item fabio:hasManifestation ?pdf .
+    ?pdf dcterms:format 'application/pdf' .
+    ?pdf fabio:hasURL ?pdfUrl .
+  }
 }
 
 ORDER BY ASC(?date)
@@ -109,9 +117,21 @@ foreach ($versions as $version) {
     if(isset($version->journalName)) {
         $publisher = "{$version->journalName->getValue()} ($publisher)";
     }
+
+    if (isset($version->webPageUrl)) {
+        $url = $version->webPageUrl->getValue();
+    } elseif (isset($version->pdfUrl)) {
+        $url = $version->pdfUrl->getValue();
+    } else {
+        $url = null;
+    }
+
+    if ($url) {
+        $title = "<a href=\"{$url}\">{$title}</a>";
+    }
     echo <<<HTML
 <tr>
-<th><a href="{$version->manifestationUrl->getValue()}">{$title}</a>
+<th>{$title}
 <td>{$version->date->format('j F Y')}
 <td>{$publisher}
 <td>{$doi}
