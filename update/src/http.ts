@@ -6,18 +6,16 @@ import * as T from 'fp-ts/Task'
 import * as TE from 'fp-ts/TaskEither'
 import parseMetaRefresh from 'http-equiv-refresh'
 import * as c from 'io-ts/Codec'
-import * as d from 'io-ts/Decoder'
 import { JSDOM } from 'jsdom'
 import pLimit from 'p-limit'
 import path from 'path'
 import { Browser, Page } from 'puppeteer'
+import * as d from './decoder'
 import * as fs from './fs'
 import { Json } from './json'
 import * as S from './string'
 
 const limit = pLimit(5)
-
-const decodeWith = <A>(decoder: d.Decoder<unknown, A>) => flow(decoder.decode, E.mapLeft(d.draw))
 
 type Response = {
   text: string,
@@ -83,7 +81,7 @@ export const getFromUrl = (browser: Browser) => (url: string): TE.TaskEither<Err
   TE.chain(cacheFile => pipe(
     cacheFile,
     fs.readFile,
-    TE.chainEitherKW(decodeWith(response)),
+    TE.chainEitherKW(d.decodeWith(response)),
     TE.altW(() => reallyGetFromUrl(browser)(url)),
     TE.chainFirstW(flow(
       response.encode,
@@ -96,7 +94,7 @@ export const getUrl = (browser: Browser) => <A>(decoder: d.Decoder<unknown, A>) 
   getFromUrl(browser),
   TE.chainEitherKW(response => pipe(
     response.text,
-    decodeWith(decoder),
+    d.decodeWith(decoder),
     E.mapLeft(S.prependWith(`Failed to decode ${response.url}:\n`)),
   )),
 )

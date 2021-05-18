@@ -8,14 +8,13 @@ import * as RA from 'fp-ts/ReadonlyArray'
 import * as RR from 'fp-ts/ReadonlyRecord'
 import * as T from 'fp-ts/Task'
 import * as TE from 'fp-ts/TaskEither'
-import * as d from 'io-ts/Decoder'
 import metascraper from 'metascraper'
 import path from 'path'
 import puppeteer, { Browser } from 'puppeteer'
 import { URL } from 'url'
 import { BiorxivArticleDetails, biorxivArticleDetails } from './biorxiv'
-import { csv } from './csv'
 import * as D from './dataset'
+import * as d from './decoder'
 import { getFromUrl, getUrl } from './http'
 import * as namespaces from './namespace'
 import { cito, dcterms, fabio, frbr, org, rdf, rdfs, sciety } from './namespace'
@@ -36,8 +35,9 @@ const scraper = TE.tryCatchK(metascraper([
       ...require('metascraper-author')().author,
     ],
     date: [
-      toRule(date)($ => $('meta[name="citation_publication_date"]').attr('content')),
+      toRule(date)($ => $('meta[name="citation_date"]').attr('content')),
       ...require('metascraper-date')().date,
+      toRule(date)($ => $('meta[name="citation_publication_date"]').attr('content')),
     ],
     doi: [
       toRule(doi)($ => $('meta[name="citation_doi"]').attr('content')),
@@ -68,20 +68,9 @@ const scrape = <V extends RR.ReadonlyRecord<string, unknown>>(decoder: d.Decoder
   },
   scraper,
   TE.chainEitherKW(flow(
-    decoder.decode,
-    E.mapLeft(flow(
-      d.draw,
-      S.prependWith(`Failed to decode ${args.url}:\n`),
-    )),
+    d.decodeWith(decoder),
+    E.mapLeft(S.prependWith(`Failed to decode ${args.url}:\n`))
   )),
-)
-
-const dateFromIsoString: d.Decoder<unknown, Date> = pipe(
-  d.string,
-  d.parse(value => {
-    const date = new Date(value)
-    return isNaN(date.getTime()) ? d.failure(value, 'dateFromIsoString') : d.success(date)
-  })
 )
 
 const urlFromString: d.Decoder<unknown, URL> = pipe(
@@ -97,7 +86,7 @@ const urlFromString: d.Decoder<unknown, URL> = pipe(
 
 const scraped = d.struct({
   author: d.string,
-  date: dateFromIsoString,
+  date: d.dateFromIsoString,
   doi: d.nullable(d.string),
   lang: d.string,
   journal: d.nullable(d.string),
@@ -117,7 +106,7 @@ const review = d.tuple(
 
 type Review = d.TypeOf<typeof review>
 
-const reviews = csv(d.array(review))
+const reviews = d.csv(d.array(review))
 
 const partToHashedIri = flow(S.md5, IO.map(sciety))
 
@@ -252,6 +241,12 @@ const doiToArticleExpressions = (browser: Browser, details: BiorxivArticleDetail
   )),
 )
 
+const findFirstVersionAfterDate = (date: Date) => (details: BiorxivArticleDetails) => pipe(
+  details.collection,
+  RA.findLast(version => version.date <= date),
+  O.getOrElse(() => details.collection[0])
+)
+
 const reviewExpression = ({
   articleWork,
   expression,
@@ -264,7 +259,8 @@ const reviewExpression = ({
   IO.apS('webPage', pipe(expression.value, S.appendWith('#web'), partToHashedIri)),
   IO.apS('pdf', pipe(expression.value, S.appendWith('#pdf'), partToHashedIri)),
   IO.apS('journal', pipe(data.journal ?? '', partToHashedIri)),
-  IO.map(({ work, publisher, webPage, pdf, journal }) => pipe(
+  IO.apS('articleExpression', pipe(details, findFirstVersionAfterDate(data.date), doiVersionIri, IO.of)),
+  IO.map(({ work, publisher, webPage, pdf, journal, articleExpression }) => pipe(
     [
       RDF.triple(expression, rdf.type, fabio.ReviewArticle),
       RDF.triple(expression, dcterms.title, RDF.languageTaggedString(data.title, data.lang)),
@@ -275,7 +271,7 @@ const reviewExpression = ({
       RDF.triple(work, rdf.type, fabio.Review),
       RDF.triple(work, dcterms.creator, RDF.list([RDF.literal(data.author)])),
       RDF.triple(work, cito.citesAsRecommendedReading, articleWork),
-      RDF.triple(work, cito.reviews, pipe(details.collection[0], doiVersionIri)),
+      RDF.triple(work, cito.reviews, articleExpression),
       RDF.triple(webPage, rdf.type, fabio.WebPage),
       RDF.triple(webPage, fabio.hasURL, RDF.url(data.url)),
       RDF.triple(publisher, rdf.type, org.Organization),
