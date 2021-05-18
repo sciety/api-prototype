@@ -98,7 +98,10 @@ WHERE {
 ORDER BY ASC(?date)
 SPARQL);
 
-echo "<!doctype html><title>{$article->label()}</title><body><h1>{$article->label()}</h1>";
+echo "<!doctype html><title>{$article->label()}</title>";
+echo "<meta name=\"viewport\" content=\"width=device-width\">";
+echo "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/water.css@2/out/water.css\">";
+echo "<body style=\"max-width: 1200px\"><h1>{$article->label()}</h1>";
 echo "<p>IRI: <a href=\"{$article->getUri()}\">{$article->getUri()}</a>";
 if(count($recommendations)) {
     echo '<p><strong>Recommended by: ';
@@ -108,7 +111,8 @@ if(count($recommendations)) {
 
 echo '<hr>';
 echo '<h2>Article history</h2>';
-echo '<table><thead><tr><th>Version<th>Date<th>Published by<th>DOI<th>IRI</tr></thead><tbody>';
+echo '<div style="overflow-x: auto">';
+echo '<table style="min-width: 100%; width: auto"><thead><tr><th>Version<th>Date<th>Published by<th>DOI<th>IRI</tr></thead><tbody>';
 
 foreach ($versions as $version) {
     $title = isset($version->title) ? $version->title->getValue() : '(no title)';
@@ -139,11 +143,12 @@ foreach ($versions as $version) {
 HTML;
 }
 
-echo '</table>';
+echo '</table></div>';
 
 echo '<hr>';
 echo '<h2>Reviews</h2>';
-echo '<table><thead><tr><th>Review<th>Review of<th>Date<th>Reviewed by<th>IRI</tr></thead><tbody>';
+echo '<div style="overflow-x: auto">';
+echo '<table style="min-width: 100%; width: auto"><thead><tr><th>Review<th>Review of<th>Date<th>Reviewed by<th>IRI</tr></thead><tbody>';
 
 foreach ($reviews as $review) {
     $url = $review->scietyUrl ?? null;
@@ -158,4 +163,4 @@ foreach ($reviews as $review) {
 HTML;
 }
 
-echo '</table>';
+echo '</table></div>';

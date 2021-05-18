@@ -23,7 +23,10 @@ WHERE {
 ORDER BY ASC(?date)
 SPARQL);
 
-echo "<!doctype html><title>Articles</title><body><h1>Articles</h1>";
+echo "<!doctype html><title>Articles</title>";
+echo "<meta name=\"viewport\" content=\"width=device-width\">";
+echo "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/water.css@2/out/water.css\">";
+echo "<body><h1>Articles</h1>";
 
 echo '<ul>';
 
