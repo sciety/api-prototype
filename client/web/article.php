@@ -47,6 +47,11 @@ SELECT *
 WHERE {
   ?item frbr:realizationOf {$article->shorten()} .
   ?item dcterms:date ?date .
+  OPTIONAL {
+    ?item frbr:partOf ?journal .
+    ?journal rdf:type fabio:Journal .
+    ?journal dcterms:title ?journalName .
+  }
   ?item dcterms:publisher ?publisher .
   OPTIONAL {
     ?item dcterms:title ?title .
@@ -100,11 +105,15 @@ echo '<table><thead><tr><th>Version<th>Date<th>Published by<th>DOI<th>IRI</tr></
 foreach ($versions as $version) {
     $title = isset($version->title) ? $version->title->getValue() : '(no title)';
     $doi = isset($version->doi) ? substr($version->doi->getValue(), 4) : null;
+    $publisher = $version->publisherLabel->getValue();
+    if(isset($version->journalName)) {
+        $publisher = "{$version->journalName->getValue()} ($publisher)";
+    }
     echo <<<HTML
 <tr>
 <th><a href="{$version->manifestationUrl->getValue()}">{$title}</a>
 <td>{$version->date->format('j F Y')}
-<td>{$version->publisherLabel->getValue()}
+<td>{$publisher}
 <td>{$doi}
 <td><a href="{$version->item}">{$version->item}</a>
 HTML;
