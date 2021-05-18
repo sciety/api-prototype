@@ -89,6 +89,10 @@ WHERE {
   ?publisher rdfs:label ?publisherLabel .
   ?version rdfs:label ?versionLabel .
   OPTIONAL {
+    ?item dcterms:identifier ?doi .
+    FILTER(strStarts(?doi, 'doi:')) .
+  }
+  OPTIONAL {
     ?scietyManifestation frbr:embodimentOf ?expression .
     ?scietyManifestation dcterms:publisher sciety:sciety .
     ?scietyManifestation fabio:hasURL ?scietyUrl .
@@ -148,10 +152,11 @@ echo '</table></div>';
 echo '<hr>';
 echo '<h2>Reviews</h2>';
 echo '<div style="overflow-x: auto">';
-echo '<table style="min-width: 100%; width: auto"><thead><tr><th>Review<th>Review of<th>Date<th>Reviewed by<th>IRI</tr></thead><tbody>';
+echo '<table style="min-width: 100%; width: auto"><thead><tr><th>Review<th>Review of<th>Date<th>Reviewed by<th>DOI<th>IRI</tr></thead><tbody>';
 
 foreach ($reviews as $review) {
     $url = $review->scietyUrl ?? null;
+    $doi = isset($review->doi) ? substr($version->doi->getValue(), 4) : null;
     $label = $url ? "<a href=\"{$url}\">{$review->label->getValue()}</a>" : $review->label->getValue();
     echo <<<HTML
 <tr>
@@ -159,6 +164,7 @@ foreach ($reviews as $review) {
 <td>{$review->versionLabel->getValue()}
 <td>{$review->date->format('j F Y')}
 <td>{$review->publisherLabel->getValue()}
+<td>{$doi}
 <td><a href="{$review->expression}">{$review->expression}</a>
 HTML;
 }
