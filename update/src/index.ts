@@ -42,6 +42,7 @@ const scraper = TE.tryCatchK(metascraper([
     ],
     doi: [
       toRule(doi)($ => $('meta[name="citation_doi"]').attr('content')),
+      toRule(doi)($ => $('meta[name="dc.identifier" i][scheme="doi"]').attr('content')),
     ],
     journal: [
       toRule(publisher)($ => $('meta[name="citation_journal_title"]').attr('content')),
