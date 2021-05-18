@@ -90,7 +90,7 @@ const scraped = d.struct({
 type Scraped = d.TypeOf<typeof scraped>
 
 const crossrefToScraped = ({ message }: CrossrefWork): Scraped => ({
-  author: [],
+  author: pipe(message.author, RA.map(author => pipe([author.given, author.family], S.join(' ')))),
   date: message.indexed['date-time'],
   doi: message.DOI,
   lang: pipe(message.language, O.toNullable),

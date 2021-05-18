@@ -2,6 +2,10 @@ import * as d from './decoder'
 
 export const crossrefWork = d.json(d.struct({
   message: d.struct({
+    author: d.array(d.struct({
+      given: d.string,
+      family: d.string,
+    })),
     'container-title': d.array(d.string),
     indexed: d.struct({
       'date-time': d.dateFromIsoString,
