@@ -42,7 +42,10 @@ export const arrayFromString = (separator: string): d.Decoder<unknown, ReadonlyA
 
 export const json = <A>(decoder: d.Decoder<unknown, A>) => pipe(
   d.string,
-  d.parse(flow(JSON.parse, decoder.decode)),
+  d.parse(value => pipe(
+    E.tryCatch(() => JSON.parse(value), error => d.error(value, String(error))),
+    E.chain(decoder.decode),
+  )),
 )
 
 const parseCsv = (csv: string) => csvParseSync(csv, { fromLine: 2 })
