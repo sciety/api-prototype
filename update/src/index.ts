@@ -13,7 +13,7 @@ import metascraper from 'metascraper'
 import path from 'path'
 import puppeteer, { Browser } from 'puppeteer'
 import { URL } from 'url'
-import { biorxivArticleDetails } from './biorxiv'
+import { BiorxivArticleDetails, biorxivArticleDetails } from './biorxiv'
 import { csv } from './csv'
 import * as D from './dataset'
 import { getFromUrl, getUrl } from './http'
@@ -121,6 +121,11 @@ const reviews = csv(d.array(review))
 
 const partToHashedIri = flow(S.md5, IO.map(sciety))
 
+const doiVersionIri = <T extends { doi: string, version: string }>({
+  doi,
+  version
+}: T) => pipe([doi, version], S.join('v'), sciety)
+
 const biorxivWork = (work: RDF.NamedNode) => D.fromArray([
   RDF.triple(work, rdf.type, fabio.ResearchPaper),
   RDF.triple(work, rdfs.label, RDF.literal('A paper'))
@@ -213,19 +218,15 @@ const doiToReview = (browser: Browser) => (articleWork: RDF.NamedNode) => flow(
   TE.chainIOK(data => doiToReviewExpression({ data, articleWork }))
 )
 
-const doiToArticleExpressions = (browser: Browser) => (doi: string) => pipe(
-  `https://api.biorxiv.org/details/biorxiv/${doi}`,
-  getUrl(browser)(biorxivArticleDetails),
-  TE.alt(() => pipe(
-    `https://api.biorxiv.org/details/medrxiv/${doi}`,
-    getUrl(browser)(biorxivArticleDetails),
-  )),
+const doiToArticleExpressions = (browser: Browser, details: BiorxivArticleDetails) => (doi: string) => pipe(
+  details,
+  TE.right,
   TE.apSW('work', pipe(doi, partToHashedIri, TE.rightIO)),
   TE.chain(details => pipe(
     details.collection,
     RA.map(articleVersion => O.some({
       url: `https://www.${articleVersion.server}.org/content/${articleVersion.doi}v${articleVersion.version}`,
-      expression: sciety(`${articleVersion.doi}v${articleVersion.version}`),
+      expression: pipe(articleVersion, doiVersionIri),
       work: details.work,
     })),
     RA.append(pipe(
@@ -254,8 +255,9 @@ const doiToArticleExpressions = (browser: Browser) => (doi: string) => pipe(
 const reviewExpression = ({
   articleWork,
   expression,
-  data
-}: { articleWork: RDF.NamedNode, expression: RDF.NamedNode, data: Scraped }) => pipe(
+  data,
+  details,
+}: { articleWork: RDF.NamedNode, expression: RDF.NamedNode, data: Scraped, details: BiorxivArticleDetails }) => pipe(
   IO.Do,
   IO.apS('work', pipe(expression.value, S.appendWith('#work'), partToHashedIri)),
   IO.apS('publisher', pipe(data.publisher, partToHashedIri)),
@@ -269,10 +271,11 @@ const reviewExpression = ({
       RDF.triple(expression, frbr.realizationOf, work),
       RDF.triple(expression, fabio.hasManifestation, webPage),
       RDF.triple(expression, dcterms.publisher, publisher),
+      RDF.triple(expression, dcterms.date, RDF.date(data.date)),
       RDF.triple(work, rdf.type, fabio.Review),
       RDF.triple(work, dcterms.creator, RDF.list([RDF.literal(data.author)])),
-      RDF.triple(work, dcterms.date, RDF.date(data.date)),
       RDF.triple(work, cito.citesAsRecommendedReading, articleWork),
+      RDF.triple(work, cito.reviews, pipe(details.collection[0], doiVersionIri)),
       RDF.triple(webPage, rdf.type, fabio.WebPage),
       RDF.triple(webPage, fabio.hasURL, RDF.url(data.url)),
       RDF.triple(publisher, rdf.type, org.Organization),
@@ -296,9 +299,10 @@ const reviewExpression = ({
 
 const reviewIdToUrl = (reviewId: string) => reviewId.replace('doi:', 'https://doi.org/')
 
-const reviewIdToReview = (browser: Browser) => flow(
+const reviewIdToReview = (browser: Browser, details: BiorxivArticleDetails) => flow(
   ([articleDoi, reviewId]: [string, string]) => ({ articleDoi, reviewId }),
   TE.right,
+  TE.apS('details', pipe(details, TE.right)),
   TE.bind('url', ({ reviewId }) => pipe(reviewId, reviewIdToUrl, TE.right)),
   TE.bind('articleWork', ({ articleDoi }) => pipe(articleDoi, partToHashedIri, TE.rightIO)),
   TE.bindW('expression', ({ url }) => pipe(url.replace('https://doi.org/', ''), sciety, TE.right)),
@@ -307,12 +311,25 @@ const reviewIdToReview = (browser: Browser) => flow(
 )
 
 const toRdf = (browser: Browser) => ([, articleDoi, reviewId]: Review) => pipe(
-  sequenceT(TE.ApplyPar)(
+  articleDoi,
+  getBiorxivDetails(browser),
+  TE.chain(details => sequenceT(TE.ApplyPar)(
     pipe(articleDoi, doiToArticleWork, TE.fromIO),
-    pipe(articleDoi, doiToArticleExpressions(browser)),
-    pipe([articleDoi, reviewId], reviewIdToReview(browser))
-  ),
+    pipe(articleDoi, doiToArticleExpressions(browser, details)),
+    pipe([articleDoi, reviewId], reviewIdToReview(browser, details))
+  )),
   TE.map(D.concatAll),
+)
+
+const getBiorxivDetails = (browser: Browser) => (doi: string) => pipe(
+  doi,
+  S.prependWith('https://api.biorxiv.org/details/biorxiv/'),
+  getUrl(browser)(biorxivArticleDetails),
+  TE.alt(() => pipe(
+    doi,
+    S.prependWith('https://api.biorxiv.org/details/medrxiv/'),
+    getUrl(browser)(biorxivArticleDetails),
+  ))
 )
 
 const prefixes = pipe(

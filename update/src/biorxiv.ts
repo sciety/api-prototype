@@ -30,4 +30,6 @@ export const biorxivArticleDetails = json.decoder(d.struct({
   collection: nonEmptyArray(biorxivArticleVersion)
 }))
 
+export type BiorxivArticleDetails = d.TypeOf<typeof biorxivArticleDetails>
+
 export type BiorxivArticleVersion = d.TypeOf<typeof biorxivArticleVersion>
