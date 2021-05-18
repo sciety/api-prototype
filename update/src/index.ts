@@ -27,6 +27,8 @@ const doiRegex = /^10\.[0-9]{4,}(?:\.[1-9][0-9]*)*\/[^%"#?\s]+$/
 
 const doi = (value: unknown) => typeof value === 'string' && doiRegex.test(value) ? value : undefined
 
+const doiToUrl = S.prependWith('https://doi.org/')
+
 const scraper = TE.tryCatchK(metascraper([
   {
     author: [
@@ -174,12 +176,41 @@ const doiToExpression = (browser: Browser) => ({
   expression,
   work
 }: { url: string, expression: RDF.NamedNode, work: RDF.NamedNode }) => pipe(
-  pipe(
-    url,
-    getFromUrl(browser),
-    TE.chain(scrape(scraped)),
-  ),
+  url,
+  getFromUrl(browser),
+  TE.chain(scrape(scraped)),
   TE.chainIOK(data => doiExpression({ data, expression, work })),
+)
+
+const doiToReviewExpression = ({ articleWork, data }: { articleWork: RDF.NamedNode, data: Scraped }) => pipe(
+  IO.Do,
+  IO.apS('work', pipe(data.url, String, S.appendWith('#review-work'), partToHashedIri)),
+  IO.apS('expression', pipe(data.url, String, S.appendWith('#review-expression'), partToHashedIri)),
+  IO.apS('publisher', pipe(data.publisher, partToHashedIri)),
+  IO.apS('journal', pipe(data.journal ?? '', partToHashedIri)),
+  IO.map(({ work, expression, publisher, journal }) => pipe(
+    [
+      RDF.triple(expression, rdf.type, fabio.ReviewArticle),
+      RDF.triple(expression, frbr.realizationOf, work),
+      RDF.triple(expression, dcterms.publisher, publisher),
+      RDF.triple(work, rdf.type, fabio.Review),
+      RDF.triple(work, cito.citesAsRecommendedReading, articleWork),
+      RDF.triple(publisher, rdf.type, org.Organization),
+      RDF.triple(publisher, rdfs.label, RDF.literal(data.publisher)),
+    ],
+    D.fromArray,
+    data.journal ? D.union(D.fromArray([
+      RDF.triple(expression, frbr.partOf, journal),
+      RDF.triple(journal, rdf.type, fabio.Journal),
+      RDF.triple(journal, dcterms.title, RDF.literal(data.journal)),
+    ])) : identity,
+  )),
+)
+
+const doiToReview = (browser: Browser) => (articleWork: RDF.NamedNode) => flow(
+  getFromUrl(browser),
+  TE.chain(scrape(scraped)),
+  TE.chainIOK(data => doiToReviewExpression({ data, articleWork }))
 )
 
 const doiToArticleExpressions = (browser: Browser) => (doi: string) => pipe(
@@ -190,7 +221,7 @@ const doiToArticleExpressions = (browser: Browser) => (doi: string) => pipe(
     getUrl(browser)(biorxivArticleDetails),
   )),
   TE.apSW('work', pipe(doi, partToHashedIri, TE.rightIO)),
-  TE.map(details => pipe(
+  TE.chain(details => pipe(
     details.collection,
     RA.map(articleVersion => O.some({
       url: `https://www.${articleVersion.server}.org/content/${articleVersion.doi}v${articleVersion.version}`,
@@ -200,15 +231,24 @@ const doiToArticleExpressions = (browser: Browser) => (doi: string) => pipe(
     RA.append(pipe(
       details.collection[0].published,
       O.map(doi => ({
-        url: `https://doi.org/${doi}`,
+        url: pipe(doi, doiToUrl),
         expression: sciety(doi),
         work: details.work,
       })),
     )),
     RA.compact,
+    TE.traverseArray(doiToExpression(browser)),
+    TE.map(D.concatAll),
+    TE.chain(dataset => pipe(
+      details.collection[0].published,
+      O.map(doiToUrl),
+      O.fold(
+        () => TE.right(D.empty),
+        doiToReview(browser)(details.work),
+      ),
+      TE.map(D.union(dataset)),
+    )),
   )),
-  TE.chain(TE.traverseArray(doiToExpression(browser))),
-  TE.map(D.concatAll),
 )
 
 const reviewExpression = ({
@@ -218,21 +258,25 @@ const reviewExpression = ({
 }: { articleWork: RDF.NamedNode, expression: RDF.NamedNode, data: Scraped }) => pipe(
   IO.Do,
   IO.apS('work', pipe(expression.value, S.appendWith('#work'), partToHashedIri)),
+  IO.apS('publisher', pipe(data.publisher, partToHashedIri)),
   IO.apS('webPage', pipe(expression.value, S.appendWith('#web'), partToHashedIri)),
   IO.apS('pdf', pipe(expression.value, S.appendWith('#pdf'), partToHashedIri)),
-  IO.map(({ work, webPage, pdf }) => pipe(
+  IO.apS('journal', pipe(data.journal ?? '', partToHashedIri)),
+  IO.map(({ work, publisher, webPage, pdf, journal }) => pipe(
     [
       RDF.triple(expression, rdf.type, fabio.ReviewArticle),
       RDF.triple(expression, dcterms.title, RDF.languageTaggedString(data.title, data.lang)),
       RDF.triple(expression, frbr.realizationOf, work),
       RDF.triple(expression, fabio.hasManifestation, webPage),
-      RDF.triple(expression, dcterms.publisher, sciety('pci-animal-science')),
+      RDF.triple(expression, dcterms.publisher, publisher),
       RDF.triple(work, rdf.type, fabio.Review),
       RDF.triple(work, dcterms.creator, RDF.list([RDF.literal(data.author)])),
       RDF.triple(work, dcterms.date, RDF.date(data.date)),
       RDF.triple(work, cito.citesAsRecommendedReading, articleWork),
       RDF.triple(webPage, rdf.type, fabio.WebPage),
       RDF.triple(webPage, fabio.hasURL, RDF.url(data.url)),
+      RDF.triple(publisher, rdf.type, org.Organization),
+      RDF.triple(publisher, rdfs.label, RDF.literal(data.publisher)),
     ],
     D.fromArray,
     data.doi ? D.insert(RDF.triple(expression, dcterms.identifier, RDF.literal(`doi:${data.doi}`))) : identity,
@@ -241,6 +285,11 @@ const reviewExpression = ({
       RDF.triple(pdf, rdf.type, fabio.DigitalManifestation),
       RDF.triple(pdf, dcterms.format, RDF.literal('application/pdf')),
       RDF.triple(pdf, fabio.hasURL, RDF.url(data.pdf)),
+    ])) : identity,
+    data.journal ? D.union(D.fromArray([
+      RDF.triple(expression, frbr.partOf, journal),
+      RDF.triple(journal, rdf.type, fabio.Journal),
+      RDF.triple(journal, dcterms.title, RDF.literal(data.journal)),
     ])) : identity,
   ))
 )
