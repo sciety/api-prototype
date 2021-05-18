@@ -6,6 +6,7 @@ import { taskify } from 'fp-ts/TaskEither'
 import fs from 'fs'
 import * as N3 from 'n3'
 import { URL } from 'url'
+import * as S from './string'
 
 export type NamedNode<Iri extends string = string> = {
   readonly type: 'NamedNode'
@@ -146,4 +147,44 @@ export const writeTo = (path: fs.PathLike, options: {
   return taskify((...args) => writer.end(...args))()
 }
 
-export const eq: { equals: <T extends Term>(a: T, b: T) => boolean } = Eq.eqStrict
+export const eq: { equals: <T extends Term>(a: T, b: T) => boolean } = Eq.fromEquals((x, y) => {
+  switch (x.type) {
+    case 'NamedNode':
+      return y.type === 'NamedNode' && eqNamedNode.equals(x, y)
+    case 'BlankNode':
+      return y.type === 'BlankNode' && eqBlankNode.equals(x, y)
+    case 'LanguageTaggedString':
+      return y.type === 'LanguageTaggedString' && eqLanguageTaggedString.equals(x, y)
+    case 'TypedLiteral':
+      return y.type === 'TypedLiteral' && eqTypedLiteral.equals(x, y)
+    case 'Quad':
+      return y.type === 'Quad' && eqQuad.equals(x, y)
+    case 'DefaultGraph':
+      return y.type === 'DefaultGraph'
+    case 'List':
+      return y.type === 'List' && eqList.equals(x, y)
+  }
+})
+
+const eqNamedNode: Eq.Eq<NamedNode> = pipe(S.Eq, Eq.contramap(term => term.value))
+
+const eqBlankNode: Eq.Eq<BlankNode> = pipe(S.Eq, Eq.contramap(term => term.name))
+
+const eqLanguageTaggedString: Eq.Eq<LanguageTaggedString> = Eq.struct({
+  value: S.Eq,
+  languageTag: S.Eq,
+})
+
+const eqTypedLiteral: Eq.Eq<TypedLiteral> = Eq.struct({
+  value: S.Eq,
+  datatype: eq,
+})
+
+const eqQuad: Eq.Eq<Quad> = Eq.struct({
+  subject: eq,
+  predicate: eq,
+  object: eq,
+  graph: eq,
+})
+
+const eqList: Eq.Eq<List> = pipe(RA.getEq(eq), Eq.contramap(term => term.values))
