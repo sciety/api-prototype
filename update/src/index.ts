@@ -78,7 +78,7 @@ const scraped = d.struct({
   author: d.arrayFromString(', '),
   date: d.dateFromIsoString,
   doi: d.nullable(d.string),
-  lang: d.string,
+  lang: d.nullable(d.string),
   journal: d.nullable(d.string),
   pdf: d.nullable(d.urlFromString),
   publisher: d.string,
@@ -92,8 +92,8 @@ const crossrefToScraped = ({ message }: CrossrefWork): Scraped => ({
   author: [],
   date: message.indexed['date-time'],
   doi: message.DOI,
-  lang: message.language,
-  journal: message.title[0],
+  lang: pipe(message.language, O.toNullable),
+  journal: pipe(message['container-title'], RA.head, O.toNullable),
   pdf: null,
   publisher: message.publisher,
   title: message.title[0],
@@ -214,10 +214,7 @@ const doiToReviewExpression = ({ articleWork, data }: { articleWork: RDF.NamedNo
 
 const doiToReview = (browser: Browser) => (articleWork: RDF.NamedNode) => (doi: string) => pipe(
   doi,
-  doiToUrl,
-  getFromUrl(browser),
-  TE.chain(scrape(scraped)),
-  TE.orElse(() => pipe(doi, fromCrossrefApi(browser))),
+  fromCrossrefApi(browser),
   TE.chainIOK(data => doiToReviewExpression({ data, articleWork }))
 )
 
@@ -278,7 +275,7 @@ const reviewExpression = ({
   IO.map(({ work, publisher, webPage, pdf, journal, articleExpression }) => pipe(
     [
       RDF.triple(expression, rdf.type, fabio.ReviewArticle),
-      RDF.triple(expression, dcterms.title, RDF.languageTaggedString(data.title, data.lang)),
+      RDF.triple(expression, dcterms.title, data.lang ? RDF.languageTaggedString(data.title, data.lang) : RDF.literal(data.title)),
       RDF.triple(expression, frbr.realizationOf, work),
       RDF.triple(expression, fabio.hasManifestation, webPage),
       RDF.triple(expression, dcterms.publisher, publisher),
@@ -308,16 +305,16 @@ const reviewExpression = ({
   ))
 )
 
-const reviewIdToUrl = (reviewId: string) => reviewId.replace('doi:', 'https://doi.org/')
+const reviewIdToDoi = (reviewId: string) => reviewId.replace('doi:', '')
 
 const reviewIdToReview = (browser: Browser, details: BiorxivArticleDetails) => flow(
   ([articleDoi, reviewId]: [string, string]) => ({ articleDoi, reviewId }),
   TE.right,
   TE.apS('details', pipe(details, TE.right)),
-  TE.bind('url', ({ reviewId }) => pipe(reviewId, reviewIdToUrl, TE.right)),
+  TE.bind('doi', ({ reviewId }) => pipe(reviewId, reviewIdToDoi, TE.right)),
   TE.bind('articleWork', ({ articleDoi }) => pipe(articleDoi, partToHashedIri, TE.rightIO)),
-  TE.bindW('expression', ({ url }) => pipe(url.replace('https://doi.org/', ''), sciety, TE.right)),
-  TE.bind('data', ({ url }) => pipe(url, getFromUrl(browser), TE.chain(scrape(scraped)))),
+  TE.bindW('expression', ({ doi }) => pipe(doi, sciety, TE.right)),
+  TE.bind('data', ({ doi }) => pipe(doi, fromCrossrefApi(browser))),
   TE.chainIOK(reviewExpression),
 )
 

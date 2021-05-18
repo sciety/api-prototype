@@ -62,3 +62,17 @@ export const urlFromString: d.Decoder<unknown, URL> = pipe(
     }
   })
 )
+
+export const option = <A>(decoder: d.Decoder<unknown, A>): d.Decoder<unknown, O.Option<A>> => ({
+  decode: value => {
+    if (value === undefined) {
+      return d.success(O.none)
+    }
+
+    return pipe(
+      value,
+      decoder.decode,
+      E.map(O.some)
+    )
+  }
+})
