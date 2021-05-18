@@ -100,10 +100,9 @@ echo '<table><thead><tr><th>Version<th>Date<th>Published by<th>DOI<th>IRI</tr></
 foreach ($versions as $version) {
     $title = isset($version->title) ? $version->title->getValue() : '(no title)';
     $doi = isset($version->doi) ? substr($version->doi->getValue(), 4) : null;
-    $url = $doi ? "https://doi.org/${doi}" : $version->manifestationUrl->getValue();
     echo <<<HTML
 <tr>
-<th><a href="{$url}">{$title}</a>
+<th><a href="{$version->manifestationUrl->getValue()}">{$title}</a>
 <td>{$version->date->format('j F Y')}
 <td>{$version->publisherLabel->getValue()}
 <td>{$doi}
