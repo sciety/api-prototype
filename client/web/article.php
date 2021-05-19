@@ -83,13 +83,12 @@ WHERE {
   ?version frbr:realizationOf {$article->shorten()} .
   ?item cito:reviews ?version .
   ?expression frbr:realizationOf ?item .
-  ?expression rdfs:label ?label .
+  ?expression dcterms:title ?title .
   ?expression dcterms:date ?date .
   ?expression dcterms:publisher ?publisher .
   ?publisher rdfs:label ?publisherLabel .
-  ?version rdfs:label ?versionLabel .
   OPTIONAL {
-    ?item dcterms:identifier ?doi .
+    ?expression dcterms:identifier ?doi .
     FILTER(strStarts(?doi, 'doi:')) .
   }
   OPTIONAL {
@@ -155,13 +154,15 @@ echo '<div style="overflow-x: auto">';
 echo '<table style="min-width: 100%; width: auto"><thead><tr><th>Review<th>Review of<th>Date<th>Reviewed by<th>DOI<th>IRI</tr></thead><tbody>';
 
 foreach ($reviews as $review) {
-    $url = $review->scietyUrl ?? null;
-    $doi = isset($review->doi) ? substr($version->doi->getValue(), 4) : null;
-    $label = $url ? "<a href=\"{$url}\">{$review->label->getValue()}</a>" : $review->label->getValue();
+    $doi = isset($review->doi) ? substr($review->doi->getValue(), 4) : null;
+    $title = $review->title->getValue();
+    if (isset($review->scietyUrl)) {
+        $title = "<a href=\"{$review->scietyUrl}\">$title</a>";
+    }
     echo <<<HTML
 <tr>
-<th>{$label}
-<td>{$review->versionLabel->getValue()}
+<th>{$title}
+<td><a href="$review->version">{$review->version}</a>
 <td>{$review->date->format('j F Y')}
 <td>{$review->publisherLabel->getValue()}
 <td>{$doi}
