@@ -30,6 +30,7 @@ const response = Json(c.struct({
 const goToUrl = (url: string) => (page: Page): TE.TaskEither<Error, Response> => pipe(
   TE.tryCatch(() => page.goto(url), E.toError),
   TE.filterOrElse(response => response !== null, () => new Error(`No response found for ${page.url()} (when requesting ${url})`)), // https://github.com/puppeteer/puppeteer/issues/5011
+  TE.filterOrElse(response => response.ok(), response => new Error(`Received a ${response.status()} ${response.statusText()} response for ${response.url()} (when requesting ${url})`)),
   TE.chain(response => pipe(
     TE.Do,
     TE.apS('text', TE.tryCatch(() => response.text(), E.toError)),
