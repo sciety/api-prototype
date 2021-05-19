@@ -168,6 +168,16 @@ const doiExpression = ({
   )),
 )
 
+const fromDoi = (browser: Browser) => flow(
+  doiToUrl,
+  fromUrl(browser),
+)
+
+const fromUrl = (browser: Browser) => flow(
+  getFromUrl(browser),
+  TE.chain(scrape(scraped)),
+)
+
 const fromCrossrefApi = (browser: Browser) => (doi: string) => pipe(
   doi,
   S.prependWith('https://api.crossref.org/v1/works/'),
@@ -182,8 +192,7 @@ const doiToExpression = (browser: Browser) => ({
   work
 }: { url: string, doi: string, expression: RDF.NamedNode, work: RDF.NamedNode }) => pipe(
   url,
-  getFromUrl(browser),
-  TE.chain(scrape(scraped)),
+  fromUrl(browser),
   TE.orElse(() => pipe(doi, fromCrossrefApi(browser))),
   TE.chainIOK(data => doiExpression({ data, expression, work })),
 )
@@ -216,6 +225,7 @@ const doiToReviewExpression = ({ articleWork, data }: { articleWork: RDF.NamedNo
 const doiToReview = (browser: Browser) => (articleWork: RDF.NamedNode) => (doi: string) => pipe(
   doi,
   fromCrossrefApi(browser),
+  TE.orElse(() => pipe(doi, fromDoi(browser))),
   TE.chainIOK(data => doiToReviewExpression({ data, articleWork }))
 )
 
@@ -315,7 +325,7 @@ const reviewIdToReview = (browser: Browser, details: BiorxivArticleDetails) => f
   TE.bind('doi', ({ reviewId }) => pipe(reviewId, reviewIdToDoi, TE.right)),
   TE.bind('articleWork', ({ articleDoi }) => pipe(articleDoi, partToHashedIri, TE.rightIO)),
   TE.bindW('expression', ({ doi }) => pipe(doi, sciety, TE.right)),
-  TE.bind('data', ({ doi }) => pipe(doi, fromCrossrefApi(browser))),
+  TE.bind('data', ({ doi }) => pipe(doi, fromCrossrefApi(browser), TE.orElse(() => pipe(doi, fromDoi(browser))))),
   TE.chainIOK(reviewExpression),
 )
 
