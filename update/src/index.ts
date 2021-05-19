@@ -354,6 +354,7 @@ const getBiorxivDetails = (browser: Browser) => (doi: string) => pipe(
 
 const prefixes = pipe(
   namespaces,
+  RR.deleteAt('sciety'),
   RR.map(namespace => namespace()),
 )
 
