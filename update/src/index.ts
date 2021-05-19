@@ -356,15 +356,30 @@ const prefixes = pipe(
   RR.map(namespace => namespace()),
 )
 
+const scietyDataPath = S.surroundWith('https://github.com/sciety/sciety/raw/main/data/reviews/', '.csv')
+
 pipe(
   TE.tryCatch(() => puppeteer.launch({
     headless: true,
     userDataDir: path.join(__dirname, '../cache/puppeteer'),
   }), E.toError),
   TE.chainFirst(browser => pipe(
-    'https://github.com/sciety/sciety/raw/main/data/reviews/4eebcec9-a4bb-44e1-bde3-2ae11e65daaa.csv',
-    getUrl(browser)(reviews),
-    TE.chainW(TE.traverseArray(toRdf(browser))),
+    [
+      '10360d97-bf52-4aef-b2fa-2f60d319edd7', // PREreview
+      '19b7464a-edbe-42e8-b7cc-04d1eb1f7332', // Peer Community in Evolutionary Biology
+      '32025f28-0506-480e-84a0-b47ef1e92ec5', // Peer Community in Ecology
+      '4eebcec9-a4bb-44e1-bde3-2ae11e65daaa', // Peer Community in Animal Science
+      '5142a5bc-6b18-42b1-9a8d-7342d7d17e94', // Rapid Reviews COVID-19
+      '74fd66e9-3b90-4b5a-a4ab-5be83db4c5de', // Peer Community In Zoology
+      '7a9e97d1-c1fe-4ac2-9572-4ecfe28f9f84', // Peer Community in Paleontology
+      'f97bd177-5cb6-4296-8573-078318755bf2', // preLights
+    ],
+    TE.traverseArray(flow(
+      scietyDataPath,
+      getUrl(browser)(reviews),
+      TE.chainW(TE.traverseArray(toRdf(browser))),
+      TE.map(D.concatAll),
+    )),
     T.chainFirst(() => TE.tryCatch(() => browser.close(), constVoid)),
     TE.map(D.concatAll),
     TE.chainFirstIOK(RDF.writeTo('output.ttl', { format: 'turtle', prefixes })),
