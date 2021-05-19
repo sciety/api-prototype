@@ -22,6 +22,7 @@ import { cito, dcterms, fabio, frbr, org, rdf, rdfs, sciety } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
 import * as S from './string'
+import * as TTL from './turtle'
 
 const doiRegex = /^10\.[0-9]{4,}(?:\.[1-9][0-9]*)*\/[^%"#?\s]+$/
 
@@ -382,7 +383,7 @@ pipe(
     )),
     T.chainFirst(() => TE.tryCatch(() => browser.close(), constVoid)),
     TE.map(D.concatAll),
-    TE.chainFirstIOK(RDF.writeTo('output.ttl', { format: 'turtle', prefixes })),
+    TE.chainFirstTaskK(pipe(prefixes, TTL.writeToFile('output.ttl'))),
   )),
   exit,
 )()

@@ -13,3 +13,5 @@ export const fromArray = RS.fromReadonlyArray<RDF.Quad>(RDF.eq)
 export const union = RS.union<RDF.Quad>(RDF.eq)
 
 export const insert = RS.insert<RDF.Quad>(RDF.eq)
+
+export const reduce = RS.reduce<RDF.Quad>(RDF.ord)

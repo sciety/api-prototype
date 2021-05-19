@@ -1,10 +1,9 @@
+import * as graphy from '@graphy/core.data.factory'
 import * as Eq from 'fp-ts/Eq'
 import { pipe } from 'fp-ts/function'
+import { concatAll } from 'fp-ts/Monoid'
+import * as Ord from 'fp-ts/Ord'
 import * as RA from 'fp-ts/ReadonlyArray'
-import * as RR from 'fp-ts/ReadonlyRecord'
-import { taskify } from 'fp-ts/TaskEither'
-import fs from 'fs'
-import * as N3 from 'n3'
 import { URL } from 'url'
 import * as S from './string'
 
@@ -67,7 +66,7 @@ export const namedNode = <T extends string>(value: T): NamedNode<T> => ({
 
 export const blankNode = (name?: string): BlankNode => ({
   type: 'BlankNode',
-  name: N3.DataFactory.blankNode(name).value,
+  name: name ?? graphy.blankNode().name,
 })
 
 export const languageTaggedString = (value: string, languageTag: string): LanguageTaggedString => ({
@@ -110,42 +109,48 @@ export const quad = (subject: Subject, predicate: Predicate, object: Object, gra
   graph,
 })
 
-const toRdfJs = (writer: N3.Writer) => (term: Term): any => {
-  switch (term.type) {
+const getOrd = (type: Term['type']): Ord.Ord<any> => {
+  switch (type) {
     case 'NamedNode':
-      return N3.DataFactory.namedNode(term.value)
+      return ordNamedNode
     case 'BlankNode':
-      return N3.DataFactory.blankNode(term.name)
+      return ordBlankNode
     case 'LanguageTaggedString':
-      return N3.DataFactory.literal(term.value, term.languageTag)
+      return ordLanguageTaggedString
     case 'TypedLiteral':
-      return N3.DataFactory.literal(term.value, toRdfJs(writer)(term.datatype))
+      return ordTypedLiteral
     case 'Quad':
-      return N3.DataFactory.quad(toRdfJs(writer)(term.subject), toRdfJs(writer)(term.predicate), toRdfJs(writer)(term.object), toRdfJs(writer)(term.graph))
+      return ordQuad
     case 'DefaultGraph':
-      return N3.DataFactory.defaultGraph()
+      return Ord.fromCompare(() => 0)
     case 'List':
-      return pipe(term.values, RA.map(toRdfJs(writer)), ([...values]) => writer.list(values))
+      return Ord.fromCompare(() => 0)
   }
 }
 
-export const writeTo = (path: fs.PathLike, options: {
-  format: 'turtle'
-  prefixes?: {
-    [key: string]: NamedNode
+export const ord: Ord.Ord<Term> = Ord.fromCompare((x, y) => {
+  if (x.type === y.type) {
+    return getOrd(x.type).compare(x, y)
   }
-}) => (quads: Iterable<Quad>) => {
-  const n3prefixes = pipe(
-    options.prefixes ?? {},
-    RR.map(namespace => namespace.value),
-  )
 
-  const writer = new N3.Writer(fs.createWriteStream(path), { ...options, prefixes: n3prefixes })
+  return 0
+})
 
-  writer.addQuads([...quads].map(toRdfJs(writer)))
+const ordBlankNode = Ord.contramap((term: BlankNode) => term.name)(S.Ord)
+const ordLanguageTaggedString = Ord.contramap((term: LanguageTaggedString) => term.value)(S.Ord)
+const ordNamedNode = Ord.contramap((term: NamedNode) => term.value)(S.Ord)
 
-  return taskify((...args) => writer.end(...args))()
-}
+const ordTypedLiteral: Ord.Ord<TypedLiteral> = concatAll(Ord.getMonoid<TypedLiteral>())([
+  Ord.contramap((term: TypedLiteral) => term.datatype)(ordNamedNode),
+  Ord.contramap((term: TypedLiteral) => term.value)(S.Ord),
+])
+
+const ordQuad: Ord.Ord<Quad> = concatAll(Ord.getMonoid<Quad>())([
+  Ord.contramap((term: Quad) => term.graph)(ord),
+  Ord.contramap((term: Quad) => term.subject)(ord),
+  Ord.contramap((term: Quad) => term.predicate)(ord),
+  Ord.contramap((term: Quad) => term.object)(ord),
+])
 
 export const eq: { equals: <T extends Term>(a: T, b: T) => boolean } = Eq.fromEquals((x, y) => {
   switch (x.type) {
