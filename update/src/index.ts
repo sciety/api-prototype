@@ -384,7 +384,7 @@ pipe(
     )),
     T.chainFirst(() => TE.tryCatch(() => browser.close(), constVoid)),
     TE.map(D.concatAll),
-    TE.chainFirstTaskK(pipe(prefixes, TTL.writeToFile('output.ttl'))),
+    TE.chainFirstTaskK(pipe(prefixes, TTL.writeToFile(path.join(__dirname, '../../data/data.ttl')))),
   )),
   exit,
 )()

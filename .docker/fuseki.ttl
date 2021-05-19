@@ -20,7 +20,5 @@
 
 <#dataset>
   a ja:MemoryDataset ;
-  ja:data '/data/data/bats-article.ttl' ;
-  ja:data '/data/data/organisations.ttl' ;
-  ja:data '/data/data/pigs-article.ttl' ;
+  ja:data '/data/data/data.ttl' ;
 .
