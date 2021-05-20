@@ -6,9 +6,16 @@ services:
     ports:
       - '8081:8080'
     volumes:
-      - ./.docker/blazegraph.ini:/RWStore.properties
-      - ./.docker/load-data.sh:/load-data.sh
-      - ./data/:/data/
+      - ./.docker/blazegraph.ini:/RWStore.properties:ro
+      - ./data/:/data/:ro
+  blazegraph-data:
+    image: curlimages/curl:7.76.1
+    depends_on:
+      - blazegraph
+    restart: on-failure
+    command: ["--fail-with-body", "--data-binary", "@/load-data.ini", "--header", "Content-Type: text/plain", "http://blazegraph:8080/bigdata/dataloader"]
+    volumes:
+      - ./.docker/load-data.ini:/load-data.ini:ro
   client:
     build:
       context: client
@@ -17,7 +24,7 @@ services:
     ports:
       - '8082:8082'
     volumes:
-      - ./client/web/:/app/web/
+      - ./client/web/:/app/web/:ro
     deploy:
       restart_policy:
         condition: on-failure

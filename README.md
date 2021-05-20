@@ -12,12 +12,7 @@ It makes use of the [Spar Ontologies], especially [FRBR-aligned Bibliographic On
 
 The [Turtle] files in [`data`](./data) contain RDF statements describing articles, their versions, and their evaluations.
 
-To start the applications:
-
-1. Run `docker-compose up`
-2. In a separate terminal run `docker-compose exec blazegraph /load-data.sh` (this will succeed once both the container and application have started)
-
-A [Trifid] server is then available at <http://localhost:8080> to view the resources. This also has:
+If you run `docker-compose up` a [Trifid] server is available at <http://localhost:8080> to view the resources. This also has::
 
 - a SPARQL editor at <http://localhost:8080/sparql/>, which uses [Yasgui].
 - a view on the structure at <http://localhost:8080/spex/>, which uses [SPEX].
