@@ -12,13 +12,18 @@ It makes use of the [Spar Ontologies], especially [FRBR-aligned Bibliographic On
 
 The [Turtle] files in [`data`](./data) contain RDF statements describing articles, their versions, and their evaluations.
 
-If you run `docker-compose up` a [Trifid] server is available at <http://localhost:8080> to view the resources (e.g. <http://localhost:8080/peerj.11014v0.1-decision>). This also has:
+To start the applications:
+
+1. Run `docker-compose up`
+2. In a separate terminal run `docker-compose exec blazegraph /load-data.sh` (this will succeed once both the container and application have started)
+
+A [Trifid] server is then available at <http://localhost:8080> to view the resources. This also has:
 
 - a SPARQL editor at <http://localhost:8080/sparql/>, which uses [Yasgui].
 - a view on the structure at <http://localhost:8080/spex/>, which uses [SPEX].
 - a graph explorer at <http://localhost:8080/graph-explorer/>, which uses [Graph Explorer].
 
-This is read from a [SPARQL] endpoint provided by an [Apache Jena Fuseki] instance available at <http://localhost:8081/> (username <kbd>admin</kbd>, password <kbd>password</kbd>).
+This is read from a [SPARQL] endpoint provided by a [Blazegraph] instance available at <http://localhost:8081/>.
 
 There is also a basic client querying and display information about articles and their evaluations at <http://localhost:8082>.
 
@@ -148,8 +153,8 @@ This graph can continue to expand with links to and from authors, reviewers, rel
 - **How could this work with Doc Maps?**
   Can be used alongside, or maybe Doc Maps should actually be RDF?
 
-[Apache Jena Fuseki]: https://jena.apache.org/documentation/fuseki2/
 [bioRxiv]: https://www.biorxiv.org/
+[Blazegraph]: https://blazegraph.com/
 [Docker Compose]: https://docs.docker.com/compose/
 [Doc Maps]: https://docmaps.knowledgefutures.org/
 [DocMaps Framework]: https://docmaps.knowledgefutures.org/pub/sgkf1pqa

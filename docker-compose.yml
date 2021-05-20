@@ -1,11 +1,19 @@
 version: '3.8'
 
 services:
+  blazegraph:
+    image: lyrasis/blazegraph:2.1.5
+    ports:
+      - '8081:8080'
+    volumes:
+      - ./.docker/blazegraph.ini:/RWStore.properties
+      - ./.docker/load-data.sh:/load-data.sh
+      - ./data/:/data/
   client:
     build:
       context: client
     environment:
-      SPARQL_URL: http://jena:3030/sciety
+      SPARQL_URL: http://blazegraph:8080/bigdata/namespace/kb/sparql
     ports:
       - '8082:8082'
     volumes:
@@ -13,15 +21,6 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-  jena:
-    image: blankdots/jena-fuseki:fuseki4.0.0
-    environment:
-      ADMIN_PASSWORD: password
-    ports:
-      - '8081:3030'
-    volumes:
-      - ./.docker/fuseki.ttl:/data/fuseki/config/config.ttl
-      - ./data/:/data/data/
   trifid:
     build:
       context: trifid

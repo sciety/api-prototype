@@ -1,6 +1,6 @@
 {
   "baseConfig": "trifid:config-sparql.json",
-  "sparqlEndpointUrl": "http://jena:3030/sciety",
+  "sparqlEndpointUrl": "http://blazegraph:8080/bigdata/namespace/kb/sparql",
   "sparqlProxy": {
     "default": {
       "queryOperation": "getQuery"
