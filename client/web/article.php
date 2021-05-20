@@ -33,7 +33,7 @@ $article = $sparql->query(<<<SPARQL
 DESCRIBE sciety:{$articleId}
 SPARQL)->resource("sciety:{$articleId}");
 
-if(!$article->label()) {
+if(!$article->isA('fabio:ResearchPaper')) {
   http_response_code(404);
   return;
 }
