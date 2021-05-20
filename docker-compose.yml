@@ -4,6 +4,8 @@ services:
   client:
     build:
       context: client
+    environment:
+      SPARQL_URL: http://jena:3030/sciety
     ports:
       - '8082:8082'
     volumes:

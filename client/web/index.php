@@ -10,7 +10,7 @@ RdfNamespace::set('fabio', 'http://purl.org/spar/fabio/');
 RdfNamespace::set('frbr', 'http://purl.org/vocab/frbr/core#');
 RdfNamespace::set('sciety', 'http://localhost:8080/');
 
-$sparql = new Client("http://jena:3030/sciety");
+$sparql = new Client($_ENV['SPARQL_URL']);
 
 $articles = $sparql->query(<<<SPARQL
 SELECT *
