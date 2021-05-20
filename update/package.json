@@ -18,7 +18,8 @@
     "metascraper-title": "^5.21.7",
     "metascraper-url": "^5.21.7",
     "p-limit": "^3.1.0",
-    "puppeteer": "^9.1.1"
+    "puppeteer": "^9.1.1",
+    "slugify": "^1.5.3"
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.0",

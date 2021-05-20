@@ -12,13 +12,14 @@ import * as TE from 'fp-ts/TaskEither'
 import metascraper from 'metascraper'
 import path from 'path'
 import puppeteer, { Browser } from 'puppeteer'
+import slugify from 'slugify';
 import { BiorxivArticleDetails, biorxivArticleDetails } from './biorxiv'
 import { CrossrefWork, crossrefWork } from './crossref'
 import * as D from './dataset'
 import * as d from './decoder'
 import { getFromUrl, getUrl } from './http'
 import * as namespaces from './namespace'
-import { cito, dcterms, fabio, frbr, org, rdf, rdfs, sciety } from './namespace'
+import { cito, dcterms, fabio, foaf, frbr, org, rdf, rdfs, sciety } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
 import * as S from './string'
@@ -118,6 +119,8 @@ const doiVersionIri = <T extends { doi: string, version: string }>({
   doi,
   version
 }: T) => pipe([doi, version], S.join('v'), sciety)
+
+const personIri = flow((name: string) => slugify(name, { lower: true }), sciety)
 
 const biorxivWork = (details: BiorxivArticleDetails) => (work: RDF.NamedNode) => D.fromArray([
   RDF.quad(work, rdf.type, fabio.ResearchPaper, work),
@@ -294,7 +297,13 @@ const reviewExpression = ({
       RDF.quad(work, rdf.type, fabio.Review, work),
       ...pipe(
         data.author,
-        RA.map(author => RDF.quad(work, dcterms.creator, RDF.literal(author), work)),
+        RA.map(name => ({ name, person: pipe(name, personIri) })),
+        RA.reduce(RA.empty, (quads: ReadonlyArray<RDF.Quad>, { person, name }) => [
+          ...quads,
+          RDF.quad(work, frbr.creator, person, work),
+          RDF.quad(person, rdf.type, frbr.Person, person),
+          RDF.quad(person, foaf['name'], RDF.literal(name), person),
+        ])
       ),
       RDF.quad(work, cito.citesAsRecommendedReading, articleWork, work),
       RDF.quad(work, cito.reviews, articleExpression, work),

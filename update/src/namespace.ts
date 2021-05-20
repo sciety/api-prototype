@@ -21,6 +21,8 @@ export const dcterms = namespace('http://purl.org/dc/terms/')
 
 export const fabio = namespace('http://purl.org/spar/fabio/')
 
+export const foaf = namespace('http://xmlns.com/foaf/0.1/')
+
 export const frbr = namespace('http://purl.org/vocab/frbr/core#')
 
 export const org = namespace('http://www.w3.org/ns/org#')
