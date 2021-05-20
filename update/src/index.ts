@@ -147,7 +147,6 @@ const doiExpression = ({
       RDF.quad(expression, frbr.realizationOf, work, work),
       RDF.quad(expression, dcterms.publisher, publisher, work),
       RDF.quad(expression, fabio.hasManifestation, webPage, work),
-      RDF.quad(expression, fabio.hasManifestation, pdf, work),
       RDF.quad(webPage, rdf.type, fabio.WebPage, work),
       RDF.quad(webPage, fabio.hasURL, RDF.url(data.url), work),
       RDF.quad(publisher, rdf.type, org.Organization, sciety('publishers')),

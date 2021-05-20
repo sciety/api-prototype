@@ -355,7 +355,7 @@
   dcterms:identifier "doi:10.1086/707207" ;
   dcterms:publisher <http://localhost:8080/d83ac80b8763e0038a326c4091f58a77> ;
   dcterms:title "Does Evolutionary History Correlate with Contemporary Extinction Risk by Influencing Range Size Dynamics? | The American Naturalist: Vol 195, No 3" ;
-  fabio:hasManifestation <http://localhost:8080/60d4c360c89fb5e2effb6dc989b83fb5>, <http://localhost:8080/fdfe843142db1e45ccceac97e565de29> ;
+  fabio:hasManifestation <http://localhost:8080/60d4c360c89fb5e2effb6dc989b83fb5> ;
   frbr:partOf <http://localhost:8080/9cd55161f85b4ba73e1a42ab9896e927> ;
   frbr:realizationOf <http://localhost:8080/06d5bca6a145632890d479b8c1905d5a> .
 
@@ -514,7 +514,7 @@
   dcterms:date "2019-09-19"^^xsd:date ;
   dcterms:identifier "doi:10.1111/jeb.13543" ;
   dcterms:publisher <http://localhost:8080/6b68590b76cd49ec7944827dd3911048> ;
-  dcterms:title "The joint evolution of lifespan and self‐fertilization" ;
+  dcterms:title "The joint evolution of lifespan and self-fertilization" ;
   fabio:hasManifestation <http://localhost:8080/da9d1653a09c53b78766bab965af4fd4>, <http://localhost:8080/f7b1121a8e5d1b0c5c2c0df964b1f7ef> ;
   frbr:partOf <http://localhost:8080/0a3e628b48edd359a6c73fcc8f4fab97> ;
   frbr:realizationOf <http://localhost:8080/084304d6459c102f22ed4a59c6ae6527> .
@@ -1663,7 +1663,7 @@
   dcterms:identifier "doi:10.1016/j.epidem.2019.100349" ;
   dcterms:publisher <http://localhost:8080/21abe5a91c2949aba6ef77033a5f98f3> ;
   dcterms:title "Detecting within-host interactions from genotype combination prevalence data" ;
-  fabio:hasManifestation <http://localhost:8080/77fbb3fae3a07b8baeab3b12b2e660bd>, <http://localhost:8080/ef6a28f7fd90e646ce9d7346b49bc054> ;
+  fabio:hasManifestation <http://localhost:8080/77fbb3fae3a07b8baeab3b12b2e660bd> ;
   frbr:partOf <http://localhost:8080/ab83989c0ddee213f3c80e92c78d569c> ;
   frbr:realizationOf <http://localhost:8080/1abd8d77a1765be8a840dfb382b3ac7e> .
 
@@ -2529,7 +2529,7 @@
   dcterms:identifier "doi:10.1098/rspb.2019.0291" ;
   dcterms:publisher <http://localhost:8080/96d6f2e7e1f705ab5e59c84a6dc009b2> ;
   dcterms:title "Pleistocene climate change and the formation of regional species pools | Proceedings of the Royal Society B: Biological Sciences" ;
-  fabio:hasManifestation <http://localhost:8080/a1e2958e8fb4ccc97d36956c95ce37a0>, <http://localhost:8080/f0950e13abbdbc27a757022990a6bbbc> ;
+  fabio:hasManifestation <http://localhost:8080/a1e2958e8fb4ccc97d36956c95ce37a0> ;
   frbr:partOf <http://localhost:8080/a01241ac57792af824989f9283dc1351> ;
   frbr:realizationOf <http://localhost:8080/2646b66f8e218ec1dad1209e445e8e45> .
 
@@ -3312,7 +3312,7 @@
   dcterms:date "2020-11-18"^^xsd:date ;
   dcterms:publisher <http://localhost:8080/1d328f1087557477d64a398745a700e2> ;
   dcterms:title "Evolutionary stasis of the pseudoautosomal boundary in strepsirrhine primates" ;
-  fabio:hasManifestation <http://localhost:8080/06c2a50ccda76cb7fa7387bdce909652>, <http://localhost:8080/53eb91c108209cc28ebf3654c4bec3f6> ;
+  fabio:hasManifestation <http://localhost:8080/06c2a50ccda76cb7fa7387bdce909652> ;
   frbr:realizationOf <http://localhost:8080/2d97334939e5825220ee57de0fd86fbe> .
 
 <http://localhost:8080/21ba2ced3a6a94cd49a05f45afb1d6b0> a fabio:WebPage ;
@@ -3819,7 +3819,7 @@
   dcterms:identifier "doi:10.1098/rsos.171561" ;
   dcterms:publisher <http://localhost:8080/96d6f2e7e1f705ab5e59c84a6dc009b2> ;
   dcterms:title "Parallel diversifications of Cremastosperma and Mosannona (Annonaceae), tropical rainforest trees tracking Neogene upheaval of South America | Royal Society Open Science" ;
-  fabio:hasManifestation <http://localhost:8080/6d77690c44f02652af71236739f37186>, <http://localhost:8080/a749681fa776fd243791568e2cd5d61d> ;
+  fabio:hasManifestation <http://localhost:8080/a749681fa776fd243791568e2cd5d61d> ;
   frbr:partOf <http://localhost:8080/dc9777aca71f4585b09e63afb4b792b8> ;
   frbr:realizationOf <http://localhost:8080/3566c2017650d389f582580ceafcbba1> .
 
@@ -4718,7 +4718,7 @@
   dcterms:identifier "doi:10.1016/j.animal.2020.100074" ;
   dcterms:publisher <http://localhost:8080/21abe5a91c2949aba6ef77033a5f98f3> ;
   dcterms:title "Lactation curve model with explicit representation of perturbations as a phenotyping tool for dairy livestock precision farming" ;
-  fabio:hasManifestation <http://localhost:8080/016da7ce1aa62c18ce28e950643ca0ac>, <http://localhost:8080/814c5fe707a2a34bcdc774c355ed57e1> ;
+  fabio:hasManifestation <http://localhost:8080/016da7ce1aa62c18ce28e950643ca0ac> ;
   frbr:partOf <http://localhost:8080/161e7ce7bfdc89ab4b9f52c1d4c94212> ;
   frbr:realizationOf <http://localhost:8080/41a10ecbabed5d73a7b8939d581481a2> .
 
@@ -4820,7 +4820,7 @@
   dcterms:date "2020-04-07"^^xsd:date ;
   dcterms:identifier "doi:10.1111/evo.13973" ;
   dcterms:publisher <http://localhost:8080/6b68590b76cd49ec7944827dd3911048> ;
-  dcterms:title "Geographic variation in adult and embryonic desiccation tolerance in a terrestrial‐breeding frog" ;
+  dcterms:title "Geographic variation in adult and embryonic desiccation tolerance in a terrestrial-breeding frog" ;
   fabio:hasManifestation <http://localhost:8080/9c5151f5dcd144d9d615ed0e870067d4>, <http://localhost:8080/cfca6aff73790240567472c11ae8501c> ;
   frbr:partOf <http://localhost:8080/42f0d762a8587dbb364ddde4f6a4fc6d> ;
   frbr:realizationOf <http://localhost:8080/41a8c3c14d4d34e872213336cb3e8ce9> .
@@ -4935,7 +4935,7 @@
   dcterms:identifier "doi:10.1016/j.ympev.2020.107035" ;
   dcterms:publisher <http://localhost:8080/256adc0a733cd327300d2397cc0e6308> ;
   dcterms:title "Systematics and geographical distribution of Galba species, a group of cryptic and worldwide freshwater snails" ;
-  fabio:hasManifestation <http://localhost:8080/19ad8c967783f33747cb44ad0201c798>, <http://localhost:8080/adeb823e70ef28dd56cb74b8788158af> ;
+  fabio:hasManifestation <http://localhost:8080/adeb823e70ef28dd56cb74b8788158af> ;
   frbr:partOf <http://localhost:8080/94d3cbec79f23a15b05200f1ca14e12b> ;
   frbr:realizationOf <http://localhost:8080/4415020851c80320884707c704da9a1e> .
 
@@ -5508,7 +5508,7 @@
   dcterms:identifier "doi:10.1111/evo.14129" ;
   dcterms:publisher <http://localhost:8080/b509b361f8d7741155032e8ddc8e6caf> ;
   dcterms:title "Evolution and genetic architecture of disassortative mating at a locus under heterozygote advantage" ;
-  fabio:hasManifestation <http://localhost:8080/5e398ddecf3dc1242d98d98613a1b90a>, <http://localhost:8080/6d6b7c2478fb937bdd785451dd0ed2da> ;
+  fabio:hasManifestation <http://localhost:8080/5e398ddecf3dc1242d98d98613a1b90a> ;
   frbr:partOf <http://localhost:8080/42f0d762a8587dbb364ddde4f6a4fc6d> ;
   frbr:realizationOf <http://localhost:8080/4f6009dbf59d4f7dcb7618c0c8f26fcb> .
 
@@ -6463,7 +6463,7 @@
   dcterms:date "2020-10-11"^^xsd:date ;
   dcterms:identifier "doi:10.1111/jeb.13708" ;
   dcterms:publisher <http://localhost:8080/6b68590b76cd49ec7944827dd3911048> ;
-  dcterms:title "Trait‐specific trade‐offs prevent niche expansion in two parasites" ;
+  dcterms:title "Trait-specific trade-offs prevent niche expansion in two parasites" ;
   fabio:hasManifestation <http://localhost:8080/9a83592ffbcf3bcce618a0d49f7d135d>, <http://localhost:8080/9ac1b5361cb68db2b90ea2545ce0af6c> ;
   frbr:partOf <http://localhost:8080/0a3e628b48edd359a6c73fcc8f4fab97> ;
   frbr:realizationOf <http://localhost:8080/562ca3719a3294a22b37156e4c81b6e5> .
@@ -9705,7 +9705,7 @@
   dcterms:identifier "doi:10.1016/j.tpb.2019.11.002" ;
   dcterms:publisher <http://localhost:8080/256adc0a733cd327300d2397cc0e6308> ;
   dcterms:title "Multi-model inference of non-random mating from an information theoretic approach" ;
-  fabio:hasManifestation <http://localhost:8080/3693ed818ba47ea3a0dd7d40f1b13f04>, <http://localhost:8080/8aaaa9f1824ae579571dc3aaf2b2c53b> ;
+  fabio:hasManifestation <http://localhost:8080/8aaaa9f1824ae579571dc3aaf2b2c53b> ;
   frbr:partOf <http://localhost:8080/5807f2fdb589fa344e0ff5368097c65b> ;
   frbr:realizationOf <http://localhost:8080/8ebd576d5f4f6cc29b335937abf71265> .
 
@@ -10370,7 +10370,7 @@
   dcterms:date "2020-05-09"^^xsd:date ;
   dcterms:identifier "doi:10.1111/evo.13961" ;
   dcterms:publisher <http://localhost:8080/6b68590b76cd49ec7944827dd3911048> ;
-  dcterms:title "Epistasis, inbreeding depression, and the evolution of self‐fertilization" ;
+  dcterms:title "Epistasis, inbreeding depression, and the evolution of self-fertilization" ;
   fabio:hasManifestation <http://localhost:8080/7b09399740db41fd606e2d25c093551b>, <http://localhost:8080/c26acad5ed012b17df0192e0b7130ebe> ;
   frbr:partOf <http://localhost:8080/42f0d762a8587dbb364ddde4f6a4fc6d> ;
   frbr:realizationOf <http://localhost:8080/96b46ae438c6460900d3d6ffef3a4be7> .
@@ -12171,7 +12171,7 @@
   dcterms:identifier "doi:10.1086/697575" ;
   dcterms:publisher <http://localhost:8080/d83ac80b8763e0038a326c4091f58a77> ;
   dcterms:title "Evolution and Manipulation of Vector Host Choice | The American Naturalist: Vol 192, No 1" ;
-  fabio:hasManifestation <http://localhost:8080/48b6689c470cf61e081b1b832931d9e2>, <http://localhost:8080/5c69057afe318f1d15b8496d995844e6> ;
+  fabio:hasManifestation <http://localhost:8080/5c69057afe318f1d15b8496d995844e6> ;
   frbr:partOf <http://localhost:8080/9cd55161f85b4ba73e1a42ab9896e927> ;
   frbr:realizationOf <http://localhost:8080/b62f00ff7375eeea101b3eb4edb48000> .
 
@@ -12671,7 +12671,7 @@
   dcterms:identifier "doi:10.1111/oik.07937" ;
   dcterms:publisher <http://localhost:8080/b509b361f8d7741155032e8ddc8e6caf> ;
   dcterms:title "Interplay between the paradox of enrichment and nutrient cycling in food webs" ;
-  fabio:hasManifestation <http://localhost:8080/6257ada2ab3bc7f739a3011b5b385528>, <http://localhost:8080/7b80ce5e0cb1b54ed53b98302e3e98eb> ;
+  fabio:hasManifestation <http://localhost:8080/6257ada2ab3bc7f739a3011b5b385528> ;
   frbr:partOf <http://localhost:8080/b880d0c794e13103084be8a4a8bfe394> ;
   frbr:realizationOf <http://localhost:8080/bc3241b5b311fe7c4cfc357dc11bd6fa> .
 
@@ -13386,7 +13386,7 @@
   dcterms:date "2019-12-18"^^xsd:date ;
   dcterms:identifier "doi:10.1111/mec.15340" ;
   dcterms:publisher <http://localhost:8080/6b68590b76cd49ec7944827dd3911048> ;
-  dcterms:title "Insects and incest: Sib‐mating tolerance in natural populations of a parasitoid wasp" ;
+  dcterms:title "Insects and incest: Sib-mating tolerance in natural populations of a parasitoid wasp" ;
   fabio:hasManifestation <http://localhost:8080/ac6afc44ec91c0dd144cb3035c456e1a>, <http://localhost:8080/e4380299348337d953293dce3311828b> ;
   frbr:partOf <http://localhost:8080/fe81ca8ac93f3f3c6411a60fa8d8e533> ;
   frbr:realizationOf <http://localhost:8080/c3dc9882603c459b27c7924ae0407b28> .
@@ -16671,7 +16671,7 @@
   dcterms:identifier "doi:10.1021/acsinfecdis.9b00419" ;
   dcterms:publisher <http://localhost:8080/929cfc81f084f91d07974b688e06cbe0> ;
   dcterms:title "Uncovering the Hidden Antibiotic Potential of Cannabis" ;
-  fabio:hasManifestation <http://localhost:8080/76e2b88153ed16a19c91b6d2bf54e3f1>, <http://localhost:8080/be5bbeeb9f50606e72039d2206c25eae> ;
+  fabio:hasManifestation <http://localhost:8080/76e2b88153ed16a19c91b6d2bf54e3f1> ;
   frbr:partOf <http://localhost:8080/a59bad72ca87ba4f3d88b248cbcd3d1c> ;
   frbr:realizationOf <http://localhost:8080/f973ffea8c2fcd19160c257eaee23210> .
 
