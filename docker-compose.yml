@@ -12,10 +12,11 @@ services:
     image: curlimages/curl:7.76.1
     depends_on:
       - blazegraph
-    restart: on-failure
-    command: ["--fail-with-body", "--data-binary", "@/load-data.ini", "--header", "Content-Type: text/plain", "http://blazegraph:8080/bigdata/dataloader"]
+    entrypoint: ""
+    command: ["/wait-for.sh", "blazegraph:8080", "--", "curl", "--fail-with-body", "--data-binary", "@/load-data.ini", "--header", "Content-Type: text/plain", "http://blazegraph:8080/bigdata/dataloader"]
     volumes:
       - ./.docker/load-data.ini:/load-data.ini:ro
+      - ./.docker/wait-for.sh:/wait-for.sh:ro
   client:
     build:
       context: client
