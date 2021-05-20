@@ -1,5 +1,6 @@
 <?php
 
+use EasyRdf\Format;
 use EasyRdf\RdfNamespace;
 use EasyRdf\Sparql\Client;
 
@@ -18,6 +19,15 @@ RdfNamespace::set('frbr', 'http://purl.org/vocab/frbr/core#');
 RdfNamespace::set('sciety', 'http://localhost:8080/');
 
 $sparql = new Client("http://jena:3030/sciety");
+
+// https://github.com/easyrdf/easyrdf/issues/226#issuecomment-145474581
+Format::register(
+    'rdfxml',
+    'RDF/XML',
+    'http://www.w3.org/TR/rdf-syntax-grammar',
+    ['application/rdf+xml' => 1.1],
+    ['rdf', 'xrdf']
+);
 
 $article = $sparql->query(<<<SPARQL
 DESCRIBE sciety:{$articleId}
