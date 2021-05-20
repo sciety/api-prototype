@@ -150,6 +150,16 @@ const doiExpression = ({
       RDF.quad(expression, frbr.realizationOf, work, work),
       RDF.quad(expression, dcterms.publisher, publisher, work),
       RDF.quad(expression, fabio.hasManifestation, webPage, work),
+      ...pipe(
+        data.author,
+        RA.map(name => ({ name, person: pipe(name, personIri) })),
+        RA.reduce(RA.empty, (quads: ReadonlyArray<RDF.Quad>, { person, name }) => [
+          ...quads,
+          RDF.quad(expression, frbr.creator, person, work),
+          RDF.quad(person, rdf.type, frbr.Person, person),
+          RDF.quad(person, foaf['name'], RDF.literal(name), person),
+        ])
+      ),
       RDF.quad(webPage, rdf.type, fabio.WebPage, work),
       RDF.quad(webPage, fabio.hasURL, RDF.url(data.url), work),
       RDF.quad(publisher, rdf.type, org.Organization, sciety('publishers')),
@@ -294,17 +304,17 @@ const reviewExpression = ({
       RDF.quad(expression, fabio.hasManifestation, webPage, work),
       RDF.quad(expression, dcterms.publisher, publisher, work),
       RDF.quad(expression, dcterms.date, RDF.date(data.date), work),
-      RDF.quad(work, rdf.type, fabio.Review, work),
       ...pipe(
         data.author,
         RA.map(name => ({ name, person: pipe(name, personIri) })),
         RA.reduce(RA.empty, (quads: ReadonlyArray<RDF.Quad>, { person, name }) => [
           ...quads,
-          RDF.quad(work, frbr.creator, person, work),
+          RDF.quad(expression, frbr.creator, person, work),
           RDF.quad(person, rdf.type, frbr.Person, person),
           RDF.quad(person, foaf['name'], RDF.literal(name), person),
         ])
       ),
+      RDF.quad(work, rdf.type, fabio.Review, work),
       RDF.quad(work, cito.citesAsRecommendedReading, articleWork, work),
       RDF.quad(work, cito.reviews, articleExpression, work),
       RDF.quad(webPage, rdf.type, fabio.WebPage, work),
