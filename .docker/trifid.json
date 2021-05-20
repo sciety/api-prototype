@@ -1,9 +1,0 @@
-{
-  "baseConfig": "trifid:config-sparql.json",
-  "sparqlEndpointUrl": "http://jena:3030/sciety",
-  "sparqlProxy": {
-    "default": {
-      "endpointUrl": "http://localhost:8080/sciety"
-    }
-  }
-}
