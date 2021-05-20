@@ -10,9 +10,7 @@
 <http://localhost:8080/00a03d583946825fd60da1093eb61ef0> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/fb7ea1a2372431bbcae86f7c41b63d8b> ;
   cito:reviews <http://localhost:8080/10.1101/2020.08.23.263137v6> ;
-  dcterms:creator (
-    "Jennifer Krumins"
-  ) .
+  dcterms:creator "Jennifer Krumins" .
 
 <http://localhost:8080/10.24072/pci.ecology.100073> a fabio:ReviewArticle ;
   dcterms:date "2021-03-17"^^xsd:date ;
@@ -115,9 +113,7 @@
 <http://localhost:8080/028885d699ec4b71f3484cf83ec66e2f> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/692cebf3e6dcd4f0caa669a79ab7185a> ;
   cito:reviews <http://localhost:8080/10.1101/845081v1> ;
-  dcterms:creator (
-    "Craig McCormick"
-  ) .
+  dcterms:creator "Craig McCormick" .
 
 <http://localhost:8080/10.5281/zenodo.3718438> a fabio:ReviewArticle ;
   dcterms:date "2020-03-19"^^xsd:date ;
@@ -224,9 +220,7 @@
 <http://localhost:8080/04d29dc71316a1256246195446aa7630> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/0d9dc1e57ca1aaaa9c2a341a90cdc2a8> ;
   cito:reviews <http://localhost:8080/10.1101/436295v7> ;
-  dcterms:creator (
-    "Francois-Xavier Dechaume-Moncharmont"
-  ) .
+  dcterms:creator "Francois-Xavier Dechaume-Moncharmont" .
 
 <http://localhost:8080/10.24072/pci.ecology.100060> a fabio:ReviewArticle ;
   dcterms:date "2020-09-28"^^xsd:date ;
@@ -445,9 +439,7 @@
 <http://localhost:8080/07fc5210ffe9e232814724ed95808b60> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/672b3bf553edcda812fe3b61057460ae> ;
   cito:reviews <http://localhost:8080/10.1101/113324v5> ;
-  dcterms:creator (
-    "Ignacio Bravo"
-  ) .
+  dcterms:creator "Ignacio Bravo" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100024> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -464,9 +456,7 @@
 <http://localhost:8080/083aa7e02672c5ddb095a06a6393fbc0> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/b74a3c61dcb553249020b8b842d3a797> ;
   cito:reviews <http://localhost:8080/10.1101/180000v4> ;
-  dcterms:creator (
-    "Aneil Agrawal"
-  ) .
+  dcterms:creator "Aneil Agrawal" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100041> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -550,9 +540,7 @@
 <http://localhost:8080/084cf5577341a0f56f4af97de888c050> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/d1aead1de8009e259f172f1c63dd57da> ;
   cito:reviews <http://localhost:8080/10.1101/2020.07.02.184101v3> ;
-  dcterms:creator (
-    "Andrew Farke"
-  ) .
+  dcterms:creator "Andrew Farke" .
 
 <http://localhost:8080/0f7fbdd762e9e9a6918824a713e257f3> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.paleo.100007"^^xsd:anyURI .
@@ -585,9 +573,7 @@
 <http://localhost:8080/0a21af8fd7423bc4a4fbb9931d5b1339> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/57895557538d87132800b49c65130e93> ;
   cito:reviews <http://localhost:8080/10.1101/131136v4> ;
-  dcterms:creator (
-    "Xavier Picó"
-  ) .
+  dcterms:creator "Xavier Picó" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100026> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -604,9 +590,7 @@
 <http://localhost:8080/0a8e797a0c8b44af8905bcbb83202b16> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/2447e82e2063c6f6edd27fa8bf8f409c> ;
   cito:reviews <http://localhost:8080/10.1101/145169v4> ;
-  dcterms:creator (
-    "Ruth Hufbauer"
-  ) .
+  dcterms:creator "Ruth Hufbauer" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100034> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -859,9 +843,7 @@
 <http://localhost:8080/0c0a7e86b998f605fc7ead6e20c32a82> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/0c4d752ca69f8882b85eac9b9be2c33c> ;
   cito:reviews <http://localhost:8080/10.1101/2019.12.20.884908v6> ;
-  dcterms:creator (
-    "Stefaniya Kamenova"
-  ) .
+  dcterms:creator "Stefaniya Kamenova" .
 
 <http://localhost:8080/10.24072/pci.zool.100004> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -977,9 +959,7 @@
 <http://localhost:8080/0c63f80d6b4f2dc0b717b5f105a5f002> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/92ecd95eddd84f1443c4e1052d86f076> ;
   cito:reviews <http://localhost:8080/10.1101/202481v4> ;
-  dcterms:creator (
-    "Sebastián E Ramos-Onsins"
-  ) .
+  dcterms:creator "Sebastián E Ramos-Onsins" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100050> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -996,10 +976,7 @@
 <http://localhost:8080/0c724e2988ad1cfcd5b5f7fb6f29b4e4> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c3dc9882603c459b27c7924ae0407b28> ;
   cito:reviews <http://localhost:8080/10.1101/169268v4> ;
-  dcterms:creator (
-    "Caroline Nieberding"
-    "Bertanne Visser"
-  ) .
+  dcterms:creator "Bertanne Visser", "Caroline Nieberding" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100047> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -1234,9 +1211,7 @@
 <http://localhost:8080/10b736514d78a7ac124d0359afcd9da0> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/be849b33c0f46b6b0caa4aa0667807ab> ;
   cito:reviews <http://localhost:8080/10.1101/2020.05.26.117200v3> ;
-  dcterms:creator (
-    "Elisa Thebault"
-  ) .
+  dcterms:creator "Elisa Thebault" .
 
 <http://localhost:8080/ed91881c93893a91ecdca2af1316c0e4> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100063"^^xsd:anyURI .
@@ -1427,9 +1402,7 @@
 <http://localhost:8080/1835f6ed94e683cd6cdb9dcad90267cb> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/a55c3b41b5398eaa0b897cdb4fe87dda> ;
   cito:reviews <http://localhost:8080/10.1101/316117v5> ;
-  dcterms:creator (
-    "Erol Akcay"
-  ) .
+  dcterms:creator "Erol Akcay" .
 
 <http://localhost:8080/c5722dab235442434cfc314faf2b38ce> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100063"^^xsd:anyURI .
@@ -1446,9 +1419,7 @@
 <http://localhost:8080/18993a8354a4c2d73b967b3836e6638a> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/b8adfd74069f2a580d35588f2cee5107> ;
   cito:reviews <http://localhost:8080/10.1101/356469v3> ;
-  dcterms:creator (
-    "Luís César Schiesari"
-  ) .
+  dcterms:creator "Luís César Schiesari" .
 
 <http://localhost:8080/d3a019f14f8ed5b49782c8c8bd7b8689> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100007"^^xsd:anyURI .
@@ -1847,9 +1818,7 @@
 <http://localhost:8080/1c33921cded4dea98b88e4d8630e3907> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c2d6b256adcd98d279b2a8c4c5822654> ;
   cito:reviews <http://localhost:8080/10.1101/2020.10.08.331363v5> ;
-  dcterms:creator (
-    "Trine Bilde"
-  ) .
+  dcterms:creator "Trine Bilde" .
 
 <http://localhost:8080/ec3d711d465cb3d8576023a28bc728ad> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100121"^^xsd:anyURI .
@@ -2047,9 +2016,7 @@
 <http://localhost:8080/1de43f8c622be53d330d3465132aff6c> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/193026ddadeabb75d208ab7db43686b0> ;
   cito:reviews <http://localhost:8080/10.1101/2020.01.22.915660v1> ;
-  dcterms:creator (
-    "Craig McCormick"
-  ) .
+  dcterms:creator "Craig McCormick" .
 
 <http://localhost:8080/681c37041478b0e4623a34c5a70ba2e1> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/3678320"^^xsd:anyURI .
@@ -2096,9 +2063,7 @@
 <http://localhost:8080/1f7e89f8f65970350cc8664b6da691bd> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/2d97334939e5825220ee57de0fd86fbe> ;
   cito:reviews <http://localhost:8080/10.1101/445072v6> ;
-  dcterms:creator (
-    "Mathieu Joron"
-  ) .
+  dcterms:creator "Mathieu Joron" .
 
 <http://localhost:8080/02ad62c459fe24ae5b5dd025dc94e125> a fabio:WebPage ;
   fabio:hasURL "https://www.biorxiv.org/content/10.1101/425561v2"^^xsd:anyURI .
@@ -2305,9 +2270,7 @@
 <http://localhost:8080/223f48baeac8ec65a3989b8fbf44275c> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/e7d3176e14809117f225c1c204661b6b> ;
   cito:reviews <http://localhost:8080/10.1101/557066v4> ;
-  dcterms:creator (
-    "Michelle F. DiLeo"
-  ) .
+  dcterms:creator "Michelle F. DiLeo" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100020> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -2321,9 +2284,7 @@
 <http://localhost:8080/228afdcc1b26dd02d06daa5cf46a0b29> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/b6034e3090964151a7793b91ae520a47> ;
   cito:reviews <http://localhost:8080/10.1101/100743v4> ;
-  dcterms:creator (
-    "Stéphanie Bedhomme"
-  ) .
+  dcterms:creator "Stéphanie Bedhomme" .
 
 <http://localhost:8080/f0210f5a99d45ffc91c701a1c5fbc4ea> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100020"^^xsd:anyURI .
@@ -2340,9 +2301,7 @@
 <http://localhost:8080/2310faedf8f80b614eeadd270fbb238f> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/f5b1d2204eea0feb229d3bbab616a911> ;
   cito:reviews <http://localhost:8080/10.1101/151068v4> ;
-  dcterms:creator (
-    "Benoît Moury"
-  ) .
+  dcterms:creator "Benoît Moury" .
 
 <http://localhost:8080/c0658e828fe80b97ffe143eb794b2bd3> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100039"^^xsd:anyURI .
@@ -2442,9 +2401,7 @@
 <http://localhost:8080/24e7ac02505e51e86c043c250845ef26> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c7aa4ea9ed5243f94ee092c46d11c7a9> ;
   cito:reviews <http://localhost:8080/10.1101/398602v4> ;
-  dcterms:creator (
-    "Staffan Jacob"
-  ) .
+  dcterms:creator "Staffan Jacob" .
 
 <http://localhost:8080/8e8c5da95c42d59e6468aad66073b91e> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100028"^^xsd:anyURI .
@@ -2615,9 +2572,7 @@
 <http://localhost:8080/26b647ad7b80d258f456d19a4ff6b142> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/5efdc2a58252cba07a130d7a7dd8d04a> ;
   cito:reviews <http://localhost:8080/10.1101/148189v4> ;
-  dcterms:creator (
-    "Richard Ree"
-  ) .
+  dcterms:creator "Richard Ree" .
 
 <http://localhost:8080/46c2e1b3c71f6e5ba85a4dbef99c9d1d> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100032"^^xsd:anyURI .
@@ -2985,9 +2940,7 @@
 <http://localhost:8080/297893edd245390d7d606967195ec389> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/93259885ae53ca6aa9aa7b0c577245db> ;
   cito:reviews <http://localhost:8080/10.1101/2020.07.23.217091v3> ;
-  dcterms:creator (
-    "Stephan Schiffels"
-  ) .
+  dcterms:creator "Stephan Schiffels" .
 
 <http://localhost:8080/0126134ac432070cbc027ef629cd300c> a fabio:DigitalManifestation ;
   dcterms:format "application/pdf" ;
@@ -3150,9 +3103,7 @@
 <http://localhost:8080/2bef52a42d3045a221cfb261f4e4ed77> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/ded3cde4021ff42e4fadee8ed1ee1505> ;
   cito:reviews <http://localhost:8080/10.1101/2020.11.09.375725v1> ;
-  dcterms:creator (
-    "Mariana De Niz"
-  ) .
+  dcterms:creator "Mariana De Niz" .
 
 <http://localhost:8080/48f236b7c5c17bce3eea0f49734abc6a> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.1242/prelights.26610"^^xsd:anyURI .
@@ -3244,9 +3195,7 @@
 <http://localhost:8080/2d132a8435de6e25e91d959be76fff0c> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/ab53007a66a2b31596f35e69431ff2d7> ;
   cito:reviews <http://localhost:8080/10.1101/136325v5> ;
-  dcterms:creator (
-    "Rodrigo Medel"
-  ) .
+  dcterms:creator "Rodrigo Medel" .
 
 <http://localhost:8080/471d858bf75f663c0003e7722c797bec> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100027"^^xsd:anyURI .
@@ -3372,9 +3321,7 @@
 <http://localhost:8080/2ddcc1930fa54571ecf19afcb07a0286> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/2646b66f8e218ec1dad1209e445e8e45> ;
   cito:reviews <http://localhost:8080/10.1101/149617v4> ;
-  dcterms:creator (
-    "Fabien Condamine"
-  ) .
+  dcterms:creator "Fabien Condamine" .
 
 <http://localhost:8080/6715da06a3c4025499e3358bd2dbb6ec> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100053"^^xsd:anyURI .
@@ -3522,10 +3469,7 @@
 <http://localhost:8080/2ef09871eb62edd158ff9daa8367e7b8> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/60af3e64dcc2e698fc243e524a9cc16a> ;
   cito:reviews <http://localhost:8080/10.1101/214866v5> ;
-  dcterms:creator (
-    "Sylvain Billiard"
-    "Henrique Teotonio"
-  ) .
+  dcterms:creator "Henrique Teotonio", "Sylvain Billiard" .
 
 <http://localhost:8080/d3df560a5085d2eb5344c0147d1d156d> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100054"^^xsd:anyURI .
@@ -3542,9 +3486,7 @@
 <http://localhost:8080/3078edfe70916e557543010667f33fcc> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/026d5960bff9809aba3d53a4abe645cb> ;
   cito:reviews <http://localhost:8080/10.1101/323311v4> ;
-  dcterms:creator (
-    "Jan Hrcek"
-  ) .
+  dcterms:creator "Jan Hrcek" .
 
 <http://localhost:8080/389e4e502a885c6b89d81b32960f6340> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100012"^^xsd:anyURI .
@@ -3996,9 +3938,7 @@
 <http://localhost:8080/36498df451bd038d7608f1b6f288f343> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/4f570401467f7afdb0e49b13ad5ccb2a> ;
   cito:reviews <http://localhost:8080/10.1101/402016v3> ;
-  dcterms:creator (
-    "Jason A Holliday"
-  ) .
+  dcterms:creator "Jason A Holliday" .
 
 <http://localhost:8080/6f17e116056fd4f9249dec641c26d560> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100064"^^xsd:anyURI .
@@ -4052,9 +3992,7 @@
 <http://localhost:8080/36fb59289989e7519a79811054e80519> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/7ba61d92dee506cdf66eaa4fc2b52c8e> ;
   cito:reviews <http://localhost:8080/10.1101/2021.01.25.428046v1> ;
-  dcterms:creator (
-    "Lucie Van Emmenis"
-  ) .
+  dcterms:creator "Lucie Van Emmenis" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100045> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -4068,9 +4006,7 @@
 <http://localhost:8080/370237f727908fb792df6265ef7de374> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/fcc63a9bc08378cd51fa8066bc1f2ea2> ;
   cito:reviews <http://localhost:8080/10.1101/118695v4> ;
-  dcterms:creator (
-    "Stéphanie Bedhomme"
-  ) .
+  dcterms:creator "Stéphanie Bedhomme" .
 
 <http://localhost:8080/5278768c3cf025311ef8387ea6db233d> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100045"^^xsd:anyURI .
@@ -4095,9 +4031,7 @@
 <http://localhost:8080/37bf1ea25927e7e25952dc35940e82c0> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/3c287761618edac6acd973fa314c2ba6> ;
   cito:reviews <http://localhost:8080/10.1101/2020.04.01.014514v4> ;
-  dcterms:creator (
-    "Michael Greenfield"
-  ) .
+  dcterms:creator "Michael Greenfield" .
 
 <http://localhost:8080/78151fef6fb130864cf1302f6a450bb7> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100112"^^xsd:anyURI .
@@ -4181,9 +4115,7 @@
 <http://localhost:8080/37ef156369817d87d4e738551e9eb5eb> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/274a5df5d771ea5e8f1c1243189ab41f> ;
   cito:reviews <http://localhost:8080/10.1101/2020.07.19.210880v3> ;
-  dcterms:creator (
-    "Joaquín Hortal"
-  ) .
+  dcterms:creator "Joaquín Hortal" .
 
 <http://localhost:8080/cc13b1123a614bea6334a5adcf986a9e> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100065"^^xsd:anyURI .
@@ -4203,9 +4135,7 @@
 <http://localhost:8080/38803a9bb0103cc21fd967091d8c69f6> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/d5fef5f9065688e70e819d770da6f938> ;
   cito:reviews <http://localhost:8080/10.1101/433037v4> ;
-  dcterms:creator (
-    "Paul Caplat"
-  ) .
+  dcterms:creator "Paul Caplat" .
 
 <http://localhost:8080/10.1101/2020.04.03.022905v1> a fabio:Article ;
   dcterms:date "2020-04-03"^^xsd:date ;
@@ -4286,10 +4216,7 @@
 <http://localhost:8080/39717dbbf7798c93cc36d18561edd840> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/1a11a066c55628a9fa157acfa9bfd1ea> ;
   cito:reviews <http://localhost:8080/10.1101/2020.11.29.402545v4> ;
-  dcterms:creator (
-    "Alison Duncan"
-    "Michael Hochberg"
-  ) .
+  dcterms:creator "Alison Duncan", "Michael Hochberg" .
 
 <http://localhost:8080/6a6807640dad90416b297fc4d0e64032> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100126"^^xsd:anyURI .
@@ -4314,10 +4241,7 @@
 <http://localhost:8080/3abfd72b36f66936dd6e9d1db57adb69> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/7c2ec80e7ddcf33ccd526ed4aa6282de> ;
   cito:reviews <http://localhost:8080/10.1101/371385v6> ;
-  dcterms:creator (
-    "Adèle Mennerat"
-    "Enric Frago"
-  ) .
+  dcterms:creator "Adèle Mennerat", "Enric Frago" .
 
 <http://localhost:8080/82a0cd3281c4a7bb1eb4c5b7049f26db> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100022"^^xsd:anyURI .
@@ -4468,9 +4392,7 @@
 <http://localhost:8080/3c66ae92722bde82aa320db0ebe5ec1d> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/5831e9d67482a208ca4077f4e85eaf0f> ;
   cito:reviews <http://localhost:8080/10.1101/337477v3> ;
-  dcterms:creator (
-    "Hirohisa Kishino"
-  ) .
+  dcterms:creator "Hirohisa Kishino" .
 
 <http://localhost:8080/8c842eb8cf1369c9269cb66f5bc9aa90> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100067"^^xsd:anyURI .
@@ -4601,9 +4523,7 @@
 <http://localhost:8080/3ce7d4a902cad3ac1e2801da8ad15d98> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/0150f86451e1861e7fb9f478c9e91a1c> ;
   cito:reviews <http://localhost:8080/10.1101/2020.11.14.382630v1> ;
-  dcterms:creator (
-    "Zaki Molvi"
-  ) .
+  dcterms:creator "Zaki Molvi" .
 
 <http://localhost:8080/84fcdc78d9adcde55b74687e06713b70> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/4695222"^^xsd:anyURI .
@@ -4706,9 +4626,7 @@
 <http://localhost:8080/3e9294b403f681e1fd84c5f0f3c42067> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/3c97a58aefaaccd214957252e5c72676> ;
   cito:reviews <http://localhost:8080/10.1101/589895v7> ;
-  dcterms:creator (
-    "Elisa Thebault"
-  ) .
+  dcterms:creator "Elisa Thebault" .
 
 <http://localhost:8080/016da7ce1aa62c18ce28e950643ca0ac> a fabio:WebPage ;
   fabio:hasURL "https://www.sciencedirect.com/science/article/pii/S1751731120300768"^^xsd:anyURI .
@@ -4868,9 +4786,7 @@
 <http://localhost:8080/42870c1430ebccd6f619766f10253fd5> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/f215f3e0f49808a6615bd1fe4d924293> ;
   cito:reviews <http://localhost:8080/10.1101/2020.02.29.970905v3> ;
-  dcterms:creator (
-    "Luděk Berec"
-  ) .
+  dcterms:creator "Luděk Berec" .
 
 <http://localhost:8080/6dff54c81fd836fbaeab0e79183e2be8> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100113"^^xsd:anyURI .
@@ -4886,9 +4802,7 @@
 <http://localhost:8080/4291a7ef9ae2a0a66399a251dd53ca3f> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/78b53d980c4d4fa27cda772d3a2e1a95> ;
   cito:reviews <http://localhost:8080/10.1101/2020.11.13.380030v1> ;
-  dcterms:creator (
-    "Andrew Lopez"
-  ) .
+  dcterms:creator "Andrew Lopez" .
 
 <http://localhost:8080/4360108ab323ecf8b313df0a18b7757d> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/4574652"^^xsd:anyURI .
@@ -4905,9 +4819,7 @@
 <http://localhost:8080/429822472b34cb70c4a4aba56cecbe1f> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/04fc2a6fb893b4b64b0f6911df4d94bb> ;
   cito:reviews <http://localhost:8080/10.1101/290791v5> ;
-  dcterms:creator (
-    "Andrea S Meseguer"
-  ) .
+  dcterms:creator "Andrea S Meseguer" .
 
 <http://localhost:8080/d69d83f8a9dc7d03e2e65ecc7c0d6d5a> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100065"^^xsd:anyURI .
@@ -4923,9 +4835,7 @@
 <http://localhost:8080/4369e08736afc79765208c644f9dd7b3> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/ea804d85cd4aca52b69bbaeb39375bd2> ;
   cito:reviews <http://localhost:8080/10.1101/2020.11.09.375469v1> ;
-  dcterms:creator (
-    "Juan Manuel Vazquez"
-  ) .
+  dcterms:creator "Juan Manuel Vazquez" .
 
 <http://localhost:8080/cb0d6958a79315a0d40d3971949711b6> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/4554443"^^xsd:anyURI .
@@ -5008,9 +4918,7 @@
 <http://localhost:8080/44c688ec26d1d1d46ae583c7bf045eb5> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/78457ff54b67b515b42d44f51256b07e> ;
   cito:reviews <http://localhost:8080/10.1101/149211v7> ;
-  dcterms:creator (
-    "Sara Magalhães"
-  ) .
+  dcterms:creator "Sara Magalhães" .
 
 <http://localhost:8080/452961fd7960216928482c0d3ec84102> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c28a2c3403697054dafead7274b2dcfd> .
@@ -5031,9 +4939,7 @@
 <http://localhost:8080/4538cc34672ca1082a62c88049adff2d> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/0b937ccef4b7b709442fb82ebd71f250> ;
   cito:reviews <http://localhost:8080/10.1101/2020.07.04.187583v1> ;
-  dcterms:creator (
-    "Monica Granados"
-  ) .
+  dcterms:creator "Monica Granados" .
 
 <http://localhost:8080/f15e876b10b95c7fbbaf45e634eea2a4> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/4057034"^^xsd:anyURI .
@@ -5058,9 +4964,7 @@
 <http://localhost:8080/49072246064f37c678450b7c47bbad09> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/544f2dacfda7249d95f34c022bd3e316> ;
   cito:reviews <http://localhost:8080/10.1101/342758v6> ;
-  dcterms:creator (
-    "Ignacio G Bravo"
-  ) .
+  dcterms:creator "Ignacio G Bravo" .
 
 <http://localhost:8080/9c6e9299d5f9aad5dc7c67a1c7df669e> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100062"^^xsd:anyURI .
@@ -5080,9 +4984,7 @@
 <http://localhost:8080/4925718e81a20a0c2598b8f8cfaf8067> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/084304d6459c102f22ed4a59c6ae6527> ;
   cito:reviews <http://localhost:8080/10.1101/420877v3> ;
-  dcterms:creator (
-    "Thomas Bataillon"
-  ) .
+  dcterms:creator "Thomas Bataillon" .
 
 <http://localhost:8080/10.24072/pci.animsci.100002> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -5096,9 +4998,7 @@
 <http://localhost:8080/4998f14a0db49d21e376d3dbcdcae776> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/7426af1dd2302768299138d699bd745e> ;
   cito:reviews <http://localhost:8080/10.1101/760082v3> ;
-  dcterms:creator (
-    "Luis Tedeschi"
-  ) .
+  dcterms:creator "Luis Tedeschi" .
 
 <http://localhost:8080/acdf4597ebfd7f0eb2301dc37c84f780> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.animsci.100002"^^xsd:anyURI .
@@ -5123,9 +5023,7 @@
 <http://localhost:8080/4b84138a752298ba124499583002e1c9> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/96b46ae438c6460900d3d6ffef3a4be7> ;
   cito:reviews <http://localhost:8080/10.1101/809814v4> ;
-  dcterms:creator (
-    "Sylvain Gandon"
-  ) .
+  dcterms:creator "Sylvain Gandon" .
 
 <http://localhost:8080/dc74513e1d199fdf60ec5ae1fa936262> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100093"^^xsd:anyURI .
@@ -5142,9 +5040,7 @@
 <http://localhost:8080/4bc5b26876466c93c8dbe646729da4b6> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/2ce450611ca6dd67a031116cde548422> ;
   cito:reviews <http://localhost:8080/10.1101/239244v4> ;
-  dcterms:creator (
-    "Marianne Elias"
-  ) .
+  dcterms:creator "Marianne Elias" .
 
 <http://localhost:8080/7973742a068e9e91de683abc0c8ba848> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100059"^^xsd:anyURI .
@@ -5161,9 +5057,7 @@
 <http://localhost:8080/4bd4d009b387a22043b59a0ab5b49a96> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/670802720d34848eddc4e63a481ea287> ;
   cito:reviews <http://localhost:8080/10.1101/143560v3> ;
-  dcterms:creator (
-    "Ana Rivero"
-  ) .
+  dcterms:creator "Ana Rivero" .
 
 <http://localhost:8080/85824b34130f118268c35b86dd6def71> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100030"^^xsd:anyURI .
@@ -5180,9 +5074,7 @@
 <http://localhost:8080/4c81c62ad1eb6586b2580f36497f49ff> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/3e4ca35f2bebc56a02020110af97774b> ;
   cito:reviews <http://localhost:8080/10.1101/101980v4> ;
-  dcterms:creator (
-    "Michael Fontaine"
-  ) .
+  dcterms:creator "Michael Fontaine" .
 
 <http://localhost:8080/d2688cef821e3d9107c1b1aeead0f371> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100031"^^xsd:anyURI .
@@ -5202,9 +5094,7 @@
 <http://localhost:8080/4cc55124a12b5f9de00a1d864c6fec36> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/6a5f96d9a51d3570400c974c8a683e85> ;
   cito:reviews <http://localhost:8080/10.1101/611939v7> ;
-  dcterms:creator (
-    "Karl Cottenie"
-  ) .
+  dcterms:creator "Karl Cottenie" .
 
 <http://localhost:8080/10.5281/zenodo.3662409> a fabio:ReviewArticle ;
   dcterms:date "2020-02-11"^^xsd:date ;
@@ -5217,9 +5107,7 @@
 <http://localhost:8080/4d89085778f8bd1eaf79cbafeb5a44cb> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/f6f583caf3f363c62cd937cc122b1a3f> ;
   cito:reviews <http://localhost:8080/10.1101/380238v1> ;
-  dcterms:creator (
-    "Giulia Bertolin"
-  ) .
+  dcterms:creator "Giulia Bertolin" .
 
 <http://localhost:8080/69d2accd97c6dff101d8c65fd836a29c> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/3662409"^^xsd:anyURI .
@@ -5236,9 +5124,7 @@
 <http://localhost:8080/4d9d7d34346eeaa5aa2cee9eff380a01> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/2980c36b8d3fd92ca557b2f7c1ba5dd9> ;
   cito:reviews <http://localhost:8080/10.1101/509067v4> ;
-  dcterms:creator (
-    "Tom JM Van Dooren"
-  ) .
+  dcterms:creator "Tom JM Van Dooren" .
 
 <http://localhost:8080/cff7ee0e31628a1ca19e94c015097430> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100053"^^xsd:anyURI .
@@ -5255,9 +5141,7 @@
 <http://localhost:8080/4db29f8af3012610ded6d202d29ca027> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/e9e3b8c4b39508a3451405adb09259e1> ;
   cito:reviews <http://localhost:8080/10.1101/407163v5> ;
-  dcterms:creator (
-    "Dustin Brisson"
-  ) .
+  dcterms:creator "Dustin Brisson" .
 
 <http://localhost:8080/cb3e88aa09359a6f3d369597eb146c14> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100099"^^xsd:anyURI .
@@ -5341,9 +5225,7 @@
 <http://localhost:8080/4eaf660895275ace7eab7b10cde08e17> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/822fe21e0050c1ad6ea9bba4db6ff284> ;
   cito:reviews <http://localhost:8080/10.1101/2020.11.09.374330v4> ;
-  dcterms:creator (
-    "Luis Tedeschi"
-  ) .
+  dcterms:creator "Luis Tedeschi" .
 
 <http://localhost:8080/9402fc07ec6989087dd9500c18f921fd> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.animsci.100006"^^xsd:anyURI .
@@ -5586,9 +5468,7 @@
 <http://localhost:8080/4fff3c52571f9c321c29d6afb2116a81> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/d6f9fbbcd25cfe939c737fe069b9a124> ;
   cito:reviews <http://localhost:8080/10.1101/586362v5> ;
-  dcterms:creator (
-    "Sébastien Lavergne"
-  ) .
+  dcterms:creator "Sébastien Lavergne" .
 
 <http://localhost:8080/a6b6d60ec84f8dc3d986afea8cdfd78b> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100086"^^xsd:anyURI .
@@ -5608,9 +5488,7 @@
 <http://localhost:8080/5156287737e331a32f4a66fd4bbc1afb> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/aae4e9a78ba6df853d51cb78b668ec0b> ;
   cito:reviews <http://localhost:8080/10.1101/2020.06.02.129536v4> ;
-  dcterms:creator (
-    "Francisco Lloret"
-  ) .
+  dcterms:creator "Francisco Lloret" .
 
 <http://localhost:8080/10.1101/790634v1> a fabio:Article ;
   dcterms:date "2019-10-02"^^xsd:date ;
@@ -5967,9 +5845,7 @@
 <http://localhost:8080/540d18f57f1db73070b84ad9008a124a> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/faea769d36a5c24474631902dccafd89> ;
   cito:reviews <http://localhost:8080/10.1101/2020.08.21.260596v3> ;
-  dcterms:creator (
-    "Ellen Decaestecker"
-  ) .
+  dcterms:creator "Ellen Decaestecker" .
 
 <http://localhost:8080/c54ba11d521f1b18ddee3e9713ef4fab> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.zool.100005"^^xsd:anyURI .
@@ -6088,10 +5964,7 @@
 <http://localhost:8080/5480121debf5f078c1e2102cfc2f3807> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/d7ccb35f02279a944d43d85d6cc51400> ;
   cito:reviews <http://localhost:8080/10.1101/236646v5> ;
-  dcterms:creator (
-    "Joaquin Hortal"
-    "Juan Arroyo"
-  ) .
+  dcterms:creator "Joaquin Hortal", "Juan Arroyo" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100110> a fabio:ReviewArticle ;
   dcterms:date "2020-10-26"^^xsd:date ;
@@ -6108,9 +5981,7 @@
 <http://localhost:8080/54f6fcaea6cbebabe835a18a9d1b1af6> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/fe6e32780ded0ea550e4247d33d37029> ;
   cito:reviews <http://localhost:8080/10.1101/2020.05.06.080895v5> ;
-  dcterms:creator (
-    "Matteo Fumagalli"
-  ) .
+  dcterms:creator "Matteo Fumagalli" .
 
 <http://localhost:8080/55160fd8a40024fa64b6a8560d9dea30> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/a55c3b41b5398eaa0b897cdb4fe87dda> .
@@ -6526,9 +6397,7 @@
 <http://localhost:8080/56462314e7428fef816a60f7bae92495> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/1980bb106b928807e9fe8c05befcf56d> ;
   cito:reviews <http://localhost:8080/10.1101/442160v5> ;
-  dcterms:creator (
-    "Simon Blanchet"
-  ) .
+  dcterms:creator "Simon Blanchet" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100087> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -6545,9 +6414,7 @@
 <http://localhost:8080/56b424c8f199f6d09df2d75fab904480> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/531c10de6722789173dd88ec00293fb5> ;
   cito:reviews <http://localhost:8080/10.1101/656413v4> ;
-  dcterms:creator (
-    "Katie E Lotterhos"
-  ) .
+  dcterms:creator "Katie E Lotterhos" .
 
 <http://localhost:8080/0ed5c6ad71bb5e4d296a78470feeee13> a fabio:WebPage ;
   fabio:hasURL "https://www.biorxiv.org/content/10.1101/131136v2"^^xsd:anyURI .
@@ -6719,9 +6586,7 @@
 <http://localhost:8080/5a754f7cf5b22afde3f4f0b9b6d948ef> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/41a8c3c14d4d34e872213336cb3e8ce9> ;
   cito:reviews <http://localhost:8080/10.1101/314351v3> ;
-  dcterms:creator (
-    "Ben Phillips"
-  ) .
+  dcterms:creator "Ben Phillips" .
 
 <http://localhost:8080/741c9558cba0a793d4eee2a355784856> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100079"^^xsd:anyURI .
@@ -6741,9 +6606,7 @@
 <http://localhost:8080/5a7f49d1694ce8e85911982bb1012112> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/5531ff985ea56e48b300567204c02ebe> ;
   cito:reviews <http://localhost:8080/10.1101/240127v3> ;
-  dcterms:creator (
-    "Dries Bonte"
-  ) .
+  dcterms:creator "Dries Bonte" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100096> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -6757,10 +6620,7 @@
 <http://localhost:8080/5ac415f9062aadf4bbc917ea75a18c44> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/96810c50be132bb6979e867e8b603b16> ;
   cito:reviews <http://localhost:8080/10.1101/849968v4> ;
-  dcterms:creator (
-    "Inês Fragata"
-    "Ben L Phillips"
-  ) .
+  dcterms:creator "Ben L Phillips", "Inês Fragata" .
 
 <http://localhost:8080/a39c557f8914b1f00c034de4e342bfc2> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100096"^^xsd:anyURI .
@@ -6844,9 +6704,7 @@
 <http://localhost:8080/5cc7c70add369c7c62fa0480c0c927c1> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/1abd8d77a1765be8a840dfb382b3ac7e> ;
   cito:reviews <http://localhost:8080/10.1101/256586v3> ;
-  dcterms:creator (
-    "Dustin Brisson"
-  ) .
+  dcterms:creator "Dustin Brisson" .
 
 <http://localhost:8080/b0258cb0c39304829cc4b4fd106760fe> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100006"^^xsd:anyURI .
@@ -6863,9 +6721,7 @@
 <http://localhost:8080/5cddb11cb8039ec4623c90c86be1c87e> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c085732054de80b947a5f9c9c4cb8f59> ;
   cito:reviews <http://localhost:8080/10.1101/449777v4> ;
-  dcterms:creator (
-    "Vincent Calcagno"
-  ) .
+  dcterms:creator "Vincent Calcagno" .
 
 <http://localhost:8080/5e9fb1adeea1ef505e40d5c3169bc041> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100015"^^xsd:anyURI .
@@ -6951,9 +6807,7 @@
 <http://localhost:8080/5de76f57275e3180277026d1c3737ca0> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/cb57d54c6547cde7cf028f53bacbe365> ;
   cito:reviews <http://localhost:8080/10.1101/2020.03.28.013177v1> ;
-  dcterms:creator (
-    "Morgan Carter"
-  ) .
+  dcterms:creator "Morgan Carter" .
 
 <http://localhost:8080/5e12c22117496373e70ce784b5e9061d> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/b5b8ae89de67a33bf819af9403d12963> .
@@ -6978,9 +6832,7 @@
 <http://localhost:8080/5e1ff9f9cf9b2fc51c2f7deb987c2c82> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/de68063c3950d56dc46ccd8d4c256b6c> ;
   cito:reviews <http://localhost:8080/10.1101/452326v6> ;
-  dcterms:creator (
-    "Stéphane Dupas"
-  ) .
+  dcterms:creator "Stéphane Dupas" .
 
 <http://localhost:8080/10.24072/pci.ecology.100046> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -6994,9 +6846,7 @@
 <http://localhost:8080/5e5c12344705661b7c1b9bf4cfc976d9> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/bc3241b5b311fe7c4cfc357dc11bd6fa> ;
   cito:reviews <http://localhost:8080/10.1101/276592v7> ;
-  dcterms:creator (
-    "Samraat Pawar"
-  ) .
+  dcterms:creator "Samraat Pawar" .
 
 <http://localhost:8080/8de1f79318990489b2203b06f2d261c5> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100046"^^xsd:anyURI .
@@ -7118,9 +6968,7 @@
 <http://localhost:8080/6059bd333801dec588a62cd9e1ec53f0> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/e844ed55c10e8c082d8a4ebf2bf3a45c> ;
   cito:reviews <http://localhost:8080/10.1101/2020.07.30.228544v5> ;
-  dcterms:creator (
-    "Sara Magalhães"
-  ) .
+  dcterms:creator "Sara Magalhães" .
 
 <http://localhost:8080/10.24072/pci.zool.100002> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -7137,9 +6985,7 @@
 <http://localhost:8080/60a68ab6a34810f37be77c21be0a49c2> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/9558b52ca53368bfcbc8974bc259f98b> ;
   cito:reviews <http://localhost:8080/10.1101/722579v6> ;
-  dcterms:creator (
-    "Anna Cohuet"
-  ) .
+  dcterms:creator "Anna Cohuet" .
 
 <http://localhost:8080/009b5485ce4c51067e4ec4da31c5a0fd> a fabio:DigitalManifestation ;
   dcterms:format "application/pdf" ;
@@ -7236,9 +7082,7 @@
 <http://localhost:8080/61060b2fd466843e38b7012ac23bf6a5> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/34b58f74d87b1ad9f5f119852c367bbe> ;
   cito:reviews <http://localhost:8080/10.1101/461947v5> ;
-  dcterms:creator (
-    "Tanja Pyhäjärvi"
-  ) .
+  dcterms:creator "Tanja Pyhäjärvi" .
 
 <http://localhost:8080/a8ecbd0ee827738b5a38cbfb7c1c3eeb> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100071"^^xsd:anyURI .
@@ -7338,9 +7182,7 @@
 <http://localhost:8080/62645506e29b9197d7841c9cc8cf9230> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/14072b8a5cb2b485103903deb03a7e15> ;
   cito:reviews <http://localhost:8080/10.1101/474874v4> ;
-  dcterms:creator (
-    "Georges Kunstler"
-  ) .
+  dcterms:creator "Georges Kunstler" .
 
 <http://localhost:8080/df86af39188f6be1e2a50c95e5b9839c> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100033"^^xsd:anyURI .
@@ -7359,9 +7201,7 @@
 <http://localhost:8080/62aa9c8143c1071138f901a0d75fe18c> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/b17f242ca92f4606da4d7dc8925fa42f> ;
   cito:reviews <http://localhost:8080/10.1101/2020.02.22.20025460v1> ;
-  dcterms:creator (
-    "Tatiana Hillman"
-  ) .
+  dcterms:creator "Tatiana Hillman" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100058> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -7375,9 +7215,7 @@
 <http://localhost:8080/62bea734797234ec2359ea790bd1e7d1> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/06d5bca6a145632890d479b8c1905d5a> ;
   cito:reviews <http://localhost:8080/10.1101/152215v5> ;
-  dcterms:creator (
-    "Arne Ø Mooers"
-  ) .
+  dcterms:creator "Arne Ø Mooers" .
 
 <http://localhost:8080/90e0b7f9ef2a711fc8afbd0f866af3c9> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100058"^^xsd:anyURI .
@@ -7394,9 +7232,7 @@
 <http://localhost:8080/62f1fb67e4b1a171c3c73e2ddc75f181> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/28dfd150261bbccf9fe45949b09ab6f0> ;
   cito:reviews <http://localhost:8080/10.1101/161786v4> ;
-  dcterms:creator (
-    "Yaniv Brandvain"
-  ) .
+  dcterms:creator "Yaniv Brandvain" .
 
 <http://localhost:8080/7ca7fc6d622cf260aac69df2fa829509> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100056"^^xsd:anyURI .
@@ -7413,9 +7249,7 @@
 <http://localhost:8080/652804552f8b7e8c2a86aaffca3f9b50> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/b62f00ff7375eeea101b3eb4edb48000> ;
   cito:reviews <http://localhost:8080/10.1101/110577v3> ;
-  dcterms:creator (
-    "Samuel Alizon"
-  ) .
+  dcterms:creator "Samuel Alizon" .
 
 <http://localhost:8080/ceb4e37d61e89881db62bdc133a8650b> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100023"^^xsd:anyURI .
@@ -7432,9 +7266,7 @@
 <http://localhost:8080/66575c863a1f9ad2b610dbc91509cebb> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/d5802e688eb048c11621aa454ab6af7b> ;
   cito:reviews <http://localhost:8080/10.1101/2020.06.03.20119925v3> ;
-  dcterms:creator (
-    "B Jesse Shapiro"
-  ) .
+  dcterms:creator "B Jesse Shapiro" .
 
 <http://localhost:8080/f2405df51b0d808d0d2c2fe6bb858fd6> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100107"^^xsd:anyURI .
@@ -7454,10 +7286,7 @@
 <http://localhost:8080/665ae1ab68bdc3e823df10c4199c9154> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/03fd83df4c1d065f56d3cfbc95826189> ;
   cito:reviews <http://localhost:8080/10.1101/431296v4> ;
-  dcterms:creator (
-    "Kevin Cazelles"
-    "Kevin S McCann"
-  ) .
+  dcterms:creator "Kevin Cazelles", "Kevin S McCann" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100080> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -7471,9 +7300,7 @@
 <http://localhost:8080/66775c716d901dd21a538bade80ec3e5> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/9b6baad929509b126e7ab5d4ea2d0c55> ;
   cito:reviews <http://localhost:8080/10.1101/643619v4> ;
-  dcterms:creator (
-    "Georgii Bazykin"
-  ) .
+  dcterms:creator "Georgii Bazykin" .
 
 <http://localhost:8080/9912423305f483f0b57ae30c190df15a> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100080"^^xsd:anyURI .
@@ -7675,9 +7502,7 @@
 <http://localhost:8080/695712a1fb8cb661d8f721ef6e2cbe36> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/4e4c931533768dc11bf66c60eac4e188> ;
   cito:reviews <http://localhost:8080/10.1101/2020.08.10.244061v4> ;
-  dcterms:creator (
-    "Lionel Hautier"
-  ) .
+  dcterms:creator "Lionel Hautier" .
 
 <http://localhost:8080/ad66fc7f2f1cabc89fe0825111b26c30> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.paleo.100008"^^xsd:anyURI .
@@ -7836,10 +7661,7 @@
 <http://localhost:8080/6c14752d6f6c24098486d67bc16d7cd7> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/fd236254f5d37c429329e29312bdb7fd> ;
   cito:reviews <http://localhost:8080/10.1101/108589v5> ;
-  dcterms:creator (
-    "Virginie Ravigné"
-    "François Blanquart"
-  ) .
+  dcterms:creator "François Blanquart", "Virginie Ravigné" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100119> a fabio:ReviewArticle ;
   dcterms:date "2021-01-18"^^xsd:date ;
@@ -7853,9 +7675,7 @@
 <http://localhost:8080/6c36981ef7bc20d8503342a4da3cd983> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/d5917246b0d60afacbf3b30933f7c78e> ;
   cito:reviews <http://localhost:8080/10.1101/2020.02.17.952853v5> ;
-  dcterms:creator (
-    "Benoit Pujol"
-  ) .
+  dcterms:creator "Benoit Pujol" .
 
 <http://localhost:8080/796fd34e7765c3731a814fe9aed5834a> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100119"^^xsd:anyURI .
@@ -7883,9 +7703,7 @@
 <http://localhost:8080/6d58a8b58ee45b7e37fd16b9295a9ce6> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/9fefccd2fb5c5b4ebd35485cc51dfd75> ;
   cito:reviews <http://localhost:8080/10.1101/356147v3> ;
-  dcterms:creator (
-    "Juan Arroyo"
-  ) .
+  dcterms:creator "Juan Arroyo" .
 
 <http://localhost:8080/10.24072/pci.ecology.100075> a fabio:ReviewArticle ;
   dcterms:date "2021-03-29"^^xsd:date ;
@@ -7902,9 +7720,7 @@
 <http://localhost:8080/6e065f22e97b339fd012673435924c07> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/9c86829dcffeb6dfa642bd0bc409ea4d> ;
   cito:reviews <http://localhost:8080/10.1101/836338v4> ;
-  dcterms:creator (
-    "Joaquín Hortal"
-  ) .
+  dcterms:creator "Joaquín Hortal" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100109> a fabio:ReviewArticle ;
   dcterms:date "2020-09-28"^^xsd:date ;
@@ -7921,9 +7737,7 @@
 <http://localhost:8080/6e2bbe77885dc2c5506bf8fcd03866cf> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/4f6009dbf59d4f7dcb7618c0c8f26fcb> ;
   cito:reviews <http://localhost:8080/10.1101/616409v9> ;
-  dcterms:creator (
-    "Charles Mullon"
-  ) .
+  dcterms:creator "Charles Mullon" .
 
 <http://localhost:8080/10.1101/653980v1> a fabio:Article ;
   dcterms:date "2019-05-29"^^xsd:date ;
@@ -8023,9 +7837,7 @@
 <http://localhost:8080/703b735594e7982a3c48b6066e10cf97> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c2e9138eabf7f3418848e586dc9e1583> ;
   cito:reviews <http://localhost:8080/10.1101/387456v3> ;
-  dcterms:creator (
-    "Matthieu Barbier"
-  ) .
+  dcterms:creator "Matthieu Barbier" .
 
 <http://localhost:8080/021b9c66873b790911bdcc7b43416ff5> a fabio:WebPage ;
   fabio:hasURL "https://www.biorxiv.org/content/10.1101/2021.01.12.426369v1"^^xsd:anyURI .
@@ -8058,9 +7870,7 @@
 <http://localhost:8080/717bcadc3a2ece7731a7b02ca9643f00> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/d70f57c595e7d860bff79d7f0e3ed817> ;
   cito:reviews <http://localhost:8080/10.1101/351197v4> ;
-  dcterms:creator (
-    "François Munoz"
-  ) .
+  dcterms:creator "François Munoz" .
 
 <http://localhost:8080/ca4ed8dc32b05af41bb04bbd809959fe> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100041"^^xsd:anyURI .
@@ -8222,9 +8032,7 @@
 <http://localhost:8080/757d21e1c5c1faad4479fc755e9baf44> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/85d04c859a5c7b502a9968cd4f2c20f1> ;
   cito:reviews <http://localhost:8080/10.1101/2020.10.24.353417v3> ;
-  dcterms:creator (
-    "Elio Sucena"
-  ) .
+  dcterms:creator "Elio Sucena" .
 
 <http://localhost:8080/10.24072/pci.ecology.100025> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -8238,9 +8046,7 @@
 <http://localhost:8080/75f0a461f7cb5d6db6bbbd3ebb2845dc> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/fce76290f4141f6d7270d46267f6c4b4> ;
   cito:reviews <http://localhost:8080/10.1101/472431v3> ;
-  dcterms:creator (
-    "Denis Réale"
-  ) .
+  dcterms:creator "Denis Réale" .
 
 <http://localhost:8080/e9621ecc08303036facc94d266d355ff> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100025"^^xsd:anyURI .
@@ -8257,10 +8063,7 @@
 <http://localhost:8080/77351548b34c5fbfd9f5f32bd7573fac> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c28a2c3403697054dafead7274b2dcfd> ;
   cito:reviews <http://localhost:8080/10.1101/433235v5> ;
-  dcterms:creator (
-    "François Blanquart"
-    "Florence Débarre"
-  ) .
+  dcterms:creator "Florence Débarre", "François Blanquart" .
 
 <http://localhost:8080/e48774a625e6008460a91f35f3203478> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100072"^^xsd:anyURI .
@@ -8542,10 +8345,7 @@
 <http://localhost:8080/79d46ef51683c1b15df7bf8b086a72ca> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/34031a93e23852f555e1603f191c2c75> ;
   cito:reviews <http://localhost:8080/10.1101/179044v7> ;
-  dcterms:creator (
-    "Tatiana Giraud"
-    "Judith Mank"
-  ) .
+  dcterms:creator "Judith Mank", "Tatiana Giraud" .
 
 <http://localhost:8080/e89fe177483e08354031f238e94f7884> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100044"^^xsd:anyURI .
@@ -8562,9 +8362,7 @@
 <http://localhost:8080/7a145fdceeaeb65f373ae08d16b335fa> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/8077fddf981ed63fbca34e18fe2e7edd> ;
   cito:reviews <http://localhost:8080/10.1101/2019.12.20.884056v3> ;
-  dcterms:creator (
-    "Jordi Estellé"
-  ) .
+  dcterms:creator "Jordi Estellé" .
 
 <http://localhost:8080/c643a6a83da22f37c259b704ce0a3705> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.animsci.100004"^^xsd:anyURI .
@@ -8651,9 +8449,7 @@
 <http://localhost:8080/7ab331bdb2ef71cbfe978156786255aa> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/bfa7dc03d5df096dd9ef404a2cb2755b> ;
   cito:reviews <http://localhost:8080/10.1101/168260v4> ;
-  dcterms:creator (
-    "Guillaume Achaz"
-  ) .
+  dcterms:creator "Guillaume Achaz" .
 
 <http://localhost:8080/7af9390eb081a87ee91c43a43370f9d1> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/b001cbd5886a3c69ede4e48ad98024c9> .
@@ -9072,9 +8868,7 @@
 <http://localhost:8080/8262db8098a8d8a6e01c86957a682671> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/aecbb85758b468ae479412b1dd0f78df> ;
   cito:reviews <http://localhost:8080/10.1101/2020.08.21.257881v4> ;
-  dcterms:creator (
-    "Marta Montserrat"
-  ) .
+  dcterms:creator "Marta Montserrat" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100073> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -9088,9 +8882,7 @@
 <http://localhost:8080/82a4801428e9b697eb156a9ec114d4b3> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/ae209f09ef2d7b2c7b897c5ccc108381> ;
   cito:reviews <http://localhost:8080/10.1101/505610v4> ;
-  dcterms:creator (
-    "Kateryna Makova"
-  ) .
+  dcterms:creator "Kateryna Makova" .
 
 <http://localhost:8080/c21ba567c5812092b345d12672af6fad> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100073"^^xsd:anyURI .
@@ -9284,9 +9076,7 @@
 <http://localhost:8080/8656cea437f176fa3076c3bdd08d6726> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/9d477681eb49770315d182556d41cab5> ;
   cito:reviews <http://localhost:8080/10.1101/807727v3> ;
-  dcterms:creator (
-    "Michael David Pirie"
-  ) .
+  dcterms:creator "Michael David Pirie" .
 
 <http://localhost:8080/c57c11ecbaf2af0d6411835bc4c1b8cd> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100094"^^xsd:anyURI .
@@ -9440,9 +9230,7 @@
 <http://localhost:8080/87271139cf7433e31f714f485f9d5e9d> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/41a10ecbabed5d73a7b8939d581481a2> ;
   cito:reviews <http://localhost:8080/10.1101/661249v4> ;
-  dcterms:creator (
-    "Luis Tedeschi"
-  ) .
+  dcterms:creator "Luis Tedeschi" .
 
 <http://localhost:8080/8ad9ff66597ee16f985244b043076c1d> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/f6f583caf3f363c62cd937cc122b1a3f> .
@@ -9464,9 +9252,7 @@
 <http://localhost:8080/8af8d0105be8ea1a5a1a3df0db492f8c> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/4415020851c80320884707c704da9a1e> ;
   cito:reviews <http://localhost:8080/10.1101/647867v3> ;
-  dcterms:creator (
-    "Fabien Condamine"
-  ) .
+  dcterms:creator "Fabien Condamine" .
 
 <http://localhost:8080/ba3e67f52db171c4e6ebaf23e6e3cfc6> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100089"^^xsd:anyURI .
@@ -9485,10 +9271,7 @@
 <http://localhost:8080/8b07f0b4ac17c15e886e6175d0a41f50> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/b5b8ae89de67a33bf819af9403d12963> ;
   cito:reviews <http://localhost:8080/10.1101/2020.12.01.405662v1> ;
-  dcterms:creator (
-    "Florence Carrouel"
-    "Chaminda Seneviratne"
-  ) .
+  dcterms:creator "Chaminda Seneviratne", "Florence Carrouel" .
 
 <http://localhost:8080/71a511c1f4db937a1f9433866c09a511> a fabio:ReviewArticle ;
   dcterms:publisher <http://localhost:8080/b509b361f8d7741155032e8ddc8e6caf> ;
@@ -9513,9 +9296,7 @@
 <http://localhost:8080/8c9164bf20b007b08d0a47bda24a24b1> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/903a9953c1595e822a15b9516d7ad3e9> ;
   cito:reviews <http://localhost:8080/10.1101/351288v3> ;
-  dcterms:creator (
-    "Nicolas Galtier"
-  ) .
+  dcterms:creator "Nicolas Galtier" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100088> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -9529,9 +9310,7 @@
 <http://localhost:8080/8cd420902b995f098a1cb49eaa5bc144> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/5384f1a2c6bd49c64c2121bf7647efa2> ;
   cito:reviews <http://localhost:8080/10.1101/376756v4> ;
-  dcterms:creator (
-    "Nicolas Lartillot"
-  ) .
+  dcterms:creator "Nicolas Lartillot" .
 
 <http://localhost:8080/d2920d67c28917a6afc1842c74277bfd> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100088"^^xsd:anyURI .
@@ -9556,9 +9335,7 @@
 <http://localhost:8080/8dd029a0c3013746a07658700ad919cf> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/ef7bad6145473fbe6a993e0f0488b63b> ;
   cito:reviews <http://localhost:8080/10.1101/832220v4> ;
-  dcterms:creator (
-    "Samir Simon Suweis"
-  ) .
+  dcterms:creator "Samir Simon Suweis" .
 
 <http://localhost:8080/99b19bd14931524e3a2b3756da8207e6> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100051"^^xsd:anyURI .
@@ -9677,9 +9454,7 @@
 <http://localhost:8080/8e1ee7ed74ee2053aa72dff41b055c30> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c542d84ea265489a1bf2162d673bf4df> ;
   cito:reviews <http://localhost:8080/10.1101/2020.04.30.069948v4> ;
-  dcterms:creator (
-    "Inés Álvarez"
-  ) .
+  dcterms:creator "Inés Álvarez" .
 
 <http://localhost:8080/10.24072/pci.ecology.100048> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -9696,9 +9471,7 @@
 <http://localhost:8080/8e7b8df08a6fb1c9770c485832722f72> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/51a253aecd63a864f95860858e03514d> ;
   cito:reviews <http://localhost:8080/10.1101/790634v3> ;
-  dcterms:creator (
-    "Sergio A. Estay"
-  ) .
+  dcterms:creator "Sergio A. Estay" .
 
 <http://localhost:8080/10.1016/j.tpb.2019.11.002> a fabio:Article ;
   dcterms:date "2020-02-01"^^xsd:date ;
@@ -10018,9 +9791,7 @@
 <http://localhost:8080/9435eeb3bf4c0727bb0e8f37762983c3> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/55d444942bda8410047927c683865ee8> ;
   cito:reviews <http://localhost:8080/10.1101/862755v1> ;
-  dcterms:creator (
-    "Craig McCormick"
-  ) .
+  dcterms:creator "Craig McCormick" .
 
 <http://localhost:8080/afff7c5a81c05a25bb51d788eccdd4cb> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/3702901"^^xsd:anyURI .
@@ -10123,9 +9894,7 @@
 <http://localhost:8080/9530fbb45d50b0c18455bcaf1222230b> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/7cbf0fe4aba9a79e7b605f1f1b343857> ;
   cito:reviews <http://localhost:8080/10.1101/493650v3> ;
-  dcterms:creator (
-    "Benjamin Roche"
-  ) .
+  dcterms:creator "Benjamin Roche" .
 
 <http://localhost:8080/10.1093/trstmh/traa058> a fabio:Article ;
   dcterms:date "2020-07-28"^^xsd:date ;
@@ -10256,9 +10025,7 @@
 <http://localhost:8080/958f05f2349390695d077cda975e4597> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/cfaa62e470bef6f89ea465ccd39e71db> ;
   cito:reviews <http://localhost:8080/10.1101/2020.07.03.186395v2> ;
-  dcterms:creator (
-    "Facundo Romani"
-  ) .
+  dcterms:creator "Facundo Romani" .
 
 <http://localhost:8080/00066b0df24925701447669fa6f56579> a fabio:DigitalManifestation ;
   dcterms:format "application/pdf" ;
@@ -10422,9 +10189,7 @@
 <http://localhost:8080/975f3a3c4d93f67029dc69f93779b006> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/51d157f6115b1cef5b68d6076bea4c1a> ;
   cito:reviews <http://localhost:8080/10.1101/2020.05.13.092775v5> ;
-  dcterms:creator (
-    "Ben Phillips"
-  ) .
+  dcterms:creator "Ben Phillips" .
 
 <http://localhost:8080/d7a6f00992bae80fde5865d0cdcf9b18> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100118"^^xsd:anyURI .
@@ -10444,9 +10209,7 @@
 <http://localhost:8080/97aab016d9c5a3bbe2da509dd0b27fe1> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/13e59a47f58e138cbbb0ce21af8c3d05> ;
   cito:reviews <http://localhost:8080/10.1101/622373v4> ;
-  dcterms:creator (
-    "Aurélien Tellier"
-  ) .
+  dcterms:creator "Aurélien Tellier" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100076> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -10463,9 +10226,7 @@
 <http://localhost:8080/97bf07063169d4a32200a22bd636e82f> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/837578912fd4b2e7d87f08d119ff5d8e> ;
   cito:reviews <http://localhost:8080/10.1101/589945v3> ;
-  dcterms:creator (
-    "Troy Day"
-  ) .
+  dcterms:creator "Troy Day" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100074> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -10482,9 +10243,7 @@
 <http://localhost:8080/98124d5ccad160c789c3c18505b0e063> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/da3b9b333f0e2fca20c948ec43890d48> ;
   cito:reviews <http://localhost:8080/10.1101/550319v4> ;
-  dcterms:creator (
-    "Fabien Aubret"
-  ) .
+  dcterms:creator "Fabien Aubret" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100061> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -10501,9 +10260,7 @@
 <http://localhost:8080/9889050b75aef037efab883573e9ade6> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/5d10b4784cf31424e20fcdbbe1c9a224> ;
   cito:reviews <http://localhost:8080/10.1101/306456v4> ;
-  dcterms:creator (
-    "Guillaume Achaz"
-  ) .
+  dcterms:creator "Guillaume Achaz" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100025> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -10517,9 +10274,7 @@
 <http://localhost:8080/9a32117f67a4ce812729be8409de6aa7> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/2ecac823ad1be4408da2690a57f6277c> ;
   cito:reviews <http://localhost:8080/10.1101/113274v6> ;
-  dcterms:creator (
-    "Vincent Calcagno"
-  ) .
+  dcterms:creator "Vincent Calcagno" .
 
 <http://localhost:8080/a5f0cfc8db7b7946283d5b3fee1bade2> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100025"^^xsd:anyURI .
@@ -10536,9 +10291,7 @@
 <http://localhost:8080/9adffdc8a41f6d125d8a1ec1c4b0b493> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/a6b23bb5d1adb8e56a84caf86a1f03ef> ;
   cito:reviews <http://localhost:8080/10.1101/150128v5> ;
-  dcterms:creator (
-    "Phillip P.A. Staniczenko"
-  ) .
+  dcterms:creator "Phillip P.A. Staniczenko" .
 
 <http://localhost:8080/b8aae309ba0ecd2d2332e351e9eff9d1> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100002"^^xsd:anyURI .
@@ -10818,9 +10571,7 @@
 <http://localhost:8080/a0cbb16ff44b19bd64815849866a374d> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/55e6308ac0498673dc291232972db1b5> ;
   cito:reviews <http://localhost:8080/10.1101/362129v5> ;
-  dcterms:creator (
-    "Nicolas Galtier"
-  ) .
+  dcterms:creator "Nicolas Galtier" .
 
 <http://localhost:8080/10.1101/372235v1> a fabio:Article ;
   dcterms:date "2018-07-18"^^xsd:date ;
@@ -10987,9 +10738,7 @@
 <http://localhost:8080/a51d0d19128a49fbd43670fd657e392b> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/86b5fc67591da0a616e525e2582c2888> ;
   cito:reviews <http://localhost:8080/10.1101/2020.12.07.414326v4> ;
-  dcterms:creator (
-    "Joaquin Hortal"
-  ) .
+  dcterms:creator "Joaquin Hortal" .
 
 <http://localhost:8080/10.1101/316117v1> a fabio:Article ;
   dcterms:date "2018-05-09"^^xsd:date ;
@@ -11140,9 +10889,7 @@
 <http://localhost:8080/a65ab4b0f500aa8c7d2c484f04a615a1> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/b001cbd5886a3c69ede4e48ad98024c9> ;
   cito:reviews <http://localhost:8080/10.1101/717355v3> ;
-  dcterms:creator (
-    "Stefaniya Kamenova"
-  ) .
+  dcterms:creator "Stefaniya Kamenova" .
 
 <http://localhost:8080/0a85bdb6a5e42471a0e75d57c53f0175> a fabio:DigitalManifestation ;
   dcterms:format "application/pdf" ;
@@ -11254,9 +11001,7 @@
 <http://localhost:8080/a6dea41f1c35145e9f1d6893b12f7ac2> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/f973ffea8c2fcd19160c257eaee23210> ;
   cito:reviews <http://localhost:8080/10.1101/833392v3> ;
-  dcterms:creator (
-    "Craig McCormick"
-  ) .
+  dcterms:creator "Craig McCormick" .
 
 <http://localhost:8080/fed237cdf67a24657e8b65cc4722e98d> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/3678326"^^xsd:anyURI .
@@ -11273,9 +11018,7 @@
 <http://localhost:8080/a7b3c95579453651ef1050ffc6651201> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/56159469c16fe68e09fbc6628aa1a899> ;
   cito:reviews <http://localhost:8080/10.1101/856997v6> ;
-  dcterms:creator (
-    "Denis Reale"
-  ) .
+  dcterms:creator "Denis Reale" .
 
 <http://localhost:8080/ea2ca6870169e2e1b9567689e93f9717> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100057"^^xsd:anyURI .
@@ -11295,10 +11038,7 @@
 <http://localhost:8080/a93d9438ae82341476bc0a0393f29e6a> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/8ebd576d5f4f6cc29b335937abf71265> ;
   cito:reviews <http://localhost:8080/10.1101/305730v5> ;
-  dcterms:creator (
-    "Sara Magalhães"
-    "Alexandre Courtiol"
-  ) .
+  dcterms:creator "Alexandre Courtiol", "Sara Magalhães" .
 
 <http://localhost:8080/019479aa6ba4797470e5776c3bf1d3d8> a fabio:DigitalManifestation ;
   dcterms:format "application/pdf" ;
@@ -11558,9 +11298,7 @@
 <http://localhost:8080/ac6d7c26b44bae26f129c355bf78a6b7> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/9084fd52e1ca360fe3e14e094f68a1c0> ;
   cito:reviews <http://localhost:8080/10.1101/2020.11.26.400259v1> ;
-  dcterms:creator (
-    "Ethel Bayer-Santos"
-  ) .
+  dcterms:creator "Ethel Bayer-Santos" .
 
 <http://localhost:8080/10.24072/pci.ecology.100027> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -11577,9 +11315,7 @@
 <http://localhost:8080/aca5c670bf424fd38ebef8f2a6bda9be> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/1cfbeab29eb8e109d1c9d030c90980a5> ;
   cito:reviews <http://localhost:8080/10.1101/480335v4> ;
-  dcterms:creator (
-    "Werner Ulrich"
-  ) .
+  dcterms:creator "Werner Ulrich" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100101> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -11593,9 +11329,7 @@
 <http://localhost:8080/ada455483d22664ab32f8d9c087f9f27> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/2b28c6cbb7f41b23b86fb4896193e668> ;
   cito:reviews <http://localhost:8080/10.1101/787044v4> ;
-  dcterms:creator (
-    "Sylvain Charlat"
-  ) .
+  dcterms:creator "Sylvain Charlat" .
 
 <http://localhost:8080/aead584689ee3afffbe710bd5aacbe70> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100101"^^xsd:anyURI .
@@ -11682,9 +11416,7 @@
 <http://localhost:8080/ae24e95346563d35137eb58e0ec87c83> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/78188298cadb3c1c3a97ff7e70fffd83> ;
   cito:reviews <http://localhost:8080/10.1101/645747v7> ;
-  dcterms:creator (
-    "Lucía DeSoto"
-  ) .
+  dcterms:creator "Lucía DeSoto" .
 
 <http://localhost:8080/8b11fe3f6cb4c5b33f3ac982721b8b9b> a fabio:ReviewArticle ;
   dcterms:publisher <http://localhost:8080/b509b361f8d7741155032e8ddc8e6caf> ;
@@ -12004,9 +11736,7 @@
 <http://localhost:8080/b45c91c854a07a0a4e3da2dd004a7543> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/b0e596700e7fa1adf1f3ec0c5ed3d66d> ;
   cito:reviews <http://localhost:8080/10.1101/263186v2> ;
-  dcterms:creator (
-    "Astrid T Groot"
-  ) .
+  dcterms:creator "Astrid T Groot" .
 
 <http://localhost:8080/10.1101/2020.12.01.405662v1> a fabio:Article ;
   dcterms:date "2020-12-01"^^xsd:date ;
@@ -12057,9 +11787,7 @@
 <http://localhost:8080/b5b9636cbc7c870a3b52e59a554d6761> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/1f1a6103b1c71ca431d1851122679b0b> ;
   cito:reviews <http://localhost:8080/10.1101/2021.02.20.21251855v1> ;
-  dcterms:creator (
-    "Margarita Orlova"
-  ) .
+  dcterms:creator "Margarita Orlova" .
 
 <http://localhost:8080/10.24072/pci.ecology.100040> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -12073,9 +11801,7 @@
 <http://localhost:8080/b5ffc5bb71de16b506bed168714c4fed> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/e0dc3c705033cfe4955d2d13e3736d6a> ;
   cito:reviews <http://localhost:8080/10.1101/752881v3> ;
-  dcterms:creator (
-    "Bastien Castagneyrol"
-  ) .
+  dcterms:creator "Bastien Castagneyrol" .
 
 <http://localhost:8080/d9552fd9f0b81642e39a14bbb2804121> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100040"^^xsd:anyURI .
@@ -12241,9 +11967,7 @@
 <http://localhost:8080/b72c6d7c50769569e6d3cb91a20318cd> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/a0da133ad883337f5a39dca25ae63c5a> ;
   cito:reviews <http://localhost:8080/10.1101/372235v4> ;
-  dcterms:creator (
-    "Sébastien Barot"
-  ) .
+  dcterms:creator "Sébastien Barot" .
 
 <http://localhost:8080/10.1101/180000v1> a fabio:Article ;
   dcterms:date "2017-08-24"^^xsd:date ;
@@ -12343,9 +12067,7 @@
 <http://localhost:8080/b7636ebacf726b8fa307396d5878d5ac> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/dfc042e49c420fa7bf43715d2800153d> ;
   cito:reviews <http://localhost:8080/10.1101/2020.04.14.038893v5> ;
-  dcterms:creator (
-    "Bertanne Visser"
-  ) .
+  dcterms:creator "Bertanne Visser" .
 
 <http://localhost:8080/b821460a444d49792c241d18d7f079b0> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c8b01ac7ab7794925b32ae530cf19c7e> .
@@ -12366,9 +12088,7 @@
 <http://localhost:8080/b87e8ad5481b4fbaf6d3f98d3de8d5ef> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/36a3152ef723ac4f4d32842789e4d520> ;
   cito:reviews <http://localhost:8080/10.1101/823989v1> ;
-  dcterms:creator (
-    "Craig McCormick"
-  ) .
+  dcterms:creator "Craig McCormick" .
 
 <http://localhost:8080/ee694543135ab21a47f608ef8a991bf9> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/3678334"^^xsd:anyURI .
@@ -12454,9 +12174,7 @@
 <http://localhost:8080/b9c6e277ef8b5782f2ee91564997bc31> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/e7c034d5180a57487ab17808a0b8879e> ;
   cito:reviews <http://localhost:8080/10.1101/2021.02.27.433189v2> ;
-  dcterms:creator (
-    "Milka Kostic"
-  ) .
+  dcterms:creator "Milka Kostic" .
 
 <http://localhost:8080/8c3d36a1748fcc323b40c912fb5b192d> a fabio:ReviewArticle ;
   dcterms:publisher <http://localhost:8080/b509b361f8d7741155032e8ddc8e6caf> ;
@@ -12599,9 +12317,7 @@
 <http://localhost:8080/bbf9deb3f552c877b6f48121bfe0a6bd> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c8b01ac7ab7794925b32ae530cf19c7e> ;
   cito:reviews <http://localhost:8080/10.1101/717702v2> ;
-  dcterms:creator (
-    "Wolf U Blanckenhorn"
-  ) .
+  dcterms:creator "Wolf U Blanckenhorn" .
 
 <http://localhost:8080/10.1101/276592v1> a fabio:Article ;
   dcterms:date "2018-03-05"^^xsd:date ;
@@ -12742,9 +12458,7 @@
 <http://localhost:8080/bc50b202ad903e016c59ecb3e39fd41d> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/62186c0aee9c97a67b0dbb6e61c78146> ;
   cito:reviews <http://localhost:8080/10.1101/2020.06.29.178699v4> ;
-  dcterms:creator (
-    "Jan Engelstaedter"
-  ) .
+  dcterms:creator "Jan Engelstaedter" .
 
 <http://localhost:8080/c623658ee8316a02c5dce53fd248d901> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100116"^^xsd:anyURI .
@@ -12954,9 +12668,7 @@
 <http://localhost:8080/c0ea836c154778d028049e4f19e95b3e> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/8e06906a22767a13096814ae536447d3> ;
   cito:reviews <http://localhost:8080/10.1101/689158v6> ;
-  dcterms:creator (
-    "David Rasmussen"
-  ) .
+  dcterms:creator "David Rasmussen" .
 
 <http://localhost:8080/e111311f9e70846b224de93af671ac33> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100117"^^xsd:anyURI .
@@ -12975,9 +12687,7 @@
 <http://localhost:8080/c0fdc27a8916f91888df87589414b197> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/703be86eaa3070dbabab568f096e8b62> ;
   cito:reviews <http://localhost:8080/10.1101/2021.01.12.426369v1> ;
-  dcterms:creator (
-    "Andrew Lopez"
-  ) .
+  dcterms:creator "Andrew Lopez" .
 
 <http://localhost:8080/c15e04fd7d3ba093040501d7d80f7f43> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/1b10588f83e54f53f5e384b412a6a25c> .
@@ -13342,9 +13052,7 @@
 <http://localhost:8080/c3be8253686f194a9d570d0b550ac8ae> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/33a99dd36118e4b1ef6d1251884faec5> ;
   cito:reviews <http://localhost:8080/10.1101/638288v3> ;
-  dcterms:creator (
-    "François Rousset"
-  ) .
+  dcterms:creator "François Rousset" .
 
 <http://localhost:8080/10.1101/169268v1> a fabio:Article ;
   dcterms:date "2017-07-27"^^xsd:date ;
@@ -13661,9 +13369,7 @@
 <http://localhost:8080/c711ce77da0568ff3644473f14bd1605> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/37dbe9c3dab198f2234b4f1fd5274cf5> ;
   cito:reviews <http://localhost:8080/10.1101/273367v3> ;
-  dcterms:creator (
-    "Charles F Baer"
-  ) .
+  dcterms:creator "Charles F Baer" .
 
 <http://localhost:8080/10.1101/398602v1> a fabio:Article ;
   dcterms:date "2018-08-23"^^xsd:date ;
@@ -13833,9 +13539,7 @@
 <http://localhost:8080/cbdd3bd272714de750d4a9f6fac91273> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/5235822e9b776f5ef2e5ed9afbab4436> ;
   cito:reviews <http://localhost:8080/10.1101/352609v4> ;
-  dcterms:creator (
-    "Robert J Asher"
-  ) .
+  dcterms:creator "Robert J Asher" .
 
 <http://localhost:8080/7e00664da3a4a556b8873ba928a05a56> a fabio:ReviewArticle ;
   dcterms:publisher <http://localhost:8080/b049cf850ef5a61692990760a416c0f5> ;
@@ -13857,9 +13561,7 @@
 <http://localhost:8080/ccb81195493adfe4e0ec286dba5a79c8> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/2559d20ef457ea75515f27dcb36b3730> ;
   cito:reviews <http://localhost:8080/10.1101/307322v4> ;
-  dcterms:creator (
-    "Matthieu Barbier"
-  ) .
+  dcterms:creator "Matthieu Barbier" .
 
 <http://localhost:8080/d082c2fed495caa3986262322c03dcbd> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100004"^^xsd:anyURI .
@@ -13879,10 +13581,7 @@
 <http://localhost:8080/ccce85a9b5a9557493bbdb3423c61b76> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/f2ba00d1c953125715dd6e0e2fcc3f8e> ;
   cito:reviews <http://localhost:8080/10.1101/671867v4> ;
-  dcterms:creator (
-    "Takeshi Kawakami"
-    "Concetta Burgarella"
-  ) .
+  dcterms:creator "Concetta Burgarella", "Takeshi Kawakami" .
 
 <http://localhost:8080/04e1d8f2cc71465d94bdabe00e04b8cb> a fabio:WebPage ;
   fabio:hasURL "https://www.biorxiv.org/content/10.1101/2020.07.03.186395v2"^^xsd:anyURI .
@@ -13942,9 +13641,7 @@
 <http://localhost:8080/d074644a65d0057b2ade5c045e6f60a5> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/0b7d57709fc275d6bf98bc66db8826fa> ;
   cito:reviews <http://localhost:8080/10.1101/622142v6> ;
-  dcterms:creator (
-    "Claudia Bank"
-  ) .
+  dcterms:creator "Claudia Bank" .
 
 <http://localhost:8080/10.1101/2020.07.13.200030v1> a fabio:Article ;
   dcterms:date "2020-07-13"^^xsd:date ;
@@ -14103,9 +13800,7 @@
 <http://localhost:8080/d26b301243dd1f74f4f15634dc239789> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/fc781f93a89340b723ae9377f4206250> ;
   cito:reviews <http://localhost:8080/10.1101/861849v4> ;
-  dcterms:creator (
-    "Martin Lascoux"
-  ) .
+  dcterms:creator "Martin Lascoux" .
 
 <http://localhost:8080/10.24072/pci.paleo.100001> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -14122,9 +13817,7 @@
 <http://localhost:8080/d3173c869d934eae329f3de808e3b01d> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/f3aa557a026a463f67086b85a4e7f580> ;
   cito:reviews <http://localhost:8080/10.1101/318121v5> ;
-  dcterms:creator (
-    "Alexandra Houssaye"
-  ) .
+  dcterms:creator "Alexandra Houssaye" .
 
 <http://localhost:8080/09654205c9e9ec2abdf1167737f8d556> a fabio:WebPage ;
   fabio:hasURL "https://www.biorxiv.org/content/10.1101/276675v2"^^xsd:anyURI .
@@ -14205,9 +13898,7 @@
 <http://localhost:8080/d4f383211ea825375c47402192a93381> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/870d9f13e8d1f9709001e43f3cc5b750> ;
   cito:reviews <http://localhost:8080/10.1101/2020.04.26.062265v4> ;
-  dcterms:creator (
-    "Ellen Decaestecker"
-  ) .
+  dcterms:creator "Ellen Decaestecker" .
 
 <http://localhost:8080/ff27a2623961b425da724b466462ab41> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100111"^^xsd:anyURI .
@@ -14227,10 +13918,7 @@
 <http://localhost:8080/d4fcd90173126756215fcde81ec7c0e9> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/d4e1e4abc810d599849b211f8bcf45e7> ;
   cito:reviews <http://localhost:8080/10.1101/276675v3> ;
-  dcterms:creator (
-    "Inês Fragata"
-    "Claudia Bank"
-  ) .
+  dcterms:creator "Claudia Bank", "Inês Fragata" .
 
 <http://localhost:8080/04aea3a744c67fa4856db3852ef1ff59> a fabio:WebPage ;
   fabio:hasURL "https://www.medrxiv.org/content/10.1101/2020.06.03.20119925v3"^^xsd:anyURI .
@@ -14448,9 +14136,7 @@
 <http://localhost:8080/d6f0f44426b52f4b342cd539ddd02928> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/28780166d3969c8bb3424a99ded27c09> ;
   cito:reviews <http://localhost:8080/10.1101/629931v8> ;
-  dcterms:creator (
-    "Cédric Gaucherel"
-  ) .
+  dcterms:creator "Cédric Gaucherel" .
 
 <http://localhost:8080/0976149ee86b86add1b5c3833e9e41b7> a fabio:DigitalManifestation ;
   dcterms:format "application/pdf" ;
@@ -14617,9 +14303,7 @@
 <http://localhost:8080/d78244a86d7ce022aed021143dc4eb3a> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c44a350998b73561345440d80e8ced02> ;
   cito:reviews <http://localhost:8080/10.1101/640995v5> ;
-  dcterms:creator (
-    "Damaris Zurell"
-  ) .
+  dcterms:creator "Damaris Zurell" .
 
 <http://localhost:8080/10.1101/236646v1> a fabio:Article ;
   dcterms:date "2017-12-20"^^xsd:date ;
@@ -14719,9 +14403,7 @@
 <http://localhost:8080/d8302fefc9b0651a913e20327ec2ffd8> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/0aaaa4739fd856d20d51c1886006e215> ;
   cito:reviews <http://localhost:8080/10.1101/515098v4> ;
-  dcterms:creator (
-    "Eric Harvey"
-  ) .
+  dcterms:creator "Eric Harvey" .
 
 <http://localhost:8080/10.5281/zenodo.3738724> a fabio:ReviewArticle ;
   dcterms:date "2020-04-02"^^xsd:date ;
@@ -14734,9 +14416,7 @@
 <http://localhost:8080/d8d0f90a69eda4f739d359aee6321030> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/f973ffea8c2fcd19160c257eaee23210> ;
   cito:reviews <http://localhost:8080/10.1101/833392v3> ;
-  dcterms:creator (
-    "Georgia Bullen"
-  ) .
+  dcterms:creator "Georgia Bullen" .
 
 <http://localhost:8080/e46d778173200c88af5b8a1e0f2ea26b> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/3738724"^^xsd:anyURI .
@@ -14761,9 +14441,7 @@
 <http://localhost:8080/da0979d0dd53cb46dd3fba85954a6c69> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/5afa6f260cc849ef4ad2b62911be8c5b> ;
   cito:reviews <http://localhost:8080/10.1101/2020.06.10.144337v3> ;
-  dcterms:creator (
-    "Frederik De Laender"
-  ) .
+  dcterms:creator "Frederik De Laender" .
 
 <http://localhost:8080/daa9b55e088fbd24a395555027e1bd69> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100064"^^xsd:anyURI .
@@ -14850,9 +14528,7 @@
 <http://localhost:8080/da445874784ce44b45e7bf4322f4ada0> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/3b996e4e2913582c94226ca12d4a64a3> ;
   cito:reviews <http://localhost:8080/10.1101/2020.09.15.286153v4> ;
-  dcterms:creator (
-    "Florence Gondret"
-  ) .
+  dcterms:creator "Florence Gondret" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100046> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -14869,9 +14545,7 @@
 <http://localhost:8080/dc5589934f8e428d7d86f01f03a61391> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/0ca503e56671a94eb4802e98dcd05444> ;
   cito:reviews <http://localhost:8080/10.1101/163691v3> ;
-  dcterms:creator (
-    "Samuel Alizon"
-  ) .
+  dcterms:creator "Samuel Alizon" .
 
 <http://localhost:8080/10.24072/pci.ecology.100066> a fabio:ReviewArticle ;
   dcterms:date "2020-12-19"^^xsd:date ;
@@ -14885,9 +14559,7 @@
 <http://localhost:8080/dd46741de2167971ffaa2f1cd39e99c0> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/bb293ca761e912122f588a832e5d2320> ;
   cito:reviews <http://localhost:8080/10.1101/2020.03.11.986984v3> ;
-  dcterms:creator (
-    "Vincent Bonhomme"
-  ) .
+  dcterms:creator "Vincent Bonhomme" .
 
 <http://localhost:8080/ee6d63ca3877f5e0605e353874ece14e> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100066"^^xsd:anyURI .
@@ -14906,9 +14578,7 @@
 <http://localhost:8080/de5ced41cbdf761375534c29e078e35b> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/1013740e0fc239f6e5f12bde2aec8bfc> ;
   cito:reviews <http://localhost:8080/10.1101/2021.02.04.21251134v1> ;
-  dcterms:creator (
-    "Yash Huilgol"
-  ) .
+  dcterms:creator "Yash Huilgol" .
 
 <http://localhost:8080/046ab81d7321b2b09c0877a479d02220> a fabio:WebPage ;
   fabio:hasURL "https://www.biorxiv.org/content/10.1101/452326v4"^^xsd:anyURI .
@@ -15024,9 +14694,7 @@
 <http://localhost:8080/de7fa4ba04838710f09c270b36e06737> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/fbcbb75e99ebc659aafa60c0de9a0261> ;
   cito:reviews <http://localhost:8080/10.1101/690032v3> ;
-  dcterms:creator (
-    "Sébastien Barot"
-  ) .
+  dcterms:creator "Sébastien Barot" .
 
 <http://localhost:8080/10.1101/2020.11.09.375725v1> a fabio:Article ;
   dcterms:date "2020-11-09"^^xsd:date ;
@@ -15070,9 +14738,7 @@
 <http://localhost:8080/dfb9818fb420f4f95dd491699a764d68> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/562ca3719a3294a22b37156e4c81b6e5> ;
   cito:reviews <http://localhost:8080/10.1101/621581v4> ;
-  dcterms:creator (
-    "Frédéric Guillaume"
-  ) .
+  dcterms:creator "Frédéric Guillaume" .
 
 <http://localhost:8080/03ccf87116b2d023a0ded8e5717f337a> a fabio:WebPage ;
   fabio:hasURL "https://www.biorxiv.org/content/10.1101/2020.04.14.038893v4"^^xsd:anyURI .
@@ -15244,9 +14910,7 @@
 <http://localhost:8080/e131076dd903e4c3655f75f116cb9964> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/abee1414ae7071ed8671ab2bd7da48e6> ;
   cito:reviews <http://localhost:8080/10.1101/2020.07.15.204115v3> ;
-  dcterms:creator (
-    "Gloriana Chaverri"
-  ) .
+  dcterms:creator "Gloriana Chaverri" .
 
 <http://localhost:8080/e6bbb2a340f30e2d6ab2f7bbfa648d9f> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100068"^^xsd:anyURI .
@@ -15266,10 +14930,7 @@
 <http://localhost:8080/e15aa9f26961b35c63e5f65729b3d739> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/b156dfef3959195dad59c9c3ff6c0288> ;
   cito:reviews <http://localhost:8080/10.1101/2020.04.15.042317v5> ;
-  dcterms:creator (
-    "Ruth A Hufbauer"
-    "Ian Pearse"
-  ) .
+  dcterms:creator "Ian Pearse", "Ruth A Hufbauer" .
 
 <http://localhost:8080/0231078c8ec0bba4be939f0fb2308511> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/4581189"^^xsd:anyURI .
@@ -15285,9 +14946,7 @@
 <http://localhost:8080/e2c91fcff4dbe033d25d5aa22cbb8312> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/ab13be226a09d6d66d8cebe88f203f2a> ;
   cito:reviews <http://localhost:8080/10.1101/2020.09.13.291328v1> ;
-  dcterms:creator (
-    "Lucie Van Emmenis"
-  ) .
+  dcterms:creator "Lucie Van Emmenis" .
 
 <http://localhost:8080/10.24072/pci.zool.100003> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -15304,9 +14963,7 @@
 <http://localhost:8080/e324b63c6d126bb79f39bfd29fe18ac2> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/6ecca13582efd611797889ea05249bf5> ;
   cito:reviews <http://localhost:8080/10.1101/653980v5> ;
-  dcterms:creator (
-    "Adrian Diaz"
-  ) .
+  dcterms:creator "Adrian Diaz" .
 
 <http://localhost:8080/0cf4931a115c3884049150a0822553c1> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100049"^^xsd:anyURI .
@@ -15323,9 +14980,7 @@
 <http://localhost:8080/e3a6c263c7b5ec9b92ee24bc97fe087b> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/1b10588f83e54f53f5e384b412a6a25c> ;
   cito:reviews <http://localhost:8080/10.1101/209254v5> ;
-  dcterms:creator (
-    "Lucy Anne Weinert"
-  ) .
+  dcterms:creator "Lucy Anne Weinert" .
 
 <http://localhost:8080/10.24072/pci.ecology.100021> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -15339,9 +14994,7 @@
 <http://localhost:8080/e42eae5b6f07334d18731fc6a57a85b9> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/20bfb8a6aa325a7a6ca3aa76f708825c> ;
   cito:reviews <http://localhost:8080/10.1101/425561v3> ;
-  dcterms:creator (
-    "Jean-Olivier Irisson"
-  ) .
+  dcterms:creator "Jean-Olivier Irisson" .
 
 <http://localhost:8080/f4964e728bffb63fd6a7557e9083797c> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100021"^^xsd:anyURI .
@@ -15361,9 +15014,7 @@
 <http://localhost:8080/e43c6b019c48a5c5d9c2c037b9771b90> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/d0d2325712dfa445a3969bdea8e42217> ;
   cito:reviews <http://localhost:8080/10.1101/2020.07.13.200030v5> ;
-  dcterms:creator (
-    "Torsten Günther"
-  ) .
+  dcterms:creator "Torsten Günther" .
 
 <http://localhost:8080/0cbc0b3e0bce156bcf655ac6d5f3026d> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100104"^^xsd:anyURI .
@@ -15380,9 +15031,7 @@
 <http://localhost:8080/e504d414c7de394a5ea3ea7105fbfe10> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c502c285e74d5c64ca549c2fa04e3628> ;
   cito:reviews <http://localhost:8080/10.1101/794404v3> ;
-  dcterms:creator (
-    "Kateryna Makova"
-  ) .
+  dcterms:creator "Kateryna Makova" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100048> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -15399,9 +15048,7 @@
 <http://localhost:8080/e55d0200566588f41314af5c58f919ee> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/e6993329cf8f1350f31e99675a87a1a1> ;
   cito:reviews <http://localhost:8080/10.1101/191825v6> ;
-  dcterms:creator (
-    "Wolf Blanckerhorn"
-  ) .
+  dcterms:creator "Wolf Blanckerhorn" .
 
 <http://localhost:8080/10.24072/pci.ecology.100049> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -15418,9 +15065,7 @@
 <http://localhost:8080/e5709d4984dc9a90daa7369b9a0d0672> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/74394034acecf399b6b657a9b7294178> ;
   cito:reviews <http://localhost:8080/10.1101/839589v5> ;
-  dcterms:creator (
-    "Rodrigo Medel"
-  ) .
+  dcterms:creator "Rodrigo Medel" .
 
 <http://localhost:8080/10.5281/zenodo.4604717> a fabio:ReviewArticle ;
   dcterms:date "2021-03-15"^^xsd:date ;
@@ -15433,9 +15078,7 @@
 <http://localhost:8080/e5b51c50e5cf92750a31029414fc2736> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/5fc389d2c1d13303679aa82af37e5107> ;
   cito:reviews <http://localhost:8080/10.1101/2020.11.04.368241v1> ;
-  dcterms:creator (
-    "Rajneesh Singhal"
-  ) .
+  dcterms:creator "Rajneesh Singhal" .
 
 <http://localhost:8080/f1d3695f05ec5c7fd4f9c57f92e67b93> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/4604717"^^xsd:anyURI .
@@ -15455,9 +15098,7 @@
 <http://localhost:8080/e5cac5d29ffbe7bc27214582f0f98af0> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/1dca169add698319ef4f35e52aa9f77f> ;
   cito:reviews <http://localhost:8080/10.1101/2020.09.28.316869v5> ;
-  dcterms:creator (
-    "Frederic Bertels"
-  ) .
+  dcterms:creator "Frederic Bertels" .
 
 <http://localhost:8080/006181a8d988316e294763079e61d992> a fabio:DigitalManifestation ;
   dcterms:format "application/pdf" ;
@@ -15589,10 +15230,7 @@
 <http://localhost:8080/e72108e1bd06be6c84a3e906422e358e> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/fd66df097402f6e8b34c5c832a991a0b> ;
   cito:reviews <http://localhost:8080/10.1101/127548v7> ;
-  dcterms:creator (
-    "Tatiana Giraud"
-    "Toni Gabaldón"
-  ) .
+  dcterms:creator "Tatiana Giraud", "Toni Gabaldón" .
 
 <http://localhost:8080/10.1101/2021.02.27.433189v1> a fabio:Article ;
   dcterms:date "2021-02-27"^^xsd:date ;
@@ -15794,9 +15432,7 @@
 <http://localhost:8080/e97bdc1334b09c8191af30ce6d7924f6> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/38cbe898a27b1b7121cc62c6c19be7a1> ;
   cito:reviews <http://localhost:8080/10.1101/2020.04.03.022905v4> ;
-  dcterms:creator (
-    "Simon Blanchet"
-  ) .
+  dcterms:creator "Simon Blanchet" .
 
 <http://localhost:8080/010ed97c08657d168567852cc84b32a1> a fabio:DigitalManifestation ;
   dcterms:format "application/pdf" ;
@@ -15912,9 +15548,7 @@
 <http://localhost:8080/ea085980582e0988053e8e5b49e9b7d9> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/3566c2017650d389f582580ceafcbba1> ;
   cito:reviews <http://localhost:8080/10.1101/141127v3> ;
-  dcterms:creator (
-    "Hervé Sauquet"
-  ) .
+  dcterms:creator "Hervé Sauquet" .
 
 <http://localhost:8080/10.1101/2020.11.09.375469v1> a fabio:Article ;
   dcterms:date "2020-11-10"^^xsd:date ;
@@ -15958,9 +15592,7 @@
 <http://localhost:8080/ecd8760df420cbdff2c78dfbd18c21bf> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/c1c52925a8efdf458312cb3700c68e6d> ;
   cito:reviews <http://localhost:8080/10.1101/207183v6> ;
-  dcterms:creator (
-    "Alison Duncan"
-  ) .
+  dcterms:creator "Alison Duncan" .
 
 <http://localhost:8080/10.1038/s41437-020-00389-3> a fabio:Article ;
   dcterms:date "2021-02-02"^^xsd:date ;
@@ -16072,9 +15704,7 @@
 <http://localhost:8080/ed871fd9ce5e6118085c2b9cbbe25d03> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/0bd35ff87f907361b690492cb350209f> ;
   cito:reviews <http://localhost:8080/10.1101/2020.09.09.289785v1> ;
-  dcterms:creator (
-    "Jessica Polka"
-  ) .
+  dcterms:creator "Jessica Polka" .
 
 <http://localhost:8080/f230b591db853d0699d9eae9b32049ff> a fabio:WebPage ;
   fabio:hasURL "https://zenodo.org/record/4047180"^^xsd:anyURI .
@@ -16176,9 +15806,7 @@
 <http://localhost:8080/f132ef921a44b3c2d1b5e78cc254205f> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/ea804d85cd4aca52b69bbaeb39375bd2> ;
   cito:reviews <http://localhost:8080/10.1101/2020.11.09.375469v1> ;
-  dcterms:creator (
-    "Miguel V. Almeida"
-  ) .
+  dcterms:creator "Miguel V. Almeida" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100042> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -16195,9 +15823,7 @@
 <http://localhost:8080/f1ea2a4290677b32ba6c3302e5f0f4a5> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/8527480672c4500ab9266e6613a0ec6f> ;
   cito:reviews <http://localhost:8080/10.1101/139147v3> ;
-  dcterms:creator (
-    "Bruce Rannala"
-  ) .
+  dcterms:creator "Bruce Rannala" .
 
 <http://localhost:8080/07edcb0ae5c47f0bad03aa925e470384> a fabio:DigitalManifestation ;
   dcterms:format "application/pdf" ;
@@ -16423,9 +16049,7 @@
 <http://localhost:8080/f4203719dce0b0eca24eb0acd18cacda> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/a18cc232601a4cf263f69c2fd1a6776a> ;
   cito:reviews <http://localhost:8080/10.1101/2020.07.30.229021v4> ;
-  dcterms:creator (
-    "Matthew Bracken"
-  ) .
+  dcterms:creator "Matthew Bracken" .
 
 <http://localhost:8080/10.1101/151068v1> a fabio:Article ;
   dcterms:date "2017-06-23"^^xsd:date ;
@@ -16525,9 +16149,7 @@
 <http://localhost:8080/f60523f45fcff81752245caebb70ae44> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/270925fc9a895eb33458a2d82072739e> ;
   cito:reviews <http://localhost:8080/10.1101/2020.06.08.139741v4> ;
-  dcterms:creator (
-    "Stéphanie Bedhomme"
-  ) .
+  dcterms:creator "Stéphanie Bedhomme" .
 
 <http://localhost:8080/0eb7ed4bd67e3efdb8241b47bacd1e34> a fabio:DigitalManifestation ;
   dcterms:format "application/pdf" ;
@@ -16579,9 +16201,7 @@
 <http://localhost:8080/f7d621234ebbbe347837dea02de76fcf> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/94676d43566549c58647cbea13cbdd0c> ;
   cito:reviews <http://localhost:8080/10.1101/273557v4> ;
-  dcterms:creator (
-    "Francois-Xavier Dechaume-Moncharmont"
-  ) .
+  dcterms:creator "Francois-Xavier Dechaume-Moncharmont" .
 
 <http://localhost:8080/10.24072/pci.ecology.100008> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -16598,9 +16218,7 @@
 <http://localhost:8080/f809328843f234a393459c335cb19886> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/361fce631984922e6efb12fca0f77afa> ;
   cito:reviews <http://localhost:8080/10.1101/324178v5> ;
-  dcterms:creator (
-    "Francis J Burdon"
-  ) .
+  dcterms:creator "Francis J Burdon" .
 
 <http://localhost:8080/10.5281/zenodo.4746304> a fabio:ReviewArticle ;
   dcterms:date "2021-05-10"^^xsd:date ;
@@ -16616,9 +16234,7 @@
 <http://localhost:8080/f8957dadb8d07fa3de6e5619e49f5a2d> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/1bb60d0d7a9cb8061918d0989716e03b> ;
   cito:reviews <http://localhost:8080/10.1101/2021.04.12.439490v1> ;
-  dcterms:creator (
-    "Milka Kostic"
-  ) .
+  dcterms:creator "Milka Kostic" .
 
 <http://localhost:8080/10.24072/pci.evolbiol.100095> a fabio:ReviewArticle ;
   dcterms:date "2020-07-29"^^xsd:date ;
@@ -16635,9 +16251,7 @@
 <http://localhost:8080/f896d756650da66d6ba43b718c2308ad> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/ecf5a96f64c9c7ec3eeafca497e1bc3b> ;
   cito:reviews <http://localhost:8080/10.1101/662577v5> ;
-  dcterms:creator (
-    "Maren Wellenreuther"
-  ) .
+  dcterms:creator "Maren Wellenreuther" .
 
 <http://localhost:8080/667fc7460da8862619b3541a6c330856> a fabio:ReviewArticle ;
   dcterms:publisher <http://localhost:8080/b509b361f8d7741155032e8ddc8e6caf> ;
@@ -16662,9 +16276,7 @@
 <http://localhost:8080/f952f5b9c0aa5c6948bb38573f0e0cbf> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/20cd43d927698a70ccbd3bdf9a145fd3> ;
   cito:reviews <http://localhost:8080/10.1101/2020.10.17.343889v8> ;
-  dcterms:creator (
-    "Cécile Ané"
-  ) .
+  dcterms:creator "Cécile Ané" .
 
 <http://localhost:8080/10.1021/acsinfecdis.9b00419> a fabio:Article ;
   dcterms:date "2020-02-04"^^xsd:date ;
@@ -16741,9 +16353,7 @@
 <http://localhost:8080/f9c24afb00c069828202adc81ab8d1da> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/7a5329d0178d5329f40a3ba0fa5d90b1> ;
   cito:reviews <http://localhost:8080/10.1101/150482v4> ;
-  dcterms:creator (
-    "Marc Robinson-Rechavi"
-  ) .
+  dcterms:creator "Marc Robinson-Rechavi" .
 
 <http://localhost:8080/fe024892924bba8cc60b54d697a83f03> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.evolbiol.100035"^^xsd:anyURI .
@@ -16771,10 +16381,7 @@
 <http://localhost:8080/fa6620d698d3d11140b05fc2b6127fba> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/81399452f00936340f1bbb2dd8921778> ;
   cito:reviews <http://localhost:8080/10.1101/722140v4> ;
-  dcterms:creator (
-    "Sara Magalhães"
-    "Raul Costa-Pereira"
-  ) .
+  dcterms:creator "Raul Costa-Pereira", "Sara Magalhães" .
 
 <http://localhost:8080/01a45b62cf07cb6e968e66d705a34463> a fabio:WebPage ;
   fabio:hasURL "https://www.biorxiv.org/content/10.1101/2020.08.21.260596v2"^^xsd:anyURI .
@@ -17023,9 +16630,7 @@
 <http://localhost:8080/fc59af8de9a367ac8164f266ca48bd7f> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/a63ae1d28da1a0977399c7074c0b9df7> ;
   cito:reviews <http://localhost:8080/10.1101/2021.01.08.425793v1> ;
-  dcterms:creator (
-    "Margarita Orlova"
-  ) .
+  dcterms:creator "Margarita Orlova" .
 
 <http://localhost:8080/0cbc135da09ba08dbb24ef2cee578cb1> a fabio:DigitalManifestation ;
   dcterms:format "application/pdf" ;
@@ -17473,9 +17078,7 @@
 <http://localhost:8080/fe04d7bd68927b6402d21e3a56cedd34> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/bbbe71c17cf7c16c8f781ea607f67516> ;
   cito:reviews <http://localhost:8080/10.1101/385120v4> ;
-  dcterms:creator (
-    "Thomas W Sappington"
-  ) .
+  dcterms:creator "Thomas W Sappington" .
 
 <http://localhost:8080/05ab084b085352f4af582cd35640d709> a fabio:WebPage ;
   fabio:hasURL "https://www.biorxiv.org/content/10.1101/2020.05.06.080895v5"^^xsd:anyURI .

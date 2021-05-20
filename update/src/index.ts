@@ -292,7 +292,10 @@ const reviewExpression = ({
       RDF.quad(expression, dcterms.publisher, publisher, work),
       RDF.quad(expression, dcterms.date, RDF.date(data.date), work),
       RDF.quad(work, rdf.type, fabio.Review, work),
-      RDF.quad(work, dcterms.creator, pipe(data.author, RA.map(RDF.literal), RDF.list), work),
+      ...pipe(
+        data.author,
+        RA.map(author => RDF.quad(work, dcterms.creator, RDF.literal(author), work)),
+      ),
       RDF.quad(work, cito.citesAsRecommendedReading, articleWork, work),
       RDF.quad(work, cito.reviews, articleExpression, work),
       RDF.quad(webPage, rdf.type, fabio.WebPage, work),
