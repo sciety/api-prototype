@@ -34,7 +34,7 @@ const doiToUrl = S.prependWith('https://doi.org/')
 const scraper = TE.tryCatchK(metascraper([
   {
     author: [
-      toRule(title)($ => $('meta[name="citation_author"]').attr('content')),
+      toRule(title)($ => $('meta[name="citation_author"]').toArray().map(element => element.attribs['content']).join(', ')),
       ...require('metascraper-author')().author,
     ],
     date: [
