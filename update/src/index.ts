@@ -139,8 +139,9 @@ const doiExpression = ({
   work,
   expression,
   version,
+  replaces,
   data
-}: { work: RDF.NamedNode, expression: RDF.NamedNode, version?: string, data: Scraped }) => pipe(
+}: { work: RDF.NamedNode, expression: RDF.NamedNode, version?: string, replaces?: RDF.NamedNode, data: Scraped }) => pipe(
   IO.Do,
   IO.apS('webPage', pipe(expression.value, S.appendWith('#web'), partToHashedIri)),
   IO.apS('pdf', pipe(expression.value, S.appendWith('#pdf'), partToHashedIri)),
@@ -173,6 +174,7 @@ const doiExpression = ({
     D.fromArray,
     data.doi ? D.insert(RDF.quad(expression, dcterms.identifier, RDF.literal(`doi:${data.doi}`), work)) : identity,
     version ? D.insert(RDF.quad(expression, prism.versionIdentifier, RDF.literal(version), work)) : identity,
+    replaces ? D.insert(RDF.quad(expression, dcterms.replaces, replaces, work)) : identity,
     data.journal ? D.union(D.fromArray([
       RDF.quad(expression, frbr.partOf, journal, work),
       RDF.quad(journal, rdf.type, fabio.Journal, sciety('_journals')),
@@ -209,13 +211,14 @@ const doiToExpression = (browser: Browser) => ({
   url,
   doi,
   version,
+  replaces,
   expression,
   work
-}: { url: string, doi: string, version?: string, expression: RDF.NamedNode, work: RDF.NamedNode }) => pipe(
+}: { url: string, doi: string, version?: string, replaces?: RDF.NamedNode, expression: RDF.NamedNode, work: RDF.NamedNode }) => pipe(
   url,
   fromUrl(browser),
   TE.orElse(() => pipe(doi, fromCrossrefApi(browser))),
-  TE.chainIOK(data => doiExpression({ data, version, expression, work })),
+  TE.chainIOK(data => doiExpression({ data, version, replaces, expression, work })),
 )
 
 const doiToReviewExpression = ({ articleWork, data }: { articleWork: RDF.NamedNode, data: Scraped }) => pipe(
@@ -256,19 +259,23 @@ const doiToArticleExpressions = (browser: Browser, details: BiorxivArticleDetail
   TE.apSW('work', pipe(doi, partToHashedIri, TE.rightIO)),
   TE.chain(details => pipe(
     details.collection,
-    RA.map(articleVersion => O.some({
+    RA.mapWithIndex((i, articleVersion) => O.some({
       url: `https://www.${articleVersion.server}.org/content/${articleVersion.doi}v${articleVersion.version}`,
       doi: articleVersion.doi,
       version: articleVersion.version,
+      replaces: i > 0 ? pipe(details.collection[i - 1], doiVersionIri) : undefined,
       expression: pipe(articleVersion, doiVersionIri),
       work: details.work,
     })),
     RA.append(pipe(
-      details.collection[0].published,
-      O.map(doi => ({
-        url: pipe(doi, doiToUrl),
-        doi,
-        expression: sciety(doi),
+      details.collection,
+      RA.last,
+      O.chain(version => pipe(version.published, O.map(published => ({ ...version, published })))),
+      O.map((articleVersion) => ({
+        url: pipe(articleVersion.published, doiToUrl),
+        doi: articleVersion.published,
+        expression: sciety(articleVersion.published),
+        replaces: pipe(articleVersion, doiVersionIri) as RDF.NamedNode | undefined,
         work: details.work,
       })),
     )),
