@@ -23,6 +23,8 @@ const writeTo = (stream: Writable) => <A extends RDF.Quad>(prefixes: {
     .on('data', flow(
       String,
       S.replaceAll('\t', '  '),
+      S.replaceAll(' .\n\n', ' ;\n.\n\n'),
+      S.replace(/\n\n$/, '\n'),
       data => stream.write(data),
     ))
     .on('end', () => stream.end())
