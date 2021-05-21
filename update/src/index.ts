@@ -149,7 +149,7 @@ const doiExpression = ({
     [
       RDF.quad(expression, rdf.type, fabio.Article, work),
       RDF.quad(expression, dcterms.title, RDF.literal(data.title), work),
-      RDF.quad(expression, dcterms.date, RDF.date(data.date), work),
+      RDF.quad(expression, dcterms.issued, RDF.date(data.date), work),
       RDF.quad(expression, frbr.realizationOf, work, work),
       RDF.quad(expression, dcterms.publisher, publisher, work),
       RDF.quad(expression, fabio.hasManifestation, webPage, work),
@@ -308,7 +308,7 @@ const reviewExpression = ({
       RDF.quad(expression, frbr.realizationOf, work, work),
       RDF.quad(expression, fabio.hasManifestation, webPage, work),
       RDF.quad(expression, dcterms.publisher, publisher, work),
-      RDF.quad(expression, dcterms.date, RDF.date(data.date), work),
+      RDF.quad(expression, dcterms.issued, RDF.date(data.date), work),
       ...pipe(
         data.author,
         RA.map(name => ({ name, person: pipe(name, personIri) })),
