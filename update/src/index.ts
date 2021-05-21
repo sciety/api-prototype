@@ -165,6 +165,7 @@ const doiExpression = ({
       ),
       RDF.quad(webPage, rdf.type, fabio.WebPage, work),
       RDF.quad(webPage, fabio.hasURL, RDF.url(data.url), work),
+      RDF.quad(webPage, frbr.producer, publisher, work),
       RDF.quad(publisher, rdf.type, org.Organization, sciety('_publishers')),
       RDF.quad(publisher, rdfs.label, RDF.literal(data.publisher), sciety('_publishers')),
     ],
@@ -180,6 +181,7 @@ const doiExpression = ({
       RDF.quad(pdf, rdf.type, fabio.DigitalManifestation, work),
       RDF.quad(pdf, dcterms.format, mediatype('application/pdf'), work),
       RDF.quad(pdf, fabio.hasURL, RDF.url(data.pdf), work),
+      RDF.quad(pdf, frbr.producer, publisher, work),
     ])) : identity,
   )),
 )
@@ -324,6 +326,7 @@ const reviewExpression = ({
       RDF.quad(work, cito.reviews, articleExpression, work),
       RDF.quad(webPage, rdf.type, fabio.WebPage, work),
       RDF.quad(webPage, fabio.hasURL, RDF.url(data.url), work),
+      RDF.quad(webPage, frbr.producer, publisher, work),
       RDF.quad(publisher, rdf.type, org.Organization, sciety('_publishers')),
       RDF.quad(publisher, rdfs.label, RDF.literal(data.publisher), sciety('_publishers')),
     ],
@@ -334,6 +337,7 @@ const reviewExpression = ({
       RDF.quad(pdf, rdf.type, fabio.DigitalManifestation, work),
       RDF.quad(pdf, dcterms.format, mediatype('application/pdf'), work),
       RDF.quad(pdf, fabio.hasURL, RDF.url(data.pdf), work),
+      RDF.quad(pdf, frbr.producer, publisher, work),
     ])) : identity,
     data.journal ? D.union(D.fromArray([
       RDF.quad(expression, frbr.partOf, journal, work),
