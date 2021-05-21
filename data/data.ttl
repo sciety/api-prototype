@@ -3518,7 +3518,7 @@
   dcterms:publisher <http://localhost:8080/45a898ad11c550bab9261e1855a85dd2> ;
   dcterms:title "Despite reproductive interference, the net outcome of reproductive interactions among spider mite species is not necessarily costly" ;
   fabio:hasManifestation <http://localhost:8080/a7b5e932726b889be7019ec3bc6c3a1c>, <http://localhost:8080/e494c2042c95e7eaf80c351fcfd5c95a> ;
-  frbr:creator <http://localhost:8080/clemente>, <http://localhost:8080/ines>, <http://localhost:8080/leonor-r>, <http://localhost:8080/magalhaes>, <http://localhost:8080/ponce>, <http://localhost:8080/rita>, <http://localhost:8080/rodrigues>, <http://localhost:8080/salome-h>, <http://localhost:8080/santos>, <http://localhost:8080/sara>, <http://localhost:8080/susana-a-m>, <http://localhost:8080/varela> ;
+  frbr:creator <http://localhost:8080/clemente-salome-h>, <http://localhost:8080/magalhaes-sara>, <http://localhost:8080/ponce-rita>, <http://localhost:8080/rodrigues-leonor-r>, <http://localhost:8080/santos-ines>, <http://localhost:8080/varela-susana-a-m> ;
   frbr:partOf <http://localhost:8080/c1899cccac706f2b00f34f47ff42a224> ;
   frbr:realizationOf <http://localhost:8080/2ecac823ad1be4408da2690a57f6277c> .
 
@@ -6734,7 +6734,7 @@
   dcterms:publisher <http://localhost:8080/45a898ad11c550bab9261e1855a85dd2> ;
   dcterms:title "Assortment of Flowering Time and Immunity Alleles in Natural Arabidopsis thaliana Populations Suggests Immunity and Vegetative Lifespan Strategies Coevolve" ;
   fabio:hasManifestation <http://localhost:8080/1878559a08af01545bf9969dc15d3606>, <http://localhost:8080/e2ec99a426d4c274eff6c83a18482d44> ;
-  frbr:creator <http://localhost:8080/anika>, <http://localhost:8080/arndt>, <http://localhost:8080/de-meaux>, <http://localhost:8080/fei>, <http://localhost:8080/glander>, <http://localhost:8080/gregor>, <http://localhost:8080/he>, <http://localhost:8080/juliette>, <http://localhost:8080/schmitz>, <http://localhost:8080/shirin>, <http://localhost:8080/telschow>, <http://localhost:8080/witten> ;
+  frbr:creator <http://localhost:8080/de-meaux-juliette>, <http://localhost:8080/glander-shirin>, <http://localhost:8080/he-fei>, <http://localhost:8080/schmitz-gregor>, <http://localhost:8080/telschow-arndt>, <http://localhost:8080/witten-anika> ;
   frbr:partOf <http://localhost:8080/b902f207ae33ffd96a878a8d6ec8e4b7> ;
   frbr:realizationOf <http://localhost:8080/57895557538d87132800b49c65130e93> .
 
@@ -6822,7 +6822,7 @@
   dcterms:publisher <http://localhost:8080/45a898ad11c550bab9261e1855a85dd2> ;
   dcterms:title "Genome Plasticity in Papillomaviruses and De Novo Emergence of E5 Oncogenes" ;
   fabio:hasManifestation <http://localhost:8080/2cb5fe23006e370ecda9691067276e69>, <http://localhost:8080/e67e018b9dc4306984ef451131bd4469> ;
-  frbr:creator <http://localhost:8080/anouk>, <http://localhost:8080/bravo>, <http://localhost:8080/felez-sanchez>, <http://localhost:8080/ignacio-g>, <http://localhost:8080/marta>, <http://localhost:8080/willemsen> ;
+  frbr:creator <http://localhost:8080/bravo-ignacio-g>, <http://localhost:8080/felez-sanchez-marta>, <http://localhost:8080/willemsen-anouk> ;
   frbr:partOf <http://localhost:8080/b902f207ae33ffd96a878a8d6ec8e4b7> ;
   frbr:realizationOf <http://localhost:8080/5831e9d67482a208ca4077f4e85eaf0f> .
 
@@ -7760,7 +7760,7 @@
   dcterms:publisher <http://localhost:8080/b97f5618f49d5adf844dfed21f9ef739> ;
   dcterms:title "Negative Frequency-Dependent Selection Is Frequently Confounding" ;
   fabio:hasManifestation <http://localhost:8080/6feec25973a803b36906d58faf3f4912>, <http://localhost:8080/8c41c27b0222c728a0cb6aeb0688e708> ;
-  frbr:creator <http://localhost:8080/brisson>, <http://localhost:8080/dustin> ;
+  frbr:creator <http://localhost:8080/brisson-dustin> ;
   frbr:partOf <http://localhost:8080/a977ce76845b4b6f71b6eb5897f64782> ;
   frbr:realizationOf <http://localhost:8080/672b3bf553edcda812fe3b61057460ae> .
 
@@ -10367,7 +10367,7 @@
   dcterms:publisher <http://localhost:8080/45a898ad11c550bab9261e1855a85dd2> ;
   dcterms:title "Culex interfor and Culex saltanensis (Diptera: Culicidae) are susceptible and competent to transmit St. Louis encephalitis virus (Flavivirus: Flaviviridae) in central Argentina" ;
   fabio:hasManifestation <http://localhost:8080/d166633b866cd1a72d2b319db48c93a3>, <http://localhost:8080/def66bac7c729074e322a609017fbdbd> ;
-  frbr:creator <http://localhost:8080/agustin-i>, <http://localhost:8080/almiron>, <http://localhost:8080/beranek>, <http://localhost:8080/contigiani>, <http://localhost:8080/diaz>, <http://localhost:8080/fernando-s>, <http://localhost:8080/flores>, <http://localhost:8080/giovana-c>, <http://localhost:8080/luis-a>, <http://localhost:8080/marina>, <http://localhost:8080/marta-s>, <http://localhost:8080/mauricio-d>, <http://localhost:8080/peralta>, <http://localhost:8080/quaglia>, <http://localhost:8080/stein>, <http://localhost:8080/walter-r> ;
+  frbr:creator <http://localhost:8080/almiron-walter-r>, <http://localhost:8080/beranek-mauricio-d>, <http://localhost:8080/contigiani-marta-s>, <http://localhost:8080/diaz-luis-a>, <http://localhost:8080/flores-fernando-s>, <http://localhost:8080/peralta-giovana-c>, <http://localhost:8080/quaglia-agustin-i>, <http://localhost:8080/stein-marina> ;
   frbr:partOf <http://localhost:8080/e590443c4917da64b81f2c1ed4608295> ;
   frbr:realizationOf <http://localhost:8080/9558b52ca53368bfcbc8974bc259f98b> .
 
@@ -12096,9 +12096,6 @@
 <http://localhost:8080/agnes-desolneux> a frbr:Person ;
   foaf:name "Agnès Desolneux" .
 
-<http://localhost:8080/agustin-i> a frbr:Person ;
-  foaf:name "Agustín I" .
-
 <http://localhost:8080/agustin-i.-quaglia> a frbr:Person ;
   foaf:name "Agustín I. Quaglia" .
 
@@ -12216,8 +12213,8 @@
 <http://localhost:8080/allison-m.-luger> a frbr:Person ;
   foaf:name "Allison M. Luger" .
 
-<http://localhost:8080/almiron> a frbr:Person ;
-  foaf:name "Almirón" .
+<http://localhost:8080/almiron-walter-r> a frbr:Person ;
+  foaf:name "Almirón, Walter R" .
 
 <http://localhost:8080/alok-k.-tewari> a frbr:Person ;
   foaf:name "Alok K. Tewari" .
@@ -12336,9 +12333,6 @@
 <http://localhost:8080/angelique-porciani> a frbr:Person ;
   foaf:name "Angélique Porciani" .
 
-<http://localhost:8080/anika> a frbr:Person ;
-  foaf:name "Anika" .
-
 <http://localhost:8080/anika-witten> a frbr:Person ;
   foaf:name "Anika Witten" .
 
@@ -12375,14 +12369,8 @@
 <http://localhost:8080/anne-xuereb> a frbr:Person ;
   foaf:name "Anne Xuéreb" .
 
-<http://localhost:8080/annie> a frbr:Person ;
-  foaf:name "Annie" .
-
 <http://localhost:8080/annie-wang> a frbr:Person ;
   foaf:name "Annie Wang" .
-
-<http://localhost:8080/anouk> a frbr:Person ;
-  foaf:name "Anouk" .
 
 <http://localhost:8080/anouk-willemsen> a frbr:Person ;
   foaf:name "Anouk Willemsen" .
@@ -12416,9 +12404,6 @@
 
 <http://localhost:8080/arnaud-sentis> a frbr:Person ;
   foaf:name "Arnaud Sentis" .
-
-<http://localhost:8080/arndt> a frbr:Person ;
-  foaf:name "Arndt" .
 
 <http://localhost:8080/arndt-telschow> a frbr:Person ;
   foaf:name "Arndt Telschow" .
@@ -12757,7 +12742,7 @@
   dcterms:publisher <http://localhost:8080/67f076b537b3b0c536fb9fb4253845c8> ;
   dcterms:title "Differential Effects of Antiseptic Mouth Rinses on SARS-CoV-2 Infectivity In Vitro" ;
   fabio:hasManifestation <http://localhost:8080/4cc19cf0a54c92a0a20fd2ec9de1a264>, <http://localhost:8080/e4b47652ca600ea4a78ee0f75ff64cdf> ;
-  frbr:creator <http://localhost:8080/annie>, <http://localhost:8080/carla>, <http://localhost:8080/chang>, <http://localhost:8080/chuan>, <http://localhost:8080/cugini>, <http://localhost:8080/daniel-h.>, <http://localhost:8080/eileen-r.>, <http://localhost:8080/fine>, <http://localhost:8080/hoskin>, <http://localhost:8080/kenneth>, <http://localhost:8080/markowitz>, <http://localhost:8080/theresa-l.>, <http://localhost:8080/wang>, <http://localhost:8080/xu> ;
+  frbr:creator <http://localhost:8080/chang-theresa-l.>, <http://localhost:8080/cugini-carla>, <http://localhost:8080/fine-daniel-h.>, <http://localhost:8080/hoskin-eileen-r.>, <http://localhost:8080/markowitz-kenneth>, <http://localhost:8080/wang-annie>, <http://localhost:8080/xu-chuan> ;
   frbr:partOf <http://localhost:8080/e8cda5f8e9d85f344e32b6d6e467c090> ;
   frbr:realizationOf <http://localhost:8080/b5b8ae89de67a33bf819af9403d12963> .
 
@@ -13205,8 +13190,8 @@
 <http://localhost:8080/babett-gunther> a frbr:Person ;
   foaf:name "Babett Günther" .
 
-<http://localhost:8080/bailey> a frbr:Person ;
-  foaf:name "Bailey" .
+<http://localhost:8080/bailey-susan-f> a frbr:Person ;
+  foaf:name "Bailey, Susan F" .
 
 <http://localhost:8080/baptiste-elie> a frbr:Person ;
   foaf:name "Baptiste Elie" .
@@ -13232,8 +13217,8 @@
 <http://localhost:8080/bastien-poutout> a frbr:Person ;
   foaf:name "Bastien Poutout" .
 
-<http://localhost:8080/bataillon> a frbr:Person ;
-  foaf:name "Bataillon" .
+<http://localhost:8080/bataillon-thomas> a frbr:Person ;
+  foaf:name "Bataillon, Thomas" .
 
 <http://localhost:8080/baudry-jacques> a frbr:Person ;
   foaf:name "Baudry Jacques" .
@@ -13651,8 +13636,8 @@
 <http://localhost:8080/benoit-pujol> a frbr:Person ;
   foaf:name "Benoit Pujol" .
 
-<http://localhost:8080/beranek> a frbr:Person ;
-  foaf:name "Beranek" .
+<http://localhost:8080/beranek-mauricio-d> a frbr:Person ;
+  foaf:name "Beranek, Mauricio D" .
 
 <http://localhost:8080/berit-gehrke> a frbr:Person ;
   foaf:name "Berit Gehrke" .
@@ -13776,8 +13761,8 @@
 <http://localhost:8080/borja-mila> a frbr:Person ;
   foaf:name "Borja Milá" .
 
-<http://localhost:8080/bravo> a frbr:Person ;
-  foaf:name "Bravo" .
+<http://localhost:8080/bravo-ignacio-g> a frbr:Person ;
+  foaf:name "Bravo, Ignacio G" .
 
 <http://localhost:8080/brigitte-crouau-roy> a frbr:Person ;
   foaf:name "Brigitte Crouau-Roy" .
@@ -13785,8 +13770,8 @@
 <http://localhost:8080/brigitte-maroni> a frbr:Person ;
   foaf:name "Brigitte Maroni" .
 
-<http://localhost:8080/brisson> a frbr:Person ;
-  foaf:name "Brisson" .
+<http://localhost:8080/brisson-dustin> a frbr:Person ;
+  foaf:name "Brisson, Dustin" .
 
 <http://localhost:8080/bruce-rannala> a frbr:Person ;
   foaf:name "Bruce Rannala" .
@@ -14805,9 +14790,6 @@
 <http://localhost:8080/carine-brouat> a frbr:Person ;
   foaf:name "Carine Brouat" .
 
-<http://localhost:8080/carla> a frbr:Person ;
-  foaf:name "Carla" .
-
 <http://localhost:8080/carla-cugini> a frbr:Person ;
   foaf:name "Carla Cugini" .
 
@@ -15040,8 +15022,8 @@
 <http://localhost:8080/chaminda-seneviratne> a frbr:Person ;
   foaf:name "Chaminda Seneviratne" .
 
-<http://localhost:8080/chang> a frbr:Person ;
-  foaf:name "Chang" .
+<http://localhost:8080/chang-theresa-l.> a frbr:Person ;
+  foaf:name "Chang, Theresa L." .
 
 <http://localhost:8080/chantal-castagnone> a frbr:Person ;
   foaf:name "Chantal Castagnone" .
@@ -15136,9 +15118,6 @@
 <http://localhost:8080/christopher-l.-de-graffenried> a frbr:Person ;
   foaf:name "Christopher L. de Graffenried" .
 
-<http://localhost:8080/chuan> a frbr:Person ;
-  foaf:name "Chuan" .
-
 <http://localhost:8080/chuan-xu> a frbr:Person ;
   foaf:name "Chuan Xu" .
 
@@ -15172,8 +15151,8 @@
 <http://localhost:8080/clement-stahl> a frbr:Person ;
   foaf:name "Clément Stahl" .
 
-<http://localhost:8080/clemente> a frbr:Person ;
-  foaf:name "Clemente" .
+<http://localhost:8080/clemente-salome-h> a frbr:Person ;
+  foaf:name "Clemente, Salomé H" .
 
 <http://localhost:8080/clothilde-deschamps> a frbr:Person ;
   foaf:name "Clothilde Deschamps" .
@@ -15187,8 +15166,8 @@
 <http://localhost:8080/concetta-burgarella> a frbr:Person ;
   foaf:name "Concetta Burgarella" .
 
-<http://localhost:8080/contigiani> a frbr:Person ;
-  foaf:name "Contigiani" .
+<http://localhost:8080/contigiani-marta-s> a frbr:Person ;
+  foaf:name "Contigiani, Marta S" .
 
 <http://localhost:8080/corinne-regis> a frbr:Person ;
   foaf:name "Corinne Régis" .
@@ -15199,8 +15178,8 @@
 <http://localhost:8080/craig-r.-macnair> a frbr:Person ;
   foaf:name "Craig R. MacNair" .
 
-<http://localhost:8080/cugini> a frbr:Person ;
-  foaf:name "Cugini" .
+<http://localhost:8080/cugini-carla> a frbr:Person ;
+  foaf:name "Cugini, Carla" .
 
 <http://localhost:8080/cynthia-t.-chan> a frbr:Person ;
   foaf:name "Cynthia T. Chan" .
@@ -16196,9 +16175,6 @@
 <http://localhost:8080/daniel-choquet> a frbr:Person ;
   foaf:name "Daniel Choquet" .
 
-<http://localhost:8080/daniel-h.> a frbr:Person ;
-  foaf:name "Daniel H." .
-
 <http://localhost:8080/daniel-h.-fine> a frbr:Person ;
   foaf:name "Daniel H. Fine" .
 
@@ -16284,8 +16260,8 @@
 <http://localhost:8080/ee6d63ca3877f5e0605e353874ece14e> a fabio:WebPage ;
   fabio:hasURL "http://dx.doi.org/10.24072/pci.ecology.100066"^^xsd:anyURI .
 
-<http://localhost:8080/de-meaux> a frbr:Person ;
-  foaf:name "de Meaux" .
+<http://localhost:8080/de-meaux-juliette> a frbr:Person ;
+  foaf:name "de Meaux, Juliette" .
 
 <http://localhost:8080/10.5281/zenodo.4663312> a fabio:ReviewArticle ;
   dcterms:date "2021-04-05"^^xsd:date ;
@@ -16576,8 +16552,8 @@
 <http://localhost:8080/diala-abu-awad> a frbr:Person ;
   foaf:name "Diala Abu Awad" .
 
-<http://localhost:8080/diaz> a frbr:Person ;
-  foaf:name "Diaz" .
+<http://localhost:8080/diaz-luis-a> a frbr:Person ;
+  foaf:name "Diaz, Luis A" .
 
 <http://localhost:8080/didier-fontenille> a frbr:Person ;
   foaf:name "Didier Fontenille" .
@@ -16620,9 +16596,6 @@
 
 <http://localhost:8080/dries-bonte> a frbr:Person ;
   foaf:name "Dries Bonte" .
-
-<http://localhost:8080/dustin> a frbr:Person ;
-  foaf:name "Dustin" .
 
 <http://localhost:8080/dustin-brisson> a frbr:Person ;
   foaf:name "Dustin Brisson" .
@@ -17659,9 +17632,6 @@
 <http://localhost:8080/f8e9fdd3c6bb43e24f6d60669a1d59e2> a fabio:DigitalManifestation ;
   dcterms:format "application/pdf" ;
   fabio:hasURL "https://www.biorxiv.org/content/biorxiv/early/2019/11/07/832220.full.pdf"^^xsd:anyURI .
-
-<http://localhost:8080/eileen-r.> a frbr:Person ;
-  foaf:name "Eileen R." .
 
 <http://localhost:8080/eileen-r.-hoskin> a frbr:Person ;
   foaf:name "Eileen R. Hoskin" .
@@ -18798,7 +18768,7 @@
   dcterms:publisher <http://localhost:8080/45a898ad11c550bab9261e1855a85dd2> ;
   dcterms:title "How Much Does Ne Vary Among Species?" ;
   fabio:hasManifestation <http://localhost:8080/b0f820bcd984bec4d64402432263ad68>, <http://localhost:8080/f90303b2bbde2c834a5004312f1f5f33> ;
-  frbr:creator <http://localhost:8080/galtier>, <http://localhost:8080/marjolaine>, <http://localhost:8080/nicolas>, <http://localhost:8080/rousselle> ;
+  frbr:creator <http://localhost:8080/galtier-nicolas>, <http://localhost:8080/rousselle-marjolaine> ;
   frbr:partOf <http://localhost:8080/dec501b5856cc0a9bf84597e4455a2f9> ;
   frbr:realizationOf <http://localhost:8080/fc781f93a89340b723ae9377f4206250> .
 
@@ -18842,7 +18812,7 @@
   dcterms:publisher <http://localhost:8080/45a898ad11c550bab9261e1855a85dd2> ;
   dcterms:title "Identifying Drivers of Parallel Evolution: A Regression Model Approach" ;
   fabio:hasManifestation <http://localhost:8080/4dfcb00aa1cb6b5808a393a0a520e574>, <http://localhost:8080/ee86326855804696d04a81083ead275a> ;
-  frbr:creator <http://localhost:8080/bailey>, <http://localhost:8080/bataillon>, <http://localhost:8080/guo>, <http://localhost:8080/qianyun>, <http://localhost:8080/susan-f>, <http://localhost:8080/thomas> ;
+  frbr:creator <http://localhost:8080/bailey-susan-f>, <http://localhost:8080/bataillon-thomas>, <http://localhost:8080/guo-qianyun> ;
   frbr:partOf <http://localhost:8080/b902f207ae33ffd96a878a8d6ec8e4b7> ;
   frbr:realizationOf <http://localhost:8080/fcc63a9bc08378cd51fa8066bc1f2ea2> .
 
@@ -19321,14 +19291,11 @@
 <http://localhost:8080/fefcc6e5d082f5f67b7253aba92eea48> a fabio:Review ;
   cito:citesAsRecommendedReading <http://localhost:8080/084304d6459c102f22ed4a59c6ae6527> .
 
-<http://localhost:8080/fei> a frbr:Person ;
-  foaf:name "Fei" .
-
 <http://localhost:8080/fei-he> a frbr:Person ;
   foaf:name "Fei He" .
 
-<http://localhost:8080/felez-sanchez> a frbr:Person ;
-  foaf:name "Félez-Sánchez" .
+<http://localhost:8080/felez-sanchez-marta> a frbr:Person ;
+  foaf:name "Félez-Sánchez, Marta" .
 
 <http://localhost:8080/felipe-k.-ricachenevsky> a frbr:Person ;
   foaf:name "Felipe K. Ricachenevsky" .
@@ -19351,14 +19318,11 @@
 <http://localhost:8080/fernando-racimo> a frbr:Person ;
   foaf:name "Fernando Racimo" .
 
-<http://localhost:8080/fernando-s> a frbr:Person ;
-  foaf:name "Fernando S" .
-
 <http://localhost:8080/fernando-s.-flores> a frbr:Person ;
   foaf:name "Fernando S. Flores" .
 
-<http://localhost:8080/fine> a frbr:Person ;
-  foaf:name "Fine" .
+<http://localhost:8080/fine-daniel-h.> a frbr:Person ;
+  foaf:name "Fine, Daniel H." .
 
 <http://localhost:8080/fitzroy-j.-byfield> a frbr:Person ;
   foaf:name "Fitzroy J. Byfield" .
@@ -19393,8 +19357,8 @@
 <http://localhost:8080/florentine-riquet> a frbr:Person ;
   foaf:name "Florentine Riquet" .
 
-<http://localhost:8080/flores> a frbr:Person ;
-  foaf:name "Flores" .
+<http://localhost:8080/flores-fernando-s> a frbr:Person ;
+  foaf:name "Flores, Fernando S" .
 
 <http://localhost:8080/florian-lavigne> a frbr:Person ;
   foaf:name "Florian Lavigne" .
@@ -19546,8 +19510,8 @@
 <http://localhost:8080/gagliardi-fanny> a frbr:Person ;
   foaf:name "Gagliardi Fanny" .
 
-<http://localhost:8080/galtier> a frbr:Person ;
-  foaf:name "Galtier" .
+<http://localhost:8080/galtier-nicolas> a frbr:Person ;
+  foaf:name "Galtier, Nicolas" .
 
 <http://localhost:8080/gauthier-schaal> a frbr:Person ;
   foaf:name "Gauthier Schaal" .
@@ -19606,9 +19570,6 @@
 <http://localhost:8080/gilles-le-moguedec> a frbr:Person ;
   foaf:name "Gilles Le Moguedec" .
 
-<http://localhost:8080/giovana-c> a frbr:Person ;
-  foaf:name "Giovana C" .
-
 <http://localhost:8080/giovana-c.-peralta> a frbr:Person ;
   foaf:name "Giovana C. Peralta" .
 
@@ -19621,8 +19582,8 @@
 <http://localhost:8080/giuseppe-bee> a frbr:Person ;
   foaf:name "Giuseppe Bee" .
 
-<http://localhost:8080/glander> a frbr:Person ;
-  foaf:name "Glander" .
+<http://localhost:8080/glander-shirin> a frbr:Person ;
+  foaf:name "Glander, Shirin" .
 
 <http://localhost:8080/gloriana-chaverri> a frbr:Person ;
   foaf:name "Gloriana Chaverri" .
@@ -19641,9 +19602,6 @@
 
 <http://localhost:8080/grayston-sue> a frbr:Person ;
   foaf:name "Grayston Sue" .
-
-<http://localhost:8080/gregor> a frbr:Person ;
-  foaf:name "Gregor" .
 
 <http://localhost:8080/gregor-schmitz> a frbr:Person ;
   foaf:name "Gregor Schmitz" .
@@ -19684,8 +19642,8 @@
 <http://localhost:8080/gunnar-jansson> a frbr:Person ;
   foaf:name "Gunnar Jansson" .
 
-<http://localhost:8080/guo> a frbr:Person ;
-  foaf:name "Guo" .
+<http://localhost:8080/guo-qianyun> a frbr:Person ;
+  foaf:name "Guo, Qianyun" .
 
 <http://localhost:8080/guy-baele> a frbr:Person ;
   foaf:name "Guy Baele" .
@@ -19717,8 +19675,8 @@
 <http://localhost:8080/hayley-sanderson> a frbr:Person ;
   foaf:name "Hayley Sanderson" .
 
-<http://localhost:8080/he> a frbr:Person ;
-  foaf:name "He" .
+<http://localhost:8080/he-fei> a frbr:Person ;
+  foaf:name "He, Fei" .
 
 <http://localhost:8080/hector-peinado> a frbr:Person ;
   foaf:name "Héctor Peinado" .
@@ -19768,8 +19726,8 @@
 <http://localhost:8080/holly-m-nguyen> a frbr:Person ;
   foaf:name "Holly M Nguyen" .
 
-<http://localhost:8080/hoskin> a frbr:Person ;
-  foaf:name "Hoskin" .
+<http://localhost:8080/hoskin-eileen-r.> a frbr:Person ;
+  foaf:name "Hoskin, Eileen R." .
 
 <http://localhost:8080/hughes-parinello> a frbr:Person ;
   foaf:name "Hughes Parinello" .
@@ -19819,9 +19777,6 @@
 <http://localhost:8080/ignacio-fernandez-figares> a frbr:Person ;
   foaf:name "Ignacio Fernández-Fígares" .
 
-<http://localhost:8080/ignacio-g> a frbr:Person ;
-  foaf:name "Ignacio G" .
-
 <http://localhost:8080/ignacio-g-bravo> a frbr:Person ;
   foaf:name "Ignacio G Bravo" .
 
@@ -19833,9 +19788,6 @@
 
 <http://localhost:8080/ilsa-coleman> a frbr:Person ;
   foaf:name "Ilsa Coleman" .
-
-<http://localhost:8080/ines> a frbr:Person ;
-  foaf:name "Inês" .
 
 <http://localhost:8080/ines-alvarez> a frbr:Person ;
   foaf:name "Inés Álvarez" .
@@ -20499,9 +20451,6 @@
 <http://localhost:8080/julien-y.-dutheil> a frbr:Person ;
   foaf:name "Julien Y. Dutheil" .
 
-<http://localhost:8080/juliette> a frbr:Person ;
-  foaf:name "Juliette" .
-
 <http://localhost:8080/juliette-tariel> a frbr:Person ;
   foaf:name "Juliette Tariel" .
 
@@ -20594,9 +20543,6 @@
 
 <http://localhost:8080/keith-r.-willmott> a frbr:Person ;
   foaf:name "Keith R. Willmott" .
-
-<http://localhost:8080/kenneth> a frbr:Person ;
-  foaf:name "Kenneth" .
 
 <http://localhost:8080/kenneth-markowitz> a frbr:Person ;
   foaf:name "Kenneth Markowitz" .
@@ -20754,9 +20700,6 @@
 <http://localhost:8080/leonardo-d.-bacigalupe> a frbr:Person ;
   foaf:name "Leonardo D. Bacigalupe" .
 
-<http://localhost:8080/leonor-r> a frbr:Person ;
-  foaf:name "Leonor R" .
-
 <http://localhost:8080/leonor-r.-rodrigues> a frbr:Person ;
   foaf:name "Leonor R. Rodrigues" .
 
@@ -20846,9 +20789,6 @@
 
 <http://localhost:8080/luiggi-martini-robles> a frbr:Person ;
   foaf:name "Luiggi Martini Robles" .
-
-<http://localhost:8080/luis-a> a frbr:Person ;
-  foaf:name "Luis A" .
 
 <http://localhost:8080/luis-a.-diaz> a frbr:Person ;
   foaf:name "Luis A. Diaz" .
@@ -20943,8 +20883,8 @@
 <http://localhost:8080/maeva-mollion> a frbr:Person ;
   foaf:name "Maeva Mollion" .
 
-<http://localhost:8080/magalhaes> a frbr:Person ;
-  foaf:name "Magalhães" .
+<http://localhost:8080/magalhaes-sara> a frbr:Person ;
+  foaf:name "Magalhães, Sara" .
 
 <http://localhost:8080/magdalena-m.-szewczyk> a frbr:Person ;
   foaf:name "Magdalena M. Szewczyk" .
@@ -21072,9 +21012,6 @@
 <http://localhost:8080/marin-vabre> a frbr:Person ;
   foaf:name "Marin Vabre" .
 
-<http://localhost:8080/marina> a frbr:Person ;
-  foaf:name "Marina" .
-
 <http://localhost:8080/marina-lusic> a frbr:Person ;
   foaf:name "Marina Lusic" .
 
@@ -21089,9 +21026,6 @@
 
 <http://localhost:8080/maritza-celi-erazo> a frbr:Person ;
   foaf:name "Maritza Celi-Erazo" .
-
-<http://localhost:8080/marjolaine> a frbr:Person ;
-  foaf:name "Marjolaine" .
 
 <http://localhost:8080/marjolaine-rousselle> a frbr:Person ;
   foaf:name "Marjolaine Rousselle" .
@@ -21108,17 +21042,14 @@
 <http://localhost:8080/mark-trinder> a frbr:Person ;
   foaf:name "Mark Trinder" .
 
-<http://localhost:8080/markowitz> a frbr:Person ;
-  foaf:name "Markowitz" .
+<http://localhost:8080/markowitz-kenneth> a frbr:Person ;
+  foaf:name "Markowitz, Kenneth" .
 
 <http://localhost:8080/markus-sauer> a frbr:Person ;
   foaf:name "Markus Sauer" .
 
 <http://localhost:8080/marlen-c.-rice> a frbr:Person ;
   foaf:name "Marlen C. Rice" .
-
-<http://localhost:8080/marta> a frbr:Person ;
-  foaf:name "Marta" .
 
 <http://localhost:8080/marta-carboni> a frbr:Person ;
   foaf:name "Marta Carboni" .
@@ -21128,9 +21059,6 @@
 
 <http://localhost:8080/marta-montserrat> a frbr:Person ;
   foaf:name "Marta Montserrat" .
-
-<http://localhost:8080/marta-s> a frbr:Person ;
-  foaf:name "Marta S" .
 
 <http://localhost:8080/marta-s.-contigiani> a frbr:Person ;
   foaf:name "Marta S. Contigiani" .
@@ -21218,9 +21146,6 @@
 
 <http://localhost:8080/maud-irene-tenaillon> a frbr:Person ;
   foaf:name "Maud Irène Tenaillon" .
-
-<http://localhost:8080/mauricio-d> a frbr:Person ;
-  foaf:name "Mauricio D" .
 
 <http://localhost:8080/mauricio-d.-beranek> a frbr:Person ;
   foaf:name "Mauricio D. Beranek" .
@@ -21450,9 +21375,6 @@
 <http://localhost:8080/nicolai-m.-nurk> a frbr:Person ;
   foaf:name "Nicolai M. Nürk" .
 
-<http://localhost:8080/nicolas> a frbr:Person ;
-  foaf:name "Nicolas" .
-
 <http://localhost:8080/nicolas-baumard> a frbr:Person ;
   foaf:name "Nicolas Baumard" .
 
@@ -21654,8 +21576,8 @@
 <http://localhost:8080/pedro-machado> a frbr:Person ;
   foaf:name "Pedro Machado" .
 
-<http://localhost:8080/peralta> a frbr:Person ;
-  foaf:name "Peralta" .
+<http://localhost:8080/peralta-giovana-c> a frbr:Person ;
+  foaf:name "Peralta, Giovana C" .
 
 <http://localhost:8080/pete-bankhead> a frbr:Person ;
   foaf:name "Pete Bankhead" .
@@ -21732,8 +21654,8 @@
 <http://localhost:8080/pithon-josephine> a frbr:Person ;
   foaf:name "Pithon Joséphine" .
 
-<http://localhost:8080/ponce> a frbr:Person ;
-  foaf:name "Ponce" .
+<http://localhost:8080/ponce-rita> a frbr:Person ;
+  foaf:name "Ponce, Rita" .
 
 <http://localhost:8080/priscilla-note> a frbr:Person ;
   foaf:name "Priscilla Note" .
@@ -21849,14 +21771,11 @@
 <http://localhost:8080/puillet-laurence> a frbr:Person ;
   foaf:name "Puillet Laurence" .
 
-<http://localhost:8080/qianyun> a frbr:Person ;
-  foaf:name "Qianyun" .
-
 <http://localhost:8080/qianyun-guo> a frbr:Person ;
   foaf:name "Qianyun Guo" .
 
-<http://localhost:8080/quaglia> a frbr:Person ;
-  foaf:name "Quaglia" .
+<http://localhost:8080/quaglia-agustin-i> a frbr:Person ;
+  foaf:name "Quaglia, Agustín I" .
 
 <http://localhost:8080/r.-h.-cruickshank> a frbr:Person ;
   foaf:name "R. H. Cruickshank" .
@@ -21972,9 +21891,6 @@
 <http://localhost:8080/rima-nait-saidi> a frbr:Person ;
   foaf:name "Rima Naït-Saïdi" .
 
-<http://localhost:8080/rita> a frbr:Person ;
-  foaf:name "Rita" .
-
 <http://localhost:8080/rita-ponce> a frbr:Person ;
   foaf:name "Rita Ponce" .
 
@@ -22011,8 +21927,8 @@
 <http://localhost:8080/rodrigo-medel> a frbr:Person ;
   foaf:name "Rodrigo Medel" .
 
-<http://localhost:8080/rodrigues> a frbr:Person ;
-  foaf:name "Rodrigues" .
+<http://localhost:8080/rodrigues-leonor-r> a frbr:Person ;
+  foaf:name "Rodrigues, Leonor R" .
 
 <http://localhost:8080/roland-regoes> a frbr:Person ;
   foaf:name "Roland Regoes" .
@@ -22032,8 +21948,8 @@
 <http://localhost:8080/rossana-c.-soletti> a frbr:Person ;
   foaf:name "Rossana C. Soletti" .
 
-<http://localhost:8080/rousselle> a frbr:Person ;
-  foaf:name "Rousselle" .
+<http://localhost:8080/rousselle-marjolaine> a frbr:Person ;
+  foaf:name "Rousselle, Marjolaine" .
 
 <http://localhost:8080/ruben-torices> a frbr:Person ;
   foaf:name "Rubén Torices" .
@@ -22070,9 +21986,6 @@
 
 <http://localhost:8080/sally-aitken> a frbr:Person ;
   foaf:name "Sally Aitken" .
-
-<http://localhost:8080/salome-h> a frbr:Person ;
-  foaf:name "Salomé H" .
 
 <http://localhost:8080/salome-h.-clemente> a frbr:Person ;
   foaf:name "Salomé H. Clemente" .
@@ -22131,11 +22044,8 @@
 <http://localhost:8080/sanjay-ramakrishnan> a frbr:Person ;
   foaf:name "Sanjay Ramakrishnan" .
 
-<http://localhost:8080/santos> a frbr:Person ;
-  foaf:name "Santos" .
-
-<http://localhost:8080/sara> a frbr:Person ;
-  foaf:name "Sara" .
+<http://localhost:8080/santos-ines> a frbr:Person ;
+  foaf:name "Santos, Inês" .
 
 <http://localhost:8080/sara-magalhaes> a frbr:Person ;
   foaf:name "Sara Magalhães" .
@@ -22146,8 +22056,8 @@
 <http://localhost:8080/sarthak-gupta> a frbr:Person ;
   foaf:name "Sarthak Gupta" .
 
-<http://localhost:8080/schmitz> a frbr:Person ;
-  foaf:name "Schmitz" .
+<http://localhost:8080/schmitz-gregor> a frbr:Person ;
+  foaf:name "Schmitz, Gregor" .
 
 <http://localhost:8080/schorghuber-juliane> a frbr:Person ;
   foaf:name "Schörghuber Juliane" .
@@ -22217,9 +22127,6 @@
 
 <http://localhost:8080/shima-ghoroghi> a frbr:Person ;
   foaf:name "Shima Ghoroghi" .
-
-<http://localhost:8080/shirin> a frbr:Person ;
-  foaf:name "Shirin" .
 
 <http://localhost:8080/shirin-glander> a frbr:Person ;
   foaf:name "Shirin Glander" .
@@ -22299,8 +22206,8 @@
 <http://localhost:8080/stefaniya-kamenova> a frbr:Person ;
   foaf:name "Stefaniya Kamenova" .
 
-<http://localhost:8080/stein> a frbr:Person ;
-  foaf:name "Stein" .
+<http://localhost:8080/stein-marina> a frbr:Person ;
+  foaf:name "Stein, Marina" .
 
 <http://localhost:8080/stephan-peischl> a frbr:Person ;
   foaf:name "Stephan Peischl" .
@@ -22347,14 +22254,8 @@
 <http://localhost:8080/sudeepa-syamala> a frbr:Person ;
   foaf:name "Sudeepa Syamala" .
 
-<http://localhost:8080/susan-f> a frbr:Person ;
-  foaf:name "Susan F" .
-
 <http://localhost:8080/susan-f.-bailey> a frbr:Person ;
   foaf:name "Susan F. Bailey" .
-
-<http://localhost:8080/susana-a-m> a frbr:Person ;
-  foaf:name "Susana A M" .
 
 <http://localhost:8080/susana-a.-m.-varela> a frbr:Person ;
   foaf:name "Susana A. M. Varela" .
@@ -22425,8 +22326,8 @@
 <http://localhost:8080/tatiana-hillman> a frbr:Person ;
   foaf:name "Tatiana Hillman" .
 
-<http://localhost:8080/telschow> a frbr:Person ;
-  foaf:name "Telschow" .
+<http://localhost:8080/telschow-arndt> a frbr:Person ;
+  foaf:name "Telschow, Arndt" .
 
 <http://localhost:8080/teng-xu> a frbr:Person ;
   foaf:name "Teng Xu" .
@@ -22436,9 +22337,6 @@
 
 <http://localhost:8080/theophile-grebert> a frbr:Person ;
   foaf:name "Théophile Grébert" .
-
-<http://localhost:8080/theresa-l.> a frbr:Person ;
-  foaf:name "Theresa L." .
 
 <http://localhost:8080/theresa-l.-chang> a frbr:Person ;
   foaf:name "Theresa L. Chang" .
@@ -22472,9 +22370,6 @@
 
 <http://localhost:8080/thierry-lefevre> a frbr:Person ;
   foaf:name "Thierry Lefèvre" .
-
-<http://localhost:8080/thomas> a frbr:Person ;
-  foaf:name "Thomas" .
 
 <http://localhost:8080/thomas-bataillon> a frbr:Person ;
   foaf:name "Thomas Bataillon" .
@@ -22572,8 +22467,8 @@
 <http://localhost:8080/valerie-troispoux> a frbr:Person ;
   foaf:name "Valérie Troispoux" .
 
-<http://localhost:8080/varela> a frbr:Person ;
-  foaf:name "Varela" .
+<http://localhost:8080/varela-susana-a-m> a frbr:Person ;
+  foaf:name "Varela, Susana A M" .
 
 <http://localhost:8080/vermeylen-vincent> a frbr:Person ;
   foaf:name "Vermeylen Vincent" .
@@ -22653,14 +22548,11 @@
 <http://localhost:8080/volker-dotsch> a frbr:Person ;
   foaf:name "Volker Dötsch" .
 
-<http://localhost:8080/walter-r> a frbr:Person ;
-  foaf:name "Walter R" .
-
 <http://localhost:8080/walter-r.-almiron> a frbr:Person ;
   foaf:name "Walter R. Almirón" .
 
-<http://localhost:8080/wang> a frbr:Person ;
-  foaf:name "Wang" .
+<http://localhost:8080/wang-annie> a frbr:Person ;
+  foaf:name "Wang, Annie" .
 
 <http://localhost:8080/warot-sylvie> a frbr:Person ;
   foaf:name "Warot Sylvie" .
@@ -22677,11 +22569,11 @@
 <http://localhost:8080/werner-ulrich> a frbr:Person ;
   foaf:name "Werner Ulrich" .
 
-<http://localhost:8080/willemsen> a frbr:Person ;
-  foaf:name "Willemsen" .
+<http://localhost:8080/willemsen-anouk> a frbr:Person ;
+  foaf:name "Willemsen, Anouk" .
 
-<http://localhost:8080/witten> a frbr:Person ;
-  foaf:name "Witten" .
+<http://localhost:8080/witten-anika> a frbr:Person ;
+  foaf:name "Witten, Anika" .
 
 <http://localhost:8080/wolf-blanckerhorn> a frbr:Person ;
   foaf:name "Wolf Blanckerhorn" .
@@ -22719,8 +22611,8 @@
 <http://localhost:8080/xiong-zhang> a frbr:Person ;
   foaf:name "Xiong Zhang" .
 
-<http://localhost:8080/xu> a frbr:Person ;
-  foaf:name "Xu" .
+<http://localhost:8080/xu-chuan> a frbr:Person ;
+  foaf:name "Xu, Chuan" .
 
 <http://localhost:8080/xuejing-gou> a frbr:Person ;
   foaf:name "Xuejing Gou" .

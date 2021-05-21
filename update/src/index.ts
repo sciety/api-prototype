@@ -34,7 +34,7 @@ const doiToUrl = S.prependWith('https://doi.org/')
 const scraper = TE.tryCatchK(metascraper([
   {
     author: [
-      toRule(title)($ => $('meta[name="citation_author"]').toArray().map(element => element.attribs['content']).join(', ')),
+      toRule(title)($ => $('meta[name="citation_author"]').toArray().map(element => element.attribs['content']).join('\n')),
       ...require('metascraper-author')().author,
     ],
     date: [
@@ -78,7 +78,7 @@ const scrape = <V extends RR.ReadonlyRecord<string, unknown>>(decoder: d.Decoder
 )
 
 const scraped = d.struct({
-  author: d.arrayFromString(', '),
+  author: d.arrayFromString('\n'),
   date: d.dateFromIsoString,
   doi: d.nullable(d.string),
   lang: d.nullable(d.string),
