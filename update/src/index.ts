@@ -18,7 +18,7 @@ import { CrossrefWork, crossrefWork } from './crossref'
 import * as D from './dataset'
 import * as d from './decoder'
 import { getFromUrl, getUrl } from './http'
-import { cito, dcterms, fabio, foaf, frbr, mediatype, org, rdf, rdfs, sciety, xsd } from './namespace'
+import { cito, dcterms, fabio, foaf, frbr, mediatype, org, prism, rdf, rdfs, sciety, xsd } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
 import * as S from './string'
@@ -149,7 +149,7 @@ const doiExpression = ({
     [
       RDF.quad(expression, rdf.type, fabio.Article, work),
       RDF.quad(expression, dcterms.title, RDF.literal(data.title), work),
-      RDF.quad(expression, dcterms.issued, RDF.date(data.date), work),
+      RDF.quad(expression, prism.publicationDate, RDF.date(data.date), work),
       RDF.quad(expression, frbr.realizationOf, work, work),
       RDF.quad(expression, dcterms.publisher, publisher, work),
       RDF.quad(expression, fabio.hasManifestation, webPage, work),
@@ -310,7 +310,7 @@ const reviewExpression = ({
       RDF.quad(expression, frbr.realizationOf, work, work),
       RDF.quad(expression, fabio.hasManifestation, webPage, work),
       RDF.quad(expression, dcterms.publisher, publisher, work),
-      RDF.quad(expression, dcterms.issued, RDF.date(data.date), work),
+      RDF.quad(expression, prism.publicationDate, RDF.date(data.date), work),
       ...pipe(
         data.author,
         RA.map(name => ({ name, person: pipe(name, personIri) })),
@@ -389,6 +389,7 @@ const prefixes = {
   foaf: foaf(),
   frbr: frbr(),
   org: org(),
+  prism: prism(),
   rdf: rdf(),
   rdfs: rdfs(),
   xsd: xsd(),
