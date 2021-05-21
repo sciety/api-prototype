@@ -11052,6 +11052,278 @@
 <http://localhost:8080/be4111135166237b99aa0270ac458c41> a fabio:WebPage ;
   fabio:hasURL "https://www.biorxiv.org/content/10.1101/356147v2"^^xsd:anyURI .
 
+<http://localhost:8080/0776fc980516bb0069f9a47ae3a107ab> a fabio:Journal ;
+  dcterms:title "Peer Community In Zoology" .
+
+<http://localhost:8080/09c975c39b0c074c1f032f60142af9d2> a fabio:Journal ;
+  dcterms:title "Nature Communications" .
+
+<http://localhost:8080/0a3e628b48edd359a6c73fcc8f4fab97> a fabio:Journal ;
+  dcterms:title "Journal of Evolutionary Biology" .
+
+<http://localhost:8080/161e7ce7bfdc89ab4b9f52c1d4c94212> a fabio:Journal ;
+  dcterms:title "Animal" .
+
+<http://localhost:8080/180b71c084adf42fd433ffc7c9dd2434> a fabio:Journal ;
+  dcterms:title "Nature Plants" .
+
+<http://localhost:8080/26a8a8ed5f5f25309b6b2629003ceb02> a fabio:Journal ;
+  dcterms:title "Rethinking Ecology" .
+
+<http://localhost:8080/279e896f1d69b4dcecb3a9e267acaba0> a fabio:Journal ;
+  dcterms:title "FASEB BioAdvances" .
+
+<http://localhost:8080/2a9a9b4a272ed7a8cb2e112686843e9f> a fabio:Journal ;
+  dcterms:title "medRxiv" .
+
+<http://localhost:8080/320d20c750ea8f85b0f2aa638b8672ed> a fabio:Journal ;
+  dcterms:title "Peer Community in Evolutionary Biology" .
+
+<http://localhost:8080/35cb2ad70b986f40cc66ccfc011ce446> a fabio:Journal ;
+  dcterms:title "Developmental Cell" .
+
+<http://localhost:8080/369a30a4c72362abb9d4590e2e843c27> a fabio:Journal ;
+  dcterms:title "PLOS Biology" .
+
+<http://localhost:8080/3dac39b90181c6ba4b66f1c6737cf912> a fabio:Journal ;
+  dcterms:title "Peer Community In Evolutionary Biology" .
+
+<http://localhost:8080/42f0d762a8587dbb364ddde4f6a4fc6d> a fabio:Journal ;
+  dcterms:title "Evolution" .
+
+<http://localhost:8080/48db90f1e6e26e395885a197265aa72f> a fabio:Journal ;
+  dcterms:title "Peer Community In Ecology" .
+
+<http://localhost:8080/4d2c5a6db342f4465260f1d391c8f643> a fabio:Journal ;
+  dcterms:title "Functional Ecology" .
+
+<http://localhost:8080/4d7c2888cb5bb82edb93064f0f12fc91> a fabio:Journal, org:Organization ;
+  dcterms:title "PeerJ" ;
+  rdfs:label "PeerJ" .
+
+<http://localhost:8080/5807f2fdb589fa344e0ff5368097c65b> a fabio:Journal ;
+  dcterms:title "Theoretical Population Biology" .
+
+<http://localhost:8080/62f61c1394b52b5ac3a823da7199ee3e> a fabio:Journal, org:Organization ;
+  dcterms:title "Belgian Journal of Zoology" ;
+  rdfs:label "Belgian Journal of Zoology" .
+
+<http://localhost:8080/68b2127e75787d9c2c9da1360edc4985> a fabio:Journal ;
+  dcterms:title "Theoretical Ecology" .
+
+<http://localhost:8080/6bf5911804b7dc0bf1c4575fb9babf17> a fabio:Journal ;
+  dcterms:title "Ecology Letters" .
+
+<http://localhost:8080/733783f948459a8b55411190ae97f20e> a fabio:Journal ;
+  dcterms:title "Ideas in Ecology and Evolution" .
+
+<http://localhost:8080/77745f6d87323843366e09d6d222df9d> a fabio:Journal ;
+  dcterms:title "Scientific Reports" .
+
+<http://localhost:8080/7bd7ff4acd3659bc8ab20283be085075> a fabio:Journal ;
+  dcterms:title "Communications Biology" .
+
+<http://localhost:8080/85f0f739016be89853d6eaa69cb152dc> a fabio:Journal ;
+  dcterms:title "Proceedings of the Royal Society B: Biological Sciences" .
+
+<http://localhost:8080/86a89e7f9c1d6f56e988efb563f62541> a fabio:Journal ;
+  dcterms:title "Global Ecology and Biogeography" .
+
+<http://localhost:8080/94d3cbec79f23a15b05200f1ca14e12b> a fabio:Journal ;
+  dcterms:title "Molecular Phylogenetics and Evolution" .
+
+<http://localhost:8080/9cd55161f85b4ba73e1a42ab9896e927> a fabio:Journal ;
+  dcterms:title "The American Naturalist" .
+
+<http://localhost:8080/a01241ac57792af824989f9283dc1351> a fabio:Journal ;
+  dcterms:title "Proceedings of the Royal Society B" .
+
+<http://localhost:8080/a59bad72ca87ba4f3d88b248cbcd3d1c> a fabio:Journal ;
+  dcterms:title "ACS Infectious Diseases" .
+
+<http://localhost:8080/a8d318e081722e71795bb1249555a2b3> a fabio:Journal ;
+  dcterms:title "eLife" .
+
+<http://localhost:8080/a977ce76845b4b6f71b6eb5897f64782> a fabio:Journal ;
+  dcterms:title "Frontiers in Ecology and Evolution" .
+
+<http://localhost:8080/ab83989c0ddee213f3c80e92c78d569c> a fabio:Journal ;
+  dcterms:title "Epidemics" .
+
+<http://localhost:8080/b27964d3abd5b13c4fc407fdda36ce47> a fabio:Journal ;
+  dcterms:title "Evolutionary Applications" .
+
+<http://localhost:8080/b880d0c794e13103084be8a4a8bfe394> a fabio:Journal ;
+  dcterms:title "Oikos" .
+
+<http://localhost:8080/b902f207ae33ffd96a878a8d6ec8e4b7> a fabio:Journal ;
+  dcterms:title "Genome Biology and Evolution" .
+
+<http://localhost:8080/bbd802baad85d1fd440f32a7a3a2c2b1> a fabio:Journal ;
+  dcterms:title "bioRxiv" .
+
+<http://localhost:8080/bbe3398cfcac7a0e29f4a9b2b5dddf84> a fabio:Journal ;
+  dcterms:title "Evolution Letters" .
+
+<http://localhost:8080/c1899cccac706f2b00f34f47ff42a224> a fabio:Journal ;
+  dcterms:title "Behavioral Ecology" .
+
+<http://localhost:8080/cbd1451e1fc77da13f36ec59b52beda2> a fabio:Journal ;
+  dcterms:title "Current Biology" .
+
+<http://localhost:8080/d178f812b593c8cdf658b9883eaf616c> a fabio:Journal ;
+  dcterms:title "Nature Microbiology" .
+
+<http://localhost:8080/d8c1b31292b0300498f4af72df3ac96a> a fabio:Journal ;
+  dcterms:title "PLOS Genetics" .
+
+<http://localhost:8080/dc9777aca71f4585b09e63afb4b792b8> a fabio:Journal ;
+  dcterms:title "Royal Society Open Science" .
+
+<http://localhost:8080/dec501b5856cc0a9bf84597e4455a2f9> a fabio:Journal ;
+  dcterms:title "Genetics" .
+
+<http://localhost:8080/e20562f929bb1678954fc2575acc50d5> a fabio:Journal ;
+  dcterms:title "Heredity" .
+
+<http://localhost:8080/e2f2d35dc84ff6ff8b0303b6dfc08c0c> a fabio:Journal ;
+  dcterms:title "Evolutionary Ecology" .
+
+<http://localhost:8080/e590443c4917da64b81f2c1ed4608295> a fabio:Journal ;
+  dcterms:title "Transactions of The Royal Society of Tropical Medicine and Hygiene" .
+
+<http://localhost:8080/e8cda5f8e9d85f344e32b6d6e467c090> a fabio:Journal ;
+  dcterms:title "Pathogens" .
+
+<http://localhost:8080/e92a8609a98e95a8420774431a6191eb> a fabio:Journal ;
+  dcterms:title "Peer Community In Animal Science" .
+
+<http://localhost:8080/eb9db00b10e58d303fb27dc3a3d47bc2> a fabio:Journal ;
+  dcterms:title "Genome Biology" .
+
+<http://localhost:8080/ee438693e83c0f0d628616035201ced7> a fabio:Journal ;
+  dcterms:title "Ecology and Evolution" .
+
+<http://localhost:8080/f7ef08e1d689617b610dec1e52c45669> a fabio:Journal ;
+  dcterms:title "Peer Community in Paleontology" .
+
+<http://localhost:8080/fc45493fd35a42b0f2082587bc1afde1> a fabio:Journal ;
+  dcterms:title "BMC Evolutionary Biology" .
+
+<http://localhost:8080/fe81ca8ac93f3f3c6411a60fa8d8e533> a fabio:Journal ;
+  dcterms:title "Molecular Ecology" .
+
+<http://localhost:8080/ff814591b662035f7375d5d13b12028c> a fabio:Journal ;
+  dcterms:title "Molecular Ecology Resources" .
+
+<http://localhost:8080/03b37b782bdcc7065e8d89f8dfed8e5c> a org:Organization ;
+  rdfs:label "Pensoft Publishers" .
+
+<http://localhost:8080/0587ba386ea02de8abdd9dd2ca44cf84> a org:Organization ;
+  rdfs:label "University of Chicago Press" .
+
+<http://localhost:8080/0a02f13310296033694acead588a773b> a org:Organization ;
+  rdfs:label "Zenodo" .
+
+<http://localhost:8080/0a40eaab5a634750fcbd4b6f1312d5e0> a org:Organization ;
+  rdfs:label "The Company of Biologists" .
+
+<http://localhost:8080/1d328f1087557477d64a398745a700e2> a org:Organization ;
+  rdfs:label "eLife Sciences Publications, Ltd" .
+
+<http://localhost:8080/21abe5a91c2949aba6ef77033a5f98f3> a org:Organization ;
+  rdfs:label "Elsevier" .
+
+<http://localhost:8080/256adc0a733cd327300d2397cc0e6308> a org:Organization ;
+  rdfs:label "Academic Press" .
+
+<http://localhost:8080/3874aa14338ce29e73bab2d8243315bc> a org:Organization ;
+  rdfs:label "Cold Spring Harbor Laboratory Press" .
+
+<http://localhost:8080/392b82bf9578ea6c2c866d5a3542beb5> a org:Organization ;
+  rdfs:label "Cold Spring Harbor Laboratory" .
+
+<http://localhost:8080/41bd0d84cf93da8d7e788bba7492c123> a org:Organization ;
+  rdfs:label "PeerJ Inc." .
+
+<http://localhost:8080/45a898ad11c550bab9261e1855a85dd2> a org:Organization ;
+  rdfs:label "Oxford Academic" .
+
+<http://localhost:8080/59e483fb086408d0f6f7edc9be340623> a org:Organization ;
+  rdfs:label "Nature Publishing Group" .
+
+<http://localhost:8080/6001dd39df599cc4becb3241fa71e2d1> a org:Organization ;
+  rdfs:label "Oxford University Press (OUP)" .
+
+<http://localhost:8080/60ac80fd0b9ff7e58f8913bbfd183a85> a org:Organization ;
+  rdfs:label "Queen's University Library" .
+
+<http://localhost:8080/6287dd7f6045ec391acb63c9d0426c39> a org:Organization ;
+  rdfs:label "Elsevier BV" .
+
+<http://localhost:8080/65775d12fa2adaf7b62f7e05a38b236b> a org:Organization ;
+  rdfs:label "American Chemical Society (ACS)" .
+
+<http://localhost:8080/67f076b537b3b0c536fb9fb4253845c8> a org:Organization ;
+  rdfs:label "Multidisciplinary Digital Publishing Institute" .
+
+<http://localhost:8080/6b68590b76cd49ec7944827dd3911048> a org:Organization ;
+  rdfs:label "John Wiley & Sons, Ltd" .
+
+<http://localhost:8080/6e11a6874361b94611fe1563357b5e0e> a org:Organization ;
+  rdfs:label "Public Library of Science (PLoS)" .
+
+<http://localhost:8080/7b7347301f061f3fd3d1124d8a193024> a org:Organization ;
+  rdfs:label "MDPI AG" .
+
+<http://localhost:8080/8df6af3d1f1873d354dd67d79cf22e0c> a org:Organization ;
+  rdfs:label "Frontiers Media SA" .
+
+<http://localhost:8080/929cfc81f084f91d07974b688e06cbe0> a org:Organization ;
+  rdfs:label "Journal Logo" .
+
+<http://localhost:8080/92eee96eb61e1cf322ffa7e4cd6ba329> a org:Organization ;
+  rdfs:label "BioMed Central" .
+
+<http://localhost:8080/96d6f2e7e1f705ab5e59c84a6dc009b2> a org:Organization ;
+  rdfs:label "logo" .
+
+<http://localhost:8080/b049cf850ef5a61692990760a416c0f5> a org:Organization ;
+  rdfs:label "Springer Science and Business Media LLC" .
+
+<http://localhost:8080/b509b361f8d7741155032e8ddc8e6caf> a org:Organization ;
+  rdfs:label "Wiley" .
+
+<http://localhost:8080/b590901dd7ac06cc9cec9638c1f939b3> a org:Organization ;
+  rdfs:label "The Royal Society" .
+
+<http://localhost:8080/b7a945cb013c6eb94aa9080a6293c90b> a org:Organization ;
+  rdfs:label "Royal Belgian Institute of Natural Sciences (RBINS)" .
+
+<http://localhost:8080/b97f5618f49d5adf844dfed21f9ef739> a org:Organization ;
+  rdfs:label "Frontiers" .
+
+<http://localhost:8080/bece8348f010c17b458997a69f887b42> a org:Organization ;
+  rdfs:label "Peer Community In" .
+
+<http://localhost:8080/cdef6b1f0794578848daf73e087128ae> a org:Organization ;
+  rdfs:label "MIT Press - Journals" .
+
+<http://localhost:8080/cee114fed6402e37980531ca1a76e641> a org:Organization ;
+  rdfs:label "Atom logo" .
+
+<http://localhost:8080/d83ac80b8763e0038a326c4091f58a77> a org:Organization ;
+  rdfs:label "University of Chicago Press Journals" .
+
+<http://localhost:8080/e4a6ea60c2cba141a7c7854011948541> a org:Organization ;
+  rdfs:label "Public Library of Science" .
+
+<http://localhost:8080/e71c0c7a4d702a63b50f91455042ce99> a org:Organization ;
+  rdfs:label "Springer Netherlands" .
+
+<http://localhost:8080/ee8777bd18c9a31be86b1b56e35abade> a org:Organization ;
+  rdfs:label "Springer International Publishing" .
+
 <http://localhost:8080/a-barun> a frbr:Person ;
   foaf:name "A. Barun" .
 
@@ -20101,170 +20373,6 @@
 <http://localhost:8080/josephine-pithon> a frbr:Person ;
   foaf:name "Joséphine Pithon" .
 
-<http://localhost:8080/0776fc980516bb0069f9a47ae3a107ab> a fabio:Journal ;
-  dcterms:title "Peer Community In Zoology" .
-
-<http://localhost:8080/09c975c39b0c074c1f032f60142af9d2> a fabio:Journal ;
-  dcterms:title "Nature Communications" .
-
-<http://localhost:8080/0a3e628b48edd359a6c73fcc8f4fab97> a fabio:Journal ;
-  dcterms:title "Journal of Evolutionary Biology" .
-
-<http://localhost:8080/161e7ce7bfdc89ab4b9f52c1d4c94212> a fabio:Journal ;
-  dcterms:title "Animal" .
-
-<http://localhost:8080/180b71c084adf42fd433ffc7c9dd2434> a fabio:Journal ;
-  dcterms:title "Nature Plants" .
-
-<http://localhost:8080/26a8a8ed5f5f25309b6b2629003ceb02> a fabio:Journal ;
-  dcterms:title "Rethinking Ecology" .
-
-<http://localhost:8080/279e896f1d69b4dcecb3a9e267acaba0> a fabio:Journal ;
-  dcterms:title "FASEB BioAdvances" .
-
-<http://localhost:8080/2a9a9b4a272ed7a8cb2e112686843e9f> a fabio:Journal ;
-  dcterms:title "medRxiv" .
-
-<http://localhost:8080/320d20c750ea8f85b0f2aa638b8672ed> a fabio:Journal ;
-  dcterms:title "Peer Community in Evolutionary Biology" .
-
-<http://localhost:8080/35cb2ad70b986f40cc66ccfc011ce446> a fabio:Journal ;
-  dcterms:title "Developmental Cell" .
-
-<http://localhost:8080/369a30a4c72362abb9d4590e2e843c27> a fabio:Journal ;
-  dcterms:title "PLOS Biology" .
-
-<http://localhost:8080/3dac39b90181c6ba4b66f1c6737cf912> a fabio:Journal ;
-  dcterms:title "Peer Community In Evolutionary Biology" .
-
-<http://localhost:8080/42f0d762a8587dbb364ddde4f6a4fc6d> a fabio:Journal ;
-  dcterms:title "Evolution" .
-
-<http://localhost:8080/48db90f1e6e26e395885a197265aa72f> a fabio:Journal ;
-  dcterms:title "Peer Community In Ecology" .
-
-<http://localhost:8080/4d2c5a6db342f4465260f1d391c8f643> a fabio:Journal ;
-  dcterms:title "Functional Ecology" .
-
-<http://localhost:8080/4d7c2888cb5bb82edb93064f0f12fc91> a fabio:Journal, org:Organization ;
-  dcterms:title "PeerJ" ;
-  rdfs:label "PeerJ" .
-
-<http://localhost:8080/5807f2fdb589fa344e0ff5368097c65b> a fabio:Journal ;
-  dcterms:title "Theoretical Population Biology" .
-
-<http://localhost:8080/62f61c1394b52b5ac3a823da7199ee3e> a fabio:Journal, org:Organization ;
-  dcterms:title "Belgian Journal of Zoology" ;
-  rdfs:label "Belgian Journal of Zoology" .
-
-<http://localhost:8080/68b2127e75787d9c2c9da1360edc4985> a fabio:Journal ;
-  dcterms:title "Theoretical Ecology" .
-
-<http://localhost:8080/6bf5911804b7dc0bf1c4575fb9babf17> a fabio:Journal ;
-  dcterms:title "Ecology Letters" .
-
-<http://localhost:8080/733783f948459a8b55411190ae97f20e> a fabio:Journal ;
-  dcterms:title "Ideas in Ecology and Evolution" .
-
-<http://localhost:8080/77745f6d87323843366e09d6d222df9d> a fabio:Journal ;
-  dcterms:title "Scientific Reports" .
-
-<http://localhost:8080/7bd7ff4acd3659bc8ab20283be085075> a fabio:Journal ;
-  dcterms:title "Communications Biology" .
-
-<http://localhost:8080/85f0f739016be89853d6eaa69cb152dc> a fabio:Journal ;
-  dcterms:title "Proceedings of the Royal Society B: Biological Sciences" .
-
-<http://localhost:8080/86a89e7f9c1d6f56e988efb563f62541> a fabio:Journal ;
-  dcterms:title "Global Ecology and Biogeography" .
-
-<http://localhost:8080/94d3cbec79f23a15b05200f1ca14e12b> a fabio:Journal ;
-  dcterms:title "Molecular Phylogenetics and Evolution" .
-
-<http://localhost:8080/9cd55161f85b4ba73e1a42ab9896e927> a fabio:Journal ;
-  dcterms:title "The American Naturalist" .
-
-<http://localhost:8080/a01241ac57792af824989f9283dc1351> a fabio:Journal ;
-  dcterms:title "Proceedings of the Royal Society B" .
-
-<http://localhost:8080/a59bad72ca87ba4f3d88b248cbcd3d1c> a fabio:Journal ;
-  dcterms:title "ACS Infectious Diseases" .
-
-<http://localhost:8080/a8d318e081722e71795bb1249555a2b3> a fabio:Journal ;
-  dcterms:title "eLife" .
-
-<http://localhost:8080/a977ce76845b4b6f71b6eb5897f64782> a fabio:Journal ;
-  dcterms:title "Frontiers in Ecology and Evolution" .
-
-<http://localhost:8080/ab83989c0ddee213f3c80e92c78d569c> a fabio:Journal ;
-  dcterms:title "Epidemics" .
-
-<http://localhost:8080/b27964d3abd5b13c4fc407fdda36ce47> a fabio:Journal ;
-  dcterms:title "Evolutionary Applications" .
-
-<http://localhost:8080/b880d0c794e13103084be8a4a8bfe394> a fabio:Journal ;
-  dcterms:title "Oikos" .
-
-<http://localhost:8080/b902f207ae33ffd96a878a8d6ec8e4b7> a fabio:Journal ;
-  dcterms:title "Genome Biology and Evolution" .
-
-<http://localhost:8080/bbd802baad85d1fd440f32a7a3a2c2b1> a fabio:Journal ;
-  dcterms:title "bioRxiv" .
-
-<http://localhost:8080/bbe3398cfcac7a0e29f4a9b2b5dddf84> a fabio:Journal ;
-  dcterms:title "Evolution Letters" .
-
-<http://localhost:8080/c1899cccac706f2b00f34f47ff42a224> a fabio:Journal ;
-  dcterms:title "Behavioral Ecology" .
-
-<http://localhost:8080/cbd1451e1fc77da13f36ec59b52beda2> a fabio:Journal ;
-  dcterms:title "Current Biology" .
-
-<http://localhost:8080/d178f812b593c8cdf658b9883eaf616c> a fabio:Journal ;
-  dcterms:title "Nature Microbiology" .
-
-<http://localhost:8080/d8c1b31292b0300498f4af72df3ac96a> a fabio:Journal ;
-  dcterms:title "PLOS Genetics" .
-
-<http://localhost:8080/dc9777aca71f4585b09e63afb4b792b8> a fabio:Journal ;
-  dcterms:title "Royal Society Open Science" .
-
-<http://localhost:8080/dec501b5856cc0a9bf84597e4455a2f9> a fabio:Journal ;
-  dcterms:title "Genetics" .
-
-<http://localhost:8080/e20562f929bb1678954fc2575acc50d5> a fabio:Journal ;
-  dcterms:title "Heredity" .
-
-<http://localhost:8080/e2f2d35dc84ff6ff8b0303b6dfc08c0c> a fabio:Journal ;
-  dcterms:title "Evolutionary Ecology" .
-
-<http://localhost:8080/e590443c4917da64b81f2c1ed4608295> a fabio:Journal ;
-  dcterms:title "Transactions of The Royal Society of Tropical Medicine and Hygiene" .
-
-<http://localhost:8080/e8cda5f8e9d85f344e32b6d6e467c090> a fabio:Journal ;
-  dcterms:title "Pathogens" .
-
-<http://localhost:8080/e92a8609a98e95a8420774431a6191eb> a fabio:Journal ;
-  dcterms:title "Peer Community In Animal Science" .
-
-<http://localhost:8080/eb9db00b10e58d303fb27dc3a3d47bc2> a fabio:Journal ;
-  dcterms:title "Genome Biology" .
-
-<http://localhost:8080/ee438693e83c0f0d628616035201ced7> a fabio:Journal ;
-  dcterms:title "Ecology and Evolution" .
-
-<http://localhost:8080/f7ef08e1d689617b610dec1e52c45669> a fabio:Journal ;
-  dcterms:title "Peer Community in Paleontology" .
-
-<http://localhost:8080/fc45493fd35a42b0f2082587bc1afde1> a fabio:Journal ;
-  dcterms:title "BMC Evolutionary Biology" .
-
-<http://localhost:8080/fe81ca8ac93f3f3c6411a60fa8d8e533> a fabio:Journal ;
-  dcterms:title "Molecular Ecology" .
-
-<http://localhost:8080/ff814591b662035f7375d5d13b12028c> a fabio:Journal ;
-  dcterms:title "Molecular Ecology Resources" .
-
 <http://localhost:8080/jp-evans> a frbr:Person ;
   foaf:name "J.P. Evans" .
 
@@ -21506,114 +21614,6 @@
 
 <http://localhost:8080/priscilla-note> a frbr:Person ;
   foaf:name "Priscilla Note" .
-
-<http://localhost:8080/03b37b782bdcc7065e8d89f8dfed8e5c> a org:Organization ;
-  rdfs:label "Pensoft Publishers" .
-
-<http://localhost:8080/0587ba386ea02de8abdd9dd2ca44cf84> a org:Organization ;
-  rdfs:label "University of Chicago Press" .
-
-<http://localhost:8080/0a02f13310296033694acead588a773b> a org:Organization ;
-  rdfs:label "Zenodo" .
-
-<http://localhost:8080/0a40eaab5a634750fcbd4b6f1312d5e0> a org:Organization ;
-  rdfs:label "The Company of Biologists" .
-
-<http://localhost:8080/1d328f1087557477d64a398745a700e2> a org:Organization ;
-  rdfs:label "eLife Sciences Publications, Ltd" .
-
-<http://localhost:8080/21abe5a91c2949aba6ef77033a5f98f3> a org:Organization ;
-  rdfs:label "Elsevier" .
-
-<http://localhost:8080/256adc0a733cd327300d2397cc0e6308> a org:Organization ;
-  rdfs:label "Academic Press" .
-
-<http://localhost:8080/3874aa14338ce29e73bab2d8243315bc> a org:Organization ;
-  rdfs:label "Cold Spring Harbor Laboratory Press" .
-
-<http://localhost:8080/392b82bf9578ea6c2c866d5a3542beb5> a org:Organization ;
-  rdfs:label "Cold Spring Harbor Laboratory" .
-
-<http://localhost:8080/41bd0d84cf93da8d7e788bba7492c123> a org:Organization ;
-  rdfs:label "PeerJ Inc." .
-
-<http://localhost:8080/45a898ad11c550bab9261e1855a85dd2> a org:Organization ;
-  rdfs:label "Oxford Academic" .
-
-<http://localhost:8080/59e483fb086408d0f6f7edc9be340623> a org:Organization ;
-  rdfs:label "Nature Publishing Group" .
-
-<http://localhost:8080/6001dd39df599cc4becb3241fa71e2d1> a org:Organization ;
-  rdfs:label "Oxford University Press (OUP)" .
-
-<http://localhost:8080/60ac80fd0b9ff7e58f8913bbfd183a85> a org:Organization ;
-  rdfs:label "Queen's University Library" .
-
-<http://localhost:8080/6287dd7f6045ec391acb63c9d0426c39> a org:Organization ;
-  rdfs:label "Elsevier BV" .
-
-<http://localhost:8080/65775d12fa2adaf7b62f7e05a38b236b> a org:Organization ;
-  rdfs:label "American Chemical Society (ACS)" .
-
-<http://localhost:8080/67f076b537b3b0c536fb9fb4253845c8> a org:Organization ;
-  rdfs:label "Multidisciplinary Digital Publishing Institute" .
-
-<http://localhost:8080/6b68590b76cd49ec7944827dd3911048> a org:Organization ;
-  rdfs:label "John Wiley & Sons, Ltd" .
-
-<http://localhost:8080/6e11a6874361b94611fe1563357b5e0e> a org:Organization ;
-  rdfs:label "Public Library of Science (PLoS)" .
-
-<http://localhost:8080/7b7347301f061f3fd3d1124d8a193024> a org:Organization ;
-  rdfs:label "MDPI AG" .
-
-<http://localhost:8080/8df6af3d1f1873d354dd67d79cf22e0c> a org:Organization ;
-  rdfs:label "Frontiers Media SA" .
-
-<http://localhost:8080/929cfc81f084f91d07974b688e06cbe0> a org:Organization ;
-  rdfs:label "Journal Logo" .
-
-<http://localhost:8080/92eee96eb61e1cf322ffa7e4cd6ba329> a org:Organization ;
-  rdfs:label "BioMed Central" .
-
-<http://localhost:8080/96d6f2e7e1f705ab5e59c84a6dc009b2> a org:Organization ;
-  rdfs:label "logo" .
-
-<http://localhost:8080/b049cf850ef5a61692990760a416c0f5> a org:Organization ;
-  rdfs:label "Springer Science and Business Media LLC" .
-
-<http://localhost:8080/b509b361f8d7741155032e8ddc8e6caf> a org:Organization ;
-  rdfs:label "Wiley" .
-
-<http://localhost:8080/b590901dd7ac06cc9cec9638c1f939b3> a org:Organization ;
-  rdfs:label "The Royal Society" .
-
-<http://localhost:8080/b7a945cb013c6eb94aa9080a6293c90b> a org:Organization ;
-  rdfs:label "Royal Belgian Institute of Natural Sciences (RBINS)" .
-
-<http://localhost:8080/b97f5618f49d5adf844dfed21f9ef739> a org:Organization ;
-  rdfs:label "Frontiers" .
-
-<http://localhost:8080/bece8348f010c17b458997a69f887b42> a org:Organization ;
-  rdfs:label "Peer Community In" .
-
-<http://localhost:8080/cdef6b1f0794578848daf73e087128ae> a org:Organization ;
-  rdfs:label "MIT Press - Journals" .
-
-<http://localhost:8080/cee114fed6402e37980531ca1a76e641> a org:Organization ;
-  rdfs:label "Atom logo" .
-
-<http://localhost:8080/d83ac80b8763e0038a326c4091f58a77> a org:Organization ;
-  rdfs:label "University of Chicago Press Journals" .
-
-<http://localhost:8080/e4a6ea60c2cba141a7c7854011948541> a org:Organization ;
-  rdfs:label "Public Library of Science" .
-
-<http://localhost:8080/e71c0c7a4d702a63b50f91455042ce99> a org:Organization ;
-  rdfs:label "Springer Netherlands" .
-
-<http://localhost:8080/ee8777bd18c9a31be86b1b56e35abade> a org:Organization ;
-  rdfs:label "Springer International Publishing" .
 
 <http://localhost:8080/puillet-laurence> a frbr:Person ;
   foaf:name "Puillet Laurence" .
