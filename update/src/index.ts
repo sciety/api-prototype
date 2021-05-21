@@ -18,7 +18,7 @@ import { CrossrefWork, crossrefWork } from './crossref'
 import * as D from './dataset'
 import * as d from './decoder'
 import { getFromUrl, getUrl } from './http'
-import { cito, dcterms, fabio, foaf, frbr, org, rdf, rdfs, sciety, xsd } from './namespace'
+import { cito, dcterms, fabio, foaf, frbr, mediatype, org, rdf, rdfs, sciety, xsd } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
 import * as S from './string'
@@ -178,7 +178,7 @@ const doiExpression = ({
     data.pdf ? D.union(D.fromArray([
       RDF.quad(expression, fabio.hasManifestation, pdf, work),
       RDF.quad(pdf, rdf.type, fabio.DigitalManifestation, work),
-      RDF.quad(pdf, dcterms.format, RDF.literal('application/pdf'), work),
+      RDF.quad(pdf, dcterms.format, mediatype('application/pdf'), work),
       RDF.quad(pdf, fabio.hasURL, RDF.url(data.pdf), work),
     ])) : identity,
   )),
@@ -332,7 +332,7 @@ const reviewExpression = ({
     data.pdf ? D.union(D.fromArray([
       RDF.quad(expression, fabio.hasManifestation, pdf, work),
       RDF.quad(pdf, rdf.type, fabio.DigitalManifestation, work),
-      RDF.quad(pdf, dcterms.format, RDF.literal('application/pdf'), work),
+      RDF.quad(pdf, dcterms.format, mediatype('application/pdf'), work),
       RDF.quad(pdf, fabio.hasURL, RDF.url(data.pdf), work),
     ])) : identity,
     data.journal ? D.union(D.fromArray([
