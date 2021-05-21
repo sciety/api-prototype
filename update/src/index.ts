@@ -272,10 +272,12 @@ const doiToArticleExpressions = (browser: Browser, details: BiorxivArticleDetail
     TE.chain(dataset => pipe(
       details.collection[0].published,
       O.fold(
-        () => TE.right(D.empty),
-        doiToReview(browser)(details.work),
+        () => TE.right(dataset),
+        flow(
+          doiToReview(browser)(details.work),
+          TE.map(D.union(dataset)),
+        ),
       ),
-      TE.map(D.union(dataset)),
     )),
   )),
 )
@@ -302,7 +304,7 @@ const reviewExpression = ({
   IO.map(({ work, publisher, webPage, pdf, journal, articleExpression }) => pipe(
     [
       RDF.quad(expression, rdf.type, fabio.ReviewArticle, work),
-      RDF.quad(expression, dcterms.title, data.lang ? RDF.languageTaggedString(data.title, data.lang) : RDF.literal(data.title), work),
+      RDF.quad(expression, dcterms.title, RDF.literal(data.title, data.lang ?? undefined), work),
       RDF.quad(expression, frbr.realizationOf, work, work),
       RDF.quad(expression, fabio.hasManifestation, webPage, work),
       RDF.quad(expression, dcterms.publisher, publisher, work),
@@ -414,7 +416,7 @@ pipe(
     )),
     T.chainFirst(() => TE.tryCatch(() => browser.close(), constVoid)),
     TE.map(D.concatAll),
-    TE.chainFirstTaskK(pipe(prefixes, TTL.writeToFile(path.join(__dirname, '../../data/data.ttl')))),
+    TE.chainFirstW(pipe(prefixes, TTL.writeToFile(path.join(__dirname, '../../data/data.ttl')))),
   )),
   exit,
 )()

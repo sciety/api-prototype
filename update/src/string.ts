@@ -23,3 +23,7 @@ export const surroundWith = (prepended: string, appended: string) => flow(
   prependWith(prepended),
   appendWith(appended),
 )
+
+export const replaceAll = (pattern: RegExp | string, replacement: string) => (string: string) => {
+  return string.replace(new RegExp(pattern, 'g'), replacement)
+}

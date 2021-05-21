@@ -1,13 +1,15 @@
 {
   "private": true,
   "dependencies": {
-    "@graphy/content.ttl.write": "^4.3.3",
-    "@graphy/core.data.factory": "^4.3.3",
     "@metascraper/helpers": "^5.21.7",
+    "@rdfjs/namespace": "^1.1.0",
+    "@rdfjs-elements/formats-pretty": "^0.3.1",
+    "@tpluscode/rdf-ns-builders": "^0.4.2",
     "chalk": "^4.1.1",
     "csv-parse": "^4.15.4",
     "fp-ts": "^2.10.5",
     "http-equiv-refresh": "^2.0.1",
+    "into-stream": "^6.0.0",
     "io-ts": "^2.2.16",
     "jsdom": "^16.5.3",
     "metascraper": "^5.21.7",
@@ -17,6 +19,8 @@
     "metascraper-publisher": "^5.21.7",
     "metascraper-title": "^5.21.7",
     "metascraper-url": "^5.21.7",
+    "n3": "^1.10.0",
+    "p-event": "^4.2.0",
     "p-limit": "^3.1.0",
     "puppeteer": "^9.1.1",
     "slugify": "^1.5.3"
@@ -24,7 +28,9 @@
   "devDependencies": {
     "@tsconfig/node14": "^1.0.0",
     "@types/jsdom": "^16.2.10",
+    "@types/n3": "^1.8.0",
     "@types/node": "^14.14.31",
+    "@types/rdf-js": "^4.0.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   },
