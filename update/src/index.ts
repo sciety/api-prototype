@@ -12,14 +12,13 @@ import * as TE from 'fp-ts/TaskEither'
 import metascraper from 'metascraper'
 import path from 'path'
 import puppeteer, { Browser } from 'puppeteer'
-import slugify from 'slugify';
+import slugify from 'slugify'
 import { BiorxivArticleDetails, biorxivArticleDetails } from './biorxiv'
 import { CrossrefWork, crossrefWork } from './crossref'
 import * as D from './dataset'
 import * as d from './decoder'
 import { getFromUrl, getUrl } from './http'
-import * as namespaces from './namespace'
-import { cito, dcterms, fabio, foaf, frbr, org, rdf, rdfs, sciety } from './namespace'
+import { cito, dcterms, fabio, foaf, frbr, org, rdf, rdfs, sciety, xsd } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
 import * as S from './string'
@@ -377,11 +376,17 @@ const getBiorxivDetails = (browser: Browser) => (doi: string) => pipe(
   ))
 )
 
-const prefixes = pipe(
-  namespaces,
-  RR.deleteAt('sciety'),
-  RR.map(namespace => namespace()),
-)
+const prefixes = {
+  cito: cito(),
+  dcterms: dcterms(),
+  fabio: fabio(),
+  foaf: foaf(),
+  frbr: frbr(),
+  org: org(),
+  rdf: rdf(),
+  rdfs: rdfs(),
+  xsd: xsd(),
+}
 
 const scietyDataPath = S.surroundWith('https://github.com/sciety/sciety/raw/main/data/reviews/', '.csv')
 
