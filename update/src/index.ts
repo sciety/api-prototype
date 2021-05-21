@@ -34,7 +34,11 @@ const doiToUrl = S.prependWith('https://doi.org/')
 const scraper = TE.tryCatchK(metascraper([
   {
     author: [
-      toRule(title)($ => $('meta[name="citation_author"]').toArray().map(element => element.attribs['content']).join('\n')),
+      toRule(title)($ => $('meta[name="citation_author"]')
+        .toArray()
+        .map(element => element.attribs['content'].split(', ').reverse().join(' '))
+        .join('\n')
+      ),
       ...require('metascraper-author')().author,
     ],
     date: [
@@ -120,7 +124,7 @@ const doiVersionIri = <T extends { doi: string, version: string }>({
   version
 }: T) => pipe([doi, version], S.join('v'), sciety)
 
-const personIri = flow((name: string) => slugify(name, { lower: true }), sciety)
+const personIri = flow((name: string) => slugify(name, { lower: true, remove: /[.]/g }), sciety)
 
 const biorxivWork = (details: BiorxivArticleDetails) => (work: RDF.NamedNode) => D.fromArray([
   RDF.quad(work, rdf.type, fabio.ResearchPaper, work),
