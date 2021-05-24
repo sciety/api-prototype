@@ -16,6 +16,7 @@ if(!$articleId) {
 RdfNamespace::set('cito', 'http://purl.org/spar/cito/');
 RdfNamespace::set('fabio', 'http://purl.org/spar/fabio/');
 RdfNamespace::set('frbr', 'http://purl.org/vocab/frbr/core#');
+RdfNamespace::set('prism', 'http://prismstandard.org/namespaces/basic/2.0/');
 RdfNamespace::set('sciety', 'http://localhost:8080/');
 
 $sparql = new Client($_ENV['SPARQL_URL']);
@@ -56,7 +57,7 @@ SELECT *
 
 WHERE {
   ?item frbr:realizationOf {$article->shorten()} .
-  ?item dcterms:date ?date .
+  ?item prism:publicationDate ?date .
   OPTIONAL {
     ?item frbr:partOf ?journal .
     ?journal rdf:type fabio:Journal .
@@ -94,7 +95,7 @@ WHERE {
   ?item cito:reviews ?version .
   ?expression frbr:realizationOf ?item .
   ?expression dcterms:title ?title .
-  ?expression dcterms:date ?date .
+  ?expression prism:publicationDate ?date .
   ?expression dcterms:publisher ?publisher .
   ?publisher rdfs:label ?publisherLabel .
   OPTIONAL {
