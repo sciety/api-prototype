@@ -12,6 +12,12 @@
       "templateError": "cwd:views/error.html"
     }
   },
+  "staticFiles": {
+    "jsonLdContext": {
+      "path": "/context.jsonld",
+      "folder": "cwd:src/context.json"
+    }
+  },
   "staticViews": {
     "/": "cwd:views/home.html"
   },
