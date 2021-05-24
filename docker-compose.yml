@@ -21,6 +21,7 @@ services:
     build:
       context: client
     environment:
+      NAMESPACE: http://localhost:8080/
       SPARQL_URL: http://blazegraph:8080/bigdata/namespace/kb/sparql
     ports:
       - '8082:8082'

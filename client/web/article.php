@@ -17,7 +17,7 @@ RdfNamespace::set('cito', 'http://purl.org/spar/cito/');
 RdfNamespace::set('fabio', 'http://purl.org/spar/fabio/');
 RdfNamespace::set('frbr', 'http://purl.org/vocab/frbr/core#');
 RdfNamespace::set('prism', 'http://prismstandard.org/namespaces/basic/2.0/');
-RdfNamespace::set('sciety', 'http://localhost:8080/');
+RdfNamespace::set('sciety', $_ENV['NAMESPACE']);
 
 $sparql = new Client($_ENV['SPARQL_URL']);
 
