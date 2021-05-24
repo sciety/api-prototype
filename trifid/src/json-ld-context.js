@@ -8,7 +8,7 @@ const context = require('./context.json')
 
 const middleware = (req, res, next) => {
   hijackResponse(res, next).then(({destroyAndRestore, readable, writable}) => {
-    if ('application/ld+json' !== res.getHeader('Content-Type')) {
+    if (!(res.getHeader('Content-Type')?.startsWith('application/ld+json'))) {
       return readable.pipe(writable)
     }
 
