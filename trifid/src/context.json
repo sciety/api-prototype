@@ -4,7 +4,9 @@
     "dc": "http://purl.org/dc/elements/1.1/",
     "dcterms": "http://purl.org/dc/terms/",
     "fabio": "http://purl.org/spar/fabio/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
     "frbr": "http://purl.org/vocab/frbr/core#",
+    "org": "http://www.w3.org/ns/org#",
     "prism": "http://prismstandard.org/namespaces/basic/2.0/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
@@ -50,6 +52,9 @@
     "label": {
       "@id": "rdfs:label"
     },
+    "name": {
+      "@id": "foaf:name"
+    },
     "partOf": {
       "@id": "frbr:partOf",
       "@type": "@id"
@@ -78,14 +83,26 @@
       "@id": "dcterms:title",
       "@container": "@language"
     },
+    "version": {
+      "@id": "prism:versionIdentifier"
+    },
     "Article": {
       "@id": "fabio:Article"
     },
     "DigitalManifestation": {
       "@id": "fabio:DigitalManifestation"
     },
+    "Journal": {
+      "@id": "fabio:Journal"
+    },
     "Letter": {
       "@id": "fabio:Letter"
+    },
+    "Organization": {
+      "@id": "org:Organization"
+    },
+    "Person": {
+      "@id": "frbr:Person"
     },
     "Reply": {
       "@id": "fabio:Reply"
