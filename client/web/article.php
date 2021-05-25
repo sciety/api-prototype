@@ -68,8 +68,7 @@ WHERE {
     ?item dcterms:title ?title .
   }
   OPTIONAL {
-    ?item dcterms:identifier ?doi .
-    FILTER(strStarts(?doi, 'doi:')) .
+    ?item prism:doi ?doi .
   }
   ?publisher rdfs:label ?publisherLabel .
   OPTIONAL {
@@ -99,8 +98,7 @@ WHERE {
   ?expression dcterms:publisher ?publisher .
   ?publisher rdfs:label ?publisherLabel .
   OPTIONAL {
-    ?expression dcterms:identifier ?doi .
-    FILTER(strStarts(?doi, 'doi:')) .
+    ?expression prism:doi ?doi .
   }
   OPTIONAL {
     ?scietyManifestation frbr:embodimentOf ?expression .
@@ -130,7 +128,7 @@ echo '<table style="min-width: 100%; width: auto"><thead><tr><th>Version<th>Date
 
 foreach ($versions as $version) {
     $title = isset($version->title) ? $version->title->getValue() : '(no title)';
-    $doi = isset($version->doi) ? substr($version->doi->getValue(), 4) : null;
+    $doi = isset($version->doi) ? $version->doi->getValue() : null;
     $publisher = $version->publisherLabel->getValue();
     if(isset($version->journalName)) {
         $publisher = "{$version->journalName->getValue()} ($publisher)";
@@ -165,7 +163,7 @@ echo '<div style="overflow-x: auto">';
 echo '<table style="min-width: 100%; width: auto"><thead><tr><th>Review<th>Review of<th>Date<th>Reviewed by<th>DOI<th>IRI</tr></thead><tbody>';
 
 foreach ($reviews as $review) {
-    $doi = isset($review->doi) ? substr($review->doi->getValue(), 4) : null;
+    $doi = isset($review->doi) ? $review->doi->getValue() : null;
     $title = $review->title->getValue();
     if (isset($review->scietyUrl)) {
         $title = "<a href=\"{$review->scietyUrl}\">$title</a>";

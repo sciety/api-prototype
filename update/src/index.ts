@@ -172,7 +172,7 @@ const doiExpression = ({
       RDF.quad(publisher, rdfs.label, RDF.literal(data.publisher), sciety('_publishers')),
     ],
     D.fromArray,
-    data.doi ? D.insert(RDF.quad(expression, dcterms.identifier, RDF.literal(`doi:${data.doi}`), work)) : identity,
+    data.doi ? D.insert(RDF.quad(expression, prism.doi, RDF.literal(data.doi), work)) : identity,
     version ? D.insert(RDF.quad(expression, prism.versionIdentifier, RDF.literal(version), work)) : identity,
     replaces ? D.insert(RDF.quad(expression, dcterms.replaces, replaces, work)) : identity,
     data.journal ? D.union(D.fromArray([
@@ -342,7 +342,7 @@ const reviewExpression = ({
       RDF.quad(publisher, rdfs.label, RDF.literal(data.publisher), sciety('_publishers')),
     ],
     D.fromArray,
-    data.doi ? D.insert(RDF.quad(expression, dcterms.identifier, RDF.literal(`doi:${data.doi}`), work)) : identity,
+    data.doi ? D.insert(RDF.quad(expression, prism.doi, RDF.literal(data.doi), work)) : identity,
     data.pdf ? D.union(D.fromArray([
       RDF.quad(expression, fabio.hasManifestation, pdf, work),
       RDF.quad(pdf, rdf.type, fabio.DigitalManifestation, work),

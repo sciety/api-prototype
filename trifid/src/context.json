@@ -36,9 +36,8 @@
     "format": {
       "@id": "dcterms:format"
     },
-    "identifier": {
-      "@id": "dcterms:identifier",
-      "@container": "@set"
+    "doi": {
+      "@id": "prism:doi"
     },
     "hasManifestation": {
       "@id": "fabio:hasManifestation",
