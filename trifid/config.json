@@ -6,6 +6,13 @@
       "queryOperation": "getQuery"
     }
   },
+  "patchHeaders": {
+    "root": {
+      "remove": [
+        "Content-Disposition"
+      ]
+    }
+  },
   "renderer": {
     "root": {
       "template": "cwd:views/index.html",
