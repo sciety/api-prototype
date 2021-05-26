@@ -18,7 +18,7 @@ import { CrossrefWork, crossrefWork } from './crossref'
 import * as D from './dataset'
 import * as d from './decoder'
 import { getFromUrl, getUrl } from './http'
-import { cito, dcterms, fabio, foaf, frbr, mediatype, org, prism, rdf, rdfs, sciety, xsd } from './namespace'
+import { cito, dcterms, fabio, foaf, frbr, mediatype, org, prism, rdf, rdfs, xsd } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
 import * as S from './string'
@@ -116,14 +116,14 @@ type Review = d.TypeOf<typeof review>
 
 const reviews = d.csv(d.array(review))
 
-const partToHashedIri = flow(S.md5, IO.map(sciety))
+const partToHashedIri = flow(S.md5, IO.map(RDF.namedNode))
 
 const doiVersionIri = <T extends { doi: string, version: string }>({
   doi,
   version
-}: T) => pipe([doi, version], S.join('v'), sciety)
+}: T) => pipe([doi, version], S.join('v'), RDF.namedNode)
 
-const personIri = flow((name: string) => slugify(name, { lower: true, remove: /[.]/g }), sciety)
+const personIri = flow((name: string) => slugify(name, { lower: true, remove: /[.]/g }), RDF.namedNode)
 
 const biorxivWork = (details: BiorxivArticleDetails) => (work: RDF.NamedNode) => D.fromArray([
   RDF.quad(work, rdf.type, fabio.ResearchPaper, work),
@@ -169,8 +169,8 @@ const doiExpression = ({
       RDF.quad(webPage, rdf.type, fabio.WebPage, work),
       RDF.quad(webPage, fabio.hasURL, RDF.url(data.url), work),
       RDF.quad(webPage, frbr.producer, publisher, work),
-      RDF.quad(publisher, rdf.type, org.Organization, sciety('_publishers')),
-      RDF.quad(publisher, rdfs.label, RDF.literal(data.publisher), sciety('_publishers')),
+      RDF.quad(publisher, rdf.type, org.Organization, RDF.namedNode('_publishers')),
+      RDF.quad(publisher, rdfs.label, RDF.literal(data.publisher), RDF.namedNode('_publishers')),
     ],
     D.fromArray,
     data.doi ? D.insert(RDF.quad(expression, prism.doi, RDF.literal(data.doi), work)) : identity,
@@ -179,8 +179,8 @@ const doiExpression = ({
     successorOf ? D.insert(RDF.quad(expression, frbr.successorOf, successorOf, work)) : identity,
     data.journal ? D.union(D.fromArray([
       RDF.quad(expression, frbr.partOf, journal, work),
-      RDF.quad(journal, rdf.type, fabio.Journal, sciety('_journals')),
-      RDF.quad(journal, dcterms.title, RDF.literal(data.journal), sciety('_journals')),
+      RDF.quad(journal, rdf.type, fabio.Journal, RDF.namedNode('_journals')),
+      RDF.quad(journal, dcterms.title, RDF.literal(data.journal), RDF.namedNode('_journals')),
     ])) : identity,
     data.pdf ? D.union(D.fromArray([
       RDF.quad(expression, fabio.hasManifestation, pdf, work),
@@ -233,14 +233,14 @@ const doiToReviewExpression = ({ articleWork, data }: { articleWork: RDF.NamedNo
       RDF.quad(expression, dcterms.publisher, publisher, work),
       RDF.quad(work, rdf.type, fabio.Review, work),
       RDF.quad(work, cito.citesAsRecommendedReading, articleWork, work),
-      RDF.quad(publisher, rdf.type, org.Organization, sciety('_publishers')),
-      RDF.quad(publisher, rdfs.label, RDF.literal(data.publisher), sciety('_publishers')),
+      RDF.quad(publisher, rdf.type, org.Organization, RDF.namedNode('_publishers')),
+      RDF.quad(publisher, rdfs.label, RDF.literal(data.publisher), RDF.namedNode('_publishers')),
     ],
     D.fromArray,
     data.journal ? D.union(D.fromArray([
       RDF.quad(expression, frbr.partOf, journal, work),
-      RDF.quad(journal, rdf.type, fabio.Journal, sciety('_journals')),
-      RDF.quad(journal, dcterms.title, RDF.literal(data.journal), sciety('_journals')),
+      RDF.quad(journal, rdf.type, fabio.Journal, RDF.namedNode('_journals')),
+      RDF.quad(journal, dcterms.title, RDF.literal(data.journal), RDF.namedNode('_journals')),
     ])) : identity,
   )),
 )
@@ -274,7 +274,7 @@ const doiToArticleExpressions = (browser: Browser, details: BiorxivArticleDetail
       O.map((articleVersion) => ({
         url: pipe(articleVersion.published, doiToUrl),
         doi: articleVersion.published,
-        expression: sciety(articleVersion.published),
+        expression: RDF.namedNode(articleVersion.published),
         successorOf: pipe(articleVersion, doiVersionIri) as RDF.NamedNode | undefined,
         work: details.work,
       })),
@@ -338,8 +338,8 @@ const reviewExpression = ({
       RDF.quad(webPage, rdf.type, fabio.WebPage, work),
       RDF.quad(webPage, fabio.hasURL, RDF.url(data.url), work),
       RDF.quad(webPage, frbr.producer, publisher, work),
-      RDF.quad(publisher, rdf.type, org.Organization, sciety('_publishers')),
-      RDF.quad(publisher, rdfs.label, RDF.literal(data.publisher), sciety('_publishers')),
+      RDF.quad(publisher, rdf.type, org.Organization, RDF.namedNode('_publishers')),
+      RDF.quad(publisher, rdfs.label, RDF.literal(data.publisher), RDF.namedNode('_publishers')),
     ],
     D.fromArray,
     data.doi ? D.insert(RDF.quad(expression, prism.doi, RDF.literal(data.doi), work)) : identity,
@@ -352,8 +352,8 @@ const reviewExpression = ({
     ])) : identity,
     data.journal ? D.union(D.fromArray([
       RDF.quad(expression, frbr.partOf, journal, work),
-      RDF.quad(journal, rdf.type, fabio.Journal, sciety('_journals')),
-      RDF.quad(journal, dcterms.title, RDF.literal(data.journal), sciety('_journals')),
+      RDF.quad(journal, rdf.type, fabio.Journal, RDF.namedNode('_journals')),
+      RDF.quad(journal, dcterms.title, RDF.literal(data.journal), RDF.namedNode('_journals')),
     ])) : identity,
   ))
 )
@@ -366,7 +366,7 @@ const reviewIdToReview = (browser: Browser, details: BiorxivArticleDetails) => f
   TE.apS('details', pipe(details, TE.right)),
   TE.bind('doi', ({ reviewId }) => pipe(reviewId, reviewIdToDoi, TE.right)),
   TE.bind('articleWork', ({ articleDoi }) => pipe(articleDoi, partToHashedIri, TE.rightIO)),
-  TE.bindW('expression', ({ doi }) => pipe(doi, sciety, TE.right)),
+  TE.bindW('expression', ({ doi }) => pipe(doi, RDF.namedNode, TE.right)),
   TE.bind('data', ({ doi }) => pipe(doi, fromCrossrefApi(browser), TE.orElse(() => pipe(doi, fromDoi(browser))))),
   TE.chainIOK(reviewExpression),
 )

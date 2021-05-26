@@ -12,16 +12,19 @@ services:
     image: curlimages/curl:7.76.1
     depends_on:
       - blazegraph
+    environment:
+      NAMESPACE: "${NAMESPACE:-http://localhost:8080/}"
     entrypoint: ""
-    command: ["/wait-for.sh", "blazegraph:8080", "--", "curl", "--fail-with-body", "--data-binary", "@/load-data.ini", "--header", "Content-Type: text/plain", "http://blazegraph:8080/bigdata/dataloader"]
+    command: ["/wait-for.sh", "blazegraph:8080", "--", "./load-data.sh"]
     volumes:
       - ./.docker/load-data.ini:/load-data.ini:ro
+      - ./.docker/load-data.sh:/load-data.sh:ro
       - ./.docker/wait-for.sh:/wait-for.sh:ro
   client:
     build:
       context: client
     environment:
-      NAMESPACE: http://localhost:8080/
+      NAMESPACE: "${NAMESPACE:-http://localhost:8080/}"
       SPARQL_URL: http://blazegraph:8080/bigdata/namespace/kb/sparql
     ports:
       - '8082:8082'

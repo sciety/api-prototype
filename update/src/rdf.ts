@@ -5,7 +5,7 @@ import { BaseQuad, BlankNode, Literal, NamedNode, Quad, Term, Variable } from 'r
 import { rdf, xsd } from './namespace'
 import * as S from './string'
 
-export const { literal, quad } = DataFactory
+export const { namedNode, literal, quad } = DataFactory
 
 export type {
   Term, NamedNode, BlankNode, Literal, Variable, DefaultGraph, BaseQuad, Quad
