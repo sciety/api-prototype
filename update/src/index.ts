@@ -139,9 +139,10 @@ const doiExpression = ({
   work,
   expression,
   version,
-  replaces,
+  revisionOf,
+  successorOf,
   data
-}: { work: RDF.NamedNode, expression: RDF.NamedNode, version?: string, replaces?: RDF.NamedNode, data: Scraped }) => pipe(
+}: { work: RDF.NamedNode, expression: RDF.NamedNode, version?: string, revisionOf?: RDF.NamedNode, successorOf?: RDF.NamedNode, data: Scraped }) => pipe(
   IO.Do,
   IO.apS('webPage', pipe(expression.value, S.appendWith('#web'), partToHashedIri)),
   IO.apS('pdf', pipe(expression.value, S.appendWith('#pdf'), partToHashedIri)),
@@ -174,7 +175,8 @@ const doiExpression = ({
     D.fromArray,
     data.doi ? D.insert(RDF.quad(expression, prism.doi, RDF.literal(data.doi), work)) : identity,
     version ? D.insert(RDF.quad(expression, prism.versionIdentifier, RDF.literal(version), work)) : identity,
-    replaces ? D.insert(RDF.quad(expression, dcterms.replaces, replaces, work)) : identity,
+    revisionOf ? D.insert(RDF.quad(expression, frbr.revisionOf, revisionOf, work)) : identity,
+    successorOf ? D.insert(RDF.quad(expression, frbr.successorOf, successorOf, work)) : identity,
     data.journal ? D.union(D.fromArray([
       RDF.quad(expression, frbr.partOf, journal, work),
       RDF.quad(journal, rdf.type, fabio.Journal, sciety('_journals')),
@@ -210,15 +212,12 @@ const fromCrossrefApi = (browser: Browser) => (doi: string) => pipe(
 const doiToExpression = (browser: Browser) => ({
   url,
   doi,
-  version,
-  replaces,
-  expression,
-  work
-}: { url: string, doi: string, version?: string, replaces?: RDF.NamedNode, expression: RDF.NamedNode, work: RDF.NamedNode }) => pipe(
+  ...rest
+}: { url: string, doi: string } & Omit<Parameters<typeof doiExpression>[0], 'data'>) => pipe(
   url,
   fromUrl(browser),
   TE.orElse(() => pipe(doi, fromCrossrefApi(browser))),
-  TE.chainIOK(data => doiExpression({ data, version, replaces, expression, work })),
+  TE.chainIOK(data => doiExpression({ data, ...rest })),
 )
 
 const doiToReviewExpression = ({ articleWork, data }: { articleWork: RDF.NamedNode, data: Scraped }) => pipe(
@@ -263,7 +262,8 @@ const doiToArticleExpressions = (browser: Browser, details: BiorxivArticleDetail
       url: `https://www.${articleVersion.server}.org/content/${articleVersion.doi}v${articleVersion.version}`,
       doi: articleVersion.doi,
       version: articleVersion.version,
-      replaces: i > 0 ? pipe(details.collection[i - 1], doiVersionIri) : undefined,
+      revisionOf: i > 0 ? pipe(details.collection[i - 1], doiVersionIri) : undefined,
+      successorOf: undefined,
       expression: pipe(articleVersion, doiVersionIri),
       work: details.work,
     })),
@@ -275,7 +275,7 @@ const doiToArticleExpressions = (browser: Browser, details: BiorxivArticleDetail
         url: pipe(articleVersion.published, doiToUrl),
         doi: articleVersion.published,
         expression: sciety(articleVersion.published),
-        replaces: pipe(articleVersion, doiVersionIri) as RDF.NamedNode | undefined,
+        successorOf: pipe(articleVersion, doiVersionIri) as RDF.NamedNode | undefined,
         work: details.work,
       })),
     )),
