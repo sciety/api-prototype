@@ -70,8 +70,12 @@
       "@id": "cito:repliesTo",
       "@type": "@id"
     },
-    "replaces": {
-      "@id": "dcterms:replaces",
+    "revisionOf": {
+      "@id": "frbr:revisionOf",
+      "@type": "@id"
+    },
+    "successorOf": {
+      "@id": "frbr:successorOf",
       "@type": "@id"
     },
     "reviews": {
