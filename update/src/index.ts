@@ -171,8 +171,8 @@ const doiExpression = ({
         authors,
         RA.reduce(RA.empty, (quads: ReadonlyArray<RDF.Quad>, { person, fullName, role, name }) => [
           ...quads,
-          RDF.quad(expression, frbr.creator, person, work),
-          RDF.quad(person, rdf.type, frbr.Person, person),
+          RDF.quad(expression, dcterms.creator, person, work),
+          RDF.quad(person, rdf.type, foaf.Person, person),
           RDF.quad(person, foaf['name'], RDF.literal(fullName), person),
           RDF.quad(person, tvc.hasValue, name, person),
           RDF.quad(name, rdf.type, tvc.ValueInTime, work),
@@ -358,8 +358,8 @@ const reviewExpression = ({
         authors,
         RA.reduce(RA.empty, (quads: ReadonlyArray<RDF.Quad>, { person, fullName, role, name }) => [
           ...quads,
-          RDF.quad(expression, frbr.creator, person, work),
-          RDF.quad(person, rdf.type, frbr.Person, person),
+          RDF.quad(expression, dcterms.creator, person, work),
+          RDF.quad(person, rdf.type, foaf.Person, person),
           RDF.quad(person, foaf['name'], RDF.literal(fullName), person),
           RDF.quad(person, tvc.hasValue, name, person),
           RDF.quad(name, rdf.type, tvc.ValueInTime, work),
