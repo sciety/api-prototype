@@ -2,6 +2,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix frbr: <http://purl.org/vocab/frbr/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pro: <http://purl.org/spar/pro/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/>  .
 
@@ -43,4 +44,9 @@ fabio:WebPage
 foaf:name
   a owl:ObjectProperty ;
   owl:equivalentProperty schema:name ; # To get round limitations of https://github.com/zazuko/trifid-renderer-simple/blob/16c52273467365c471b77e5e19e8d1b58f9bada1/public/js/render-ld.js#L4
+.
+
+pro:holdsRoleInTime
+  a owl:ObjectProperty ;
+  owl:inverseOf pro:isHeldBy ;
 .

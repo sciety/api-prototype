@@ -18,7 +18,7 @@ import { CrossrefWork, crossrefWork } from './crossref'
 import * as D from './dataset'
 import * as d from './decoder'
 import { getFromUrl, getUrl } from './http'
-import { cito, dcterms, fabio, foaf, frbr, mediatype, org, prism, rdf, rdfs, xsd } from './namespace'
+import { cito, dcterms, fabio, foaf, frbr, mediatype, org, prism, pro, rdf, rdfs, tvc, xsd } from './namespace'
 import { exit } from './process'
 import * as RDF from './rdf'
 import * as S from './string'
@@ -148,7 +148,18 @@ const doiExpression = ({
   IO.apS('pdf', pipe(expression.value, S.appendWith('#pdf'), partToHashedIri)),
   IO.apS('publisher', pipe(data.publisher, partToHashedIri)),
   IO.apS('journal', pipe(data.journal ?? '', partToHashedIri)),
-  IO.map(({ webPage, pdf, publisher, journal }) => pipe(
+  IO.apS('authors', pipe(
+    data.author,
+    RA.map(flow(
+      IO.of,
+      IO.bindTo('fullName'),
+      IO.bind('person', ({ fullName }) => pipe(fullName, personIri, IO.of)),
+      IO.bind('role', ({ fullName }) => pipe([expression.value, 'role', fullName], S.join('#'), partToHashedIri)),
+      IO.bind('name', ({ fullName }) => pipe([expression.value, 'name', fullName], S.join('#'), partToHashedIri)),
+    )),
+    IO.sequenceArray,
+  )),
+  IO.map(({ webPage, pdf, publisher, journal, authors }) => pipe(
     [
       RDF.quad(expression, rdf.type, fabio.Article, work),
       RDF.quad(expression, dcterms.title, RDF.literal(data.title), work),
@@ -157,13 +168,23 @@ const doiExpression = ({
       RDF.quad(expression, dcterms.publisher, publisher, work),
       RDF.quad(expression, fabio.hasManifestation, webPage, work),
       ...pipe(
-        data.author,
-        RA.map(name => ({ name, person: pipe(name, personIri) })),
-        RA.reduce(RA.empty, (quads: ReadonlyArray<RDF.Quad>, { person, name }) => [
+        authors,
+        RA.reduce(RA.empty, (quads: ReadonlyArray<RDF.Quad>, { person, fullName, role, name }) => [
           ...quads,
           RDF.quad(expression, frbr.creator, person, work),
           RDF.quad(person, rdf.type, frbr.Person, person),
-          RDF.quad(person, foaf['name'], RDF.literal(name), person),
+          RDF.quad(person, foaf['name'], RDF.literal(fullName), person),
+          RDF.quad(person, tvc.hasValue, name, person),
+          RDF.quad(name, rdf.type, tvc.ValueInTime, work),
+          RDF.quad(name, rdfs.label, RDF.literal(`${fullName}'s name in ${data.title}`, 'en'), work),
+          RDF.quad(name, rdf.property, foaf['name'], work),
+          RDF.quad(name, tvc.withValue, RDF.literal(fullName), work),
+          RDF.quad(name, tvc.withinContext, expression, work),
+          RDF.quad(person, pro.holdsRoleInTime, role, person),
+          RDF.quad(role, rdf.type, pro.RoleInTime, work),
+          RDF.quad(role, rdfs.label, RDF.literal(`${fullName}'s role in ${data.title}`, 'en'), work),
+          RDF.quad(role, pro.withRole, pro.author, work),
+          RDF.quad(role, pro.relatesToDocument, expression, work),
         ])
       ),
       RDF.quad(webPage, rdf.type, fabio.WebPage, work),
@@ -314,7 +335,18 @@ const reviewExpression = ({
   IO.apS('pdf', pipe(expression.value, S.appendWith('#pdf'), partToHashedIri)),
   IO.apS('journal', pipe(data.journal ?? '', partToHashedIri)),
   IO.apS('articleExpression', pipe(details, findFirstVersionAfterDate(data.date), doiVersionIri, IO.of)),
-  IO.map(({ work, publisher, webPage, pdf, journal, articleExpression }) => pipe(
+  IO.apS('authors', pipe(
+    data.author,
+    RA.map(flow(
+      IO.of,
+      IO.bindTo('fullName'),
+      IO.bind('person', ({ fullName }) => pipe(fullName, personIri, IO.of)),
+      IO.bind('role', ({ fullName }) => pipe([expression.value, 'role', fullName], S.join('#'), partToHashedIri)),
+      IO.bind('name', ({ fullName }) => pipe([expression.value, 'name', fullName], S.join('#'), partToHashedIri)),
+    )),
+    IO.sequenceArray,
+  )),
+  IO.map(({ work, publisher, webPage, pdf, journal, articleExpression, authors }) => pipe(
     [
       RDF.quad(expression, rdf.type, fabio.ReviewArticle, work),
       RDF.quad(expression, dcterms.title, RDF.literal(data.title, data.lang ?? undefined), work),
@@ -323,13 +355,23 @@ const reviewExpression = ({
       RDF.quad(expression, dcterms.publisher, publisher, work),
       RDF.quad(expression, prism.publicationDate, RDF.date(data.date), work),
       ...pipe(
-        data.author,
-        RA.map(name => ({ name, person: pipe(name, personIri) })),
-        RA.reduce(RA.empty, (quads: ReadonlyArray<RDF.Quad>, { person, name }) => [
+        authors,
+        RA.reduce(RA.empty, (quads: ReadonlyArray<RDF.Quad>, { person, fullName, role, name }) => [
           ...quads,
           RDF.quad(expression, frbr.creator, person, work),
           RDF.quad(person, rdf.type, frbr.Person, person),
-          RDF.quad(person, foaf['name'], RDF.literal(name), person),
+          RDF.quad(person, foaf['name'], RDF.literal(fullName), person),
+          RDF.quad(person, tvc.hasValue, name, person),
+          RDF.quad(name, rdf.type, tvc.ValueInTime, work),
+          RDF.quad(name, rdfs.label, RDF.literal(`${fullName}'s name in ${data.title}`, 'en'), work),
+          RDF.quad(name, rdf.property, foaf['name'], work),
+          RDF.quad(name, tvc.withValue, RDF.literal(fullName), work),
+          RDF.quad(name, tvc.withinContext, expression, work),
+          RDF.quad(person, pro.holdsRoleInTime, role, person),
+          RDF.quad(role, rdf.type, pro.RoleInTime, work),
+          RDF.quad(role, rdfs.label, RDF.literal(`${fullName}'s role in ${data.title}`, 'en'), work),
+          RDF.quad(role, pro.withRole, pro.author, work),
+          RDF.quad(role, pro.relatesToDocument, expression, work),
         ])
       ),
       RDF.quad(work, rdf.type, fabio.Review, work),
@@ -401,8 +443,10 @@ const prefixes = {
   frbr: frbr(),
   org: org(),
   prism: prism(),
+  pro: pro(),
   rdf: rdf(),
   rdfs: rdfs(),
+  tvc: tvc(),
   xsd: xsd(),
 }
 
