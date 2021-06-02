@@ -54,6 +54,7 @@ const scraper = TE.tryCatchK(metascraper([
     ],
     publisher: [
       toRule(publisher)($ => $('meta[name="citation_publisher"]').attr('content')),
+      toRule(publisher)($ => $('meta[name="dc.publisher" i]').attr('content')),
       ...require('metascraper-publisher')().publisher,
     ],
     title: [
