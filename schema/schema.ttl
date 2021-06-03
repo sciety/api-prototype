@@ -1,0 +1,75 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+fabio:ResearchPaper
+  a rdfs:Class ;
+  rdfs:label "research paper"@en ;
+  rdfs:comment """A scholarly work that reports original research contributions addressing theoretical, analytical or experimental aspects of a particular scholarly domain.
+
+E.g. see http://iswc2018.semanticweb.org/call-for-research-track-papers/."""@en ;
+  rdfs:subClassOf fabio:ScholarlyWork ;
+.
+
+fabio:ScholarlyWork
+  a rdfs:Class ;
+  rdfs:label "scholarly work"@en ;
+  rdfs:comment "A work that reports scholarly activity on a particular topic, either published in written form, or delivered orally at a meeting."@en ;
+  rdfs:subClassOf fabio:Work ;
+.
+
+fabio:ReviewArticle
+  a rdfs:Class ;
+  rdfs:label "review article"@en ;
+  rdfs:comment "An article that contains a review."@en ;
+  rdfs:subClassOf fabio:Article ;
+.
+
+fabio:Article
+  a rdfs:Class ;
+  rdfs:label "article"@en ;
+  rdfs:comment "The realization of a piece of writing on a particular topic, usually published within a periodical publication (e.g. journal, magazine and newspaper)."@en ;
+  rdfs:subClassOf fabio:Expression .
+
+fabio:Work
+  a rdfs:Class ;
+  rdfs:label "work"@en ;
+  dcterms:description "A fabio:Work can only have part or be part of another fabio:Work. Moreover, it can be realized only by fabio:Expression(s)."@en ;
+  rdfs:comment "A subclass of FRBR work, restricted to works that are published or potentially publishable, and that contain or are referred to by bibliographic references, or entities used to define bibliographic references. FaBiO works, and their expressions and manifestations, are primarily textual publications such as books, magazines, newspapers and journals, and items of their content.  However, they also include datasets, computer algorithms, experimental protocols, formal specifications and vocabularies, legal records, governmental papers, technical and commercial reports and similar publications, and also bibliographies, reference lists, library catalogues and similar collections. For this reason, fabio:Work is not an equivalent class to frbr:ScholarlyWork.  An example of a fabio:Work is your latest research paper."@en ;
+.
+
+fabio:Work
+  a sh:NodeShape ;
+  sh:property [
+    sh:path rdfs:label ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path [ sh:inversePath frbr:realizationOf ] ;
+    sh:minCount 1 ;
+    sh:message "Foo"@en ;
+  ] ;
+.
+
+fabio:Expression
+  a rdfs:Class ;
+  rdfs:label "expression"@en ;
+  dcterms:description "A fabio:Expression can only have part or be part of another fabio:Expression.  Moreover, it can be a representation only of a fabio:Work, and  it can be embodied only in fabio:Manifestation(s)."@en ;
+  rdfs:comment "A subclass of FRBR expression, restricted to expressions of fabio:Works.  For your latest research paper, the preprint submitted to the publisher, and the final published version to which the publisher assigned a unique digital object identifier, are both expressions of the same work.  "@en ;
+.
+
+fabio:Expression
+  a sh:NodeShape ;
+  sh:property [
+    sh:path dcterms:title ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path frbr:realizationOf ;
+    sh:minCount 1 ;
+  ] ;
+.

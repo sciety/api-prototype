@@ -1,0 +1,35 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#>  .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<>
+  a dash:GraphValidationTestCase ;
+  dash:expectedResult [
+    a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [
+      a sh:ValidationResult ;
+      sh:focusNode <WorkWithNoLabel> ;
+      sh:resultSeverity sh:Violation ;
+      sh:resultPath rdfs:label ;
+      sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+      sh:sourceShape [] ;
+    ] ;
+  ] ;
+.
+
+<WorkWithNoLabel>
+  a fabio:Work ;
+.
+
+<SomeExpression>
+  a fabio:Expression ;
+  dcterms:title "Some Expression" ;
+  frbr:realizationOf <WorkWithNoLabel> ;
+.
