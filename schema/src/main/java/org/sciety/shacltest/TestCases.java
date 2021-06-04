@@ -2,6 +2,7 @@ package org.sciety.shacltest;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -31,9 +32,9 @@ import org.topbraid.shacl.vocabulary.SH;
 final public class TestCases {
     @Parameters(name = "{1}")
     public static Collection<Object[]> data() throws Exception {
-        List<TestCase> testCases = new LinkedList<TestCase>();
-        File rootFolder = new File("test");
-        collectTestCases(rootFolder, testCases);
+        Model shapesModel = collectShapesModel(new File("schema"));
+        List<Model> testModels = modelsFromDirectory(new File("test"));
+        List<TestCase> testCases = createTestCases(testModels, shapesModel);
 
         List<Object[]> results = new LinkedList<Object[]>();
 
@@ -44,26 +45,56 @@ final public class TestCases {
         return results;
     }
 
-    private static void collectTestCases(File folder, List<TestCase> testCases) throws Exception {
-        Model shapesModel = JenaUtil.createDefaultModel();
-        InputStream shapesFile = new FileInputStream("schema.ttl");
-        shapesModel.read(shapesFile, "http://example.com/", FileUtils.langTurtle);
-        shapesModel.add(SHACLSystemModel.getSHACLModel());
+    private static Model modelFromFile(File file) throws FileNotFoundException {
+        Model model = JenaUtil.createDefaultModel();
+        InputStream testFile = new FileInputStream(file);
+        model.read(testFile, file.getAbsolutePath(), FileUtils.langTurtle);
 
-        for (File f : Objects.requireNonNull(folder.listFiles())) {
-            if (f.isDirectory()) {
-                collectTestCases(f, testCases);
-            } else if (f.isFile() && f.getName().endsWith(".ttl")) {
-                Model testModel = JenaUtil.createDefaultModel();
-                InputStream testFile = new FileInputStream(f);
-                testModel.read(testFile, f.getAbsolutePath(), FileUtils.langTurtle);
-                testModel.add(shapesModel);
-                Resource ontology = ResourceFactory.createResource("http://example.com/");
-                for (TestCaseType type : TestCaseTypes.getTypes()) {
-                    testCases.addAll(type.getTestCases(testModel, ontology));
+        return model;
+    }
+
+    private static List<Model> modelsFromDirectory(File folder) {
+        List<Model> models = new LinkedList<>();
+
+        for (File file : Objects.requireNonNull(folder.listFiles())) {
+            if (file.isDirectory()) {
+                models.addAll(modelsFromDirectory(file));
+            } else {
+                try {
+                    models.add(modelFromFile(file));
+                } catch (FileNotFoundException exception) {
+                    // Do nothing
                 }
             }
         }
+
+        return models;
+    }
+
+    private static Model collectShapesModel(File shapes) {
+        Model shapesModel = JenaUtil.createDefaultModel();
+        shapesModel.add(SHACLSystemModel.getSHACLModel());
+
+        for (Model shape : modelsFromDirectory(shapes)) {
+            shapesModel.add(shape);
+        }
+
+        return shapesModel;
+    }
+
+    private static List<TestCase> createTestCases(List<Model> testModels, Model shapesModel) {
+        List<TestCase> testCases = new LinkedList<>();
+        Resource ontology = ResourceFactory.createResource("http://example.com/");
+
+        for (Model testModel : testModels) {
+            testModel.add(shapesModel);
+
+            for (TestCaseType type : TestCaseTypes.getTypes()) {
+                testCases.addAll(type.getTestCases(testModel, ontology));
+            }
+        }
+
+        return testCases;
     }
 
     private final TestCase testCase;
