@@ -1,3 +1,4 @@
+@prefix docmaps: <http://example.com/> .
 @prefix dash: <http://datashapes.org/dash#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix fabio: <http://purl.org/spar/fabio/> .
@@ -19,7 +20,7 @@
       sh:resultSeverity sh:Violation ;
       sh:resultPath rdfs:label ;
       sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
-      sh:sourceShape [] ;
+      sh:sourceShape docmaps:RequiresLabel ;
     ] ;
   ] ;
 .

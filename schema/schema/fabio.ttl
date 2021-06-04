@@ -1,0 +1,12 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+fabio:Work
+  a rdfs:Class ;
+  rdfs:label "work"@en ;
+  dcterms:description "A fabio:Work can only have part or be part of another fabio:Work. Moreover, it can be realized only by fabio:Expression(s)."@en ;
+  rdfs:comment "A subclass of FRBR work, restricted to works that are published or potentially publishable, and that contain or are referred to by bibliographic references, or entities used to define bibliographic references. FaBiO works, and their expressions and manifestations, are primarily textual publications such as books, magazines, newspapers and journals, and items of their content. However, they also include datasets, computer algorithms, experimental protocols, formal specifications and vocabularies, legal records, governmental papers, technical and commercial reports and similar publications, and also bibliographies, reference lists, library catalogues and similar collections. For this reason, fabio:Work is not an equivalent class to frbr:ScholarlyWork. An example of a fabio:Work is your latest research paper."@en ;
+  rdfs:subClassOf frbr:Work ;
+.

@@ -18,7 +18,7 @@
       sh:resultSeverity sh:Violation ;
       sh:resultPath [ sh:inversePath frbr:realizationOf ] ;
       sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
-      sh:sourceShape [] ;
+      sh:sourceShape frbr:RequiresRealization ;
     ] ;
   ]
 .
