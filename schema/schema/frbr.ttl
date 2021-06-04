@@ -33,3 +33,9 @@ frbr:RequiresRealization
   sh:path [ sh:inversePath frbr:realizationOf ] ;
   sh:minCount 1 ;
 .
+
+frbr:NotAWork
+  a sh:NodeShape ;
+  sh:targetClass frbr:Expression ;
+  sh:not frbr:Work ;
+.
