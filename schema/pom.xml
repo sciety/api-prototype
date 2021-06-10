@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.sciety</groupId>
-  <artifactId>shacl-test</artifactId>
+  <artifactId>test-shacl</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 
   <properties>
