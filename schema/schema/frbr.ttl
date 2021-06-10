@@ -3,35 +3,12 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-frbr:realization
-  a rdf:Property ;
-  rdfs:label "has realization"@en ;
-  rdfs:comment "A work realized through an expression."@en ;
-  rdfs:domain frbr:Work ;
-  rdfs:range frbr:Expression ;
-.
-
-frbr:Work
-  a rdfs:Class , sh:NodeShape ;
-  rdfs:label "work"@en ;
-  rdfs:comment """A distinct intellectual or artistic creation.
-
-A work is an abstract entity; there is no single material object one can point to as the work. We recognize the work through individual realizations or expressions of the work, but the work itself exists only in the commonality of content between and among the various expressions of the work. When we speak of Homer's Iliad as a work, our point of reference is not a particular recitation or text of the work, but the intellectual creation that lies behind all the various expressions of the work. """@en ;
-  sh:property frbr:RequiresRealization ;
-.
-
 frbr:Expression
   a rdfs:Class , sh:NodeShape ;
   rdfs:label "expression"@en ;
   rdfs:comment """The intellectual or artistic realization of a work in the form of alpha-numeric, musical, or choreographic notation, sound, image, object, movement, etc., or any combination of such forms.
 
 An expression is the specific intellectual or artistic form that a work takes each time it is "realized." Expression encompasses, for example, the specific words, sentences, paragraphs, etc. that result from the realization of a work in the form of a text, or the particular sounds, phrasing, etc. resulting from the realization of a musical work."""@en ;
-.
-
-frbr:RequiresRealization
-  a sh:PropertyShape ;
-  sh:path [ sh:inversePath frbr:realizationOf ] ;
-  sh:minCount 1 ;
 .
 
 frbr:NotAWork

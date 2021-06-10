@@ -13,17 +13,6 @@ pwo:WorkflowExecution
   sh:property docmaps:RequiresAction ;
 .
 
-fabio:Work
-  a sh:NodeShape ;
-  sh:property docmaps:RequiresLabel ;
-.
-
-docmaps:RequiresLabel
-  a sh:PropertyShape ;
-  sh:path rdfs:label ;
-  sh:minCount 1 ;
-.
-
 docmaps:RequiresAction
   a sh:PropertyShape ;
   sh:path pwo:involvesAction ;
