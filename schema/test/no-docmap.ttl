@@ -1,0 +1,21 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix docmaps: <http://example.com/> .
+@prefix pwo: <http://purl.org/spar/pwo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<>
+  a dash:GraphValidationTestCase ;
+  dash:expectedResult [
+    a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [
+      a sh:ValidationResult ;
+      sh:focusNode pwo:WorkflowExecution ;
+      sh:resultSeverity sh:Violation ;
+      sh:resultPath [ sh:inversePath rdf:type ] ;
+      sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+      sh:sourceShape [] ;
+    ] ;
+  ]
+.
