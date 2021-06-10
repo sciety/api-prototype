@@ -1,0 +1,31 @@
+@prefix dash: <http://datashapes.org/dash#> .
+#@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix docmaps: <http://example.com/> .
+#@prefix fabio: <http://purl.org/spar/fabio/> .
+#@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix pwo: <http://purl.org/spar/pwo/> .
+#@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+#@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+#@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<>
+  a dash:GraphValidationTestCase ;
+  dash:expectedResult [
+    a sh:ValidationReport ;
+    sh:conforms true ;
+  ]
+.
+
+<DocMapWithActions>
+  a pwo:WorkflowExecution ;
+  pwo:involvesAction _:action-1 , _:action-2 ;
+.
+
+_:action-1
+  a pwo:Action ;
+.
+
+_:action-2
+  a pwo:Action ;
+.

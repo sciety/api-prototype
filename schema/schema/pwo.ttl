@@ -1,0 +1,26 @@
+@prefix planex: <http://www.ontologydesignpatterns.org/cp/owl/basicplanexecution.owl#> .
+@prefix pwo: <http://purl.org/spar/pwo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix taskex: <http://www.ontologydesignpatterns.org/cp/owl/taskexecution.owl#> .
+@prefix tisit: <http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#> .
+
+pwo:involvesAction
+  a rdf:Property ;
+  rdfs:label "involves action"@en ;
+  rdfs:comment "The property linking a particular execution of a workflow to an action."@en ;
+  rdfs:domain pwo:WorkflowExecution ;
+  rdfs:range pwo:Action ;
+.
+
+pwo:Action
+  a rdfs:Class ;
+  rdfs:label "action" ;
+  rdfs:comment "An event with at least one agent that is participant in it and that is linked to a workflow execution and to a step of the related workflow description." ;
+  rdfs:subClassOf planex:Action , taskex:Action
+.
+
+pwo:WorkflowExecution
+  a rdfs:Class ;
+  rdfs:subClassOf planex:PlanExecution , tisit:TimeIndexedSituation ;
+.

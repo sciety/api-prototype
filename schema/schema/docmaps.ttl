@@ -3,9 +3,15 @@
 @prefix fabio: <http://purl.org/spar/fabio/> .
 @prefix frbr: <http://purl.org/vocab/frbr/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pwo: <http://purl.org/spar/pwo/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/xmlschema#> .
+
+pwo:WorkflowExecution
+  a sh:NodeShape ;
+  sh:property docmaps:RequiresAction ;
+.
 
 fabio:Work
   a sh:NodeShape ;
@@ -15,5 +21,11 @@ fabio:Work
 docmaps:RequiresLabel
   a sh:PropertyShape ;
   sh:path rdfs:label ;
+  sh:minCount 1 ;
+.
+
+docmaps:RequiresAction
+  a sh:PropertyShape ;
+  sh:path pwo:involvesAction ;
   sh:minCount 1 ;
 .
