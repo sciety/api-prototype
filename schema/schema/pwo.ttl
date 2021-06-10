@@ -1,9 +1,20 @@
+@prefix part: <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#> .
 @prefix planex: <http://www.ontologydesignpatterns.org/cp/owl/basicplanexecution.owl#> .
 @prefix pwo: <http://purl.org/spar/pwo/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix taskex: <http://www.ontologydesignpatterns.org/cp/owl/taskexecution.owl#> .
+@prefix ti: <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#> .
 @prefix tisit: <http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#> .
+
+pwo:happened
+  a rdf:Property ;
+  rdfs:label "happened"@en ;
+  rdfs:comment "It allows one to link an event to the interval when it happened."@en ;
+  rdfs:domain part:Event ;
+  rdfs:range ti:TimeInterval ;
+.
 
 pwo:involvesAction
   a rdf:Property ;
@@ -17,10 +28,19 @@ pwo:Action
   a rdfs:Class ;
   rdfs:label "action" ;
   rdfs:comment "An event with at least one agent that is participant in it and that is linked to a workflow execution and to a step of the related workflow description." ;
-  rdfs:subClassOf planex:Action , taskex:Action
+  rdfs:subClassOf part:Event , planex:Action , taskex:Action ;
 .
 
 pwo:WorkflowExecution
   a rdfs:Class ;
   rdfs:subClassOf planex:PlanExecution , tisit:TimeIndexedSituation ;
+.
+
+pwo:OneHappenedInterval
+  a sh:NodeShape ;
+  sh:targetSubjectsOf pwo:happened ;
+  sh:property [
+    sh:path pwo:happened ;
+    sh:maxCount 1 ;
+  ] ;
 .

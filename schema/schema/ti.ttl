@@ -1,0 +1,54 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ti: <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ti:hasIntervalDate
+  a rdf:Property ;
+  rdfs:label "has interval date"@en , "intervallo ha data"@it ;
+  rdfs:comment "A datatype property that encodes values from xsd:date (or any other date-related xsd datatype) for a TimeInterval; a same TimeInterval can have more than one date value: begin date, end date, date at which the interval holds, as well as dates expressed in different formats: xsd:gYear, xsd:dateTime, etc." ;
+  rdfs:domain ti:TimeInterval ;
+  sh:or (
+    [ sh:datatype xsd:dateTime ; ]
+    [ sh:datatype xsd:time ; ]
+  ) ;
+.
+
+ti:hasIntervalEndDate
+  a rdf:Property ;
+  rdfs:label "interval has end date"@en ;
+  rdfs:comment "The end date of a time interval." ;
+  rdfs:subPropertyOf ti:hasIntervalDate ;
+.
+
+ti:hasIntervalStartDate
+  a rdf:Property ;
+  rdfs:label "interval has start date"@en ;
+  rdfs:comment "The start date of a time interval." ;
+  rdfs:subPropertyOf ti:hasIntervalDate ;
+.
+
+ti:TimeInterval
+  a rdfs:Class , sh:NodeShape ;
+  sh:property ti:hasIntervalStartDate ;
+  sh:property ti:hasIntervalEndDate ;
+.
+
+ti:OneStartDate
+  a sh:NodeShape ;
+  sh:targetSubjectsOf ti:hasIntervalStartDate ;
+  sh:property [
+    sh:path ti:hasIntervalStartDate ;
+    sh:maxCount 1 ;
+  ] ;
+.
+
+ti:EndStartDate
+  a sh:NodeShape ;
+  sh:targetSubjectsOf ti:hasIntervalEndDate ;
+  sh:property [
+    sh:path ti:hasIntervalEndDate ;
+    sh:maxCount 1 ;
+  ] ;
+.
