@@ -1,0 +1,33 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix pwo: <http://purl.org/spar/pwo/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<>
+  a dash:GraphValidationTestCase ;
+  dash:expectedResult [
+    a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [
+      a sh:ValidationResult ;
+      sh:focusNode <FirstStepWithPreviousStep> ;
+      sh:resultSeverity sh:Violation ;
+      sh:resultPath pwo:hasPreviousStep ;
+      sh:sourceConstraintComponent sh:MaxCountConstraintComponent  ;
+      sh:sourceShape pwo:FirstStepCannotHavePreviousStep ;
+    ] ;
+  ] ;
+.
+
+_:workflow
+  a pwo:Workflow ;
+  pwo:hasFirstStep <FirstStepWithPreviousStep> ;
+.
+
+_:step-1
+  a pwo:Step ;
+.
+
+<FirstStepWithPreviousStep>
+  a pwo:Step ;
+  pwo:hasPreviousStep _:step-1 ;
+.
