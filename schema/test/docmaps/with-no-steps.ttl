@@ -10,15 +10,23 @@
     sh:conforms false ;
     sh:result [
       a sh:ValidationResult ;
-      sh:focusNode <DocMapWithNoActions> ;
+      sh:focusNode <DocMapWithNoSteps> ;
       sh:resultSeverity sh:Violation ;
-      sh:resultPath pwo:involvesAction ;
+      sh:resultPath pwo:hasStep ;
       sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
-      sh:sourceShape docmaps:RequiresAction ;
+      sh:sourceShape docmaps:RequiresStep ;
+    ] ;
+    sh:result [
+      a sh:ValidationResult ;
+      sh:focusNode <DocMapWithNoSteps> ;
+      sh:resultSeverity sh:Violation ;
+      sh:resultPath pwo:hasFirstStep ;
+      sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+      sh:sourceShape docmaps:RequiresFirstStep ;
     ] ;
   ]
 .
 
-<DocMapWithNoActions>
-  a pwo:WorkflowExecution ;
+<DocMapWithNoSteps>
+  a pwo:Workflow ;
 .

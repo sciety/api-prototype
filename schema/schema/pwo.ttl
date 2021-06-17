@@ -1,46 +1,35 @@
-@prefix part: <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#> .
-@prefix planex: <http://www.ontologydesignpatterns.org/cp/owl/basicplanexecution.owl#> .
+@prefix plandesc: <http://www.ontologydesignpatterns.org/cp/owl/basicplandescription.owl#> .
 @prefix pwo: <http://purl.org/spar/pwo/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix taskex: <http://www.ontologydesignpatterns.org/cp/owl/taskexecution.owl#> .
-@prefix ti: <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#> .
-@prefix tisit: <http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#> .
+@prefix taskrole: <http://www.ontologydesignpatterns.org/cp/owl/taskrole.owl#> .
 
-pwo:happened
+pwo:hasStep
   a rdf:Property ;
-  rdfs:label "happened"@en ;
-  rdfs:comment "It allows one to link an event to the interval when it happened."@en ;
-  rdfs:domain part:Event ;
-  rdfs:range ti:TimeInterval ;
+  rdfs:label "has step"@en ;
+  rdfs:comment "The property linking a workflow to a component step."@en ;
+  rdfs:domain pwo:Workflow ;
+  rdfs:range pwo:Step ;
+  rdfs:subPropertyOf plandesc:definesTask ;
 .
 
-pwo:involvesAction
+pwo:hasFirstStep
   a rdf:Property ;
-  rdfs:label "involves action"@en ;
-  rdfs:comment "The property linking a particular execution of a workflow to an action."@en ;
-  rdfs:domain pwo:WorkflowExecution ;
-  rdfs:range pwo:Action ;
+  rdfs:label "has first step"@en ;
+  rdfs:comment "T workflow that starts with a particular step."@en ;
+  rdfs:subPropertyOf pwo:hasStep ;
 .
 
-pwo:Action
+pwo:Step
   a rdfs:Class ;
-  rdfs:label "action" ;
-  rdfs:comment "An event with at least one agent that is participant in it and that is linked to a workflow execution and to a step of the related workflow description." ;
-  rdfs:subClassOf part:Event , planex:Action , taskex:Action ;
+  rdfs:label "step"@en ;
+  rdfs:comment "An atomic unit of a workflow, that may be characterized by a starting time and an ending time, and may be associated with one or more events.  T workflow step usually involves some input information, material or energy needed to complete the step, and some output information, material or energy produced by that step.  In the case of a publishing workflow, a step typically results in the creation of a publication entity, usually by the modification of another pre-existing publication entity, e.g. the creation of an edited paper from a rough draft, or of an HTML representation from an XML mark-up."@en ;
+  rdfs:subClassOf taskrole:Task ;
 .
 
-pwo:WorkflowExecution
+pwo:Workflow
   a rdfs:Class ;
-  rdfs:subClassOf planex:PlanExecution , tisit:TimeIndexedSituation ;
-.
-
-pwo:OneHappenedInterval
-  a sh:NodeShape ;
-  sh:targetSubjectsOf pwo:happened ;
-  sh:property [
-    sh:path pwo:happened ;
-    sh:maxCount 1 ;
-  ] ;
+  rdfs:label "workflow"@en ;
+  rdfs:comment "T sequence of connected steps, representing a sequence of publishing operations undertaken by agents. T workflow may be seen as an abstract model of real work."@en ;
+  rdfs:subClassOf plandesc:Plan ;
 .

@@ -4,7 +4,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 frbr:Expression
-  a rdfs:Class , sh:NodeShape ;
+  a rdfs:Class ;
   rdfs:label "expression"@en ;
   rdfs:comment """The intellectual or artistic realization of a work in the form of alpha-numeric, musical, or choreographic notation, sound, image, object, movement, etc., or any combination of such forms.
 

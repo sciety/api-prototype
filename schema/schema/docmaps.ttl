@@ -1,28 +1,30 @@
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix docmaps: <http://example.com/> .
-@prefix fabio: <http://purl.org/spar/fabio/> .
-@prefix frbr: <http://purl.org/vocab/frbr/core#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pwo: <http://purl.org/spar/pwo/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-pwo:WorkflowExecution
+pwo:Workflow
   a sh:NodeShape ;
-  sh:property docmaps:RequiresAction ;
+  sh:property docmaps:RequiresStep ;
+  sh:property docmaps:RequiresFirstStep ;
 .
 
-docmaps:RequiresAction
+docmaps:RequiresStep
   a sh:PropertyShape ;
-  sh:path pwo:involvesAction ;
+  sh:path pwo:hasStep ;
   sh:minCount 1 ;
+.
+
+docmaps:RequiresFirstStep
+  a sh:PropertyShape ;
+  sh:path pwo:hasFirstStep ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
 .
 
 docmaps:SingleDocMap
   a sh:NodeShape ;
-  sh:targetNode pwo:WorkflowExecution ;
+  sh:targetNode pwo:Workflow ;
   sh:property [
     sh:path [ sh:inversePath rdf:type ] ;
     sh:minCount 1 ;

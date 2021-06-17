@@ -11,11 +11,31 @@
     sh:conforms false ;
     sh:result [
       a sh:ValidationResult ;
-      sh:focusNode pwo:WorkflowExecution ;
+      sh:focusNode pwo:Workflow ;
       sh:resultSeverity sh:Violation ;
       sh:resultPath [ sh:inversePath rdf:type ] ;
-      sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+      sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;
       sh:sourceShape [] ;
     ] ;
   ]
+.
+
+<DocMap1>
+  a pwo:Workflow ;
+  pwo:hasFirstStep _:step-1 ;
+  pwo:hasStep _:step-1 ;
+.
+
+<DocMap2>
+  a pwo:Workflow ;
+  pwo:hasFirstStep _:step-2 ;
+  pwo:hasStep _:step-2 ;
+.
+
+_:step-1
+  a pwo:Step ;
+.
+
+_:step-2
+  a pwo:Step ;
 .
