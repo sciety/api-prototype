@@ -1,0 +1,12 @@
+{
+  "extends": "ts-node/node14/tsconfig.json",
+  "compilerOptions": {
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@types"
+    ]
+  },
+  "include": [
+    "./src"
+  ]
+}

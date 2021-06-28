@@ -15,7 +15,11 @@
       sh:resultSeverity sh:Violation ;
       sh:resultPath [ sh:inversePath rdf:type ] ;
       sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;
-      sh:sourceShape [] ;
+        sh:sourceShape [
+        sh:path [ sh:inversePath rdf:type ] ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+      ] ;
     ] ;
   ]
 .
