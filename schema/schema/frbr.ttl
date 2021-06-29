@@ -8,6 +8,13 @@ frbr:relatedEndeavour
   rdfs:label "has related endeavour"@en ;
 .
 
+frbr:partOf
+  a rdf:Property ;
+  rdfs:label "is part of"@en ;
+  rdfs:comment "An endeavour incorporating another endeavour."@en ;
+  rdfs:subPropertyOf frbr:relatedEndeavour ;
+.
+
 frbr:realizationOf
   a rdf:Property ;
   rdfs:label "is realization of"@en ;
@@ -52,6 +59,13 @@ frbr:RelatedEndeavourShape
   sh:class frbr:Endeavour ;
 .
 
+frbr:PartOfShape
+  a sh:PropertyShape ;
+  sh:targetSubjectsOf frbr:partOf ;
+  sh:path frbr:partOf ;
+  sh:class frbr:Endeavour ;
+.
+
 frbr:RealizationOfShape
   a sh:PropertyShape ;
   sh:targetSubjectsOf frbr:realizationOf ;
@@ -66,9 +80,27 @@ frbr:OnlyEndeavoursHaveRelatedEndeavours
   sh:class frbr:Endeavour ;
 .
 
+frbr:OnlyEndeavoursHavePartOf
+  a sh:NodeShape ;
+  sh:targetSubjectsOf frbr:partOf ;
+  sh:class frbr:Endeavour ;
+.
+
 frbr:OnlyExpressionsHaveRealizationOf
   a sh:NodeShape ;
   sh:targetSubjectsOf frbr:realizationOf ;
+  sh:class frbr:Expression ;
+.
+
+frbr:PartOfWork
+  a sh:PropertyShape ;
+  sh:path frbr:partOf ;
+  sh:class frbr:Work ;
+.
+
+frbr:PartOfExpression
+  a sh:PropertyShape ;
+  sh:path frbr:partOf ;
   sh:class frbr:Expression ;
 .
 
@@ -76,4 +108,16 @@ frbr:NotAWork
   a sh:NodeShape ;
   sh:targetClass frbr:Expression ;
   sh:not [ sh:class frbr:Work ] ;
+.
+
+frbr:WorkShape
+  a sh:NodeShape ;
+  sh:targetClass frbr:Work ;
+  sh:property frbr:PartOfWork ;
+.
+
+frbr:ExpressionShape
+  a sh:NodeShape ;
+  sh:targetClass frbr:Expression ;
+  sh:property frbr:PartOfExpression ;
 .

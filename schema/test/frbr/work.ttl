@@ -12,4 +12,9 @@
 
 <Work>
   a frbr:Work ;
+  frbr:partOf _:work ;
+.
+
+_:work
+  a frbr:Work ;
 .

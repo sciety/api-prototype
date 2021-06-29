@@ -13,8 +13,13 @@
 <Expression>
   a frbr:Expression ;
   frbr:realizationOf _:work ;
+  frbr:partOf _:expression ;
 .
 
 _:work
   a frbr:Work ;
+.
+
+_:expression
+  a frbr:Expression ;
 .

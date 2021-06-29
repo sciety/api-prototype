@@ -12,6 +12,7 @@
 
 <Endeavour>
   a frbr:Endeavour ;
+  frbr:partOf _:endeavour ;
   frbr:relatedEndeavour _:work , _:expression ;
 .
 
@@ -21,4 +22,8 @@ _:work
 
 _:expression
   a frbr:Expression ;
+.
+
+_:endeavour
+  a frbr:Endeavour ;
 .
