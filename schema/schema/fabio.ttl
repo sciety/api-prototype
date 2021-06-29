@@ -12,6 +12,20 @@ fabio:Work
   rdfs:subClassOf frbr:Work ;
 .
 
+fabio:Review
+  a rdfs:Class ;
+  rdfs:label "review"@en ;
+  rdfs:comment "A review of others' work."@en ;
+  rdfs:subClassOf fabio:Work ;
+.
+
+fabio:ScholarlyWork
+  a rdfs:Class ;
+  rdfs:label "scholarly work"@en ;
+  rdfs:comment "A work that reports scholarly activity on a particular topic, either published in written form, or delivered orally at a meeting."@en ;
+  rdfs:subClassOf fabio:Work ;
+.
+
 fabio:Expression
   a rdfs:Class ;
   rdfs:label "expression"@en ;
@@ -20,9 +34,35 @@ fabio:Expression
   rdfs:subClassOf frbr:Expression ;
 .
 
+fabio:Article
+  a rdfs:Class ;
+  rdfs:label "article"@en ;
+  rdfs:comment "The realization of a piece of writing on a particular topic, usually published within a periodical publication (e.g. journal, magazine and newspaper)."@en ;
+  rdfs:subClassOf fabio:Expression ;
+.
+
+fabio:ReviewArticle
+  a rdfs:Class ;
+  rdfs:label "review article"@en ;
+  rdfs:comment "An article that contains a review."@en ;
+  rdfs:subClassOf fabio:Article ;
+.
+
 fabio:RealizationOfShape
   a sh:PropertyShape ;
   sh:targetSubjectsOf frbr:realizationOf ;
   sh:path frbr:realizationOf ;
   sh:class fabio:Work ;
+.
+
+fabio:ReviewArticleShape
+  a sh:NodeShape ;
+  sh:targetClass fabio:ReviewArticle ;
+  sh:property fabio:RealizationOfReview ;
+.
+
+fabio:RealizationOfReview
+  a sh:PropertyShape ;
+  sh:path frbr:realizationOf ;
+  sh:class fabio:Review ;
 .
