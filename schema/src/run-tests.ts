@@ -24,16 +24,17 @@ const loadDataset = async (filePath: string) => {
     await dataset.import(parsed)
   }
 
-  return clownface({ dataset })
+  return dataset
 }
 
 export const runTest: TestRunner = async options => {
   const shapes = await loadDataset(options.shapes)
-  const validator = new SHACLValidator(shapes.dataset, { factory: $rdf })
+  const validator = new SHACLValidator(shapes, { factory: $rdf })
 
   for await (const path of globby.stream(options.testCases)) {
     test(path.toString(), async assert => {
-      const testCase = await loadDataset(path.toString())
+      const dataset = (await loadDataset(path.toString())).merge(shapes)
+      const testCase = clownface({ dataset })
 
       const expectedReport = testCase
         .node(sh.ValidationReport)
