@@ -1,0 +1,25 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<>
+  a dash:GraphValidationTestCase ;
+  dash:expectedResult [
+    a sh:ValidationReport ;
+    sh:conforms true ;
+  ] ;
+.
+
+<Manifestation>
+  a frbr:Manifestation ;
+  frbr:embodimentOf _:expression ;
+  frbr:partOf _:manifestation ;
+.
+
+_:expression
+  a frbr:Expression ;
+.
+
+_:manifestation
+  a frbr:Manifestation ;
+.

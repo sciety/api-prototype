@@ -22,6 +22,13 @@ frbr:realizationOf
   rdfs:subClassOf frbr:relatedEndeavour ;
 .
 
+frbr:embodimentOf
+  a rdf:Property ;
+  rdfs:label "is embodiment of"@en ;
+  rdfs:comment "A manifestation that embodies an expression."@en ;
+  rdfs:subPropertyOf frbr:relatedEndeavour ;
+.
+
 frbr:Subject
   a rdfs:Class ;
   rdfs:label "subject"@en ;
@@ -52,6 +59,15 @@ An expression is the specific intellectual or artistic form that a work takes ea
   rdfs:subClassOf frbr:Endeavour ;
 .
 
+frbr:Manifestation
+  a rdfs:Class ;
+  rdfs:label "manifestation"@en ;
+  rdfs:comment """The physical embodiment of an expression of a work.
+
+The entity defined as manifestation encompasses a wide range of materials and formats. As an entity, manifestation represents all the physical objects that bear the same characteristics, in respect to both intellectual content and physical form. """@en ;
+  rdfs:subClassOf frbr:Endeavour ;
+.
+
 frbr:RelatedEndeavourShape
   a sh:PropertyShape ;
   sh:targetSubjectsOf frbr:relatedEndeavour ;
@@ -74,6 +90,14 @@ frbr:RealizationOfShape
   sh:maxCount 1 ;
 .
 
+frbr:EmbodimentOfShape
+  a sh:PropertyShape ;
+  sh:targetSubjectsOf frbr:embodimentOf ;
+  sh:path frbr:embodimentOf ;
+  sh:class frbr:Expression ;
+  sh:maxCount 1 ;
+.
+
 frbr:OnlyEndeavoursHaveRelatedEndeavours
   a sh:NodeShape ;
   sh:targetSubjectsOf frbr:relatedEndeavour ;
@@ -92,6 +116,12 @@ frbr:OnlyExpressionsHaveRealizationOf
   sh:class frbr:Expression ;
 .
 
+frbr:OnlyManifestationsHaveEmbodimentOf
+  a sh:NodeShape ;
+  sh:targetSubjectsOf frbr:embodimentOf ;
+  sh:class frbr:Manifestation ;
+.
+
 frbr:PartOfWork
   a sh:PropertyShape ;
   sh:path frbr:partOf ;
@@ -104,10 +134,23 @@ frbr:PartOfExpression
   sh:class frbr:Expression ;
 .
 
+frbr:PartOfManifestation
+  a sh:PropertyShape ;
+  sh:path frbr:partOf ;
+  sh:class frbr:Manifestation ;
+.
+
 frbr:NotAWork
   a sh:NodeShape ;
+  sh:targetClass frbr:Work ;
+  sh:not [ sh:class frbr:Expression ] ;
+  sh:not [ sh:class frbr:Manifestation ] ;
+.
+
+frbr:NotAExpression
+  a sh:NodeShape ;
   sh:targetClass frbr:Expression ;
-  sh:not [ sh:class frbr:Work ] ;
+  sh:not [ sh:class frbr:Manifestation ] ;
 .
 
 frbr:WorkShape
@@ -120,4 +163,10 @@ frbr:ExpressionShape
   a sh:NodeShape ;
   sh:targetClass frbr:Expression ;
   sh:property frbr:PartOfExpression ;
+.
+
+frbr:ManifestationShape
+  a sh:NodeShape ;
+  sh:targetClass frbr:Manifestation ;
+  sh:property frbr:PartOfManifestation ;
 .

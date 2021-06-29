@@ -48,11 +48,28 @@ fabio:ReviewArticle
   rdfs:subClassOf fabio:Article ;
 .
 
+fabio:Manifestation
+  a rdfs:Class ;
+  rdfs:label "manifestation"@en ;
+  dcterms:description "A fabio:Manifestation can only have part or be part of another fabio:Manifestation.  Moreover, it can be an embodiment only of a fabio:Expression and it can be exemplified only by fabio:Item(s)."@en ;
+  rdfs:comment """A subclass of FRBR manifestation, restricted to manifestations of fabio:Expressions. fabio:Manifestation specifically applies to electronic (digital) as well as to physical manifestations of expressions.
+
+Examples of different manifestations of a single 'version of record' expression of a scholarly work include an article in a print journal or the on-line version of that article as a web page."""@en ;
+  rdfs:subClassOf frbr:Manifestation ;
+.
+
 fabio:RealizationOfShape
   a sh:PropertyShape ;
   sh:targetSubjectsOf frbr:realizationOf ;
   sh:path frbr:realizationOf ;
   sh:class fabio:Work ;
+.
+
+fabio:EmbodimentOfShape
+  a sh:PropertyShape ;
+  sh:targetSubjectsOf frbr:embodimentOf ;
+  sh:path frbr:embodimentOf ;
+  sh:class fabio:Expression ;
 .
 
 fabio:ReviewArticleShape
