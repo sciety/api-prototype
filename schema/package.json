@@ -25,6 +25,7 @@
   "scripts": {
     "test": "FORCE_COLOR=1 npm-run-all --aggregate-output --continue-on-error --parallel test:*",
     "test:docmaps": "ts-node src/index.ts --test-cases test/docmaps --shapes schema | tap-diff",
+    "test:fabio": "ts-node src/index.ts --test-cases test/fabio --shapes schema/{fabio,frbr}.ttl | tap-diff",
     "test:frbr": "ts-node src/index.ts --test-cases test/frbr --shapes schema/frbr.ttl | tap-diff",
     "test:pwo": "ts-node src/index.ts --test-cases test/pwo/ --shapes schema/pwo.ttl | tap-diff"
   }
