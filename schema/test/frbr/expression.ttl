@@ -12,4 +12,9 @@
 
 <Expression>
   a frbr:Expression ;
+  frbr:realizationOf _:work ;
+.
+
+_:work
+  a frbr:Work ;
 .
