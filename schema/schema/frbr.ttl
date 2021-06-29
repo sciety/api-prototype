@@ -3,10 +3,37 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
+frbr:relatedEndeavour
+  a rdf:Property ;
+  rdfs:label "has related endeavour"@en ;
+.
+
 frbr:realizationOf
   a rdf:Property ;
   rdfs:label "is realization of"@en ;
   rdfs:comment "An expression that realizes a work."@en ;
+  rdfs:subClassOf frbr:relatedEndeavour ;
+.
+
+frbr:Subject
+  a rdfs:Class ;
+  rdfs:label "subject"@en ;
+  rdfs:comment "It represents an additional set of entities that serve as the subjects of works."@en ;
+.
+
+frbr:Endeavour
+  a rdfs:Class ;
+  rdfs:label "endeavour"@en ;
+  rdfs:comment "It describes different aspects of user interests in the products of intellectual or artistic artifact."@en ;
+.
+
+frbr:Work
+  a rdfs:Class ;
+  rdfs:label "work"@en ;
+  rdfs:comment """A distinct intellectual or artistic creation.
+
+A work is an abstract entity; there is no single material object one can point to as the work. We recognize the work through individual realizations or expressions of the work, but the work itself exists only in the commonality of content between and among the various expressions of the work. When we speak of Homer's Iliad as a work, our point of reference is not a particular recitation or text of the work, but the intellectual creation that lies behind all the various expressions of the work. """@en ;
+  rdfs:subClassOf frbr:Endeavour
 .
 
 frbr:Expression
@@ -15,6 +42,14 @@ frbr:Expression
   rdfs:comment """The intellectual or artistic realization of a work in the form of alpha-numeric, musical, or choreographic notation, sound, image, object, movement, etc., or any combination of such forms.
 
 An expression is the specific intellectual or artistic form that a work takes each time it is "realized." Expression encompasses, for example, the specific words, sentences, paragraphs, etc. that result from the realization of a work in the form of a text, or the particular sounds, phrasing, etc. resulting from the realization of a musical work."""@en ;
+  rdfs:subClassOf frbr:Endeavour ;
+.
+
+frbr:RelatedEndeavourShape
+  a sh:PropertyShape ;
+  sh:targetSubjectsOf frbr:relatedEndeavour ;
+  sh:path frbr:relatedEndeavour ;
+  sh:class frbr:Endeavour ;
 .
 
 frbr:RealizationOfShape
@@ -23,6 +58,12 @@ frbr:RealizationOfShape
   sh:path frbr:realizationOf ;
   sh:class frbr:Work ;
   sh:maxCount 1 ;
+.
+
+frbr:OnlyEndeavoursHaveRelatedEndeavours
+  a sh:NodeShape ;
+  sh:targetSubjectsOf frbr:relatedEndeavour ;
+  sh:class frbr:Endeavour ;
 .
 
 frbr:OnlyExpressionsHaveRealizationOf

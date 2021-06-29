@@ -1,0 +1,28 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<>
+  a dash:GraphValidationTestCase ;
+  dash:expectedResult [
+    a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [
+      a sh:ValidationResult ;
+      sh:focusNode <SubjectHasRelatedEndeavour> ;
+      sh:resultSeverity sh:Violation ;
+      sh:sourceConstraintComponent sh:ClassConstraintComponent ;
+      sh:sourceShape frbr:OnlyEndeavoursHaveRelatedEndeavours ;
+      sh:value <SubjectHasRelatedEndeavour> ;
+    ] ;
+  ] ;
+.
+
+<SubjectHasRelatedEndeavour>
+  a frbr:Subject ;
+  frbr:relatedEndeavour _:endeavour ;
+.
+
+_:endeavour
+  a frbr:Endeavour ;
+.
