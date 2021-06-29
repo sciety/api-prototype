@@ -14,5 +14,5 @@ An expression is the specific intellectual or artistic form that a work takes ea
 frbr:NotAWork
   a sh:NodeShape ;
   sh:targetClass frbr:Expression ;
-  sh:not frbr:Work ;
+  sh:not [ sh:class frbr:Work ] ;
 .
