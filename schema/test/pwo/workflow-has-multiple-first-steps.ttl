@@ -9,7 +9,7 @@
     sh:conforms false ;
     sh:result [
       a sh:ValidationResult ;
-      sh:focusNode <WorkflowWithMultipleSteps> ;
+      sh:focusNode <WorkflowHasMultipleFirstSteps> ;
       sh:resultSeverity sh:Violation ;
       sh:resultPath pwo:hasFirstStep ;
       sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;
@@ -18,16 +18,15 @@
   ] ;
 .
 
-<WorkflowWithMultipleSteps>
+<WorkflowHasMultipleFirstSteps>
   a pwo:Workflow ;
-  pwo:hasFirstStep <Step1> ;
-  pwo:hasFirstStep <Step2> ;
+  pwo:hasFirstStep _:step1 , _:step2 ;
 .
 
-<Step1>
+_:step1
   a pwo:Step ;
 .
 
-<Step2>
+_:step2
   a pwo:Step ;
 .

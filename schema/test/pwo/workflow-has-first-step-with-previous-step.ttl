@@ -12,22 +12,22 @@
       sh:focusNode <FirstStepWithPreviousStep> ;
       sh:resultSeverity sh:Violation ;
       sh:resultPath pwo:hasPreviousStep ;
-      sh:sourceConstraintComponent sh:MaxCountConstraintComponent  ;
+      sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;
       sh:sourceShape pwo:FirstStepCannotHavePreviousStep ;
     ] ;
   ] ;
 .
 
-_:workflow
+<WorkflowHasFirstStepWithPreviousStep>
   a pwo:Workflow ;
   pwo:hasFirstStep <FirstStepWithPreviousStep> ;
-.
-
-_:step-1
-  a pwo:Step ;
 .
 
 <FirstStepWithPreviousStep>
   a pwo:Step ;
   pwo:hasPreviousStep _:step-1 ;
+.
+
+_:step1
+  a pwo:Step ;
 .

@@ -37,24 +37,14 @@ pwo:Workflow
 
 pwo:CannotHaveMultipleFirstSteps
   a sh:PropertyShape ;
+  sh:targetSubjectsOf pwo:hasFirstStep ;
   sh:path pwo:hasFirstStep ;
   sh:maxCount 1 ;
 .
 
 pwo:FirstStepCannotHavePreviousStep
   a sh:PropertyShape ;
+  sh:targetObjectsOf pwo:hasFirstStep ;
   sh:path pwo:hasPreviousStep ;
   sh:maxCount 0 ;
-.
-
-_:has-first-step
-  a sh:NodeShape ;
-  sh:targetSubjectsOf pwo:hasFirstStep ;
-  sh:property pwo:CannotHaveMultipleFirstSteps
-.
-
-_:is-a-first-step
-  a sh:NodeShape ;
-  sh:targetObjectsOf pwo:hasFirstStep ;
-  sh:property pwo:FirstStepCannotHavePreviousStep
 .
