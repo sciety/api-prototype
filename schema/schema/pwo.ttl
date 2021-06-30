@@ -9,8 +9,6 @@ pwo:hasStep
   a rdf:Property ;
   rdfs:label "has step"@en ;
   rdfs:comment "The property linking a workflow to a component step."@en ;
-  rdfs:domain pwo:Workflow ;
-  rdfs:range pwo:Step ;
   rdfs:subPropertyOf plandesc:definesTask ;
 .
 
@@ -33,6 +31,12 @@ pwo:Workflow
   rdfs:label "workflow"@en ;
   rdfs:comment "T sequence of connected steps, representing a sequence of publishing operations undertaken by agents. T workflow may be seen as an abstract model of real work."@en ;
   rdfs:subClassOf plandesc:Plan ;
+.
+
+pwo:OnlyWorkflowsHaveSteps
+  a sh:NodeShape ;
+  sh:targetSubjectsOf pwo:hasStep ;
+  sh:class pwo:Workflow ;
 .
 
 pwo:CannotHaveMultipleFirstSteps

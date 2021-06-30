@@ -13,8 +13,14 @@
 <Workflow>
   a pwo:Workflow ;
   pwo:hasFirstStep _:step1 ;
+  pwo:hasStep _:step2 ;
 .
 
 _:step1
+  a pwo:Step ;
+  pwo:hasNextStep _:step2 ;
+.
+
+_:step2
   a pwo:Step ;
 .
