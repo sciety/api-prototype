@@ -9,25 +9,21 @@
     sh:conforms false ;
     sh:result [
       a sh:ValidationResult ;
-      sh:focusNode <FirstStepWithPreviousStep> ;
+      sh:focusNode <StepHasPreviousStepWorkflow> ;
       sh:resultSeverity sh:Violation ;
       sh:resultPath pwo:hasPreviousStep ;
-      sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;
-      sh:sourceShape pwo:FirstStepCannotHavePreviousStep ;
+      sh:sourceConstraintComponent sh:ClassConstraintComponent ;
+      sh:sourceShape pwo:HasPreviousStepShape ;
+      sh:value <Workflow> ;
     ] ;
   ] ;
 .
 
-<WorkflowHasFirstStepWithPreviousStep>
+<StepHasPreviousStepWorkflow>
+  a pwo:Step ;
+  pwo:hasPreviousStep <Workflow> ;
+.
+
+<Workflow>
   a pwo:Workflow ;
-  pwo:hasFirstStep <FirstStepWithPreviousStep> ;
-.
-
-<FirstStepWithPreviousStep>
-  a pwo:Step ;
-  pwo:hasPreviousStep _:step1 ;
-.
-
-_:step1
-  a pwo:Step ;
 .

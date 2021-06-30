@@ -1,0 +1,33 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix pwo: <http://purl.org/spar/pwo/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<>
+  a dash:GraphValidationTestCase ;
+  dash:expectedResult [
+    a sh:ValidationReport ;
+    sh:conforms true ;
+  ] ;
+.
+
+<Step>
+  a pwo:Step ;
+  pwo:hasPreviousStep _:step1 , _:step2 ;
+  pwo:hasNextStep _:step3 , _:step4 ;
+.
+
+_:step1
+  a pwo:Step ;
+.
+
+_:step2
+  a pwo:Step ;
+.
+
+_:step3
+  a pwo:Step ;
+.
+
+_:step4
+  a pwo:Step ;
+.

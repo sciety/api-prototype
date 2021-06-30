@@ -2,6 +2,7 @@
 @prefix pwo: <http://purl.org/spar/pwo/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sequence: <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix taskrole: <http://www.ontologydesignpatterns.org/cp/owl/taskrole.owl#> .
 
@@ -15,21 +16,35 @@ pwo:hasStep
 pwo:hasFirstStep
   a rdf:Property ;
   rdfs:label "has first step"@en ;
-  rdfs:comment "T workflow that starts with a particular step."@en ;
+  rdfs:comment "A workflow that starts with a particular step."@en ;
   rdfs:subPropertyOf pwo:hasStep ;
+.
+
+pwo:hasNextStep
+  a rdf:Property ;
+  rdfs:label "has next step"@en ;
+  rdfs:comment "A property linking a step in a workflow with the step that directly follows it."@en ;
+  rdfs:subPropertyOf sequence:directlyPrecedes ;
+.
+
+pwo:hasPreviousStep
+  a rdf:Property ;
+  rdfs:label "has previous step"@en ;
+  rdfs:comment "A property linking a step in a workflow with the step that directly precedes it."@en ;
+  rdfs:subPropertyOf sequence:directlyFollows ;
 .
 
 pwo:Step
   a rdfs:Class ;
   rdfs:label "step"@en ;
-  rdfs:comment "An atomic unit of a workflow, that may be characterized by a starting time and an ending time, and may be associated with one or more events.  T workflow step usually involves some input information, material or energy needed to complete the step, and some output information, material or energy produced by that step.  In the case of a publishing workflow, a step typically results in the creation of a publication entity, usually by the modification of another pre-existing publication entity, e.g. the creation of an edited paper from a rough draft, or of an HTML representation from an XML mark-up."@en ;
+  rdfs:comment "An atomic unit of a workflow, that may be characterized by a starting time and an ending time, and may be associated with one or more events.  A workflow step usually involves some input information, material or energy needed to complete the step, and some output information, material or energy produced by that step.  In the case of a publishing workflow, a step typically results in the creation of a publication entity, usually by the modification of another pre-existing publication entity, e.g. the creation of an edited paper from a rough draft, or of an HTML representation from an XML mark-up."@en ;
   rdfs:subClassOf taskrole:Task ;
 .
 
 pwo:Workflow
   a rdfs:Class ;
   rdfs:label "workflow"@en ;
-  rdfs:comment "T sequence of connected steps, representing a sequence of publishing operations undertaken by agents. T workflow may be seen as an abstract model of real work."@en ;
+  rdfs:comment "A sequence of connected steps, representing a sequence of publishing operations undertaken by agents. A workflow may be seen as an abstract model of real work."@en ;
   rdfs:subClassOf plandesc:Plan ;
 .
 
@@ -46,9 +61,42 @@ pwo:CannotHaveMultipleFirstSteps
   sh:maxCount 1 ;
 .
 
+pwo:OnlyStepsHaveNextSteps
+  a sh:NodeShape ;
+  sh:targetSubjectsOf pwo:hasNextStep ;
+  sh:class pwo:Step ;
+.
+
+pwo:OnlyStepsHavePreviousSteps
+  a sh:NodeShape ;
+  sh:targetSubjectsOf pwo:hasPreviousStep ;
+  sh:class pwo:Step ;
+.
+
 pwo:FirstStepCannotHavePreviousStep
   a sh:PropertyShape ;
   sh:targetObjectsOf pwo:hasFirstStep ;
   sh:path pwo:hasPreviousStep ;
   sh:maxCount 0 ;
+.
+
+pwo:HasStepShape
+  a sh:PropertyShape ;
+  sh:targetSubjectsOf pwo:hasStep ;
+  sh:path pwo:hasStep ;
+  sh:class pwo:Step ;
+.
+
+pwo:HasNextStepShape
+  a sh:PropertyShape ;
+  sh:targetSubjectsOf pwo:hasNextStep ;
+  sh:path pwo:hasNextStep ;
+  sh:class pwo:Step ;
+.
+
+pwo:HasPreviousStepShape
+  a sh:PropertyShape ;
+  sh:targetSubjectsOf pwo:hasPreviousStep ;
+  sh:path pwo:hasPreviousStep ;
+  sh:class pwo:Step ;
 .
