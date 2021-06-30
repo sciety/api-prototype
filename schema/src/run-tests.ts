@@ -1,31 +1,17 @@
 import { rdf, sh } from '@tpluscode/rdf-ns-builders/strict'
 import clownface from 'clownface'
-import fs from 'fs'
 import globby from 'globby'
 import $rdf from 'rdf-ext'
-import parser from 'rdf-parse'
 import { resource } from 'rdf-utils-dataset'
 import SHACLValidator from 'rdf-validate-shacl'
 import test from 'tape'
+import { loadDataset } from './dataset'
 import { normalizeReport } from './normalize-report'
 
 type TestRunner = (options: {
   testCases: string,
   shapes: string,
 }) => Promise<void>
-
-const loadDataset = async (filePath: string) => {
-  const dataset = $rdf.dataset()
-
-  for await (const file of globby.stream(filePath)) {
-    const stream = fs.createReadStream(file)
-    const parsed = parser.parse(stream, { path: file.toString() })
-
-    await dataset.import(parsed)
-  }
-
-  return dataset
-}
 
 export const runTest: TestRunner = async options => {
   const shapes = await loadDataset(options.shapes)
