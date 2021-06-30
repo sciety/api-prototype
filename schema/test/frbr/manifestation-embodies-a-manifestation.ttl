@@ -9,7 +9,7 @@
     sh:conforms false ;
     sh:result [
       a sh:ValidationResult ;
-      sh:focusNode <ManifestationIsEmbodimentOfAManifestation> ;
+      sh:focusNode <ManifestationEmbodiesAManifestation> ;
       sh:resultSeverity sh:Violation ;
       sh:resultPath frbr:embodimentOf ;
       sh:sourceConstraintComponent sh:ClassConstraintComponent ;
@@ -19,7 +19,7 @@
   ] ;
 .
 
-<ManifestationIsEmbodimentOfAManifestation>
+<ManifestationEmbodiesAManifestation>
   a frbr:Manifestation ;
   frbr:embodimentOf <OtherManifestation> ;
 .

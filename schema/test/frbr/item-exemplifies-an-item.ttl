@@ -9,20 +9,21 @@
     sh:conforms false ;
     sh:result [
       a sh:ValidationResult ;
-      sh:focusNode <WorkRealizesAWork> ;
+      sh:focusNode <ItemExemplifiesAnItem> ;
       sh:resultSeverity sh:Violation ;
+      sh:resultPath frbr:exemplarOf ;
       sh:sourceConstraintComponent sh:ClassConstraintComponent ;
-      sh:sourceShape frbr:OnlyExpressionsHaveRealizationOf ;
-      sh:value <WorkRealizesAWork> ;
+      sh:sourceShape frbr:ExemplarOfShape ;
+      sh:value <OtherItem> ;
     ] ;
   ] ;
 .
 
-<WorkRealizesAWork>
-  a frbr:Work ;
-  frbr:realizationOf _:work ;
+<ItemExemplifiesAnItem>
+  a frbr:Item ;
+  frbr:exemplarOf <OtherItem> ;
 .
 
-_:work
-  a frbr:Work ;
+<OtherItem>
+  a frbr:Item ;
 .
