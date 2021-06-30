@@ -29,6 +29,13 @@ frbr:embodimentOf
   rdfs:subPropertyOf frbr:relatedEndeavour ;
 .
 
+frbr:exemplarOf
+  a rdf:Property ;
+  rdfs:label "is exemplar of"@en ;
+  rdfs:comment "An item that exemplifies a manifestation."@en ;
+  rdfs:subPropertyOf frbr:relatedEndeavour ;
+.
+
 frbr:Subject
   a rdfs:Class ;
   rdfs:label "subject"@en ;
@@ -68,6 +75,15 @@ The entity defined as manifestation encompasses a wide range of materials and fo
   rdfs:subClassOf frbr:Endeavour ;
 .
 
+frbr:Item
+  a rdfs:Class ;
+  rdfs:label "item"@en ;
+  rdfs:comment """A single exemplar of a manifestation.
+
+The entity defined as item is a concrete entity. It is in many instances a single physical object (e.g., a copy of a one-volume monograph, a single audio cassette, etc.). There are instances, however, where the entity defined as item comprises more than one physical object (e.g., a monograph issued as two separately bound volumes, a recording issued on three separate compact discs, etc.). """@en ;
+  rdfs:subClassOf frbr:Endeavour ;
+.
+
 frbr:RelatedEndeavourShape
   a sh:PropertyShape ;
   sh:targetSubjectsOf frbr:relatedEndeavour ;
@@ -98,6 +114,14 @@ frbr:EmbodimentOfShape
   sh:maxCount 1 ;
 .
 
+frbr:ExemplarOfShape
+  a sh:PropertyShape ;
+  sh:targetSubjectsOf frbr:exemplarOf ;
+  sh:path frbr:exemplarOf ;
+  sh:class frbr:Manifestation ;
+  sh:maxCount 1 ;
+.
+
 frbr:OnlyEndeavoursHaveRelatedEndeavours
   a sh:NodeShape ;
   sh:targetSubjectsOf frbr:relatedEndeavour ;
@@ -122,6 +146,12 @@ frbr:OnlyManifestationsHaveEmbodimentOf
   sh:class frbr:Manifestation ;
 .
 
+frbr:OnlyItemsHaveExemplarOf
+  a sh:NodeShape ;
+  sh:targetSubjectsOf frbr:exemplarOf ;
+  sh:class frbr:Item ;
+.
+
 frbr:PartOfWork
   a sh:PropertyShape ;
   sh:path frbr:partOf ;
@@ -140,17 +170,31 @@ frbr:PartOfManifestation
   sh:class frbr:Manifestation ;
 .
 
+frbr:PartOfItem
+  a sh:PropertyShape ;
+  sh:path frbr:partOf ;
+  sh:class frbr:Item ;
+.
+
 frbr:NotAWork
   a sh:NodeShape ;
   sh:targetClass frbr:Work ;
   sh:not [ sh:class frbr:Expression ] ;
   sh:not [ sh:class frbr:Manifestation ] ;
+  sh:not [ sh:class frbr:Item ] ;
 .
 
 frbr:NotAExpression
   a sh:NodeShape ;
   sh:targetClass frbr:Expression ;
   sh:not [ sh:class frbr:Manifestation ] ;
+  sh:not [ sh:class frbr:Item ] ;
+.
+
+frbr:NotAManifestation
+  a sh:NodeShape ;
+  sh:targetClass frbr:Manifestation ;
+  sh:not [ sh:class frbr:Item ] ;
 .
 
 frbr:WorkShape
@@ -169,4 +213,10 @@ frbr:ManifestationShape
   a sh:NodeShape ;
   sh:targetClass frbr:Manifestation ;
   sh:property frbr:PartOfManifestation ;
+.
+
+frbr:ItemShape
+  a sh:NodeShape ;
+  sh:targetClass frbr:Item ;
+  sh:property frbr:PartOfItem ;
 .

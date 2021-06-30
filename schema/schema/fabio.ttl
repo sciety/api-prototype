@@ -58,6 +58,14 @@ Examples of different manifestations of a single 'version of record' expression 
   rdfs:subClassOf frbr:Manifestation ;
 .
 
+fabio:Item
+  a rdfs:Class ;
+  rdfs:label "item"@en ;
+  dcterms:description "A fabio:Item can only have part or be part of another fabio:Item. Moreover, it can be an exemplar only of a fabio:Manifestation."@en ;
+  rdfs:comment "A subclass of FRBR item, restricted to exemplars of fabio:Manifestations.  An example of a fabio:Item is a printed copy of a journal article on your desk, or a PDF file of that article that you purchased from a publisher and that now resides in digital form on your computer hard drive.  "@en ;
+  rdfs:subClassOf frbr:Item ;
+.
+
 fabio:RealizationOfShape
   a sh:PropertyShape ;
   sh:targetSubjectsOf frbr:realizationOf ;
@@ -70,6 +78,13 @@ fabio:EmbodimentOfShape
   sh:targetSubjectsOf frbr:embodimentOf ;
   sh:path frbr:embodimentOf ;
   sh:class fabio:Expression ;
+.
+
+fabio:ExemplarOfShape
+  a sh:PropertyShape ;
+  sh:targetSubjectsOf frbr:exemplarOf ;
+  sh:path frbr:exemplarOf ;
+  sh:class fabio:Manifestation ;
 .
 
 fabio:ReviewArticleShape

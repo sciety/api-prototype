@@ -1,0 +1,21 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<>
+  a dash:GraphValidationTestCase ;
+  dash:expectedResult [
+    a sh:ValidationReport ;
+    sh:conforms true ;
+  ] ;
+.
+
+<Item>
+  a fabio:Item ;
+  frbr:exemplarOf _:manifestation ;
+.
+
+_:manifestation
+  a fabio:Manifestation ;
+.

@@ -1,0 +1,32 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<>
+  a dash:GraphValidationTestCase ;
+  dash:expectedResult [
+    a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [
+      a sh:ValidationResult ;
+      sh:focusNode <ItemExemplifiesMultipleManifestations> ;
+      sh:resultSeverity sh:Violation ;
+      sh:resultPath frbr:exemplarOf ;
+      sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;
+      sh:sourceShape frbr:ExemplarOfShape ;
+    ] ;
+  ] ;
+.
+
+<ItemExemplifiesMultipleManifestations>
+  a frbr:Item ;
+  frbr:exemplarOf _:manifestation1 , _:manifestation2 ;
+.
+
+_:manifestation1
+  a frbr:Manifestation ;
+.
+
+_:manifestation2
+  a frbr:Manifestation ;
+.
